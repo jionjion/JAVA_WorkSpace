@@ -1,0 +1,6 @@
+package com.model.singleton;
+/**	单例模式,饱汉方法*/
+public class SingletonByPlumpMan {
+
+
+}

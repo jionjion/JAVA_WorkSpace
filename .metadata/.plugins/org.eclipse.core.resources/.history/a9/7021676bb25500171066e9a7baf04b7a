@@ -1,0 +1,5 @@
+package com.model.proxy;
+
+public class CarChild {
+
+}

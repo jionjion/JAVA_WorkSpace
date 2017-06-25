@@ -1,0 +1,9 @@
+package fileReadOrWrite.ObjectReadeOrWriteType;
+/**对对象实现序列化*/
+public class ObjectReadeOrWriteDemol {
+
+	public static void main(String[] args) {
+		String file = "F:\\JAVA_WorkSpace\\JavaBase\\src\\fileReadOrWrite\\ObjectReadeOrWriteType\\student";
+		
+	}
+}

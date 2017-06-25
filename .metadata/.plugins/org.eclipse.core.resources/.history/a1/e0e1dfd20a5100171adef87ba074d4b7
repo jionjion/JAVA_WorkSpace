@@ -1,0 +1,9 @@
+package helloExcel;
+/**创建公式*/
+public class MakeFormula {
+
+	/**输出公式*/
+	public static void makeFormula() {
+		
+	}
+}

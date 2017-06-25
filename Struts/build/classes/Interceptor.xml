@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<!-- 子包类,被包含 -->
+
+    <!-- 编码格式 -->
+	<constant name="struts.i18n.encoding" value="UTF-8"></constant>
+
+	
+    <package name="spendTime" namespace="/" extends="struts-default" abstract="false">
+        <!-- 2.拦截器的注册 -->
+        <interceptors>
+        	<!-- name:拦截器的名字	class:拦截器的实现类 -->
+        	<interceptor name="timeSpend" class="interceptor.SpendTimeInterceptor"></interceptor>
+        </interceptors>
+
+		<!-- 通过Action属性获得传入参数 -->
+        <action name="spendTimeAction" class="interceptor.SpendTimeAction"> 
+        	<result>/jsp/success.jsp</result>
+        	<!-- 3.引用拦截器 -->
+        	<!-- 默认拦截器放在自定义拦截器之前 -->
+        	<interceptor-ref name="defaultStack"/>
+        	<interceptor-ref name="timeSpend"/>
+        </action>
+        
+    </package>
+        <package name="privilege" namespace="/" extends="struts-default" abstract="false">
+       
+       	<interceptors>
+        	<!-- 登录验证拦截器 -->
+        	<interceptor name="privilegeManagement" class="interceptor.PrivilegeManagementInterceptor"></interceptor>
+        	<!-- 自定义拦截器栈 -->
+        	<interceptor-stack name="myStack">
+        		<interceptor-ref name="defaultStack"/>				<!-- 系统的 -->
+        		<interceptor-ref name="privilegeManagement"/>		<!-- 自己的 -->
+        	</interceptor-stack>
+       	</interceptors> 
+
+		<!-- 通过URL直接进入,需要拦截器,这里不经过业务逻辑方法 -->
+		<action name="url">
+			<result>/jsp/manage.jsp</result>
+			<result name="login">/jsp/manageLogin.jsp</result>
+			<!-- 引用自定义拦截器 -->
+			<interceptor-ref name="myStack"/>
+		</action>
+
+		<!-- 登录入口,不需要拦截 -->
+        <action name="privilegeManagementAction" class="interceptor.PrivilegeManagementAction"> 
+        	<result name="success">/jsp/manage.jsp</result>
+        	<result name="error">/jsp/manageLogin.jsp</result>
+        	<interceptor-ref name="defaultStack"/>
+        </action>
+        
+    </package>
+
+	
+
+</struts>

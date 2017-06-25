@@ -1,0 +1,23 @@
+<!DOCTYPE mapper  
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">   
+
+			<!-- 主表对应的各种 结构 -->
+<!-- 命名空间,区分ID,多为数据库表名 -->
+<mapper namespace="Command"> 
+	  <resultMap type="bean.Command" id="CommandResult">
+	  	<id column="ID" jdbcType="INTEGER" property="id"/>
+	  	<!-- colum:对应数据库查询时的字段名,如果查询语句用到了别名,则为别名 -->
+	  	<result column="NAME" jdbcType="VARCHAR" property="name"/>
+	  	<result column="DESCRIPTION" jdbcType="VARCHAR" property="description"/>
+	  	<!-- 一对多，引用多方的集合 -->
+	  	<collection property="contentsList" resultMap="CommandContent.CommandContentResult"/>
+	  </resultMap>
+	  
+	  <!-- 表别名不用在字段映射中直接出现,为了方便查询,可以使用字段别名后修改对应映射文件进行修改 -->
+	  <select id="queryCommandList" parameterType="bean.Command" resultMap="CommandResult">
+	  	select  a.id,a.name,a.description,b.content from command a 
+		LEFT JOIN command_content b
+		on a.id=b.command_id
+	  </select>
+</mapper>  

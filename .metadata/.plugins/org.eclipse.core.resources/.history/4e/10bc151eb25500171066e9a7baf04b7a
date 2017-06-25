@@ -1,0 +1,5 @@
+package com.model.proxy;
+/**客户端*/
+public class Client {
+
+}

@@ -1,0 +1,8 @@
+package java.model.singleton;
+/**	单例模式,饿汉方法
+ * 	1.私有构造方法
+ * 	2.*/
+public class SingletonByPlumpMan {
+
+	pribat
+}

@@ -1,0 +1,17 @@
+package fileReadOrWrite.InputSteamReaderOrOutputSteamWriteType;
+
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
+
+/**字符输入流和字符输出流*/
+public class InputSteamReaderOrOutputSteamWriteModel {
+
+	public static void main(String[] args) throws Exception{
+		FileInputStream fileInputStream = new FileInputStream("F:\\JAVA_WorkSpace\\JavaBase\\src\\fileReadOrWrite\\InputSteamReaderOrOutputSteamWriteType\\RA");
+		InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream,"UTF-8");			//默认使用项目编码格式
+		int p;	//读到的是一个char,包装为int类型
+		while( (p=inputStreamReader.read()) != -1 ){
+			System.out.println((char)p);
+		}
+	}
+}

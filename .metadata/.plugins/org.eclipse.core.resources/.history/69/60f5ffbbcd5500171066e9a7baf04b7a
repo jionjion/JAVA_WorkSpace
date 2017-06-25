@@ -1,0 +1,6 @@
+package com.model.proxy.dynamical.proxy;
+/**自定义业务抽取器*/
+public interface InvocationHandler {
+
+	
+}

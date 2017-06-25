@@ -1,0 +1,7 @@
+<classpath>
+  <container id="SSH!org.eclipse.jst.j2ee.internal.web.container">
+    <entry id="F:/JAVA_WorkSpace/SSH/WebContent/WEB-INF/lib/spring-web-4.2.4.RELEASE.jar">
+      <source-attachment-path>E:/Java/some Jar/Spring/spring-framework-4.2.4.RELEASE/libs/spring-web-4.2.4.RELEASE-sources.jar</source-attachment-path>
+    </entry>
+  </container>
+</classpath>

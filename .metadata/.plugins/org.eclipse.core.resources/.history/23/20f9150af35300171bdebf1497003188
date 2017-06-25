@@ -1,0 +1,6 @@
+package java.model.singleton;
+/**单例模式,饿汉方法*/
+public class SingletonByPlumpMan {
+
+	
+}

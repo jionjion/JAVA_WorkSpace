@@ -1,0 +1,14 @@
+package com.model.proxy;
+
+import java.util.Random;
+
+/**汽车类*/
+public class Car implements Movable {
+
+	@Override
+	public void move() {
+
+		Thread.sleep(new Random().nextInt(1000));
+	}
+
+}

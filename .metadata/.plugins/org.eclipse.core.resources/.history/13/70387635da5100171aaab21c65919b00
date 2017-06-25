@@ -1,0 +1,9 @@
+package json;
+/**创建JSON对象*/
+public class MakeJSONObject {
+
+	/**使用JSONObject类实现对象的创建*/
+	public static void createJSONObjectByJSONObject(){
+		
+	}
+}

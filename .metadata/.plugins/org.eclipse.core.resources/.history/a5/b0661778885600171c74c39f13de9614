@@ -1,0 +1,14 @@
+package fileReadOrWrite.encoedType;
+
+/**编码格式*/
+public class EncodeType {
+
+	public static void main(String[] args) {
+		String string = "中文ABC";
+		byte[] by = string.getBytes();
+		for (byte b : by) {
+			//将其与1,去掉前位的零,并转为十六进制
+			System.out.print(Integer.toHexString(b & 0xff)+"  ");
+		}
+	}
+}

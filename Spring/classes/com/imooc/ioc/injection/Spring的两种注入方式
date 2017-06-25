@@ -1,0 +1,7 @@
+通过设值注入
+1.创建Dao层,在xml中注入.在Service的bean配置中使用<property>指向
+2.实现Service层,在Service层中私有Dao层接口,并get()方法
+
+通过构造注入
+1.创建Dao层,在xml中注入.在Service的bean配置中使用<constructor-arg>指向
+2.实现Service层,在Service层中私有Dao层接口,并使用构造器指传入.注意传入对象名称和xml中bean的id一致

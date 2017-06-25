@@ -1,0 +1,15 @@
+package fileReadOrWrite.fileType;
+
+import java.io.File;
+
+/**对目录进行操作*/
+public class FileQuery {
+
+	/**对目录进行遍历*/
+	public static void ListDirectory(File dir) throws Exception {
+		if (!dir.exists()) {
+			throw new IllegalAccessException("目录"+dir+"不存在");
+		}
+		
+	}
+}

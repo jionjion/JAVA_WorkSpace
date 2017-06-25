@@ -1,0 +1,5 @@
+package propertiesRead;
+/**属性文件的读取*/
+public class PropertiesRead {
+
+}

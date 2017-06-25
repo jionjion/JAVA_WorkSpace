@@ -1,0 +1,24 @@
+package fileReadOrWrite.fileType;
+
+import java.io.File;
+
+/**对目录进行操作*/
+public class FileQuery {
+
+	/**对目录进行遍历*/
+	public static void ListDirectory(File dir) throws Exception {
+		if (!dir.exists()) {
+			throw new IllegalArgumentException("目录"+dir+"不存在");
+		}
+		if (!dir.isDirectory()) {
+			throw new IllegalArgumentException(dir+"不是目录");
+		}
+		//获得该目录下的所有子文件
+		File[] files = dir.listFiles();
+		//获得该目录下的所有子文件的名字
+		String[] fileNames = dir.list();
+		for (String string : fileNames) {
+			System.out.println(string);
+		}
+	}
+}

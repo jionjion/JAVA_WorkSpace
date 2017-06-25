@@ -1,0 +1,5 @@
+package fileReadOrWrite.fileReadOrfilewrite;
+/**文件读入*/
+public class FileReadOrFileWriteDemol {
+
+}

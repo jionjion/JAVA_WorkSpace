@@ -1,0 +1,21 @@
+package fileReadOrWrite.BufferedReaderOrWriteOrPrintType;
+
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
+
+/**对文件进行整行的读取*/
+public class BufferedReaderOrWriteOrPrintDemol{
+
+	public static void main(String[] args) throws Exception{
+		//对文件进行读写
+		BufferedReader bufferedReader = new BufferedReader(
+					new InputStreamReader(
+							new FileInputStream("F:\\JAVA_WorkSpace\\JavaBase\\src\\fileReadOrWrite\\BufferedReaderOrWriteOrPrintType\\BRA")));
+		String line;
+		while((line = bufferedReader.readLine()) != -1){
+			
+		}
+		
+	}
+}

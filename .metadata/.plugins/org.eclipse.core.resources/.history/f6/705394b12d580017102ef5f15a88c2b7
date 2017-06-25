@@ -1,0 +1,11 @@
+package fileReadOrWrite.fileReadOrfilewrite;
+
+import java.io.FileReader;
+
+/**文件读入*/
+public class FileReadOrFileWriteDemol {
+
+	public static void main(String[] args) {
+		FileReader fileReader = new FileReader("F:\\JAVA_WorkSpace\\JavaBase\\src\\fileReadOrWrite\\fileReadOrfilewrite\\FRA");
+	}
+}

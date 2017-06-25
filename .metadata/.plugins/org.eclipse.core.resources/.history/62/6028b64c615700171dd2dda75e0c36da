@@ -1,0 +1,8 @@
+package fileReadOrWrite.InputOrOutputStreamType;
+/**输出*/
+public class FileOutputStreamDemol {
+
+	public static void main(String[] args) {
+		String filePath = "F:\\JAVA_WorkSpace\\JavaBase\\src\\fileReadOrWrite\\InputOrOutputStreamType\\SA";
+	}
+}

@@ -1,0 +1,5 @@
+package fileReadOrWrite.encoedType;
+
+public class EncodeType {
+
+}

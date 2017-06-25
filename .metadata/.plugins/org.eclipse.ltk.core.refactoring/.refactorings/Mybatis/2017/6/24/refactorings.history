@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;Mybatis/src/entty&apos; to &apos;entity&apos;" description="Rename resource &apos;entty&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/entty" name="entity" stamp="1497266863776" updateReferences="true"/>
+</session>

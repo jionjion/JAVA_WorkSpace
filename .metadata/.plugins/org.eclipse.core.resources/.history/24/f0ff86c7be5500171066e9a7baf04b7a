@@ -1,0 +1,19 @@
+package com.model.proxy.dynamical;
+
+import java.lang.reflect.Method;
+
+import net.sf.cglib.proxy.MethodInterceptor;
+import net.sf.cglib.proxy.MethodProxy;
+
+public class CglibProxy implements MethodInterceptor {
+
+	@Override
+	/**	拦截所有的方法
+	 * 	
+	 * 		
+	 */
+	public Object intercept(Object object, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable {
+		return null;
+	}
+
+}

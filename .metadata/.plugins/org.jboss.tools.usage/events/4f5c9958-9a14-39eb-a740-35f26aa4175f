@@ -1,0 +1,11 @@
+#Fri Jun 23 21:42:48 CST 2017
+vl=How many times the 'Finish' button pressed during the day
+l=Wizard class name
+ct=jbt
+d=1498225368315
+c=0
+cmp=usage
+a=finishWizard
+cl=org.springframework.ide.eclipse.webflow.ui.wizards.NewWebflowConfigWizard
+v=2.1.1
+s=0

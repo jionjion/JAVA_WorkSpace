@@ -1,0 +1,11 @@
+package com.model.proxy;
+/**客户端*/
+public class Client {
+
+	/*测试*/
+	public static void main(String[] args) {
+		/*通过继承的方式实现静态代理*/
+		CarChild car = new CarChild();
+		car.move();
+	}
+}

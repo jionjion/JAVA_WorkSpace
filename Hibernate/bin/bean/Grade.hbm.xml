@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-4-26 16:42:50 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="bean.Grade" table="GRADE">
+    	<!-- 主键为该表的唯一 -->
+        <id name="gid" type="int">
+            <column name="GID" />
+            <generator class="assigned" />
+        </id>
+        <property name="gname" type="java.lang.String">
+            <column name="GNAME" length="20" not-null="true" />
+        </property>
+        <property name="gdescribe" type="java.lang.String">
+            <column name="GDESCRIBE" />
+        </property>
+        
+        <!-- 配置单向的一对多关联关系 name:映射属性名称	table:多方的数据库表	inverse:控制反转,由多方维护可提高效率    lazy:是否懒加载   	cascade:级联操作-->
+        <set name="pupils" table="PUPIL" inverse="true" lazy="true" cascade="save-update">
+            <!-- 指定关联的外键列 -->
+           	<!-- Pupil类的外键类,在这里对其赋值 -->
+            <key column="GID"/>
+            <!-- 对应多方的类 -->
+            <one-to-many class="bean.Pupil" />
+        </set>
+    </class>
+</hibernate-mapping>

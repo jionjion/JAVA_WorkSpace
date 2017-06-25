@@ -1,0 +1,17 @@
+package entity;
+/**分页类*/
+public class Page {
+
+	/**总条数*/
+	private int totalNumber;
+	/**当前页*/
+	private int currentPage;
+	/**总页数,默认5页*/
+	private int totalPage = 5;
+	/**每页显示条数*/
+	private int pageNumber;
+	/**开始查询条数*/
+	private int start;
+	/**偏移量*/
+	private int pace;
+}

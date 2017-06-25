@@ -1,0 +1,14 @@
+package fileReadOrWrite.fileReadOrfilewrite;
+
+import java.io.FileReader;
+import java.io.FileWriter;
+
+/**文件读入*/
+public class FileReadOrFileWriteDemol {
+
+	public static void main(String[] args) throws Exception{
+		FileReader fileReader = new FileReader("F:\\JAVA_WorkSpace\\JavaBase\\src\\fileReadOrWrite\\fileReadOrfilewrite\\FRA");
+		FileWriter fileWriter = new FileWriter("F:\\JAVA_WorkSpace\\JavaBase\\src\\fileReadOrWrite\\fileReadOrfilewrite\\FRB");
+		
+	}
+}

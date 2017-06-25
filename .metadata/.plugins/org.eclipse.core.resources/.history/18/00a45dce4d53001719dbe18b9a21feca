@@ -1,0 +1,38 @@
+package redis;
+
+import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
+import org.junit.Test;
+
+import redis.clients.jedis.Jedis;
+import redis.clients.jedis.JedisPool;
+
+/**	连接redis,导入jedis.jar
+ * 	E:\Aedis\redis-server.exe
+ *	Redis-cli.exe –h 127.0.0.1 –p 6379
+ */
+public class RedisConnect {
+
+	@Test
+	/**使用IP端口进行连接*/
+	public void connectByIP() {
+		//创建数据库连接,指定IP,端口,超时时间
+		Jedis jedis = new Jedis("127.0.0.1", 6379, 2000L);
+		//保存数据
+		jedis.set("name", "张谦");
+		//获取数据
+		String name = jedis.get("name");
+		//打印输出
+		System.out.println(name);
+		//释放资源
+		jedis.close();
+	}
+	
+	/**使用连接池进行连接*/
+	public void connectByPool() {
+		//获得连接池配置对象
+		GenericObjectPoolConfig 
+		
+		JedisPool jedisPool = new JedisPool(jedisPoolConfig, "127.0.01", 6379, 2000)
+	}
+	
+}

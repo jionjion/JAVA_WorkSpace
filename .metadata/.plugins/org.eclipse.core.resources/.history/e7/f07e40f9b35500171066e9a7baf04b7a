@@ -1,0 +1,11 @@
+package com.model.proxy;
+/**通过聚合的方式实现相同的接口,完成继承.*/
+public class CarBrother implements Movable{
+
+	@Override
+	public void move() {
+		
+	}
+
+	
+}

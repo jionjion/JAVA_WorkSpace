@@ -1,0 +1,16 @@
+package com.model.factory.general;
+/**发型工厂*/
+public class HairFactory {
+
+	/**根据类型来创建对象*/
+	public HairInterface getHair(String key) {
+		if ("left".equals(key)) {
+			return new LeftHair();
+		} else if ("right".equals(key)) {
+			return nenw RightHair();
+		} else {
+			return null;
+		}
+		
+	}
+}

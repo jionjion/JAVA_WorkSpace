@@ -1,0 +1,8 @@
+package fileReadOrWrite.DataInputOrOutputSteamType;
+
+public class DataInputSteamDemol {
+
+	public static void main(String[] args) {
+		
+	}
+}

@@ -1,0 +1,5 @@
+package com.model.factory.general;
+/**发型接口*/
+public interface HairInterface {
+
+}

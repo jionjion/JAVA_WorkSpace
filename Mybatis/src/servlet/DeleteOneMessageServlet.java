@@ -1,0 +1,48 @@
+package servlet;
+
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import service.MessageListService;
+
+/**
+ * Servlet implementation class DeleteOneMessageServlet
+ */
+//@WebServlet("/DeleteOneMessageServlet")
+public class DeleteOneMessageServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public DeleteOneMessageServlet() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//获取传入
+		request.setCharacterEncoding("UTF-8");
+		String id = request.getParameter("id");
+		MessageListService messageListService = new MessageListService();
+		messageListService.deleteOneMessage(id);
+		//跳转转发页面
+		request.getRequestDispatcher("/listServlet").forward(request, response);
+
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doGet(request, response);
+	}
+
+}

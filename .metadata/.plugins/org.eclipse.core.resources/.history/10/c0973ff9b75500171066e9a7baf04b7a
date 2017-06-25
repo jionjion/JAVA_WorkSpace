@@ -1,0 +1,16 @@
+package com.model.proxy.dynamical;
+
+import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.Method;
+/**通过JDK实现动态代理*/
+public class TimeHadler implements InvocationHandler{
+
+	
+	@Override
+	/**继承实现代理方法*/
+	public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+		return null;
+	}
+
+	
+}

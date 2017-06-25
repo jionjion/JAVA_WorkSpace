@@ -1,0 +1,11 @@
+package com.model.proxy;
+/**通过继承实现*/
+public class CarChild extends Car{
+
+	
+	@Override
+	/**通过继承,实现方法*/
+	public void move() {
+		super.move();
+	}
+}

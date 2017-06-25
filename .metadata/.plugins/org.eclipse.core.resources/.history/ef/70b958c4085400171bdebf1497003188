@@ -1,0 +1,5 @@
+package com.model.factory.abstraction;
+/**接口,有不同的工厂,为抽象工厂模式 */
+public interface PersonFactory {
+
+}

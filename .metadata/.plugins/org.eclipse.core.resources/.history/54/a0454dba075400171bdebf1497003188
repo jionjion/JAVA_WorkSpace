@@ -1,0 +1,5 @@
+package com.model.factory.abstraction;
+/**男孩子*/
+public interface Boy {
+
+}

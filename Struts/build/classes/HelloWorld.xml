@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<!-- 子包类,被包含 -->
+
+    <!-- 编码格式 -->
+	<constant name="struts.i18n.encoding" value="UTF-8"></constant>
+
+	
+	<!--  name:可以有多个,包名唯一	namespace:url命名空间,在根项目下添加		extends:继承父类的包名  abstract:抽象包不能定义action -->
+    <package name="helloWorld" namespace="/" extends="struts-default" abstract="false">
+
+
+ 		<!-- 	URL:http://localhost:8080/Struts/4sas/51sdsf/helloWorld.action
+ 				URL:http://localhost:8080/Struts/helloWorld.action
+ 				URL:http://localhost:8080/Struts/helloWorld
+ 				均可访问
+ 		 -->
+		<!-- 跳转配置	name:url中的映射		class:url进入哪一个类进行处理    method:调用的方法,默认执行execute()-->
+        <action name="helloWorld" class="action.HelloWorld"> 
+        	<!--返回结果集	name:返回结果	type:跳转类型 -->
+        	<!-- 对于继承ActionSupport的类不需要配置各种属性 -->
+        	<result>/jsp/HelloWorld.jsp</result>
+        	<!-- 定义的参数,通过getXXX()在action对应的类进行获取 -->
+        	<param name="url">www.baidu.com</param>
+        </action>
+        
+    </package>
+
+	
+
+</struts>

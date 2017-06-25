@@ -1,0 +1,6 @@
+package gson;
+/**
+ * 	创建GSON对象*/
+public class MakeGSONObject {
+
+}

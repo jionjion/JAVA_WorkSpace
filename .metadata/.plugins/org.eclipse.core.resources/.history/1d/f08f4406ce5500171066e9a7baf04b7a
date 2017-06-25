@@ -1,0 +1,14 @@
+package com.model.proxy.dynamical.proxy;
+
+import java.lang.reflect.Method;
+
+public class TimeHandler implements InvocationHandler {
+
+	private Object targer;	//被代理类对象
+	
+	@Override
+	public void invoke(Object object, Method method) {
+		
+	}
+
+}

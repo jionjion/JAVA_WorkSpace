@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+<!-- 交由Struts2自身管理
+	<package name="ssh" extends="struts-default" namespace="/">
+		<action name="product_*" class="action.ProductAction" method="{1}"></action>
+	</package>
+ -->
+ 
+	<!-- 交由Spring进行管理 -->
+ 	<package name="ssh" extends="struts-default" namespace="/">
+		<action name="product_*" class="productAction" method="{1}"></action>
+		<action name="employee_*" class="employeeAction" method="{1}">
+			<!-- 变量小写 -->
+			<result name="input">/index.jsp</result>
+			<result name="success" type="redirect">/jsps/main.jsp</result>
+		</action>
+		<action name="department_*" class="departmentAction" method="{1}">
+			<result name="findAll">/jsps/departmentList.jsp</result>
+			<result name="savePage">/jsps/departmentSave.jsp</result>
+			<result name="edit">/jsps/departmentEdit.jsp</result>
+			<result name="save" type="redirectAction">department_findAll.action</result>
+			<result name="delete" type="redirectAction">department_findAll.action</result>
+			<result name="update" type="redirectAction">department_findAll.action</result>
+		</action>
+		
+		<action name="employee_*" class="employeeAction" method="{1}">
+			<result name="success">/jsps/main.jsp</result>
+			<result name="input">/index.jsp</result>
+			<result name="findAll">/jsps/employeeList.jsp</result>
+			<result name="savePage">/jsps/employeeSave.jsp</result>
+			<result name="edit">/jsps/employeeEdit.jsp</result>
+			<result name="save" type="redirectAction">employee_findAll.action</result>
+			<result name="delete" type="redirectAction">employee_findAll.action</result>
+			<result name="update" type="redirectAction">employee_findAll.action</result>
+		</action>
+		
+	</package>
+</struts>

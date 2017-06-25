@@ -1,0 +1,5 @@
+package redis;
+/**Á¬½Óredis*/
+public class RedisConnect {
+
+}

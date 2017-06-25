@@ -1,0 +1,6 @@
+package com.model.factory.abstraction;
+/**女孩子*/
+public interface Girl {
+
+	public void drawGirl();
+}

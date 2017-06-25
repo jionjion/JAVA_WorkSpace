@@ -1,0 +1,16 @@
+package java.model.singleton;
+/**单例模式测试*/
+public class SingletonTest {
+
+	/**单例模式-饿汉方法测试*/
+	@Test
+	public void One() {
+		SingletonByHungryMan instance1 = SingletonByHungryMan.getInstance();
+		SingletonByHungryMan instance2 = SingletonByHungryMan.getInstance();
+		if (instance1 == instance2) {
+			System.out.println("两者相同");
+		}else{
+			System.out.println("两者不同");
+		}
+	}
+}

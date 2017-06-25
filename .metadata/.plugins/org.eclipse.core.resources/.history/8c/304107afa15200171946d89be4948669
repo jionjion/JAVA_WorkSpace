@@ -1,0 +1,5 @@
+package gson;
+/**½âÎöJSON¶ÔÏó*/
+public class ParseGSONObject {
+
+}

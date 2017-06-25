@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-4-26 16:42:50 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+	<!-- name:类名			table:表名 -->
+    <class name="bean.Pupil" table="PUPIL">
+
+        <!-- 开启二级缓存,usage:缓存策略	include:是否包含懒加载	region:为该缓存起别名,用于单独控制 -->
+       	<cache usage="read-only" include="non-lazy" region="PUPIL"/>
+    
+    	<!-- 主键信息 -->
+        <id name="pid" type="int">
+            <column name="PID" length="20" not-null="true" />
+            <generator class="assigned" />
+        </id>
+        <property name="pname" type="java.lang.String">
+            <column name="PNAME" />
+        </property>
+        <property name="psex" type="java.lang.String">
+            <column name="PSEX" />
+        </property>
+        
+        <!-- 多对一的配置  name:引用的属性名	class:引用的类		column:引用的外键属性,外键不用单独在上面创建字段	cascade:级联操作-->
+        <many-to-one name="grade" class="bean.Grade" column="gid" cascade="all"/>
+    </class>
+</hibernate-mapping>

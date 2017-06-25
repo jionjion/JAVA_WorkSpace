@@ -1,0 +1,5 @@
+package com.model.factory.general;
+
+public class Client {
+
+}

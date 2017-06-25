@@ -1,0 +1,5 @@
+package fileReadOrWrite.DataInputOrOutputSteamType;
+/**通过字符输出流输出文件*/
+public class DataOutputSteamDemol {
+
+}

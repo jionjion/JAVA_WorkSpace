@@ -1,0 +1,5 @@
+package fileReadOrWrite.BufferedReaderOrWriteOrPrintType;
+/**对文件进行整行的读取*/
+public class BufferedReaderOrWriteOrPrintDemol {
+
+}

@@ -1,0 +1,29 @@
+package com.model.proxy.dynamical;
+
+import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.Method;
+/**通过JDK实现动态代理*/
+public class TimeHadler implements InvocationHandler{
+
+	/**被代理对象*/
+	private Object target;
+	
+	/**通过构造器实现被代理对象的注入*/
+	public TimeHadler(Object target) {
+		super();
+		this.target = target;
+	}
+
+	@Override
+	/**	动态代理方法
+	 * 	被代理对象,被代理对象的方法,方法参数
+	 * 	返回值为方法的方法值*/
+	public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+		
+		method.invoke(target);
+		
+		return null;
+	}
+
+	
+}

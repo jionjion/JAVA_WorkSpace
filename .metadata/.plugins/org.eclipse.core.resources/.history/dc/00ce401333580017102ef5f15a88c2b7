@@ -1,0 +1,17 @@
+package fileReadOrWrite.ObjectReadeOrWriteType;
+
+import java.io.FileOutputStream;
+import java.io.ObjectOutput;
+import java.io.ObjectOutputStream;
+
+/**对对象实现序列化*/
+public class ObjectReadeOrWriteDemol {
+
+	public static void main(String[] args) {
+		String file = "F:\\JAVA_WorkSpace\\JavaBase\\src\\fileReadOrWrite\\ObjectReadeOrWriteType\\student";
+		//对象的序列化 
+		ObjectOutputStream objectOutput = new ObjectOutputStream(
+								new FileOutputStream(file)); 
+		
+	}
+}

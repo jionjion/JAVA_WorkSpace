@@ -1,0 +1,11 @@
+package com.model.proxy.dynamical.proxy;
+
+import java.io.IOException;
+
+/**模拟自定义lib*/
+public class Client {
+
+	public static void main(String[] args) throws IOException {
+		Proxy.newProxyInstance();
+	}
+}

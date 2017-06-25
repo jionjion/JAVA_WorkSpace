@@ -1,0 +1,18 @@
+package fileReadOrWrite.fileType;
+
+import java.io.File;
+
+/***
+ * 	File类用于文件或者目录
+ * 	只是表示文件的信息(名称,大小),不能进行文件的访问
+ * 	*/
+public class FileModel {
+
+	public static void main(String[] args) {
+		//自动根据操作系统.实现文件分隔
+		String filePath = "F:"+File.separatorChar+"JAVA_WorkSpace"+File.separatorChar
+								+"JavaBase"+File.separatorChar+"src"+File.separatorChar
+								+"fileReadOrWrite"+File.separatorChar+"fileType"+File.separatorChar+"FA";
+		File file = new File(filePath);
+	}
+}

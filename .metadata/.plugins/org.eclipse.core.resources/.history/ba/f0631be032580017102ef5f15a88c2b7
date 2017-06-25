@@ -1,0 +1,5 @@
+package fileReadOrWrite.ObjectReadeOrWriteType;
+/**对对象实现序列化*/
+public class ObjectReadeOrWriteDemol {
+
+}

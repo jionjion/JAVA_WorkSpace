@@ -1,0 +1,16 @@
+package fileReadOrWrite.DataInputOrOutputSteamType;
+
+import java.io.DataInputStream;
+import java.io.FileInputStream;
+
+public class DataInputSteamDemol {
+
+	public static void main(String[] args) throws Exception{
+		//文件路径
+		String filePath = "F:\\JAVA_WorkSpace\\JavaBase\\src\\fileReadOrWrite\\InputOrOutputStreamType\\SB";
+		DataInputStream dataInputStream = new DataInputStream(
+						new FileInputStream(filePath));
+		//各种读取
+		System.out.println(dataInputStream.readInt());
+	}
+}

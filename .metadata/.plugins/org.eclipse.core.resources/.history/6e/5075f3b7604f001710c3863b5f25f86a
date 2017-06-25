@@ -1,0 +1,13 @@
+package dao;
+
+import java.util.List;
+
+import bean.Message;
+
+/**和IMessage对应接口式规范*/
+public interface IMessage {
+
+	public List<Message> queryMessagesList();
+		
+	
+}
