@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testrun name="GoddessAction.getGoddess" project="JavaBase" tests="1" started="1" failures="0" errors="0" ignored="0">
-  <testcase name="getGoddess" classname="jdbc.action.GoddessAction" time="0.259"/>
-</testrun>

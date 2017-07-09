@@ -6,4 +6,11 @@
 		<item value="ssh://csisadm@10.18.2.239:22/WindowsAPP\SSH\Files\home\csisadm\CS_PROJECT"/>
 		<item value="ssh://csisadm@10.18.111.109:22/WindowsAPP/SSH/Files/home/csisadm/CS_PROJECT"/>
 	</list>
+	<section name="org.eclipse.egit.ui.COMMIT_DIALOG_SECTION">
+		<item value="1078" key="DIALOG_WIDTH"/>
+		<item value="1|Microsoft YaHei UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Microsoft YaHei UI" key="DIALOG_FONT_NAME"/>
+		<item value="766" key="DIALOG_HEIGHT"/>
+		<item value="123" key="DIALOG_X_ORIGIN"/>
+		<item value="38" key="DIALOG_Y_ORIGIN"/>
+	</section>
 </section>
