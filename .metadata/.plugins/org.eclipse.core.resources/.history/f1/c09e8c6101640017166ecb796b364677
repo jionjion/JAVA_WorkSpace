@@ -1,0 +1,29 @@
+package jdbc.action;
+
+import java.util.Date;
+import java.util.List;
+
+import org.junit.Test;
+
+import jdbc.dao.GoddessDao;
+import jdbc.model.Goddess;
+
+/**控制层*/
+public class GoddessAction {
+
+	private GoddessDao dao = new GoddessDao();
+	
+	/**查找对象集合*/
+	@Test
+	public void queryGoddess() {
+		List<Goddess> list = dao.queryGoddess();
+		System.out.println(list.toString());
+	}
+	
+	@Test
+	public void	addGoddess(){
+		Goddess goddess = new Goddess(2, "小简", "女", 24, new Date(),
+					"456@qq.com", "123456789", "张谦", null, "张谦", null, 0);
+		dao.addGoddess(goddess);
+	}
+}

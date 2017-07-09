@@ -1,9 +1,0 @@
-package fileReadOrWrite.RandomAccessFileType;
-/**
- * 	支持对文件的访问,支持编写文件
- * 	支持随机访问文件,支持访问文件的位置
- * 	打开文件的方式:	只读或者读写*/
-public class RandomAccessFileDemol {
-
-	
-}

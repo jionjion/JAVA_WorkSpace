@@ -1,0 +1,23 @@
+package networkCommunication.UDPNetwork;
+
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+import java.net.InetAddress;
+import java.net.Socket;
+
+/**UDP通信的客户端*/
+public class Client {
+
+	public static void main(String[] args) throws Exception {
+		//1.指定发送的地址,端口号,数据
+		InetAddress address = InetAddress.getByName("127.0.0.1");
+		int port = 9999;
+		byte[] data = new String("(｡･∀･)ﾉﾞ嗨").getBytes();
+		//2.创建数据报,包含发送的数据信息
+		DatagramPacket packet = new DatagramPacket(data, data.length, address, port);
+		//3.创建DatagramSocket对象
+		DatagramSocket socket = new DatagramSocket();
+		//4.向服务器端发送数据报
+		socket.send(packet);
+	}
+}

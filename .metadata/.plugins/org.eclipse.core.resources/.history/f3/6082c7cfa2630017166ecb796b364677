@@ -1,0 +1,7 @@
+package networkCommunication.TCPNetwork;
+
+/**	服务器端,进行处理类*/
+public class ServerThread extends Thread {
+
+	
+}

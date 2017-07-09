@@ -1,9 +1,0 @@
-package fileReadOrWrite.BufferedInputOrOutputType;
-
-public class BufferedInputOrOutputDemol {
-
-	/**文件的拷贝*/
-	public void copyFile() throws Exception{
-		
-	}
-}

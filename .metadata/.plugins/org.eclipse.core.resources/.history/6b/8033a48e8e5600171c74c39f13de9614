@@ -1,5 +1,0 @@
-package fileReadOrWrite.fileType;
-/**对目录进行操作*/
-public class FileQuery {
-
-}

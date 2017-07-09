@@ -1,0 +1,20 @@
+package jdbc.Until;
+/**DB连接的工作获取类*/
+public class DBUntil {
+
+	public void getMySQLConnection(){
+		try {
+			//1.加载驱动程序
+			String driver = "com.mysql.jdbc.Driver"; 
+			Class.forName(driver);
+			//2.获得数据库的连接
+			String url = "";
+			String user = "root";
+			String password = "123456";
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.err.println("数据库连接获取发生异常...");
+		}
+	}
+}

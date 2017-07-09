@@ -1,0 +1,5 @@
+package armVisible;
+/**volatile修饰的变量,实现关键字*/
+public class VolatileDemo {
+
+}

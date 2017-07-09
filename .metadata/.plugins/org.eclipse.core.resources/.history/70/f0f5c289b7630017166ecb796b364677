@@ -1,0 +1,12 @@
+package javaThread;
+/**演员类*/
+public class Actor extends Thread{
+
+	@Override
+	public void run() {
+		String threadName = this.getName();	//获得线程的名字,名字由set()存入
+		System.out.println("线程名为:"+threadName);
+		int count = 0;
+		System.out.println("出现了"+(count++)+"次");
+	}
+}

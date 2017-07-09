@@ -1,5 +1,0 @@
-package com.model.proxy;
-/**通过继承实现*/
-public class CarChild {
-
-}

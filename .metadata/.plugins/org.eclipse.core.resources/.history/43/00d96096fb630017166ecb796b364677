@@ -1,0 +1,5 @@
+package jdbc.action;
+
+public class GoddessAction {
+
+}

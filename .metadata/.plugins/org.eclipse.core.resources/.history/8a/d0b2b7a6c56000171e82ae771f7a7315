@@ -1,0 +1,5 @@
+package javaEail.dao;
+/**将业务表同步到数据库中*/
+public class EmailDao {
+
+}

@@ -1,0 +1,5 @@
+package javaEail.bean;
+
+public class User {
+
+}

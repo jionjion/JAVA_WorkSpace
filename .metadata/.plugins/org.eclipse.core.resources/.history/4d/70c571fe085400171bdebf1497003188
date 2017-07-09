@@ -1,5 +1,0 @@
-package com.model.factory.abstraction;
-
-public class ChristmasFactory {
-
-}

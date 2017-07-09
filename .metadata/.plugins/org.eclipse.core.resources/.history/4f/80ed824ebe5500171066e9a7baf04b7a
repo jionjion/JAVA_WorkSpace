@@ -1,8 +1,0 @@
-package com.model.proxy.dynamical;
-/**定义一个类,不是通过接口实现方法,而是直接定义*/
-public class Train {
-
-	public void move() {
-		System.out.println("火车行驶中....");
-	}
-}

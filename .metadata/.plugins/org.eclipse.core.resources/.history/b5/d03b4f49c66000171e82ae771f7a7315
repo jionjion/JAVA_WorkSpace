@@ -1,0 +1,16 @@
+package javaEail.dao;
+
+import javaEail.bean.User;
+
+/**将业务表同步到数据库中*/
+public class EmailDao {
+
+	/**保存用户数据的*/
+	public void regist(User user) {
+		
+		String sql = " insert into userEmail value (?,?,?,?,?,?,?) ";
+		
+		
+	}
+
+}

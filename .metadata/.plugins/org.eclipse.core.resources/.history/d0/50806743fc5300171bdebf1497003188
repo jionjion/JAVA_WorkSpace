@@ -1,5 +1,0 @@
-package com.model.factory.general;
-
-public interface HairInterface {
-
-}

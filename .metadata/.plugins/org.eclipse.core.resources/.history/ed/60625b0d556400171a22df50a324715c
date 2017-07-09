@@ -1,0 +1,32 @@
+package jdbc.dao;
+
+import java.sql.CallableStatement;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import jdbc.Until.DBUntil;
+
+/**调用存储过程*/
+public class ProcedureDao {
+
+	public static void procedure_select_nofilter() {
+		try {
+			//1.获得数据库连接
+			Connection connection = DBUntil.getMySQLConnection();
+			//2.获得存储过程调用对象
+			String sql = " call sp_select_nofilter() ";
+			CallableStatement callableStatement = connection.prepareCall(sql);
+			//3.执行存储过程,返回是否执行成功的布尔值
+			callableStatement.execute();
+			//4.处理返回的结果.结果集|出参
+			ResultSet resultSet = callableStatement.getResultSet();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.err.println("调用存储过程中出现意外....");
+		}
+		
+		
+	}
+}

@@ -1,8 +1,0 @@
-package com.model.factory.abstraction;
-/**模拟客户端*/
-public class Client {
-
-	/**			新年系列		圣诞系列
-	 * 	男孩子
-	 * 	女孩子*/
-}

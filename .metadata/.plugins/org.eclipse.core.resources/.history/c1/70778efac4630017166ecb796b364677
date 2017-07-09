@@ -1,0 +1,6 @@
+package javaThread;
+/**关键人物,继承Thread实现多多线程*/
+public class KeyPerson extends Thread {
+
+	
+}

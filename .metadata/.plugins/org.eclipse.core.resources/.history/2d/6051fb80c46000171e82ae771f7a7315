@@ -1,0 +1,12 @@
+package javaEail.until;
+
+import java.util.UUID;
+
+/**随机生成UUID无序数字*/
+public class UUIDUntil {
+
+	public int getUUID() {
+		UUID uuid = UUID.randomUUID();
+		uuid.toString();
+	}
+}

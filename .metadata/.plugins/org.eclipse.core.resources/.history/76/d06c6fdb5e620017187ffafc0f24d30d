@@ -1,0 +1,46 @@
+package javaReflex;
+
+
+/**
+ * 	通过反射,获得类的所有类型
+ * 	*/
+public class GetClassAllInfo {
+
+	/**打印类的所有信息*/
+	public static void printInfo(Object object) throws Exception {
+		//要获取类的信息,首先要获取类的类型
+		Class clazz = object.getClass();
+		
+		//获取类的名称
+		System.out.println("传入的类名称为:"+clazz.getName());
+		
+		/**
+		 * 	Method类,代表了对象的方法
+		 * 	getMethods()方法获取的所有public的函数,包括父类继承而来的
+		 * 	getDeclaredMethods()获取的是该类自己创建的方法,不问访问权限
+		 * */
+		Method[] methods = clazz.getMethods();
+		
+		//遍历所有的方法
+		for (Method method : methods) {
+			//得到其中一个方法的返回值的类类型
+			Class<?> returnType = method.getReturnType();
+			//获得方法名
+			String methodName = method.getName();
+			System.out.println("方法:"+methodName+"\t返回值"+returnType.getName());
+			//获得参数列表
+			Class[] paramType = method.getParameterTypes();
+			System.out.println("方法"+methodName+"\t参数");
+			for (Class param : paramType) {
+				System.out.print(param.getName()+" ");
+			}
+		}
+		
+	}
+	
+	
+	public static void main(String[] args) throws Exception{
+		User user = new User();
+		printInfo(user);
+	}
+}

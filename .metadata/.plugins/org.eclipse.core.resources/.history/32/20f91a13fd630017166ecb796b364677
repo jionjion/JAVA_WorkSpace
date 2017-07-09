@@ -1,0 +1,22 @@
+package jdbc.action;
+
+import java.util.Collections;
+import java.util.List;
+
+import org.junit.Test;
+
+import jdbc.dao.GoddessDao;
+import jdbc.model.Goddess;
+
+/**控制层*/
+public class GoddessAction {
+
+	private GoddessDao dao = new GoddessDao();
+	
+	/**查找对象集合*/
+	@Test
+	public void queryGoddess() {
+		List<Goddess> list = dao.queryGoddess();
+		System.out.println(list.toString());
+	}
+}

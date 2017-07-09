@@ -1,5 +1,0 @@
-package com.model.proxy.dynamical.proxy;
-
-public interface InvocationHandler {
-
-}

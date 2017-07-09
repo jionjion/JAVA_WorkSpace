@@ -1,9 +1,0 @@
-package java.model.singleton;
-/**单例模式测试*/
-public class SingletonTest {
-
-	/**单例模式-饿汉方法测试*/
-	public void One() {
-		
-	}
-}

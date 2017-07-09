@@ -1,0 +1,31 @@
+package jdbc.dao;
+
+import static org.hamcrest.CoreMatchers.nullValue;
+
+import java.util.List;
+
+import jdbc.model.Goddess;
+
+/**女神表的*/
+public class GoddessDao {
+
+	public void addGoddess() {
+		
+	}
+	
+	public void deleteGoddess() {
+		
+	}
+	
+	public void updateGoddess() {
+		
+	}
+	
+	public List<Goddess> queryGoddess() {
+		return null;
+	}
+	
+	public Goddess getGoddess() {
+		return null;
+	}
+}

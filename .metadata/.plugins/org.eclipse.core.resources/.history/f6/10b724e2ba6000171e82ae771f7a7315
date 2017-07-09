@@ -1,0 +1,20 @@
+/**
+ * 	使用创建的clientUntil类实现调用
+ * 	Set集合的使用,不可重复
+ */
+
+var client = require('./clientUntil');
+
+//增加元素
+client.sadd('set','a');
+client.sadd('set',123);
+client.sadd('set','b');
+
+//读取元素
+client.smembers('set',function(err,val){
+	console.log('读取set集合的值:',val);
+});
+
+
+//关闭连接
+client.quit();

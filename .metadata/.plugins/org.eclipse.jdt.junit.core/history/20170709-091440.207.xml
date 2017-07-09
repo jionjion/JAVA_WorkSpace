@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="GoddessAction" project="JavaBase" tests="6" started="6" failures="0" errors="0" ignored="0">
+  <testsuite name="jdbc.action.GoddessAction" time="0.133">
+    <testcase name="updateGoddess" classname="jdbc.action.GoddessAction" time="0.053"/>
+    <testcase name="queryGoddessBySome" classname="jdbc.action.GoddessAction" time="0.011"/>
+    <testcase name="deleteGoddess" classname="jdbc.action.GoddessAction" time="0.001"/>
+    <testcase name="getGoddess" classname="jdbc.action.GoddessAction" time="0.001"/>
+    <testcase name="queryGoddess" classname="jdbc.action.GoddessAction" time="0.001"/>
+    <testcase name="addGoddess" classname="jdbc.action.GoddessAction" time="0.066"/>
+  </testsuite>
+</testrun>

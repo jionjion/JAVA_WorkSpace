@@ -1,0 +1,6 @@
+package networkCommunication;
+/**
+ * 	InetAddress类的使用*/
+public class InetAddressDemo {
+
+}

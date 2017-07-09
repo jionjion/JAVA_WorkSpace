@@ -1,0 +1,10 @@
+package javaThread;
+/**模拟军队的进攻请求*/
+public class ArmyRunnable implements Runnable {
+
+	@Override
+	public void run() {
+
+	}
+
+}

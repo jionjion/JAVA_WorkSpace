@@ -1,0 +1,5 @@
+package networkCommunication.TCPNetwork;
+
+public class Client {
+
+}

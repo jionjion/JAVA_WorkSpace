@@ -1,0 +1,5 @@
+package javaEail.control;
+/**页面注册的类*/
+public class EmailControl {
+
+}

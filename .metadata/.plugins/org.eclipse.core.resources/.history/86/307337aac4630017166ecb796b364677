@@ -1,0 +1,7 @@
+package javaThread;
+
+import thread;
+
+public class KeyPerson extends thread {
+
+}

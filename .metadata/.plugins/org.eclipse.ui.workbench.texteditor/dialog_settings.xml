@@ -2,22 +2,24 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="inputStreamReader" key="selection"/>
+		<item value="request" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="inputStreamReader"/>
+			<item value="data"/>
+			<item value="Service"/>
 			<item value="statical"/>
+			<item value="inputStreamReader"/>
 			<item value="movable"/>
 			<item value="Movable"/>
 			<item value="LIST_POSITION"/>
 			<item value="linsert"/>
-			<item value="GenericObjectPoolConfig"/>
-			<item value="JedisPool"/>
 		</list>
 		<list key="replacehistory">
+			<item value="request"/>
+			<item value="Server"/>
 			<item value="hlinkFont"/>
 			<item value="hlinkStyle"/>
 			<item value="hlinkstyle"/>

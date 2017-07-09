@@ -1,8 +1,0 @@
-package fileReadOrWrite.InputOrOutputStreamType;
-/**文件的拷贝工作*/
-public class FileInputAndOutputStreamDemol {
-
-	public static void copyFile() {
-		
-	}
-}

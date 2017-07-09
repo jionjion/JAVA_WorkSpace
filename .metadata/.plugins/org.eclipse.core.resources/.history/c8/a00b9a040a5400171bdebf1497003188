@@ -1,5 +1,0 @@
-package com.model.factory.abstraction;
-/**模拟客户端*/
-public class Client {
-
-}

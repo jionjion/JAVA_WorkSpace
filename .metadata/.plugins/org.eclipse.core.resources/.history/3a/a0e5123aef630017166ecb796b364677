@@ -1,0 +1,10 @@
+package jdbc.Until;
+/**DB连接的工作获取类*/
+public class DBUntil {
+
+	public void getMySQLConnection(){
+		//1.加载驱动程序
+		String driver = "com.mysql.jdbc.Driver"; 
+		Class.forName(driver);
+	}
+}

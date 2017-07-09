@@ -1,0 +1,41 @@
+package javaAnnotation.demo;
+/**进行查询的测试类*/
+public class QueryTest {
+
+	private static String query(User user){
+		StringBuffer sql = new StringBuffer();
+		//获取被注解表示的类
+		Class<?> clazz = user.getClass();
+		//获取类上的表示表名的注解
+		//首先判断是否存在该注解
+		boolean tableExist = clazz.isAnnotationPresent(Table.class);
+		if (!tableExist) {
+			return null;		//如果不存在,程序终止
+		}
+		//获取注解对象
+		Table table = (Table) clazz.getAnnotation(Table.class);
+		//获取注解对象中的值
+		String tableName = table.value();
+		//拼写SQL语句
+		sql.append("select * from ").append(tableName);
+		
+	}
+	
+	public static void main(String[] args) {
+		
+		/*定义查询条件*/
+		User user1 = new User();
+		user1.setId(10);
+		
+		User user2 = new User();
+		user2.setUsername("张三");
+		
+		User user3 = new User();
+		user3.setEmail("123@qq.com,456@qq.com,789@qq.com");
+		
+		/*传入对象,生成SQL语句*/
+		String sql1 = query(user1);
+		String sql2 = query(user2);
+		String sql3 = query(user3);
+	}
+}

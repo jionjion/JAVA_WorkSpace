@@ -1,0 +1,14 @@
+package jdbc.action;
+
+import jdbc.dao.ProcedureDao;
+
+/**调用无参的存储过程*/
+public class ProcedureAction {
+
+	private ProcedureDao dao = new ProcedureDao();
+	
+	/**调用无参的存储过程*/
+	public void procedure_select_nofilter() {
+		
+	}
+}

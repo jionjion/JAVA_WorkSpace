@@ -1,0 +1,31 @@
+package jdbc.Until;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+
+/**DB连接的工作获取类*/
+public class DBUntil {
+
+	static {
+		String driver = "com.mysql.jdbc.Driver"; 
+		String url = "jdbc:mysql://127.0.0.1:3306/javabase?useUnicode=true&amp;characterEncoding=UTF-8";
+		String user = "root";
+		String password = "123456";
+		
+	}
+	
+	public static Connection getMySQLConnection(){
+		try {
+			//1.加载驱动程序
+			Class.forName(driver);
+			Connection connection = DriverManager.getConnection(url, user, password);
+			//2.获得数据库的连接
+			return connection;
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.err.println("数据库连接获取发生异常...");
+		}
+		return null;
+	}
+}

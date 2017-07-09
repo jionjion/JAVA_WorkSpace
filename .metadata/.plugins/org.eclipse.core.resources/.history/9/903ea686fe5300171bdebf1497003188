@@ -1,5 +1,0 @@
-package com.model.factory.general;
-/**客户端,进行调用*/
-public class Client {
-
-}

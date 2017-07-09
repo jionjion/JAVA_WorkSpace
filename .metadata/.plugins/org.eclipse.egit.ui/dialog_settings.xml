@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<list key="RepositorySelectionPage.UsedUris">
+		<item value="https://github.com/jionjion/number_one.git"/>
+		<item value="ssh://csisadm@10.18.111.109:22/WindowsAPP\SSH\Files\home\csisadm\CS_PROJECT"/>
+		<item value="ssh://csisadm@10.18.2.239:22/WindowsAPP\SSH\Files\home\csisadm\CS_PROJECT"/>
+		<item value="ssh://csisadm@10.18.111.109:22/WindowsAPP/SSH/Files/home/csisadm/CS_PROJECT"/>
+	</list>
+</section>

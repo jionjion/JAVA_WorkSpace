@@ -1,0 +1,10 @@
+package networkCommunication;
+/**URL类*/
+
+import java.net.URL;
+
+//
+		URL imooc = new URL("http://www.baidu.com");
+		
+	}
+}

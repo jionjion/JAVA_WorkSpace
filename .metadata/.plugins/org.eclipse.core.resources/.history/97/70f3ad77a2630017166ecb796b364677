@@ -1,0 +1,39 @@
+package networkCommunication.TCPNetwork;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.ServerSocket;
+import java.net.Socket;
+
+/**	TCP通讯的服务端,首先打开
+ * 	实现侦听,读取客户端的请求*/
+public class Server {
+
+	public static void main(String[] args) throws Exception {
+		//1.创建服务器端的ServerSocket,并侦听端口
+		ServerSocket serverSocket = new ServerSocket(8888);
+		//2.开始侦听,等待连接
+		System.out.println("------正在侦听....------");
+		Socket socket = serverSocket.accept();
+		//3.获取输入流,读取客户端信息
+		BufferedReader reader  = new BufferedReader(	//开启输入流
+									new InputStreamReader(
+										socket.getInputStream(), "UTF-8"));
+		String info = null;		//读取输入流
+		while((info=reader.readLine()) != null){
+			System.out.println("侦听到来自客户端的:"+info);
+		}
+		socket.shutdownInput();	//关闭输入流
+		//4.获取输出流,相应客户端的请求
+		PrintWriter printWriter = new PrintWriter(socket.getOutputStream());
+		printWriter.write("欢迎你,客户端.....");
+		printWriter.flush();
+		socket.shutdownOutput();
+		//5.关闭资源
+		printWriter.close();
+		reader.close();
+		socket.close();
+		serverSocket.close();
+	}
+}

@@ -1,0 +1,10 @@
+package javaThread;
+/**演员类*/
+public class Actor extends Thread{
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		super.run();
+	}
+}

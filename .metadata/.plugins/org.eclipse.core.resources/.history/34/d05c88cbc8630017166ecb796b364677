@@ -1,0 +1,10 @@
+package javaThread;
+/**	能源系统
+ * 	模拟数据征用条件*/
+public class EnergySystem {
+
+	//数据征用对象,在构造方法中初始化
+	private final double[] energyBoxes;
+	
+	
+}

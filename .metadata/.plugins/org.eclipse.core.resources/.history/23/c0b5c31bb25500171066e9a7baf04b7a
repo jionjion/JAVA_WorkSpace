@@ -1,5 +1,0 @@
-package com.model.proxy;
-/**服务端*/
-public class Client {
-
-}

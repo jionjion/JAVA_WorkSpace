@@ -1,0 +1,5 @@
+package jdbc.dao;
+/**调用存储过程*/
+public class ProcedureDao {
+
+}

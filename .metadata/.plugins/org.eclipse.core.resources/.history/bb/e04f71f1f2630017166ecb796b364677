@@ -1,0 +1,19 @@
+package jdbc.model;
+
+import java.sql.Date;
+
+/**对应数据库中的女神表*/
+public class Goddess {
+
+	private int id;
+	private String userName;
+	private String sex;
+	private int age;
+	private Date birthday;
+	private String email;
+	private String mobile;
+	private String createUser;
+	private Date createDate;
+	private String updateUser;
+	private Date updateDate;
+}

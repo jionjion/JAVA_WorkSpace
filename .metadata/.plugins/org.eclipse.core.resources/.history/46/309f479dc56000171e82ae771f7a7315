@@ -1,0 +1,13 @@
+package javaEail.service;
+
+import javaEail.bean.User;
+
+/**服务层*/
+public class EmailService {
+
+	public static void regist(User user) {
+		
+	}
+
+	
+}

@@ -1,5 +1,0 @@
-package com.model.proxy.dynamical;
-/**模拟自定义lib*/
-public class CopyProxy {
-
-}

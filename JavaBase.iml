@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="EclipseModuleManager">
+    <libelement value="jar://$MODULE_DIR$/JavaBase/src/redis/jedis-2.4.2.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/JavaBase/src/redis/commons-pool2-2.2.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/JavaBase/src/javaEail/javax.mail.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/JavaBase/src/javaEail/mysql-connector-java-5.1.18-bin.jar!/" />
+    <src_description expected_position="0">
+      <src_folder value="file://$MODULE_DIR$/JavaBase/src" expected_position="0" />
+    </src_description>
+  </component>
+  <component name="NewModuleRootManager">
+    <output url="file://$MODULE_DIR$/JavaBase/bin" />
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/JavaBase">
+      <sourceFolder url="file://$MODULE_DIR$/JavaBase/src" isTestSource="false" />
+    </content>
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="jdk" jdkName="jdk8" jdkType="JavaSDK" />
+    <orderEntry type="module-library">
+      <library name="junit4">
+        <CLASSES>
+          <root url="jar://$APPLICATION_HOME_DIR$/lib/junit-4.12.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="jedis-2.4.2.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/JavaBase/src/redis/jedis-2.4.2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="jar://E:/Java/some Jar/Jedis/jedis-master.zip!/" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="commons-pool2-2.2.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/JavaBase/src/redis/commons-pool2-2.2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="javax.mail.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/JavaBase/src/javaEail/javax.mail.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="jar://E:/Java/some Jar/Email/javamail-JAVAMAIL-1_5_6.zip!/" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="mysql-connector-java-5.1.18-bin.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/JavaBase/src/javaEail/mysql-connector-java-5.1.18-bin.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+  </component>
+</module>

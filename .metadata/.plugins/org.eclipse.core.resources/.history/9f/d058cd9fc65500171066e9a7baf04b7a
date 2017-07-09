@@ -1,8 +1,0 @@
-package com.model.proxy.dynamical.proxy;
-/**模拟自定义lib*/
-public class Client {
-
-	public static void main(String[] args) {
-		Proxy.newProxyInstance();
-	}
-}

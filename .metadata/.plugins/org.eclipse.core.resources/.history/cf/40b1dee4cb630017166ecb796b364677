@@ -1,0 +1,10 @@
+package javaThread;
+/**	征用数据的模拟使用*/
+public class EnergyTransferTask implements Runnable {
+
+	@Override
+	public void run() {
+		
+	}
+
+}

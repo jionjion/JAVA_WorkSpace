@@ -1,0 +1,6 @@
+package javaEail.service;
+/**服务层*/
+public class EmailService {
+
+	
+}

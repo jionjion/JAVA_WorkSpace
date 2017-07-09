@@ -1,0 +1,9 @@
+package javaAnnotation;
+/**解析注解*/
+public class ParseDescription {
+
+	public static void main(String[] args) {
+		Class c  = Class.forName("javaAnnotation.UseDescription");
+		
+	}
+}

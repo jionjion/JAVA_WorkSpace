@@ -1,0 +1,12 @@
+package javaReflex;
+
+public class User {
+
+	public String username;
+	
+	public int age;
+	
+	public void say() {
+		System.out.println("我是人,我能说话");
+	}
+}

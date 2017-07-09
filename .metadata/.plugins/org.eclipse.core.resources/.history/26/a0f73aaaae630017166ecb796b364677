@@ -1,0 +1,5 @@
+package networkCommunication.UDPNetwork;
+
+public class Server {
+
+}

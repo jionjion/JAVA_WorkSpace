@@ -1,0 +1,10 @@
+package javaAnnotation.demo;
+/**进行查询的测试类*/
+public class QueryTest {
+
+	public static void main(String[] args) {
+		User user = new User();
+		user.getId(10);
+		
+	}
+}

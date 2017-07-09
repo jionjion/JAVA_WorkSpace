@@ -1,9 +1,0 @@
-package com.model.proxy.dynamical;
-/**客户端*/
-public class Client {
-
-	/*测试动态代理*/
-	public static void main(String[] args) {
-	
-	}
-}

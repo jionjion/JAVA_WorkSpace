@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Hibernate.iml" filepath="$PROJECT_DIR$/Hibernate.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JSON.iml" filepath="$PROJECT_DIR$/JSON.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaApex.iml" filepath="$PROJECT_DIR$/JavaApex.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaBase.iml" filepath="$PROJECT_DIR$/JavaBase.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaSenior.iml" filepath="$PROJECT_DIR$/JavaSenior.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Mybatis.iml" filepath="$PROJECT_DIR$/Mybatis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Office.iml" filepath="$PROJECT_DIR$/Office.iml" />
+      <module fileurl="file://$PROJECT_DIR$/RemoteSystemsTempFiles.iml" filepath="$PROJECT_DIR$/RemoteSystemsTempFiles.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SSH.iml" filepath="$PROJECT_DIR$/SSH.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Servers.iml" filepath="$PROJECT_DIR$/Servers.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Spring.iml" filepath="$PROJECT_DIR$/Spring.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SpringMVC.iml" filepath="$PROJECT_DIR$/SpringMVC.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Struts.iml" filepath="$PROJECT_DIR$/Struts.iml" />
+    </modules>
+  </component>
+</project>

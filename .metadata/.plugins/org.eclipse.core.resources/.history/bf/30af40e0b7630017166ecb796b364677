@@ -1,0 +1,20 @@
+package javaThread;
+/**演员类*/
+public class ThreadDemo extends Thread{
+
+	@Override
+	public void run() {
+		String threadName = this.getName();	//获得线程的名字,名字由set()存入
+		System.out.println("线程名为:"+threadName);
+		int count = 0;
+		System.out.println("出现了"+(++count)+"次");
+	}
+	
+	
+	public static void main(String[] args) {
+		//使用多态,父类的引用由子类实现
+		Thread actor = new ThreadDemo();
+		actor.setName("线程I");		//设置线程的名字
+		actor.start();				//开始执行线程
+	}
+}

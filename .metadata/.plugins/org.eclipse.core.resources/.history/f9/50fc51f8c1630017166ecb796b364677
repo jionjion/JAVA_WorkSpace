@@ -1,0 +1,11 @@
+package javaThread;
+/**模拟军队的执行*/
+public class ArmyRunnable implements Runnable {
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+
+	}
+
+}

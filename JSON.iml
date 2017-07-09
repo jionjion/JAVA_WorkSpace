@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="EclipseModuleManager">
+    <libelement value="jar://$MODULE_DIR$/JSON/lib/commons-beanutils.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/JSON/lib/commons-collections-3.1.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/JSON/lib/commons-lang.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/JSON/lib/commons-logging.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/JSON/lib/ezmorph-1.0.6.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/JSON/lib/json-lib-2.2.2-jdk15.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/JSON/lib/commons-io-2.2.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/JSON/lib/gson-2.3.1-javadoc.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/JSON/lib/gson-2.3.1-sources.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/JSON/lib/gson-2.3.1.jar!/" />
+    <src_description expected_position="0">
+      <src_folder value="file://$MODULE_DIR$/JSON/src" expected_position="0" />
+    </src_description>
+  </component>
+  <component name="NewModuleRootManager">
+    <output url="file://$MODULE_DIR$/JSON/bin" />
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/JSON">
+      <sourceFolder url="file://$MODULE_DIR$/JSON/src" isTestSource="false" />
+    </content>
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library">
+      <library name="commons-beanutils.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/JSON/lib/commons-beanutils.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="commons-collections-3.1.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/JSON/lib/commons-collections-3.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="commons-lang.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/JSON/lib/commons-lang.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="commons-logging.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/JSON/lib/commons-logging.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="ezmorph-1.0.6.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/JSON/lib/ezmorph-1.0.6.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="json-lib-2.2.2-jdk15.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/JSON/lib/json-lib-2.2.2-jdk15.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="commons-io-2.2.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/JSON/lib/commons-io-2.2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="gson-2.3.1-javadoc.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/JSON/lib/gson-2.3.1-javadoc.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="gson-2.3.1-sources.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/JSON/lib/gson-2.3.1-sources.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="gson-2.3.1.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/JSON/lib/gson-2.3.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="jdk" jdkName="jdk8" jdkType="JavaSDK" />
+  </component>
+</module>

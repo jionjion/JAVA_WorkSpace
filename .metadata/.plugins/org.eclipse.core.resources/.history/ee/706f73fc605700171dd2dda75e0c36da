@@ -1,5 +1,0 @@
-package fileReadOrWrite.InputOrOutputStreamType;
-/**输出*/
-public class FileOutputStreamDemol {
-
-}
