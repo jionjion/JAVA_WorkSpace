@@ -1,0 +1,5 @@
+/bean/
+/cache/
+/ehcache.xml
+/hibernate.cfg.xml
+/hql/

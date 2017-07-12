@@ -1,0 +1,43 @@
+package fileReadOrWrite.demo;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.commons.io.FileUtils;
+import org.junit.Test;
+
+/**
+ *  @author Jion
+ *  语言的处理类
+ */
+public class ReplaceChineseUntil {
+
+	/**删除txt文档中的汉语*/
+	@Test
+	public void ReplaceChinese(){
+		
+		try {
+			File file = FileUtils.getFile("F:\\JAVA_WorkSpace\\JavaBase\\src\\fileReadOrWrite\\demo\\姓名.txt");
+			List<String> lines = FileUtils.readLines(file, "UTF-8");
+			List<String[]> results = new ArrayList<String[]>();
+			String[] result = null;
+			List<String> SQL = new ArrayList<String>();
+			for (String string : lines) {
+				result = new String[2];
+				String english = string.substring(0, string.indexOf(' '));
+				String chinese = string.substring(string.indexOf(' '));
+				result[0] = english;
+				result[1] = chinese;
+				results.add(result);	//list中套string[],string[0]:英文名,string[1]:中文名
+				String sql = "insert into foreigner_name (ename,cname) values("+"\'"+english+"\'"+","+"\'"+chinese+"\'"+");";
+				SQL.add(sql);
+			}
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+	}
+}

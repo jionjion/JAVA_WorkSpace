@@ -1,5 +1,0 @@
-package javaEail.until;
-/**随机生成UUID无序数字*/
-public class UUIDUntil {
-
-}

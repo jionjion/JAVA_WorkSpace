@@ -1,0 +1,12 @@
+package fileReadOrWrite.demo;
+/**
+ *  @author Jion
+ *  语言的处理类
+ */
+public class ReplaceChineseUntil {
+
+	/**删除txt文档中的汉语*/
+	public void ReplaceChinese() {
+		
+	}
+}

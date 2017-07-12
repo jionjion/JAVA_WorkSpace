@@ -1,16 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
+	<item value="true" key="CommitDialog.showUntracked"/>
 	<list key="RepositorySelectionPage.UsedUris">
 		<item value="https://github.com/jionjion/number_one.git"/>
 		<item value="ssh://csisadm@10.18.111.109:22/WindowsAPP\SSH\Files\home\csisadm\CS_PROJECT"/>
 		<item value="ssh://csisadm@10.18.2.239:22/WindowsAPP\SSH\Files\home\csisadm\CS_PROJECT"/>
 		<item value="ssh://csisadm@10.18.111.109:22/WindowsAPP/SSH/Files/home/csisadm/CS_PROJECT"/>
 	</list>
+	<list key="CommitDialog.authorValues">
+		<item value="zhangqian &lt;1434501783@qq.com&gt;"/>
+	</list>
+	<list key="CommitDialog.committerValues">
+		<item value="zhangqian &lt;1434501783@qq.com&gt;"/>
+	</list>
+	<section name="org.eclipse.egit.ui.internal.merge.MergeResultDialog.dialogBounds">
+		<item value="482" key="DIALOG_WIDTH"/>
+		<item value="1|Microsoft YaHei UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Microsoft YaHei UI" key="DIALOG_FONT_NAME"/>
+		<item value="246" key="DIALOG_HEIGHT"/>
+		<item value="728" key="DIALOG_X_ORIGIN"/>
+		<item value="385" key="DIALOG_Y_ORIGIN"/>
+	</section>
 	<section name="org.eclipse.egit.ui.COMMIT_DIALOG_SECTION">
-		<item value="1078" key="DIALOG_WIDTH"/>
+		<item value="1168" key="DIALOG_WIDTH"/>
 		<item value="1|Microsoft YaHei UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Microsoft YaHei UI" key="DIALOG_FONT_NAME"/>
 		<item value="766" key="DIALOG_HEIGHT"/>
 		<item value="123" key="DIALOG_X_ORIGIN"/>
 		<item value="38" key="DIALOG_Y_ORIGIN"/>
+	</section>
+	<section name="GitCommitMessageComponent">
+	</section>
+	<section name="org.eclipse.egit.ui.internal.dialogs.MergeTargetSelectionDialog.dialogBounds">
+		<item value="638" key="DIALOG_WIDTH"/>
+		<item value="1|Microsoft YaHei UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Microsoft YaHei UI" key="DIALOG_FONT_NAME"/>
+		<item value="762" key="DIALOG_HEIGHT"/>
+		<item value="650" key="DIALOG_X_ORIGIN"/>
+		<item value="41" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>

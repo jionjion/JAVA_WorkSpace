@@ -1,0 +1,11 @@
+package jspBase.bean;
+/**
+ * 	JavaBean的设计原则
+ * 	1.属性私有
+ * 	2.访问器方法
+ * 	3.无参构造方式
+ * 	4.共有类
+ * 	5.实现序列化接口*/
+public class User{
+
+}

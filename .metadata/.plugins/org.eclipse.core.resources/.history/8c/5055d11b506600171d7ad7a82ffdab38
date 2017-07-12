@@ -1,0 +1,8 @@
+package fileReadOrWrite.demo;
+/**
+ *  @author Jion
+ *	完成对text文件的汉语剔除  
+ */
+public class ReplaceChineseUntil {
+
+}

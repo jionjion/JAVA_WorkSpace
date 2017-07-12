@@ -1,6 +1,0 @@
-package javaEail.control;
-/**页面注册的类,模拟接收前台传递的参数*/
-public class EmailControl {
-
-	
-}

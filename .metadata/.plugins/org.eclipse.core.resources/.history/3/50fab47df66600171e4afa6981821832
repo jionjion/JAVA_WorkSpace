@@ -1,0 +1,40 @@
+package servletBase.servlet;
+/**
+ * 	用户注册的提交Servlet*/
+import java.io.IOException;
+import java.util.Date;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import jspBase.bean.User;
+
+@WebServlet("/RegisterServlet")
+public class RegisterServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    public RegisterServlet() {
+        super();
+    }
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+		doGet(request, response);
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		User user = new User();
+		String username = null;
+		String password = null;
+		String email = null;
+		String sex = null;
+		Date birthday = null;
+		String[] hobby  = null;
+		
+		
+	}
+
+}
