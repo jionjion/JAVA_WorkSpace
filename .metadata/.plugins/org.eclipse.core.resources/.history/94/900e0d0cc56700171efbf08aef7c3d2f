@@ -1,0 +1,19 @@
+package springJMS.producer;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jms.core.JmsTemplate;
+
+/**
+ * 	创建实现类,完成消息机制*/
+public class ProducerServiceImpl implements ProducerService{
+
+	
+	/**在配置文件中声明消息提供者*/
+	@Autowired
+	private JmsTemplate jmsTemplate;
+	
+	public void sendMessage(String message) {
+		
+	}
+	
+}

@@ -1,0 +1,10 @@
+package javaEncryption.pbeDemo;
+/**	
+ * 	使用PBE完成消息摘要算法
+ * */
+public class PbeByJDK {
+
+	public static void main(String[] args) {
+		
+	}
+}

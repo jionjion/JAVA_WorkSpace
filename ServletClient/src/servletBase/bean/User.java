@@ -2,11 +2,14 @@ package servletBase.bean;
 
 import java.util.Date;
 
+import javax.servlet.http.HttpSessionBindingEvent;
+import javax.servlet.http.HttpSessionBindingListener;
+
 /**
  *  @author Jion
  *  用户登录信息保存实体类
  */
-public class User {
+public class User implements HttpSessionBindingListener{
 
 	private String username;
 	
@@ -104,6 +107,16 @@ public class User {
 		this.hobby = hobby;
 		this.introduce = introduce;
 		this.flag = flag;
+	}
+
+	@Override
+	public void valueBound(HttpSessionBindingEvent arg0) {
+		System.out.println("Session绑定该对象");
+	}
+
+	@Override
+	public void valueUnbound(HttpSessionBindingEvent arg0) {
+		System.out.println("Session解除绑定");
 	}
 	
 	

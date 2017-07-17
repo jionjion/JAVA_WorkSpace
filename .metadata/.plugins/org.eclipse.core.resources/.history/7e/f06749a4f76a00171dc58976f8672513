@@ -1,0 +1,15 @@
+package javaEncryption.rsaDemoTwo;
+
+import java.security.KeyPairGenerator;
+
+/**	
+ * 	使用RSA实现数字签名
+ */	
+public class ResByJDK {
+
+	public static void main(String[] args) throws Exception{
+		
+		//初始化秘钥
+		KeyPairGenerator
+	}
+}

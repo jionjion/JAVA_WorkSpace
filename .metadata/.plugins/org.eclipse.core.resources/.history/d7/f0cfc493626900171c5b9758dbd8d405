@@ -1,0 +1,13 @@
+package javaEncryption.base64Demo;
+/**
+ * 	通过JDK实现Base64的加解密
+ * 	*/
+public class Base64ByJDK {
+
+	public static void main(String[] args) {
+		//密文
+		String src = "我是明文:Jion123";
+		
+		
+	}
+}

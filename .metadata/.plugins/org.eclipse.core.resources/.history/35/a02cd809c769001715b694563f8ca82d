@@ -1,0 +1,6 @@
+package javaEncryption.macDemo;
+/**
+ * 	使用JDK实现MAC消息摘要*/
+public class MacByJDK {
+
+}

@@ -1,0 +1,13 @@
+package springJMS.producer;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+/**	启动生产者*/
+public class AppProducer {
+
+	public static void main(String[] args) {
+		String configLocation;
+		ApplicationContext context = new ClassPathXmlApplicationContext(configLocation:"producer.xml");
+	}
+}

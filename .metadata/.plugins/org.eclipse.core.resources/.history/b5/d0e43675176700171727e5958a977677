@@ -1,0 +1,17 @@
+package jms.queue;
+
+import javax.jms.ConnectionFactory;
+
+import org.apache.activemq.ActiveMQConnectionFactory;
+
+/***/
+public class AppProducer {
+
+	private static final String URI = "tcp://127.0.0.1:61616";
+	private static final String queueName = "queue-demo";
+	
+	public static void main(String[] args) {
+		//1.创建
+		ConnectionFactory connectionFactory = new ActiveMQConnectionFactory(URI);
+	}
+}

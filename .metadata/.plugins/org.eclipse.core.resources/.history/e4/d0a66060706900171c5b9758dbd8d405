@@ -1,0 +1,12 @@
+package javaEncryption.mdDemo;
+/**
+ *	使用JDK自带的MD5实现消息摘要加密
+ *	*/
+public class MdByJDK {
+
+	public static void main(String[] args) {
+		//密文
+		String source = "我是明文:Jion123";
+		
+	}
+}

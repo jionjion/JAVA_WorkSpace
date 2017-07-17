@@ -1,0 +1,7 @@
+package javaEncryption.desDemo;
+/**
+ * 	通过JDK自带的实现对称加密
+ * 	*/
+public class DesJDK {
+
+}

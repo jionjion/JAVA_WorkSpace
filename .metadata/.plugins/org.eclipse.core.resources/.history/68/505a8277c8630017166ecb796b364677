@@ -1,7 +1,0 @@
-package javaThread;
-/**	能源系统
- * 	模拟数据征用条件*/
-public class EnergySystem {
-
-	
-}

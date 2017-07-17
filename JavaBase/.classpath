@@ -10,5 +10,11 @@
 	<classpathentry kind="lib" path="src/jdbc/Until/c3p0-0.9.1-pre6.jar" sourcepath="E:/Java/some Jar/c3p0/c3p0-0.9.1-pre6.src.zip"/>
 	<classpathentry kind="lib" path="src/jdbc/Until/mchange-commons-0.2.jar"/>
 	<classpathentry kind="lib" path="src/fileReadOrWrite/common/commons-io-2.2.jar"/>
+	<classpathentry kind="lib" path="src/javaEncryption/bcprov-jdk16-136.jar" sourcepath="E:/Java/some Jar/Boucncy Castle/bcprov-jdk16-136-sources.jar">
+		<attributes>
+			<attribute name="source_encoding" value="UTF-8"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="src/javaEncryption/commons-codec-1.5.jar" sourcepath="E:/Java/some Jar/Commons-codec/commons-codec-1.5-sources.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

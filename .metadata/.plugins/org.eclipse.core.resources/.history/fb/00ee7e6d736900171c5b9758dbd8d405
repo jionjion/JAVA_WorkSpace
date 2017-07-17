@@ -1,0 +1,11 @@
+package javaEncryption.mdDemo;
+/**
+ * 	使用Bouncy Castle提供的Md消息加密算法
+ * */
+public class MdByBouncyCastle {
+
+	public static void main(String[] args) {
+		
+	}
+	
+}

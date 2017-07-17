@@ -1,0 +1,7 @@
+package javaEncryption.macDemo;
+/**
+ * 	使用BouncyCastle实现MAC消息摘要*/
+public class MacByBouncyCastle {
+
+	
+}

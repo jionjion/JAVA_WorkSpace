@@ -1,8 +1,0 @@
-package networkCommunication.TCPNetwork;
-/**TCP通讯的服务端*/
-public class Service {
-
-	public static void main(String[] args) {
-		//1.创建服务器端的ServerSocket
-	}
-}

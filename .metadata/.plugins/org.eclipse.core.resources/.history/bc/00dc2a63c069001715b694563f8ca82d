@@ -1,0 +1,10 @@
+package javaEncryption.shaDemo;
+/**
+ * 	通过CommonsCodec实现消息摘要算法	
+ * */
+public class ShaByCommonsCodec {
+
+	public static void main(String[] args) {
+		
+	}
+}

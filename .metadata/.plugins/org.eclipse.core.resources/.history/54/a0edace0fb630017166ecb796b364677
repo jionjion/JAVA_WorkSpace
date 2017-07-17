@@ -1,6 +1,0 @@
-package jdbc.action;
-/**控制层*/
-public class GoddessAction {
-
-	
-}

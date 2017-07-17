@@ -1,0 +1,10 @@
+package javaEncryption.mdDemo;
+/**
+ * 	通过Commons Codec方式,实现MD消息摘要加密
+ * 	*/
+public class MdByCommonsCodec {
+
+	public static void main(String[] args) {
+		
+	}
+}

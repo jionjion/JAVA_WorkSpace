@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:cache="http://www.springframework.org/schema/cache"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:core="http://activemq.apache.org/schema/core"
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xmlns:jms="http://www.springframework.org/schema/jms"
+	xmlns:lang="http://www.springframework.org/schema/lang"
+	xmlns:osgi="http://camel.apache.org/schema/osgi"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:spring="http://camel.apache.org/schema/spring"
+	xmlns:task="http://www.springframework.org/schema/task"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:v2.16="http://camel.apache.org/schema/spring/v2.16"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.2.xsd
+		http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache-4.2.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
+		http://activemq.apache.org/schema/core http://activemq.apache.org/schema/core
+		http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-4.2.xsd
+		http://www.springframework.org/schema/jms http://www.springframework.org/schema/jms/spring-jms-4.2.xsd
+		http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang-4.2.xsd
+		http://camel.apache.org/schema/osgi http://camel.apache.org/schema/osgi/camel-osgi-2.0-M3.xsd
+		http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring-2.0-M1.xsd
+		http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-4.2.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.2.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.2.xsd
+		http://camel.apache.org/schema/spring/v2.16 http://camel.apache.org/schema/spring/v2.16">
+
+	<!-- 引入消息基础配置 -->
+	<import resource="common.xml"/>
+
+	<!-- 自定义的消息监听者 -->
+	<bean id="consumerMessageListener" class="springJMS.consumer.ConsumerMessageListener"/>
+	
+	<!-- 消息监听的容器 -->
+	<bean id="jmsContainer" class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+		<!-- 创建的工厂 -->
+		<property name="connectionFactory" ref="connectionFactory"/>
+		<!-- 监听的地址 -->
+		<property name="destination" ref="topicDestination"/>
+		<!-- 监听者对象 -->
+		<property name="messageListener" ref="consumerMessageListener" />
+	</bean>
+</beans>

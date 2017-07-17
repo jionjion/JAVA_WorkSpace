@@ -1,0 +1,5 @@
+package springJMS.producer;
+/**	启动生产者*/
+public class AppProducer {
+
+}

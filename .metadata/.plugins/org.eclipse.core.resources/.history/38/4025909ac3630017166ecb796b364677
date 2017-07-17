@@ -1,5 +1,0 @@
-package javaThread;
-/**舞台类,继承实现对象*/
-public class Stage extends Thread {
-
-}

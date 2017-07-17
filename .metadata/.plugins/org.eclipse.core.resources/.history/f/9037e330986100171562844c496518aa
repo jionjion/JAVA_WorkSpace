@@ -1,5 +1,0 @@
-package javaAnnotation.demo;
-/**进行查询的测试类*/
-public class QueryTest {
-
-}

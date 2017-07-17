@@ -1,0 +1,6 @@
+package springJMS.producer;
+
+public class ProducerServiceImpl implements ProducerService{
+
+	
+}

@@ -56,6 +56,7 @@
 	</section>
 	<section name="MavenProjectWizardLocationPage">
 		<list key="location">
+			<item value="F:\JAVA_WorkSpace\JavaBase"/>
 			<item value="F:\JAVA_WorkSpace\SpringMVC"/>
 			<item value="F:\JAVA_WorkSpace\Struts"/>
 			<item value="F:\JAVA_WorkSpace\Spring"/>
@@ -71,6 +72,7 @@
 	</section>
 	<section name="Maven2ProjectWizardArchifactPage">
 		<list key="package">
+			<item value="com.jion.JMS"/>
 			<item value="com.jion.SSH"/>
 			<item value="SpringMVC.SpringMVC"/>
 			<item value="SpringMVC.MVC"/>
@@ -80,6 +82,7 @@
 			<item value="SpringMVC"/>
 		</list>
 		<list key="artifactId">
+			<item value="JMS"/>
 			<item value="SSH"/>
 			<item value="SpringMVC"/>
 			<item value="MVC"/>

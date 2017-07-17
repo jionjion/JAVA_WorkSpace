@@ -1,5 +1,0 @@
-package jdbc.action;
-
-public class ProcedureAction {
-
-}

@@ -1,0 +1,5 @@
+package springJMS.consumer;
+/**	消息监听者*/
+public class ConsumerMessageListener {
+
+}

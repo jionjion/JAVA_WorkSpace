@@ -1,5 +1,0 @@
-package jdbc.Until;
-/**	使用C3P0连接池,完成数据库的连接*/
-public class C3P0Pool {
-
-}

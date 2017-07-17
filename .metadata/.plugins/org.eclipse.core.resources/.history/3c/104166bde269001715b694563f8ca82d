@@ -1,0 +1,13 @@
+package javaEncryption.dhDemo;
+
+import java.security.KeyPairGenerator;
+
+public class DhByJDK {
+
+	public static void main(String[] args) {
+		
+		//初始化发送方的公钥
+		KeyPairGenerator senderkeyPairGenerator = KeyPairGenerator.getInstance("DH");
+		
+	}
+}

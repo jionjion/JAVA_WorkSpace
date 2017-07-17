@@ -1,0 +1,56 @@
+package javaEncryption.eIGamalDemo;
+
+import java.security.AlgorithmParameterGenerator;
+import java.security.AlgorithmParameters;
+import java.security.KeyFactory;
+import java.security.KeyPair;
+import java.security.KeyPairGenerator;
+import java.security.PrivateKey;
+import java.security.PublicKey;
+import java.security.Security;
+import java.security.interfaces.RSAPrivateKey;
+import java.security.interfaces.RSAPublicKey;
+import java.security.spec.PKCS8EncodedKeySpec;
+import java.security.spec.X509EncodedKeySpec;
+
+import javax.crypto.Cipher;
+import javax.crypto.spec.DHParameterSpec;
+
+import org.apache.commons.codec.binary.Base64;
+import org.bouncycastle.jce.provider.BouncyCastleProvider;
+
+/**使用BouncyCastle的完成EIGaml非对称加密*/
+public class EiGamalByBouncyCastle {
+
+	public static void main(String[] args) throws Exception {
+		
+		//明文
+		String source = "我是明文:Jion123";
+		
+		//初始化秘钥
+		Security.addProvider(new BouncyCastleProvider());
+		AlgorithmParameterGenerator algorithmParameterGenerator = AlgorithmParameterGenerator.getInstance("ELGamal");
+		algorithmParameterGenerator.init(256);
+		AlgorithmParameters algorithmParameters = algorithmParameterGenerator.generateParameters();
+		DHParameterSpec dhParameterSpec = (DHParameterSpec) algorithmParameters.generateParameters(DHParameterSpec.class);
+		//公钥加密
+		X509EncodedKeySpec x509EncodedKeySpec = new X509EncodedKeySpec(rsaPublicKey.getEncoded());
+		KeyFactory keyFactory = KeyFactory.getInstance("EIGamal");
+		PublicKey publicKey = keyFactory.generatePublic(x509EncodedKeySpec);
+		Cipher cipher = Cipher.getInstance("EIGamal");
+		cipher.init(Cipher.ENCRYPT_MODE, publicKey);
+		byte[] encodeByte = cipher.doFinal(source.getBytes());
+		String encodeString = Base64.encodeBase64String(encodeByte);
+		System.out.println("密文:"+encodeString);
+		
+		//私钥解密
+		PKCS8EncodedKeySpec pkcs8EncodedKeySpec = new PKCS8EncodedKeySpec(rsaPrivateKey.getEncoded());
+		keyFactory = keyFactory.getInstance("EIGamal");
+		PrivateKey privateKey = keyFactory.generatePrivate(pkcs8EncodedKeySpec);
+		cipher = Cipher.getInstance("EIGamal");
+		cipher.init(Cipher.DECRYPT_MODE, privateKey);
+		byte[] decodeByte = cipher.doFinal(Base64.decodeBase64(encodeString));
+		String decodeString = new String(decodeByte);
+		System.out.println("明文:"+decodeString);
+	}
+}

@@ -1,0 +1,17 @@
+package javaEncryption.shaDemo;
+
+import java.security.MessageDigest;
+
+/**
+ * 	通过JDK的方式实现SHA消息摘要*/
+public class ShaByJDK {
+
+	public static void main(String[] args) throws Exception{
+		
+		//明文
+		String source = "我是明文:Jion123";
+		
+		MessageDigest messageDigest = MessageDigest.getInstance("SHA");
+		messageDigest.update(input);
+	}
+}

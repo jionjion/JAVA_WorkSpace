@@ -1,4 +1,0 @@
-c3p0.JDBC.url=jdbc\:mysql\://127.0.0.1\:3306/javabase?useUnicode\=true&amp;characterEncoding\=UTF-8
-c3p0.DriverClass=com.mysql.jdbc.Driver
-c3p0.user=root
-c3p0.password=123456

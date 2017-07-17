@@ -1,0 +1,24 @@
+package javaEncryption.mdDemo;
+
+import org.bouncycastle.crypto.Digest;
+import org.bouncycastle.crypto.digests.MD4Digest;
+
+/**
+ * 	使用Bouncy Castle提供的Md消息加密算法
+ * */
+public class MdByBouncyCastle {
+
+	public static void main(String[] args) {
+		
+		//密文
+		String source = "我是明文:Jion123";
+				
+		Digest digest = new MD4Digest();
+		byte[] md4Byte = source.getBytes();
+		digest.update(md4Byte , 0, md4Byte.length);	//对输入内容进行加密
+		
+		digest.doFinal(md4Byte, 0);		//对加密后的进行输出
+		
+	}
+	
+}

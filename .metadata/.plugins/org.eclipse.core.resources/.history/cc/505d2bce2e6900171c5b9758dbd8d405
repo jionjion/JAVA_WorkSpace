@@ -1,0 +1,38 @@
+package servletBase.listener;
+
+import javax.servlet.ServletContextAttributeEvent;
+import javax.servlet.ServletContextAttributeListener;
+import javax.servlet.ServletContextEvent;
+import javax.servlet.ServletContextListener;
+import javax.servlet.annotation.WebListener;
+
+/**
+ * Application Lifecycle Listener implementation class ContextListener
+ *
+ */
+@WebListener
+public class ContextListener implements ServletContextListener, ServletContextAttributeListener {
+
+    public ContextListener() {
+    }
+
+	/**
+     * @see ServletContextAttributeListener#attributeAdded(ServletContextAttributeEvent)
+     */
+    public void attributeAdded(ServletContextAttributeEvent arg0)  { 
+         // TODO Auto-generated method stub
+    }
+    public void attributeRemoved(ServletContextAttributeEvent arg0)  { 
+         // TODO Auto-generated method stub
+    }
+    public void contextDestroyed(ServletContextEvent arg0)  { 
+         // TODO Auto-generated method stub
+    }
+    public void attributeReplaced(ServletContextAttributeEvent arg0)  { 
+         // TODO Auto-generated method stub
+    }
+    public void contextInitialized(ServletContextEvent arg0)  { 
+         // TODO Auto-generated method stub
+    }
+	
+}

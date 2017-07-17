@@ -170,7 +170,7 @@
 		<item value="false" key="FinalModifier"/>
 	</section>
 	<section name="ClasspathContainerSelectionPage">
-		<item value="3" key="index"/>
+		<item value="7" key="index"/>
 	</section>
 	<section name="org.hibernate.eclipse.jdt.ui.wizards.JavaPackageSelectionDialog">
 		<item value="462" key="width"/>
@@ -179,7 +179,7 @@
 		<item value="575" key="height"/>
 	</section>
 	<section name="BuildPathsPropertyPage">
-		<item value="3" key="pageIndex"/>
+		<item value="2" key="pageIndex"/>
 	</section>
 	<section name="JavaSearchPage">
 		<item value="2" key="HISTORY_SIZE"/>

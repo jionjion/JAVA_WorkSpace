@@ -1,0 +1,9 @@
+package javaEncryption.mdDemo;
+/**
+ *	使用JDK自带的MD5加密**/
+public class MdByJDK {
+
+	public static void main(String[] args) {
+		
+	}
+}

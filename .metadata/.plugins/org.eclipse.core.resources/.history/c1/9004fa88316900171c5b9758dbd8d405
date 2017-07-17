@@ -1,0 +1,50 @@
+package servletBase.listener;
+
+import javax.servlet.annotation.WebListener;
+import javax.servlet.http.HttpSessionActivationListener;
+import javax.servlet.http.HttpSessionAttributeListener;
+import javax.servlet.http.HttpSessionBindingEvent;
+import javax.servlet.http.HttpSessionBindingListener;
+import javax.servlet.http.HttpSessionEvent;
+import javax.servlet.http.HttpSessionListener;
+
+/**
+ * Application Lifecycle Listener implementation class SessionListener
+ *
+ */
+@WebListener
+public class SessionListener implements HttpSessionListener, HttpSessionAttributeListener, HttpSessionBindingListener, HttpSessionActivationListener {
+
+    public SessionListener() {
+        // TODO Auto-generated constructor stub
+    }
+
+    public void sessionCreated(HttpSessionEvent arg0)  { 
+         // TODO Auto-generated method stub
+    }
+    public void valueBound(HttpSessionBindingEvent arg0)  { 
+         // TODO Auto-generated method stub
+    }
+    public void sessionDestroyed(HttpSessionEvent arg0)  { 
+         // TODO Auto-generated method stub
+    }
+    public void sessionDidActivate(HttpSessionEvent arg0)  { 
+         // TODO Auto-generated method stub
+    }
+    public void attributeAdded(HttpSessionBindingEvent arg0)  { 
+         // TODO Auto-generated method stub
+    }
+    public void attributeRemoved(HttpSessionBindingEvent arg0)  { 
+         // TODO Auto-generated method stub
+    }
+    public void attributeReplaced(HttpSessionBindingEvent arg0)  { 
+         // TODO Auto-generated method stub
+    }
+    public void sessionWillPassivate(HttpSessionEvent arg0)  { 
+         // TODO Auto-generated method stub
+    }
+    public void valueUnbound(HttpSessionBindingEvent arg0)  { 
+         // TODO Auto-generated method stub
+    }
+	
+}

@@ -1157,3 +1157,56 @@
 7月 12, 2017 20:39:42.97 [16784:10800:0712/203942.977:ERROR:get_updates_processor.cc(244)] PostClientToServerMessage() failed during GetUpdates
 7月 12, 2017 20:45:28.61 [16784:15904:0712/204528.612:ERROR:gcm_channel_status_request.cc(89)] GCM channel request failed.
 7月 12, 2017 20:45:28.83 [16784:10800:0712/204528.832:ERROR:get_updates_processor.cc(244)] PostClientToServerMessage() failed during GetUpdates
+
+7月 12, 2017 23:20:07.02 NEW SESSION
+7月 12, 2017 23:20:07.02 [7028:7412:0712/232007.025:ERROR:child_thread_impl.cc(762)] Request for unknown Channel-associated interface: ui::mojom::GpuMain
+
+7月 14, 2017 20:49:00.16 NEW SESSION
+7月 14, 2017 20:49:00.16 [7600:7560:0714/204900.164:ERROR:child_thread_impl.cc(762)] Request for unknown Channel-associated interface: ui::mojom::GpuMain
+7月 14, 2017 20:49:21.00 [13132:12364:0714/204921.004:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -118
+7月 14, 2017 20:50:11.27 [13132:12364:0714/205011.273:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -118
+7月 14, 2017 20:51:05.99 [13132:12364:0714/205105.992:ERROR:checkin_request.cc(179)] Failed to get checkin response. Fetcher failed. Retrying.
+7月 14, 2017 20:51:24.77 [13132:12364:0714/205124.769:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -118
+7月 14, 2017 20:53:11.78 [13132:12364:0714/205311.778:ERROR:checkin_request.cc(179)] Failed to get checkin response. Fetcher failed. Retrying.
+7月 14, 2017 20:53:15.18 [13132:12364:0714/205315.186:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -118
+7月 14, 2017 20:54:44.64 [13132:8700:0714/205444.642:ERROR:account_tracker.cc(356)] OnGetTokenFailure: Connection failed (-7).
+7月 14, 2017 20:54:44.65 [13132:8700:0714/205444.642:ERROR:account_tracker.cc(356)] OnGetTokenFailure: Connection failed (-7).
+7月 14, 2017 20:56:11.65 [13132:12364:0714/205611.654:ERROR:checkin_request.cc(179)] Failed to get checkin response. Fetcher failed. Retrying.
+7月 14, 2017 20:56:19.68 [13132:8700:0714/205619.682:ERROR:gcm_channel_status_request.cc(89)] GCM channel request failed.
+7月 14, 2017 20:56:51.93 [13132:12364:0714/205651.929:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -118
+7月 14, 2017 20:58:51.96 [13132:8700:0714/205851.963:ERROR:gcm_channel_status_request.cc(89)] GCM channel request failed.
+7月 14, 2017 20:59:47.73 [13132:12364:0714/205947.729:ERROR:checkin_request.cc(179)] Failed to get checkin response. Fetcher failed. Retrying.
+7月 14, 2017 21:01:39.11 [13132:8700:0714/210139.111:ERROR:gcm_channel_status_request.cc(89)] GCM channel request failed.
+7月 14, 2017 21:03:45.69 [13132:12364:0714/210345.693:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -118
+7月 14, 2017 21:05:28.70 [13132:8700:0714/210528.702:ERROR:gcm_channel_status_request.cc(89)] GCM channel request failed.
+7月 14, 2017 21:05:46.13 [13132:12364:0714/210546.133:ERROR:checkin_request.cc(179)] Failed to get checkin response. Fetcher failed. Retrying.
+7月 14, 2017 21:10:28.47 [13132:8700:0714/211028.470:ERROR:gcm_channel_status_request.cc(89)] GCM channel request failed.
+7月 14, 2017 21:15:15.38 [13132:12364:0714/211515.381:ERROR:checkin_request.cc(179)] Failed to get checkin response. Fetcher failed. Retrying.
+7月 14, 2017 21:20:02.31 [13132:8700:0714/212002.309:ERROR:gcm_channel_status_request.cc(89)] GCM channel request failed.
+7月 14, 2017 21:21:09.37 [13132:8700:0714/212109.369:ERROR:account_info_fetcher.cc(58)] OnGetTokenFailure: Connection failed (-118).
+7月 14, 2017 21:27:21.83 [13132:12364:0714/212721.828:ERROR:checkin_request.cc(179)] Failed to get checkin response. Fetcher failed. Retrying.
+7月 14, 2017 21:32:08.33 [13132:8700:0714/213208.327:ERROR:gcm_channel_status_request.cc(89)] GCM channel request failed.
+7月 14, 2017 21:39:28.27 [13132:12364:0714/213928.270:ERROR:checkin_request.cc(179)] Failed to get checkin response. Fetcher failed. Retrying.
+7月 14, 2017 21:44:14.35 [13132:8700:0714/214414.348:ERROR:gcm_channel_status_request.cc(89)] GCM channel request failed.
+
+7月 17, 2017 23:36:29.26 NEW SESSION
+7月 17, 2017 23:36:29.27 [10816:2776:0717/233629.260:ERROR:child_thread_impl.cc(762)] Request for unknown Channel-associated interface: ui::mojom::GpuMain
+7月 17, 2017 23:36:48.51 [13700:13172:0717/233648.516:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -118
+7月 17, 2017 23:37:37.16 [13700:13172:0717/233737.160:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -118
+7月 17, 2017 23:38:43.54 [13700:13172:0717/233843.541:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -118
+7月 17, 2017 23:40:51.54 [13700:13172:0717/234051.538:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -118
+7月 17, 2017 23:44:18.16 [13700:13172:0717/234418.153:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -118
+7月 17, 2017 23:46:45.05 [13700:7920:0717/234645.049:ERROR:get_updates_processor.cc(244)] PostClientToServerMessage() failed during GetUpdates
+7月 17, 2017 23:46:45.30 [13700:15912:0717/234645.299:ERROR:gcm_channel_status_request.cc(89)] GCM channel request failed.
+7月 17, 2017 23:49:18.04 [13700:15912:0717/234918.038:ERROR:gcm_channel_status_request.cc(89)] GCM channel request failed.
+7月 17, 2017 23:50:29.41 [13700:13172:0717/235029.411:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -118
+7月 17, 2017 23:52:20.36 [13700:15912:0717/235220.358:ERROR:gcm_channel_status_request.cc(89)] GCM channel request failed.
+7月 17, 2017 23:55:09.34 [13700:7920:0717/235509.337:ERROR:get_updates_processor.cc(244)] PostClientToServerMessage() failed during GetUpdates
+7月 17, 2017 23:55:09.59 [13700:15912:0717/235509.588:ERROR:gcm_channel_status_request.cc(89)] GCM channel request failed.
+7月 18, 2017 24:00:08.58 [13700:15912:0718/000008.574:ERROR:gcm_channel_status_request.cc(89)] GCM channel request failed.
+7月 18, 2017 24:00:29.06 [13700:13172:0718/000029.056:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -21
+7月 18, 2017 24:00:29.06 [13700:7920:0718/000029.058:ERROR:get_updates_processor.cc(244)] PostClientToServerMessage() failed during GetUpdates
+7月 18, 2017 24:00:53.31 [13700:13172:0718/000053.312:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -118
+7月 18, 2017 24:01:08.58 [13700:7920:0718/000108.578:ERROR:get_updates_processor.cc(244)] PostClientToServerMessage() failed during GetUpdates
+7月 18, 2017 24:01:32.83 [13700:13172:0718/000132.837:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -118
+7月 18, 2017 24:03:12.39 [13700:7920:0718/000312.390:ERROR:get_updates_processor.cc(244)] PostClientToServerMessage() failed during GetUpdates
