@@ -1,6 +1,5 @@
 package jspBase.bean;
 
-import java.io.Serializable;
 
 /**
  * 	JavaBean的设计原则
