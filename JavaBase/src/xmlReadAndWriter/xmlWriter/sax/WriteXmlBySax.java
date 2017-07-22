@@ -3,7 +3,6 @@ package xmlReadAndWriter.xmlWriter.sax;
 import java.io.File;
 import java.io.FileOutputStream;
 
-import javax.xml.stream.events.Attribute;
 import javax.xml.transform.*;
 import javax.xml.transform.Result;
 import javax.xml.transform.Transformer;

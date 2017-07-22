@@ -56,7 +56,7 @@ public class WriteXmlByDom {
 		Transformer transformer = transformerFactory.newTransformer();
 		transformer.setOutputProperty(OutputKeys.ENCODING, "UTF-8");	//字符编码
 		transformer.setOutputProperty(OutputKeys.INDENT, "yes");		//是否换行
-		transformer.transform(new DOMSource(document), new StreamResult( new File("src/xmlReadAndWriter/xmlWriter/Books.xml")));
+		transformer.transform(new DOMSource(document), new StreamResult(xml));
 		
 	}
 }
