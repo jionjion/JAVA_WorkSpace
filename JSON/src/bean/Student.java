@@ -4,16 +4,15 @@ import java.util.Date;
 
 import com.google.gson.annotations.SerializedName;
 
-/**Ê¹ÓÃjavaBean´´½¨JSON¶ÔÏó*/
+/**å¯¹åº”çš„javaBean*/
 public class Student {
 
-	@SerializedName("NAME")					//GSONµÄ×¢½â,Ê¹nameÃû³ÆÖ¸¶¨Îª´óĞ´
+	@SerializedName("NAME")					//GSONæ‰€ç‰¹æœ‰çš„ç±»,å¼ºåˆ¶å±æ€§åå¤§å†™
 	private String name;
-	@SerializedName("AGE")
 	private double age;
 	@SerializedName("BIRTHDAY")
 	private Date birthday;
-	private transient String school;		//transient.Òş²Øµ±Ç°ÊôĞÔ,²»²ÎÓë¹¹½¨¶ÔÏó
+	private transient String school;		//transient.ä¸ä¼šè¢«è½¬æ¢ä¸ºJSONå±æ€§
 	private String[] major;
 	private boolean single;
 	private String car;

@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
@@ -83,19 +84,17 @@ public class MessageDao {
 	}
 	
 	/**使用Mybatis的接口式编程实现对数据库的访问查询*/
-	public List<Message> queryMessagesListByInterface (String command,String description ) {
+	public List<Message> queryMessagesListByInterface (Map<String, Object> parameters) {
 		DBAccess dbAccess = new DBAccess();
 		SqlSession sqlSession = null;
 		try {
 			sqlSession = dbAccess.getSqlSession();
 			//通过SQLSession执行SQL语句,直接在方法中追加传入参数.参数只能传一个.多个参数封装为Map或者对象
-			//封装对象,传入查询
-			Message message = new Message();
-			message.setCommand(command);
-			message.setDescription(description);
+			
 			//面向接口的编程
 			IMessage iMessage = sqlSession.getMapper(IMessage.class);
-			List<Message> list = iMessage.queryMessagesList(message);
+//			List<Message> list = iMessage.queryMessagesList(parameters);	//传入Map集合,自定义分页
+			List<Message> list = iMessage.queryMessagesListByPageInterceptor(parameters);	//传入Map集合,使用拦截器完成分页
 			return list;
 		} catch (Exception e) {
 			System.err.println("SQLSession连接获取出现问题");
@@ -146,4 +145,27 @@ public class MessageDao {
 			}
 		}
 	}
+
+	/**通过面向接口的编程,完成模糊消息的总条数查询*/
+	public int count(Message message) {
+		DBAccess dbAccess = new DBAccess();
+		SqlSession sqlSession = null;
+		int totalNumber = 0; //总页数
+		try {
+			sqlSession = dbAccess.getSqlSession();
+			IMessage iMessage = sqlSession.getMapper(IMessage.class);
+			totalNumber = iMessage.count(message);
+			
+		} catch (Exception e) {
+			System.err.println("SQLSession连接获取出现问题");
+			e.printStackTrace();
+		} finally {
+			//session关闭
+			if (sqlSession != null) {
+				sqlSession.close();
+			}
+		}
+		return totalNumber;
+	}
+	
 }

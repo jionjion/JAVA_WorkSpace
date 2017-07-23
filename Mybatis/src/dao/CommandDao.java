@@ -5,7 +5,6 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 
 import bean.Command;
-import bean.Message;
 import db.DBAccess;
 
 /**数据库命令主表对应的Dao层,实现对多表的联合维护*/

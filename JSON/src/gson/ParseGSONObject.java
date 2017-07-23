@@ -9,25 +9,24 @@ import com.google.gson.GsonBuilder;
 
 import bean.Student;
 
-/**½âÎöJSON¶ÔÏó*/
+/**å°†æ–‡ä»¶è§£æä¸ºGSONå¯¹è±¡*/
 public class ParseGSONObject {
 
-	/**Ê¹ÓÃÎÄ¼ş½âÎöGSON¶ÔÏó*/
+	/**é€šè¿‡æ–‡ä»¶è§£æ*/
 	public static void parseGSONObjectByFile() throws Exception{
-		File file = new File("F:\\JAVA_WorkSpace\\JSON\\src\\json\\GSON¶ÔÏó.gson");	//Ê¹ÓÃÀàÂ·¾¶,Íê³É¼ÓÔØ
-		//½«ÎÄ¼şÕûÌå¶ÁÈ¡ÎªÒ»¸öString
+		File file = new File("F:\\JAVA_WorkSpace\\JSON\\src\\json\\GSONå¯¹è±¡.gson");	//æ–‡ä»¶çš„åœ°å€
+		//å°†æ–‡ä»¶è½¬ä¸ºString
 		String content = FileUtils.readFileToString(file,"utf8");
-		//´´½¨GSON¶ÔÏó
-		Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();	//´´½¨ÈÕÆÚ¸ñÊ½
-		//´´½¨¶ÔÏó,¿ÉÒÔÖ±½Ó½«JSON¶ÔÏó×ªÎªJavaBean¶ÔÏó
-		//¿ÉÒÔ×Ô¶¯Ê¶±ğListºÍSet¼¯ºÏ
+		//è®¾ç½®æ—¥æœŸæ ¼å¼
+		Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();	//æ—¥æœŸæ ¼å¼
+		//è®¾ç½®ä¼ å…¥çš„æ–‡ä»¶,å¹¶è½¬ä¸ºçš„JavaBean
 		Student student = gson.fromJson(content, Student.class);
-		System.out.println("ĞÕÃûÎª:"+student.getName());
-		System.out.println("ÄêÁäÎª:"+student.getAge());
-		System.out.println("ÉúÈÕÎª:"+student.getBirthday());
-		System.out.println("Ñ§Ğ£Îª:"+student.getSchool());
-		System.out.println("ËùÑ§×¨ÒµÓĞ:"+student.getMajor());
-		System.out.println("ÊÇ·ñµ¥Éí:"+student.isSingle());
+		System.out.println("å§“å:"+student.getName());
+		System.out.println("å¹´é¾„:"+student.getAge());					//éœ€è¦å¤§å°å†™ä¸€è‡´,å¹¶åœ¨JavaBeanä¸­å£°æ˜çš„
+		System.out.println("ç”Ÿæ—¥:"+student.getBirthday());
+		System.out.println("å­¦æ ¡:"+student.getSchool());
+		System.out.println("ä¸“ä¸š:"+student.getMajor());
+		System.out.println("å•èº«:"+student.isSingle());
 		
 	}
 	

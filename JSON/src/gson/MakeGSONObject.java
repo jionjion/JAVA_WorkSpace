@@ -10,34 +10,34 @@ import com.google.gson.GsonBuilder;
 import bean.Student;
 
 /**
- * 	´´½¨GSON¶ÔÏó*/
+ * 	ç”ŸæˆGSONçš„ç±»*/
 public class MakeGSONObject {
 
-	/**Ê¹ÓÃjavaBean´´½¨JSON¶ÔÏó*/
+	/**ä½¿ç”¨javaBeanåˆ›å»ºGSON*/
 	public static void createGSONObjectByJavaBean() throws Exception {
 		Student student = new Student();
-		student.setName("ÕÅÇ«");
+		student.setName("å¼ è°¦");
 		student.setAge(24.2);
-		student.setBirthday(new SimpleDateFormat("YYYY-MM-DD").parse("1994-04-12"));	//ÈÕÆÚ¸ñÊ½²»ÓÑÉÆ
-		student.setSchool("ºÓÄÏ¿Æ¼¼Ñ§Ôº");
+		student.setBirthday(new SimpleDateFormat("YYYY-MM-DD").parse("1994-04-12"));	//æ—¥æœŸè½¬æ¢
+		student.setSchool("æ²³å—ç§‘æŠ€å­¦é™¢");
 		student.setSingle(false);
 		student.setCar(null);
-		//´´½¨GSON¶ÔÏó
-//		Gson gson = new Gson();	//¿ÉÒÔÖ±½Ó´´½¨GSON¶ÔÏó
+		//åˆ›å»ºGSONå¯¹è±¡
+//		Gson gson = new Gson();	//ä½¿ç”¨ç›´æ¥newçš„æ–¹å¼åˆ›å»º
 		GsonBuilder gsonBuilder = new GsonBuilder();
-		gsonBuilder.setPrettyPrinting();	//¸ñÊ½»¯´òÓ¡
-		gsonBuilder.setFieldNamingStrategy(new FieldNamingStrategy() {	//¶¨ÖÆ·µ»Ø²ßÂÔ
-			//»Øµ÷º¯Êı,¶Ô½âÎöÊ±µÄJSON¶ÔÏó½øĞĞ´¦Àí
+		gsonBuilder.setPrettyPrinting();	//
+		gsonBuilder.setFieldNamingStrategy(new FieldNamingStrategy() {	//
+			//
 			@Override
-			public String translateName(Field field) {		//field,·´ÉäÊ±µÄ¶ÔÏó
-				if (field.getName().equals("school")) {		//¶ÔÏóµÄÊôĞÔÃû×Ö
-					return "SchoolÊÇ";
+			public String translateName(Field field) {		//field,è¡¨ç¤ºå±æ€§å
+				if (field.getName().equals("age")) {		//è¡¨ç¤ºå±æ€§åæ˜¯å¦ç›¸ç­‰
+					return "ageæ˜¯:";
 				}
 				return field.getName();
 			}
 		});
-		Gson gson = gsonBuilder.create();	//´´½¨GSON¶ÔÏó
-		System.out.println("GSON¶ÔÏó:");
+		Gson gson = gsonBuilder.create();	//åˆ›å»ºJSONå¯¹è±¡
+		System.out.println("GSONå¼€å§‹:");
 		System.out.println(gson.toJson(student));
 		System.out.println("-------------------");
 	}

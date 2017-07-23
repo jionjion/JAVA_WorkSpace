@@ -8,79 +8,78 @@ import bean.Student;
 import net.sf.json.JSONException;
 import net.sf.json.JSONObject;
 
-/**´´½¨JSON¶ÔÏó*/
+/**åˆ›å»ºJSONå¯¹è±¡*/
 public class MakeJSONObject {
 	/* 
    {
-	"name" 	: 	"ÕÅÇ«",
+	"name" 	: 	"å¼ è°¦",
 	"age"	:	24.2,
 	"birthday":	"1994-4-12",
-	"school":	"ºÓÄÏ¿Æ¼¼Ñ§Ôº",
-	"major"	:	["»úĞµÉè¼ÆÖÆÔì¼°Æä×Ô¶¯»¯","µçÆø¹¤³Ì¼°Æä×Ô¶¯»¯×¨Òµ","Èí¼ş¹¤³Ì"],
+	"school":	"æ²³å—ç§‘æŠ€å­¦é™¢",
+	"major"	:	["æœºæ¢°è®¾è®¡","ç”µå­å·¥ç¨‹","è½¯ä»¶å·¥ç¨‹"],
 	"single":	false,
 	"car"	:	null
 	}
 	 */
-	/**Ê¹ÓÃJSONObjectÀàÊµÏÖ¶ÔÏóµÄ´´½¨*/
+	/**ç›´æ¥åˆ›å»ºJSONå¯¹è±¡*/
 	public static void createJSONObjectByJSONObject() throws JSONException{
 		JSONObject jsonObject = new JSONObject();
-		Object nullObject = null;	//´´½¨¿Õ¶ÔÏó
-		jsonObject.put("name", "ÕÅÇ«");
+		Object nullObject = null;	//åˆ›å»ºç©ºå¯¹è±¡,è¡¨ç¤ºnullæœ¬èº«
+		jsonObject.put("name", "å¼ è°¦");
 		jsonObject.put("age", 24.2);
 		jsonObject.put("birthday", "1994-4-12");
-		jsonObject.put("school", "ºÓÄÏ¿Æ¼¼Ñ§Ôº");
-		jsonObject.put("marjor", new String[]{"»úĞµÉè¼ÆÖÆÔì¼°Æä×Ô¶¯»¯","µçÆø¹¤³Ì¼°Æä×Ô¶¯»¯×¨Òµ","Èí¼ş¹¤³Ì"});
+		jsonObject.put("school", "æ²³å—ç§‘æŠ€å­¦é™¢");
+		jsonObject.put("marjor", new String[]{"æœºæ¢°è®¾è®¡","ç”µå­å·¥ç¨‹","è½¯ä»¶å·¥ç¨‹"});
 		jsonObject.put("single", false);
-		jsonObject.put("car", nullObject);	//²»¿ÉÒÔÖ±½Ó·ÅÈënull,ÕâÀï·â×°¶ÔÏó
-		//Êä³ö
-		System.out.println("JSON¶ÔÏó:");
+		jsonObject.put("car", nullObject);	//ä¼ å…¥ç©ºå¯¹è±¡
+		//è¾“å‡º
+		System.out.println("JSONè§£æ:");
 		System.out.println(jsonObject.toString());
 		System.out.println("-------------------");
 		
 	}
 	
-	/**Ê¹ÓÃMap´´½¨JSON¶ÔÏó*/
+	/**é€šè¿‡Mapåˆ›å»ºJSONå¯¹è±¡*/
 	public static void createJSONObjectByMap() throws JSONException{
 		Map<String, Object> map = new HashMap<String, Object>();
-		Object nullObject = null;	//´´½¨¿Õ¶ÔÏó
-		map.put("name", "ÕÅÇ«");
+		Object nullObject = null;	//åˆ›å»ºç©ºå¯¹è±¡
+		map.put("name", "å¼ è°¦");
 		map.put("age", 24.2);
 		map.put("birthday", "1994-4-12");
-		map.put("school", "ºÓÄÏ¿Æ¼¼Ñ§Ôº");
-		map.put("major", new String[]{"»úĞµÉè¼ÆÖÆÔì¼°Æä×Ô¶¯»¯","µçÆø¹¤³Ì¼°Æä×Ô¶¯»¯×¨Òµ","Èí¼ş¹¤³Ì"});
+		map.put("school", "æ²³å—ç§‘æŠ€å­¦é™¢");
+		map.put("major", new String[]{"æœºæ¢°è®¾è®¡","ç”µå­å·¥ç¨‹","è½¯ä»¶å·¥ç¨‹"});
 		map.put("single", false);
-		map.put("car", nullObject);	//²»¿ÉÒÔÖ±½Ó·ÅÈënull,ÕâÀï·â×°¶ÔÏó
-		//´´½¨JSON¶ÔÏó
+		map.put("car", nullObject);	//ä¼ å…¥ç©ºå¯¹è±¡
+		//å°†Mapè§£æä¸ºJSONå¯¹è±¡
 		JSONObject jsonObject = new JSONObject();
 		jsonObject.accumulateAll(map);
-		//Êä³ö
-		System.out.println("JSON¶ÔÏó:");
+		//è¾“å‡º
+		System.out.println("JSONè§£æ:");
 		System.out.println(jsonObject.toString());
 		System.out.println("-------------------");
 		
 	}
 	
-	/**Ê¹ÓÃjavaBean´´½¨JSON¶ÔÏó*/
-	@SuppressWarnings("deprecation")
+	/**å°†javaBeanè§£æJSON*/
 	public static void createJSONObjectByJavaBean() throws Exception {
 		Student student = new Student();
-		student.setName("ÕÅÇ«");
+		student.setName("å¼ è°¦");
 		student.setAge(24.2);
-		student.setBirthday(new SimpleDateFormat("YYYY-MM-DD").parse("1994-04-12"));	//ÈÕÆÚ¸ñÊ½²»ÓÑÉÆ
-		student.setSchool("ºÓÄÏ¿Æ¼¼Ñ§Ôº");
+		student.setBirthday(new SimpleDateFormat("YYYY-MM-DD").parse("1994-04-12"));	
+		student.setSchool("æ²³å—ç§‘æŠ€å­¦é™¢");
 		student.setSingle(false);
 		student.setCar(null);
-		//´´½¨JSON¶ÔÏó
-		JSONObject jsonObject = JSONObject.fromObject(student);		//¹¤³§Ä£Ê½
-		System.out.println("JSON¶ÔÏó:");
+		//å°†JavaBeanè§£æä¸ºJSONå¯¹è±¡
+		JSONObject jsonObject = JSONObject.fromObject(student);		//å¯¹æ—¥æœŸæ”¯æŒä¸å¥½	
+		System.out.println("JSONè§£æ:");
 		System.out.println(jsonObject.toString());
 		System.out.println("-------------------");
 	}
 	
 	public static void main(String[] args) throws Exception {
 //		createJSONObjectByJSONObject();
-		createJSONObjectByMap();
-//		createJSONObjectByJavaBean();
+//		createJSONObjectByMap();
+		createJSONObjectByJavaBean();
 	}
 }
 

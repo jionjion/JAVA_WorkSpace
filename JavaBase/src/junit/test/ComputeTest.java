@@ -1,11 +1,6 @@
 package junit.test;
 
-import static org.junit.Assert.*;
-
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
+import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 import junit.src.Compute;
@@ -28,39 +23,10 @@ public class ComputeTest {
 	
 	/**使用单元测试,完成断言测试*/
 	@Test
-	public void testAdd() {
-		//简单的求和计算, 3 ?= 1 + 2 
-		assertEquals(3, new Compute().add(1, 2));
+	public void testdivision() {
+		//简单除法计算, 3 ?= 6 / 2 
+		assertEquals(3, new Compute().division (6, 2));
+		System.out.println("计算成功...");
 	}
 
-	/**测试周期*/
-	
-	/**静态方法,在类初始化时执行,适合加载各种配置*/
-	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
-		System.out.println("类实初始化前创建,只执行一次");
-	}
-
-
-	/**前面的通用代码块*/
-	@Before
-	public void setUp() throws Exception {
-		System.out.println("测试方法前执行,执行多次");
-	}
-
-	/**后面的通用代码块*/
-	@After
-	public void tearDown() throws Exception {
-		System.out.println("测试方法后执行,执行多次");
-	}
-
-	/**对资源的清理,关闭各种连接*/
-	@AfterClass
-	public static void tearDownAfterClass() throws Exception {
-		System.out.println("类销毁时创建,只执行一次");
-	}
-	@Test
-	public void test() {
-		System.out.println("测试代码....");
-	}
 }

@@ -1,5 +1,5 @@
 package entity;
-/**分页类*/
+/**分页类,放在与表无关的包下*/
 public class Page {
 
 	/**总条数*/
@@ -11,13 +11,13 @@ public class Page {
 	/**每页显示条数,默认5页*/
 	private int pageNumber = 5;
 	/**开始查询条数*/
-	private int start;
+	private int start;	
 	/**偏移量*/
 	private int pace;
 	
 	/**计算总页数*/
 	public void count() {
-		int totalPageTemp = (totalPage / pageNumber) + ((totalPage % pageNumber) ==0 ? 0 : 1); 
+		int totalPageTemp = (totalNumber / pageNumber) + ((totalNumber % pageNumber) ==0 ? 0 : 1); 
 		//当前页数小于1
 		if (totalPageTemp <=0 ) {
 			totalPageTemp = 1;

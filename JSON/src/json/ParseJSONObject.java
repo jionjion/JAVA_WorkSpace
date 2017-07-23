@@ -9,31 +9,31 @@ import org.apache.commons.io.FileUtils;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
-/**½âÎöÎªJSON¶ÔÏó*/
+/**è§£æJSONæ–‡ä»¶*/
 public class ParseJSONObject {
 
-	/**Ê¹ÓÃÎÄ¼ş½âÎöJSON¶ÔÏó*/
+	/**Ê¹è§£æJSONæ–‡ä»¶*/
 	public static void parseJSONObjectByFile() throws Exception{
-		File file = new File("F:\\JAVA_WorkSpace\\JSON\\src\\json\\JSON¶ÔÏó.json");	//Ê¹ÓÃÀàÂ·¾¶,Íê³É¼ÓÔØ
-		//½«ÎÄ¼şÕûÌå¶ÁÈ¡ÎªÒ»¸öString
+		File file = new File("F:\\JAVA_WorkSpace\\JSON\\src\\json\\JSONå¯¹è±¡.json");	//ä¼ å…¥æ–‡ä»¶
+		//å°†æ–‡ä»¶è½¬ä¸ºString
 		String content = FileUtils.readFileToString(file,"utf8");
-		//´´½¨JSON¶ÔÏó
+		//è§£æä¸ºJSONå¯¹è±¡
 		JSONObject jsonObject = JSONObject.fromObject(content);
-		//¶ÁÈ¡JSONÊôĞÔ
+		//è·å¾—JSONå¯¹è±¡çš„å±æ€§
 		String name = jsonObject.getString("name");
-		System.out.println("ĞÕÃûÎª:"+name);
+		System.out.println("å§“å:"+name);
 		float age = (float) jsonObject.getDouble("age");
-		System.out.println("ÄêÁäÎª:"+age);
+		System.out.println("å¹´é¾„:"+age);
 		Date birthday = new SimpleDateFormat("YYYY-MM-DD").parse(jsonObject.getString("birthday"));
-		System.out.println("ÉúÈÕÎª:"+birthday);
+		System.out.println("ç”Ÿæ—¥:"+birthday);
 		String school = jsonObject.getString("school");
-		System.out.println("Ñ§Ğ£Îª:"+school);
+		System.out.println("å­¦æ ¡:"+school);
 		JSONArray jsonArray = jsonObject.getJSONArray("major");
 		for (Object object : jsonArray) {
-			System.out.println("ËùÑ§×¨ÒµÓĞ:"+object.toString());
+			System.out.println("ä¸“ä¸š:"+object.toString());
 		}
 		boolean single = jsonObject.getBoolean("single");
-		System.out.println("ÊÇ·ñµ¥Éí:"+single);
+		System.out.println("å•èº«:"+single);
 		
 		
 	}
