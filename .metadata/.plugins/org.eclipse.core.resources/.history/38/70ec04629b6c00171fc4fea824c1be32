@@ -1,0 +1,17 @@
+package xmlReadAndWriter.xmlRead.dom4j;
+
+import java.io.File;
+
+import org.dom4j.io.SAXReader;
+
+/**	使用Dom4j方式解析XML文件*/
+public class ReadXmlByDom4j {
+
+	public static void main(String[] args) throws Exception{
+
+		//引入文件
+		File xml = new File("src/xmlReadAndWriter/xmlRead/Books.xml");
+		//创建
+		SAXReader saxReader = new SAXReader();
+	}
+}

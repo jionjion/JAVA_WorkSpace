@@ -1,0 +1,39 @@
+package conform;
+
+import static org.junit.Assert.*;
+
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import com.sun.accessibility.internal.resources.accessibility;
+
+/**
+ * 	Spring框架的测试文件*/
+public class SpringTest {
+
+	private static ApplicationContext applicationContext = null;
+	
+	/**在类加载时,读取配置文件,完成加载*/
+	@BeforeClass
+	public static void setUpBeforeClass() throws Exception {
+		applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
+	}
+
+
+	
+	@Test
+	public void test() {
+		applicationContext.getBean("date");		//获得Application.xml文件中声明的Date类
+	}
+
+
+
+	@AfterClass
+	public static void tearDownAfterClass() throws Exception {
+	}
+}

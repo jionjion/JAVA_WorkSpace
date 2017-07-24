@@ -1,0 +1,10 @@
+package junit.test;
+
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+
+/**	参数化测试*/
+@RunWith(Parameterized.class)
+public class ParameterTest {
+
+}

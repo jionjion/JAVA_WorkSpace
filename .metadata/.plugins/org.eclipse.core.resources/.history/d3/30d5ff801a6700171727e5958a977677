@@ -1,7 +1,0 @@
-package jms.queue;
-/**
- * 	消息队列的消费者,消费生产者生产的消息队列
- * */
-public class AppConsumer {
-
-}

@@ -14,5 +14,10 @@
 			<type>2</type>
 			<location>E:/Java/some Jar/POI/poi-3.16-src</location>
 		</link>
+		<link>
+			<name>.link1</name>
+			<type>2</type>
+			<location>E:/Java/some Jar/Mybatis/mybatis-3.3.0</location>
+		</link>
 	</linkedResources>
 </projectDescription>

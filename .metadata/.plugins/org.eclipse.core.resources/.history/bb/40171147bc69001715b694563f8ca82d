@@ -1,6 +1,0 @@
-package javaEncryption.shaDemo;
-/**
- * 	通过JDK的方式实现SHA消息摘要*/
-public class ShaByJDK {
-
-}

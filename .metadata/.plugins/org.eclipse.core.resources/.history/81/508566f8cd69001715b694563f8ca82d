@@ -1,6 +1,0 @@
-package javaEncryption.desDemo;
-/**
- * 	通过JDK自带的实现*/
-public class DesJDK {
-
-}

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+    	<!-- 连接名称 -->
+    	<property name="connection.username">root</property>
+    	<!-- 密码 -->
+    	<property name="connection.password">123456</property>
+    	<!-- 驱动 -->
+    	<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+    	<!-- 连接url,指定数据库编码 -->
+    	<property name="connection.url">jdbc:mysql:///hibernate?useUnicode=true&amp;characterEncoding=UTF-8</property>
+    	<!-- 方言设定 -->
+    	<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+    	<!-- 输出SQL -->
+    	<property name="show_sql">true</property>
+    	<!-- 格式化SQL -->
+    	<property name="format_sql">true</property>
+    	<!-- 数据库前缀,区分不同数据库名称 -->
+    	<property name="hibernate.default_schema">hibernate</property>
+    	<!-- 生成方式 -->
+    	<property name="hbm2ddl.auto">create</property>
+    	<!-- 事务种类 线程事务GetCurrentSession使用 -->
+    	<property name="current_session_context_class">thread</property>
+    
+  	  	<property name="hibernate.cache.use_second_level_cache">true</property>
+		<property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>
+	
+	   	<!-- 配置连接的对象关系文件 -->
+    	<mapping resource="bean/Student.hbm.xml"/>
+    	<mapping resource="bean/Pupil.hbm.xml"/>
+    	<mapping resource="bean/grade.hbm.xml"/>
+  	    <mapping resource="bean/Employee.hbm.xml"/>
+	    <mapping resource="bean/Project.hbm.xml"/>
+	    
+	    <!-- 以下使用注解完成解析,映射文件使用.分隔 -->
+	    <mapping class="annotationBean.AStudent"/>
+	    <mapping class="annotationBean.AGrade"/>
+	    <mapping class="annotationBean.APupil"/>
+	    <mapping class="annotationBean.AStudentCard"/>
+	    
+    </session-factory>
+</hibernate-configuration>

@@ -1,0 +1,37 @@
+package gson;
+
+import java.io.File;
+
+import org.apache.commons.io.FileUtils;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+import bean.Student;
+
+/**将文件解析为GSON对象*/
+public class ParseGSONObject {
+
+	/**通过文件解析*/
+	public static void parseGSONObjectByFile() throws Exception{
+		File file = new File("F:\\JAVA_WorkSpace\\JSON\\src\\json\\GSON����.gson");	//文件的地址
+		//���ļ������ȡΪһ��String
+		String content = FileUtils.readFileToString(file,"utf8");
+		//����GSON����
+		Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();	//�������ڸ�ʽ
+		//��������,����ֱ�ӽ�JSON����תΪJavaBean����
+		//�����Զ�ʶ��List��Set����
+		Student student = gson.fromJson(content, Student.class);
+		System.out.println("����Ϊ:"+student.getName());
+		System.out.println("����Ϊ:"+student.getAge());
+		System.out.println("����Ϊ:"+student.getBirthday());
+		System.out.println("ѧУΪ:"+student.getSchool());
+		System.out.println("��ѧרҵ��:"+student.getMajor());
+		System.out.println("�Ƿ���:"+student.isSingle());
+		
+	}
+	
+	public static void main(String[] args) throws Exception{
+		parseGSONObjectByFile();
+	}
+}

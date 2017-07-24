@@ -1,0 +1,27 @@
+package xmlReadAndWriter.xmlWriter.dom;
+
+import java.io.File;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+
+import org.w3c.dom.Document;
+
+/**	使用Dom方式生成XML文件*/
+public class WriteXmlByDom {
+
+	public static void main(String[] args) throws Exception{
+		//引入文件
+		File file = new File("src/xmlReadAndWriter/xmlRead/Books.xml");
+		
+		//创建一个DocumentBuilderFactory对象
+		DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
+		
+		//创建一个DocumentBuilder对象
+		DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
+		
+		//解析XML文件,创建Document对象
+		Document document = documentBuilder.parse(file);
+		
+	}
+}

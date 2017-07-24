@@ -1,0 +1,45 @@
+package interceptor;
+
+import java.util.Properties;
+
+import org.apache.ibatis.executor.statement.StatementHandler;
+import org.apache.ibatis.plugin.Interceptor;
+import org.apache.ibatis.plugin.Intercepts;
+import org.apache.ibatis.plugin.Invocation;
+import org.apache.ibatis.plugin.Plugin;
+import org.apache.ibatis.plugin.Signature;
+import org.apache.ibatis.reflection.MetaObject;
+import org.apache.ibatis.reflection.SystemMetaObject;
+
+import com.mysql.jdbc.Connection;
+
+
+/**分页拦截器*/
+@Intercepts({@Signature(type=StatementHandler.class,method="prepare",args={Connection.class})})
+public class PageInterceptor implements Interceptor{
+
+	/**拦截后的方法*/
+	@Override
+	public Object intercept(Invocation invocation) throws Throwable {
+
+		//获得拦截的对象的代理
+		StatementHandler statementHandler = (StatementHandler) invocation.getTarget();
+		MetaObject.forObject(statementHandler, SystemMetaObject.DEFAULT_OBJECT_FACTORY, SystemMetaObject.DEFAULT_OBJECT_FACTORY, reflectorFactory)
+		return null;
+	}
+
+	/**	执行拦截前的方法,将注解声明的类进行拦截
+	 * 	如果是符合条件的代理类,则完成返回拦截的对象的代理*/
+	@Override
+	public Object plugin(Object target) {
+		
+		return Plugin.wrap(target, this);	//拦截,拦截的类
+	}
+
+	@Override
+	public void setProperties(Properties arg0) {
+		
+	}
+
+	
+}

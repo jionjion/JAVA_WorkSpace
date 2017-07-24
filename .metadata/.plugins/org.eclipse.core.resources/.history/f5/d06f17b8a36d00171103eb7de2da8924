@@ -1,0 +1,13 @@
+package xmlReadAndWriter.xmlWriter.jdom;
+
+import org.jdom2.Element;
+
+/**	使用JDOM形式生成RSS文件*/
+public class WriterRssByJdom {
+
+	public static void main(String[] args) {
+		//生成根节点
+		Element rootRss = new Element("rss");
+		
+	}
+}

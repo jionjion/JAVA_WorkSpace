@@ -1,3 +1,4 @@
 #Tomcat publish data
-#Mon Jul 17 23:57:20 CST 2017
+#Sun Jul 23 19:28:08 CST 2017
 org.eclipse.jst.jee.server\:ServletClient=E\:\\Java\\some Jar\\Tomcat8\\webapps\\ServletClient
+org.eclipse.jst.jee.server\:Mybatis=E\:\\Java\\some Jar\\Tomcat8\\webapps\\Mybatis

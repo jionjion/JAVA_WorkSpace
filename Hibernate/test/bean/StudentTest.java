@@ -60,7 +60,7 @@ public class StudentTest{
 	@After
 	public void destory() {
 		//事物提交
-		transaction.commit();
+		transaction.commit();			//当改为自动提交时,需要将其注释掉
 		//关闭会话 
 		session.close();
 		//关闭工厂
@@ -87,6 +87,7 @@ public class StudentTest{
 		session.save(student);
 		//强制输出SQL语句
 		session.flush();
+		//注意:需要将transaction.commit()自动提交注释
 	}
 	
 	/*

@@ -23,6 +23,9 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.2.xsd
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.2.xsd">
 	
+	<!-- 尝试单元测试,检查框是否完成 -->
+	<bean id="date" class="java.util.Date"/>
+	
 	<!-- 引入外部属性文件 -->
 	<context:property-placeholder location="classpath:jdbc.properties"/>
 	<!-- 配置连接池 -->
@@ -56,7 +59,7 @@
 		</property>
 	</bean>
 	
-	<!-- 配置控制类,使用多例模式 -->
+	<!-- 配置控制层,使用多例模式 -->
 	<bean id="productAction" class="action.ProductAction" scope="prototype">
 		<property name="productService" ref="productService"/>
 	</bean>

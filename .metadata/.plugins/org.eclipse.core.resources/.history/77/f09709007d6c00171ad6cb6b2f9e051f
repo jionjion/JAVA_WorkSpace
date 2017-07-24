@@ -1,0 +1,39 @@
+package xmlReadAndWriter.xmlRead.sax;
+
+import org.xml.sax.Attributes;
+import org.xml.sax.SAXException;
+import org.xml.sax.helpers.DefaultHandler;
+
+/**解析XML的Handler*/
+public class SaxHandler extends DefaultHandler{
+
+	
+	/**开始解析xml*/
+	@Override
+	public void startDocument() throws SAXException {
+		super.startDocument();
+		System.out.println("-----开始解析----");
+	}
+
+	/**开始解析节点方法*/
+	@Override
+	public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
+	}
+	
+	
+	/**结束解析节点方法*/
+	@Override
+	public void endElement(String uri, String localName, String qName) throws SAXException {
+		// TODO Auto-generated method stub
+		super.endElement(uri, localName, qName);
+	}
+
+	/**结束解析xml*/
+	@Override
+	public void endDocument() throws SAXException {
+		super.endDocument();
+		System.out.println("-----结束解析----");
+	}
+
+	
+}

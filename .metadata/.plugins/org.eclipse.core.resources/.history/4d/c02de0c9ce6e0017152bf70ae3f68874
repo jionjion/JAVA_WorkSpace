@@ -1,0 +1,16 @@
+package junit.test;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class ComputeTest {
+
+	/**使用单元测试,完成断言测试*/
+	@Test
+	public void testAdd() {
+		//简单的求和计算, 3 ?= 1 + 2 
+		assertEquals(3, new Compute().add(1, 2));
+	}
+
+}

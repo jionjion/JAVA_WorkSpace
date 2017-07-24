@@ -1,0 +1,50 @@
+package xmlReadAndWriter.xmlRead.sax;
+
+import org.xml.sax.Attributes;
+import org.xml.sax.SAXException;
+import org.xml.sax.helpers.DefaultHandler;
+
+/**解析XML的Handler*/
+public class SaxHandler extends DefaultHandler{
+
+	
+	/**开始解析xml*/
+	@Override
+	public void startDocument() throws SAXException {
+		super.startDocument();
+		System.out.println("-----开始解析----");
+	}
+
+	/**开始解析节点方法*/
+	@Override			//qName:节点名	attributes:属性
+	public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
+		//只有book标签有属性值.需要解析
+		if (qName.equals("book")) {
+//			String attributeValue = attributes.getValue("id");		//知道属性名,直接获取属性值
+//			System.out.println("book节点的属性值:"+attributeValue);
+			
+			for (int i = 0; i < attributes.getLength(); i++) {
+				String attributeName = attributes.getQName(i);		//遍历获取属性名
+				String attributeValue = attributes.getValue(i);		//遍历获取属性值
+				
+			}
+		}
+	}
+	
+	
+	/**结束解析节点方法*/
+	@Override
+	public void endElement(String uri, String localName, String qName) throws SAXException {
+		// TODO Auto-generated method stub
+		super.endElement(uri, localName, qName);
+	}
+
+	/**结束解析xml*/
+	@Override
+	public void endDocument() throws SAXException {
+		super.endDocument();
+		System.out.println("-----结束解析----");
+	}
+
+	
+}

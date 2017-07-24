@@ -18,15 +18,32 @@
     <sql id="deleteMessageSQL">delete from message</sql>
   
   	<!-- id:唯一区分,与Dao层方法相同	parameterType:传入参数类型,为对象地址  	resultMap:返回类型,为封装后的对象 -->
-    <select id="queryMessagesList" parameterType="bean.Message" resultMap="MessageResult">  
+    <select id="queryMessagesList" parameterType="java.util.Map" resultMap="MessageResult">  
         select id,command,description,content from message 
 		<!-- where根据关键字实现自动条件匹配和检索 -->
 		<where>
+			<!-- 传入类型为两个引用对象的类型,因此需要采用对象.属性的方式获取属性值 -->
 			<!-- if:判断,成立则追加,判断是否为空.	""转义为&quot;&quot;	通过.equals调用方法			#{属性名称}填充数据 -->
-	        <if test="command != null and  ! &quot;&quot;.equals(command.trim())"> and command = #{command} </if>
+	        <if test="message.command != null and  ! &quot;&quot;.equals(message.command.trim())"> and command = #{message.command} </if>
 	        																						<!-- like '%' #{属性名} '%' 进行模糊查询-->
-	        <if test="description != null and  ! &quot;&quot;.equals(description.trim())"> and description like '%' #{description} '%' </if>
+	        <if test="message.description != null and  ! &quot;&quot;.equals(message.description.trim())"> and description like '%' #{message.description} '%' </if>
     	</where> 
+    	order by ID limit #{page.start},#{page.pace}
+    </select>
+    
+    
+    <!-- 使用拦截器完成分页的类 -->
+    <select id="queryMessagesListByPageInterceptor" parameterType="java.util.Map" resultMap="MessageResult">  
+        select id,command,description,content from message 
+		<!-- where根据关键字实现自动条件匹配和检索 -->
+		<where>
+			<!-- 传入类型为两个引用对象的类型,因此需要采用对象.属性的方式获取属性值 -->
+			<!-- if:判断,成立则追加,判断是否为空.	""转义为&quot;&quot;	通过.equals调用方法			#{属性名称}填充数据 -->
+	        <if test="message.command != null and  ! &quot;&quot;.equals(message.command.trim())"> and command = #{message.command} </if>
+	        																						<!-- like '%' #{属性名} '%' 进行模糊查询-->
+	        <if test="message.description != null and  ! &quot;&quot;.equals(message.description.trim())"> and description like '%' #{message.description} '%' </if>
+    	</where> 
+    	order by ID 
     </select>
     
     <!-- parameterType:为基本数据类型  #{_parameter}实现基本类型的注入 -->
@@ -46,6 +63,20 @@
     		</foreach>
     	)
     </delete>
+    
+    <!-- 查询总页数		parameterType:为封装的消息实体类	 resultType:返回值类型,为整型	-->
+    <select id="count" parameterType="bean.Message" resultType="int">
+    	select count(*) from message
+		<where>
+	        <if test="command != null and  ! &quot;&quot;.equals(command.trim())"> 
+	        	and command = #{command} 
+	       	</if>
+	        <if test="description != null and  ! &quot;&quot;.equals(description.trim())"> 
+	        	and description like '%' #{description} '%' 
+	        </if>
+    	</where> 
+    
+    </select>
     
   	<!-- @TODO -->
   	<!-- 修改,使用set标签,完成对多个条件的修改 -->

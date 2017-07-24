@@ -1,9 +1,0 @@
-package springJMS.producer;
-
-public class ProducerServiceImpl implements ProducerService{
-
-	public void sendMessage(String message) {
-		// TODO Auto-generated method stub
-	}
-	
-}

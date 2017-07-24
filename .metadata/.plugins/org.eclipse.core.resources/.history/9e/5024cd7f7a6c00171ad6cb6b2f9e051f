@@ -1,0 +1,5 @@
+package xmlReadAndWriter.xmlRead.sax;
+/**	使用Sax方式解析XML文件*/
+public class ReadXmlBySax {
+
+}

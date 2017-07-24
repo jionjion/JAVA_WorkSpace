@@ -1,0 +1,122 @@
+package annotationBean;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.sql.Blob;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.Date;
+
+import org.hibernate.Hibernate;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+import org.hibernate.jdbc.Work;
+import org.hibernate.service.ServiceRegistry;
+import org.hibernate.service.ServiceRegistryBuilder;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+/***多对多,多方的测试 */
+public class ATeacherTest {
+	
+	//会话工厂
+	private SessionFactory sessionFactory;
+	//会话对象
+	private Session session;
+	//事物对象
+	private Transaction transaction;
+	
+	/***
+	 * 	测试方法前执行
+	 */
+	@Before
+	public void init() {
+		//创建配置对象
+		Configuration configuration = new Configuration().configure();
+		//创建服务注册对象
+		ServiceRegistry serviceRegistry = new ServiceRegistryBuilder().applySettings(configuration.getProperties()).buildServiceRegistry();
+		//创建会话工厂
+		sessionFactory = configuration.buildSessionFactory(serviceRegistry);
+		//创建会话对象
+		session = sessionFactory.openSession();
+		//开启事物
+		transaction = session.beginTransaction();
+		
+	}
+	
+	/***
+	 * 	测试方法后执行
+	 */
+	@After
+	public void destory() {
+		//事物提交
+		transaction.commit();	//当改为自动提交时,需要将其注释掉
+		//关闭会话 
+		session.close();
+		//关闭工厂
+		sessionFactory.close();
+	}
+	
+	
+	/**
+	 * 	GET查询方法
+	 */
+	@Test
+	public void testGetAStudent(){
+		AStudent student = (AStudent)session.get(AStudent.class, 1);
+		System.out.println("真实类名:"+student.getClass().getName());
+		System.out.println("查询出:"+student.toString());
+	}
+	
+	/**
+	 * 	Load查询方法
+	 */
+	@Test
+	public void testLoadAStudent(){
+		AStudent student = (AStudent)session.load(AStudent.class, 1);
+		System.out.println("代理类名:"+student.getClass().getName());
+		System.out.println("查询出:"+student.toString());
+	}
+	
+	/**
+	 * 	GET查询后更新
+	 */
+	@Test
+	public void testGetUpdateAStudent(){
+		AStudent student = (AStudent)session.get(AStudent.class, 1);
+		student.setAddree("浙江");
+		System.out.println("更新:"+student.toString());
+	}
+	
+	/**
+	 * 	删除方法
+	 */
+	@Test
+	public void testDeleteAStudent(){
+		AStudent student = (AStudent)session.get(AStudent.class, 1);
+		session.delete(student);
+		System.out.println("删除:"+student.toString());
+	}
+	
+	/***
+	 * 	测试一对一保存*/
+	@Test
+	public void testOneTowOneAStudent() {
+		//创建学生对象
+		AStudent student = new AStudent(1,"张谦","男",new Date(),"河南");
+		AStudentCard studentCard = new AStudentCard();
+		studentCard.setCid("1");
+		studentCard.setDescription("学生 甲");
+		student.setStudentCard(studentCard);
+		//保存对象,先保存协助方,再保存主控方
+		session.save(studentCard);
+		session.save(student);
+		
+	}
+}

@@ -1,0 +1,79 @@
+<!DOCTYPE mapper  
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">   
+
+<!-- 通过接口式编程,实现对其的访问,命名空间,为接口的路径 -->
+<mapper namespace="dao.IMessage"> 
+	<!-- 配置返回值的数据类型 	type:对应java对象实体类	id:唯一区分	--> 
+    <resultMap type="bean.Message" id="MessageResult">  
+    	<!-- 主键配置属性 	column:数据库字段名	jdbcType:数据类型  property:java类的属性名-->
+        <id column="id"  property="id" />
+        <!-- 非主键配置属性 -->  
+        <result column="COMMAND" jdbcType="VARCHAR" property="command" />
+        <result column="DESCRIPTION" jdbcType="VARCHAR" property="description"/>
+        <result column="CONTENT" jdbcType="VARCHAR" property="content"/>
+    </resultMap>
+  
+    <!-- 类似于常量定义,将经常使用到的SQL片段自定义使用 -->
+    <sql id="deleteMessageSQL">delete from message</sql>
+  
+  	<!-- id:唯一区分,与Dao层方法相同	parameterType:传入参数类型,为对象地址  	resultMap:返回类型,为封装后的对象 -->
+    <select id="queryMessagesList" parameterType="bean.Message" resultMap="MessageResult">  
+        select id,command,description,content from message 
+		<!-- where根据关键字实现自动条件匹配和检索 -->
+		<where>
+			<!-- if:判断,成立则追加,判断是否为空.	""转义为&quot;&quot;	通过.equals调用方法			#{属性名称}填充数据 -->
+	        <if test="command != null and  ! &quot;&quot;.equals(command.trim())"> and command = #{command} </if>
+	        																						<!-- like '%' #{属性名} '%' 进行模糊查询-->
+	        <if test="description != null and  ! &quot;&quot;.equals(description.trim())"> and description like '%' #{description} '%' </if>
+    	</where> 
+    </select>
+    
+    <!-- parameterType:为基本数据类型  #{_parameter}实现基本类型的注入 -->
+    <delete id="deleteOneMessage" parameterType="int">
+    	delete from message
+    	where id = #{_parameter}
+    </delete>
+    
+    <!-- 批量删除,此时为 parameterType:引用的类全路径-->
+    <delete id="deleteBatchMessage" parameterType="java.util.List">
+    	<!-- 使用SQL引用标签,实现对SQL代码的重复使用 -->
+    	<include refid="deleteMessageSQL"/>
+    	where id in (
+    		<!-- foreach循环遍历,中间用逗号分隔 -->
+    		<foreach collection="list" item="item" separator=",">
+    			#{item}
+    		</foreach>
+    	)
+    </delete>
+    
+    <!-- 查询总页数		parameterType:为封装的消息实体类	 resultType:返回值类型,为整型	-->
+    <select id="" parameterType="bean.Message" resultType="int">
+    	select count(*) from message
+		<where>
+			<!-- if:判断,成立则追加,判断是否为空.	""转义为&quot;&quot;	通过.equals调用方法			#{属性名称}填充数据 -->
+	        <if test="command != null and  ! &quot;&quot;.equals(command.trim())"> and command = #{command} </if>
+	        																						<!-- like '%' #{属性名} '%' 进行模糊查询-->
+	        <if test="description != null and  ! &quot;&quot;.equals(description.trim())"> and description like '%' #{description} '%' </if>
+    	</where> 
+    
+    </select>
+    
+  	<!-- @TODO -->
+  	<!-- 修改,使用set标签,完成对多个条件的修改 -->
+  	
+  	
+  	<!-- trim标签,前后缀修改 -->
+  	<!-- 
+		<trim prefix="" prefixOverrides="" suffix="" suffixOverrides=""></trim>		
+  	 -->
+  	 
+  	<!-- choose标签,多重选择 -->
+  	<!-- 
+  		<choose>
+  			<when test=""></when>
+  			<when test=""></when>
+  			<otherwise></otherwise>
+  		</choose>
+  	 --> 
+</mapper>  

@@ -1,5 +1,0 @@
-package springJMS.consumer;
-/**	监听者的类.启动监听服务*/
-public class AppConsumer {
-
-}

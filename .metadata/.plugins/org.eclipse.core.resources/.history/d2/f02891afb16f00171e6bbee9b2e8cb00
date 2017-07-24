@@ -1,0 +1,49 @@
+package annotationBean;
+
+import javax.persistence.CascadeType;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+
+
+/**	学生卡对象
+ * 	作为一对一的协助方*/
+public class AStudentCard {
+
+	private int cid;
+	
+	private String description;
+
+	@OneToOne(cascade=CascadeType.ALL)			//设置级联关系
+	@JoinColumn(name="sid",unique=true)			//关联主键,是否唯一
+	private APupil aPupil;
+	
+	public int getCid() {
+		return cid;
+	}
+
+	public void setCid(int cid) {
+		this.cid = cid;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public APupil getaPupil() {
+		return aPupil;
+	}
+
+	public void setaPupil(APupil aPupil) {
+		this.aPupil = aPupil;
+	}
+
+	public AStudentCard() {
+		super();
+	}	
+	
+	
+}

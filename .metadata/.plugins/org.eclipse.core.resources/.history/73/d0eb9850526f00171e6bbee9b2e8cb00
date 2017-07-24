@@ -1,0 +1,18 @@
+package conform;
+public class HibernateTest 
+
+	private static ApplicationContext applicationContext = null;
+	
+	/**在类加载时,读取配置文件,完成加载*/
+	@BeforeClass
+	public static void setUpBeforeClass() throws Exception {
+		applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
+	}
+
+	@Test
+	public void test() {
+		Session session = (Session) applicationContext.getBean("sessionFactory");
+		System.out.println(session);
+	}
+
+}

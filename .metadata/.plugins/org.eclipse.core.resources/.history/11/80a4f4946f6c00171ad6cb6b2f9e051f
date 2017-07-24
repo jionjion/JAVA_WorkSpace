@@ -1,0 +1,5 @@
+package xmlReadAndWriter.xmlRead.jdom;
+/**	使用JDom方式解析XML文件*/
+public class ReadXmlByJdom {
+
+}

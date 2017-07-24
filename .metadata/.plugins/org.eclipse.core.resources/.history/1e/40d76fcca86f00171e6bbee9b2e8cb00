@@ -1,0 +1,124 @@
+package annotationBean;
+
+import java.io.Serializable;
+import java.sql.Blob;
+import java.util.Date;
+
+import javax.persistence.Entity;			//JAVAX表示为JPA注解
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import bean.Address;
+
+
+/**	通过注解配置的学生类
+ * 	必须指定注解*/
+@Entity									//默认该实体映射的表名为类名
+@Table(name="astudent",schema="hibernate")					//指定表名
+public class AStudent implements Serializable{				//多个主键必须实现序列化接口
+	
+	@Id
+	private int sid;
+	
+	@Id
+	private String sname;
+	
+	private String gender;
+	
+	private Date birthday;
+	
+	private String addree;
+
+	private Blob picture;
+	
+	private AAddress address;
+
+	public int getSid() {
+		return sid;
+	}
+
+	public void setSid(int sid) {
+		this.sid = sid;
+	}
+
+	public String getSname() {
+		return sname;
+	}
+
+	public void setSname(String sname) {
+		this.sname = sname;
+	}
+
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+
+	public Date getBirthday() {
+		return birthday;
+	}
+
+	public void setBirthday(Date birthday) {
+		this.birthday = birthday;
+	}
+
+	public String getAddree() {
+		return addree;
+	}
+
+	public void setAddree(String addree) {
+		this.addree = addree;
+	}
+
+	public Blob getPicture() {
+		return picture;
+	}
+
+	public void setPicture(Blob picture) {
+		this.picture = picture;
+	}
+
+	public AAddress getAAddress() {
+		return address;
+	}
+
+	public void setAAddress(AAddress address) {
+		this.address = address;
+	}
+
+	public AStudent() {
+		super();
+	}
+
+	public AStudent(int sid, String sname, String gender, Date birthday, String addree, Blob picture, AAddress address) {
+		super();
+		this.sid = sid;
+		this.sname = sname;
+		this.gender = gender;
+		this.birthday = birthday;
+		this.addree = addree;
+		this.picture = picture;
+		this.address = address;
+	}
+	
+	public AStudent(int sid, String sname,String gender , Date birthday, String addree) {
+		super();
+		this.sid = sid;
+		this.sname = sname;
+		this.gender = gender;
+		this.birthday = birthday;
+		this.addree = addree;
+	}
+
+
+	@Override
+	public String toString() {
+		return "AStudent [sid=" + sid + ", sname=" + sname + ", gender=" + gender + ", birthday=" + birthday
+				+ ", addree=" + addree + ", picture=" + picture + ", address=" + address + "]";
+	}
+	
+	
+}

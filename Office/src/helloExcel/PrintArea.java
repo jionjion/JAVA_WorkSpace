@@ -33,6 +33,7 @@ public class PrintArea {
 		workbook.write(out);
 		out.close();
 		System.out.println("打印文档.xlsx 创建成功");
+		workbook.close();
 	}
 	
 	public static void main(String[] args) throws Exception {

@@ -1,5 +1,0 @@
-package jms.queue;
-
-public class AppProducer {
-
-}

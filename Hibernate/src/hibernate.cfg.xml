@@ -19,7 +19,7 @@
     	<!-- 格式化SQL -->
     	<property name="format_sql">true</property>
     	<!-- 数据库前缀,区分不同数据库名称 -->
-    	<property name="hibernate.default_schema">Hibernate</property>
+    	<property name="hibernate.default_schema">hibernate</property>
     	<!-- 生成方式 -->
     	<property name="hbm2ddl.auto">update</property>
     	<!-- 事务种类 线程事务GetCurrentSession使用 -->
@@ -34,6 +34,13 @@
     	<mapping resource="bean/grade.hbm.xml"/>
   	    <mapping resource="bean/Employee.hbm.xml"/>
 	    <mapping resource="bean/Project.hbm.xml"/>
+	    
+	    <!-- 以下使用注解完成解析,映射文件使用.分隔 -->
+	    <mapping class="annotationBean.AStudent"/>
+	    <mapping class="annotationBean.AStudentCard"/>
+	    <mapping class="annotationBean.AGrade"/>
+	    <mapping class="annotationBean.APupil"/>
+	    <mapping class="annotationBean.ATeacher"/>
 	    
     </session-factory>
 </hibernate-configuration>

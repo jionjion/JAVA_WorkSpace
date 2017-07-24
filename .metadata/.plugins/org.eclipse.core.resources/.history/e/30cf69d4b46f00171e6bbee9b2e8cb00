@@ -1,0 +1,59 @@
+package annotationBean;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+
+import org.hibernate.annotations.GenericGenerator;
+
+
+/**	学生卡对象
+ * 	作为一对一的协助方*/
+@Entity
+public class AStudentCard {
+
+	@Id
+	@GeneratedValue(generator="cid")						//主键生成器
+	@GenericGenerator(name="cid",strategy="assigned")
+	@Column(12)
+	private String cid;
+	
+	private String description;
+
+
+	private APupil aPupil;
+	
+	public String getCid() {
+		return cid;
+	}
+
+	public void setCid(String cid) {
+		this.cid = cid;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public APupil getaPupil() {
+		return aPupil;
+	}
+
+	public void setaPupil(APupil aPupil) {
+		this.aPupil = aPupil;
+	}
+
+	public AStudentCard() {
+		super();
+	}	
+	
+	
+}

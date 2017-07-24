@@ -1,0 +1,17 @@
+package xmlReadAndWriter.xmlWriter.dom4j;
+
+import org.dom4j.Document;
+import org.dom4j.DocumentHelper;
+import org.dom4j.Element;
+
+public class WriteRssByDom4j {
+
+	public static void main(String[] args) {
+		//创建Document对象
+		Document document = DocumentHelper.createDocument();
+		//创建根节点<rss>
+		Element rootRss = document.addElement("rss");
+		//描述根节点
+		rootRss.addAttribute("version", "2.0");
+	}
+}
