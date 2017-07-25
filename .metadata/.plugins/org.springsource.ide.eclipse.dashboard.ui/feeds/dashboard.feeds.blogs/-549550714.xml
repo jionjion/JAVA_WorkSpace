@@ -5,7 +5,22 @@
   <link rel="self" href="https://spring.io/blog.atom" />
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
-  <updated>2017-07-21T19:37:00Z</updated>
+  <updated>2017-07-24T08:20:00Z</updated>
+  <entry>
+    <title>Spring Framework 5.0 RC3 - on the way to GA</title>
+    <link rel="alternate" href="https://spring.io/blog/2017/07/24/spring-framework-5-0-rc3-on-the-way-to-ga" />
+    <category term="releases" label="Releases" />
+    <author>
+      <name>Juergen Hoeller</name>
+    </author>
+    <id>tag:spring.io,2017-07-20:2973</id>
+    <updated>2017-07-24T08:20:00Z</updated>
+    <content type="html">&lt;p&gt;Dear Spring community,&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;m pleased to announce that the &lt;a href="https://jira.spring.io/secure/ReleaseNote.jspa?projectId=10000&amp;version=16199"&gt;third Spring Framework 5.0 release candidate&lt;/a&gt; is &lt;a href="http://projects.spring.io/spring-framework/"&gt;available&lt;/a&gt;!&lt;/p&gt;
+&lt;p&gt;This release comes with &lt;b&gt;refined nullability declarations&lt;/b&gt; (including the field and bean property level), &lt;b&gt;even stronger Kotlin support&lt;/b&gt; (with a declarative bean definition DSL and support for default constructor arguments on Kotlin data classes), as well as &lt;b&gt;several API refinements in Spring WebFlux&lt;/b&gt;. Furthermore, Spring Framework 5.0 RC3 ships against &lt;b&gt;Reactor 3.1 M3&lt;/b&gt; and &lt;b&gt;JUnit 5.0 M6&lt;/b&gt; and is fully tested against the recent JDK 9 release candidate.&lt;/p&gt;
+&lt;p&gt;With respect to our remaining roadmap, despite being feature-complete already, we opted for an &lt;b&gt;extended release candidate phase&lt;/b&gt;. This allows for further hardening of our revised APIs and in particular for a proper upgrade to Reactor 3.1 GA, JUnit 5.0 GA and Jackson 2.9 GA (all expected by early September). As a consequence, we are aiming for our &lt;b&gt;Spring Framework 5.0 GA release in September&lt;/b&gt; now, close to JDK 9&amp;rsquo;s general availability target.&lt;/p&gt;
+&lt;p&gt;Cheers,&lt;br/&gt;Juergen&lt;/p&gt;</content>
+  </entry>
   <entry>
     <title>Spring Cloud Dalston SR2 is available now</title>
     <link rel="alternate" href="https://spring.io/blog/2017/07/21/spring-cloud-dalston-sr2-is-available-now" />
@@ -1567,68 +1582,6 @@ org.springframework.integration.store&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div class="paragraph"&gt;
 &lt;p&gt;&lt;a href="http://projects.spring.io/spring-integration/"&gt;Project Page&lt;/a&gt; | &lt;a href="https://jira.spring.io/browse/INT"&gt;JIRA&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-integration/blob/master/CONTRIBUTING.adoc"&gt;Contributing&lt;/a&gt; | &lt;a href="http://stackoverflow.com/questions/tagged/spring-integration"&gt;Help&lt;/a&gt; | &lt;a href="https://gitter.im/spring-projects/spring-integration"&gt;Chat&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;</content>
-  </entry>
-  <entry>
-    <title>Spring Session MongoDB 2.0.0.M1 released</title>
-    <link rel="alternate" href="https://spring.io/blog/2017/06/16/spring-session-mongodb-2-0-0-m1-released" />
-    <category term="engineering" label="Engineering" />
-    <author>
-      <name>Greg Turnquist</name>
-    </author>
-    <id>tag:spring.io,2017-06-16:2957</id>
-    <updated>2017-06-16T14:09:55Z</updated>
-    <content type="html">&lt;div class="paragraph"&gt;
-&lt;p&gt;Dear Spring Community,&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;Last month, Spring Session lead Rob Winch announced the release of &lt;a href="https://spring.io/blog/2017/05/11/spring-session-2-0-0-m1-released"&gt;Spring Session 2.0.0.M1&lt;/a&gt; (notice the lack of MongoDB there?) In that post, he pared back Spring Session to officially supporting Redis, JDBC, and Hazelcast. No more MongoDB.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;I&amp;#8217;m here to announce that I&amp;#8217;ve pick up the torch for &lt;strong&gt;Spring Session MongoDB&lt;/strong&gt;. Managing both Spring Session &lt;em&gt;and&lt;/em&gt; Spring Security (among other responsibilities), Rob couldn&amp;#8217;t maintain high caliber support with too many data stores. Being a member of the Spring Data team, I felt better suited toward providing MongoDB support of Spring Session, so I reinstated it as a &lt;a href="https://github.com/spring-projects/spring-session-data-mongodb"&gt;separate project&lt;/a&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;To catch you up on things, this release of Spring Session MongoDB is built against these key items:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="ulist"&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href="https://spring.io/blog/2017/06/16/spring-session-2-0-0-m2-released"&gt;Spring Session 2.0.0.M2&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href="https://spring.io/blog/2017/06/14/spring-data-release-train-kay-m4-released"&gt;Spring Data Kay M4&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href="https://spring.io/blog/2017/05/08/spring-framework-5-0-goes-rc1"&gt;Spring Framework 5.0.0.RC1&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href="https://spring.io/blog/2017/05/11/spring-security-5-0-0-m1"&gt;Spring Security 5.0.0.M1&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Java 8&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class="admonitionblock important"&gt;
-&lt;table&gt;
-&lt;tr&gt;
-&lt;td class="icon"&gt;
-&lt;div class="title"&gt;Important&lt;/div&gt;
-&lt;/td&gt;
-&lt;td class="content"&gt;
-The artifact coordinates have changed to &lt;code&gt;org.springframework.session:spring-session-data-mongodb&lt;/code&gt; (notice the &lt;strong&gt;db&lt;/strong&gt; appended to the name?)
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/table&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;I&amp;#8217;m working with the Spring Boot team to have Spring Session MongoDB added to the vast collection of version-managed projects, targeting Boot 2.0. Stay tuned on that front.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;In the meantime, you can get the bits today if you visit the project site, get the coordinates, and &lt;em&gt;include the version number&lt;/em&gt; in your Spring Boot application.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;&lt;a href="http://projects.spring.io/spring-session-data-mongodb/"&gt;Project Site&lt;/a&gt; | &lt;a href="http://docs.spring.io/spring-session-data-mongodb/docs/2.0.0.M1/reference/htmlsingle/"&gt;Reference&lt;/a&gt; | &lt;a href="https://stackoverflow.com/questions/tagged/spring-session+mongodb"&gt;Help&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;</content>
   </entry>
 </feed>

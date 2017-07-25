@@ -18,5 +18,6 @@
 	<classpathentry kind="lib" path="src/javaEncryption/commons-codec-1.5.jar" sourcepath="E:/Java/some Jar/Commons-codec/commons-codec-1.5-sources.jar"/>
 	<classpathentry kind="lib" path="src/xmlReadAndWriter/xmlRead/jdom/jdom-2.0.6.jar" sourcepath="E:/Java/some Jar/jdom/jdom-2.0.6-sources.jar"/>
 	<classpathentry kind="lib" path="src/xmlReadAndWriter/xmlRead/dom4j/dom4j-2.0.1.jar"/>
+	<classpathentry kind="lib" path="src/qrCode/zxing-core-3.3.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

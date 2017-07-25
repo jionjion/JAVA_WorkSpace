@@ -1,4 +1,4 @@
 #Tomcat publish data
-#Sun Jul 23 19:28:08 CST 2017
-org.eclipse.jst.jee.server\:ServletClient=E\:\\Java\\some Jar\\Tomcat8\\webapps\\ServletClient
-org.eclipse.jst.jee.server\:Mybatis=E\:\\Java\\some Jar\\Tomcat8\\webapps\\Mybatis
+#Wed Jul 26 00:02:36 CST 2017
+org.eclipse.jst.jee.server\:MicroServices=E\:\\Java\\some Jar\\Tomcat8\\webapps\\MicroServices
+org.eclipse.jst.jee.server\:/binary\:E\:\\Java\\some\ Jar\\Maven\\JarLibrary\\org\\springframework\\spring-web\\4.3.9.RELEASE\\spring-web-4.3.9.RELEASE.jar=E\:\\Java\\some Jar\\Tomcat8\\webapps\\MicroServices\\WEB-INF\\lib\\spring-web-4.3.9.RELEASE.jar

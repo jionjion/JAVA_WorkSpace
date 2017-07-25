@@ -1,0 +1,5 @@
+package qrCode;
+
+public class CreateQRCode {
+
+}

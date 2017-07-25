@@ -1502,3 +1502,54 @@
 7月 23, 2017 19:36:14.26 [3808:11564:0723/193614.265:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -118
 7月 23, 2017 19:39:05.02 [3808:11564:0723/193905.029:ERROR:checkin_request.cc(179)] Failed to get checkin response. Fetcher failed. Retrying.
 7月 23, 2017 19:40:26.16 [3808:12180:0723/194026.159:ERROR:gcm_channel_status_request.cc(89)] GCM channel request failed.
+
+7月 25, 2017 24:07:04.61 NEW SESSION
+7月 25, 2017 24:07:04.61 [13656:4912:0725/000704.609:ERROR:cache_util_win.cc(20)] Unable to move the cache: 5
+7月 25, 2017 24:07:04.64 [13656:4912:0725/000704.609:ERROR:cache_util.cc(134)] Unable to move cache folder C:\Users\14345\AppData\Local\Google\Chrome\User Data\ShaderCache\GPUCache to C:\Users\14345\AppData\Local\Google\Chrome\User Data\ShaderCache\old_GPUCache_000
+7月 25, 2017 24:07:04.64 [13656:4912:0725/000704.609:ERROR:disk_cache.cc(132)] Unable to create cache
+7月 25, 2017 24:07:04.64 [13656:4912:0725/000704.609:ERROR:shader_disk_cache.cc(593)] Shader Cache Creation failed: -2
+7月 25, 2017 24:07:05.41 [2028:7984:0725/000705.411:ERROR:child_thread_impl.cc(762)] Request for unknown Channel-associated interface: ui::mojom::GpuMain
+7月 25, 2017 24:07:09.31 [13656:15716:0725/000709.312:ERROR:get_updates_processor.cc(244)] PostClientToServerMessage() failed during GetUpdates
+
+7月 25, 2017 22:05:15.25 NEW SESSION
+7月 25, 2017 22:05:15.25 [11028:13404:0725/220515.254:ERROR:child_thread_impl.cc(762)] Request for unknown Channel-associated interface: ui::mojom::GpuMain
+7月 25, 2017 22:05:36.97 [8108:14820:0725/220536.973:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -118
+7月 25, 2017 22:06:25.22 [8108:14820:0725/220625.228:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -118
+7月 25, 2017 22:06:29.67 [8108:9908:0725/220629.672:ERROR:get_updates_processor.cc(244)] PostClientToServerMessage() failed during GetUpdates
+7月 25, 2017 23:13:46.38 [1628:7592:0725/231346.384:ERROR:child_thread_impl.cc(762)] Request for unknown Channel-associated interface: ui::mojom::GpuMain
+7月 25, 2017 23:13:48.17 [1380:13472:0725/231348.170:ERROR:ssl_client_socket_impl.cc(1136)] handshake failed; returned -1, SSL error code 1, net_error -101
+7月 25, 2017 23:13:48.69 [1380:13472:0725/231348.698:ERROR:ssl_client_socket_impl.cc(1136)] handshake failed; returned -1, SSL error code 1, net_error -101
+7月 25, 2017 23:14:51.09 [1380:13472:0725/231451.090:ERROR:ssl_client_socket_impl.cc(1136)] handshake failed; returned -1, SSL error code 1, net_error -101
+7月 25, 2017 23:14:51.09 [1380:13472:0725/231451.096:ERROR:ssl_client_socket_impl.cc(1136)] handshake failed; returned -1, SSL error code 1, net_error -101
+7月 25, 2017 23:15:12.36 [1380:13472:0725/231512.360:ERROR:ssl_client_socket_impl.cc(1136)] handshake failed; returned -1, SSL error code 1, net_error -101
+7月 25, 2017 23:15:33.56 [1380:13472:0725/231533.559:ERROR:ssl_client_socket_impl.cc(1136)] handshake failed; returned -1, SSL error code 1, net_error -101
+7月 25, 2017 23:15:33.56 [1380:13400:0725/231533.560:ERROR:get_updates_processor.cc(244)] PostClientToServerMessage() failed during GetUpdates
+7月 25, 2017 23:15:40.83 [1380:13472:0725/231540.829:ERROR:ssl_client_socket_impl.cc(1136)] handshake failed; returned -1, SSL error code 1, net_error -101
+7月 25, 2017 23:17:32.74 [1380:13400:0725/231732.746:ERROR:get_updates_processor.cc(244)] PostClientToServerMessage() failed during GetUpdates
+7月 25, 2017 23:17:51.40 [2820:15880:0725/231751.406:ERROR:child_thread_impl.cc(762)] Request for unknown Channel-associated interface: ui::mojom::GpuMain
+7月 25, 2017 23:17:52.95 [10296:10480:0725/231752.957:ERROR:ssl_client_socket_impl.cc(1136)] handshake failed; returned -1, SSL error code 1, net_error -101
+7月 25, 2017 23:18:44.39 [10296:10480:0725/231844.397:ERROR:ssl_client_socket_impl.cc(1136)] handshake failed; returned -1, SSL error code 1, net_error -101
+7月 25, 2017 23:19:38.44 [10296:10480:0725/231938.441:ERROR:ssl_client_socket_impl.cc(1136)] handshake failed; returned -1, SSL error code 1, net_error -101
+7月 25, 2017 23:21:41.75 [10296:12496:0725/232141.753:ERROR:get_updates_processor.cc(244)] PostClientToServerMessage() failed during GetUpdates
+7月 25, 2017 23:21:47.69 [11572:15108:0725/232147.694:ERROR:child_thread_impl.cc(762)] Request for unknown Channel-associated interface: ui::mojom::GpuMain
+7月 25, 2017 23:22:09.65 [3728:4400:0725/232209.654:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -118
+7月 25, 2017 23:22:53.10 [3728:4400:0725/232253.099:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -118
+7月 25, 2017 23:24:10.23 [3728:4400:0725/232410.238:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -118
+7月 25, 2017 23:24:16.29 [3728:16264:0725/232416.289:ERROR:get_updates_processor.cc(244)] PostClientToServerMessage() failed during GetUpdates
+7月 25, 2017 23:26:24.94 [3728:4400:0725/232624.948:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -118
+7月 25, 2017 23:26:28.10 [3728:4400:0725/232628.103:ERROR:ssl_client_socket_impl.cc(1136)] handshake failed; returned -1, SSL error code 1, net_error -101
+7月 25, 2017 23:26:28.63 [3728:4400:0725/232628.632:ERROR:ssl_client_socket_impl.cc(1136)] handshake failed; returned -1, SSL error code 1, net_error -101
+7月 25, 2017 23:26:28.63 [3728:16264:0725/232628.633:ERROR:get_updates_processor.cc(244)] PostClientToServerMessage() failed during GetUpdates
+7月 25, 2017 23:26:47.96 [3728:4400:0725/232647.962:ERROR:ssl_client_socket_impl.cc(1136)] handshake failed; returned -1, SSL error code 1, net_error -101
+7月 25, 2017 23:27:51.31 [3728:4400:0725/232751.317:ERROR:ssl_client_socket_impl.cc(1136)] handshake failed; returned -1, SSL error code 1, net_error -101
+7月 25, 2017 23:30:22.23 [3728:4400:0725/233022.234:ERROR:ssl_client_socket_impl.cc(1136)] handshake failed; returned -1, SSL error code 1, net_error -101
+7月 25, 2017 23:32:28.25 [3728:16264:0725/233228.250:ERROR:get_updates_processor.cc(244)] PostClientToServerMessage() failed during GetUpdates
+7月 25, 2017 23:41:39.26 [3728:16264:0725/234139.262:ERROR:get_updates_processor.cc(244)] PostClientToServerMessage() failed during GetUpdates
+7月 25, 2017 23:53:07.39 [3728:16016:0725/235307.393:ERROR:gcm_channel_status_request.cc(89)] GCM channel request failed.
+7月 25, 2017 23:53:07.63 [3728:16264:0725/235307.632:ERROR:get_updates_processor.cc(244)] PostClientToServerMessage() failed during GetUpdates
+7月 25, 2017 23:53:45.27 [3728:16016:0725/235345.276:ERROR:gcm_channel_status_request.cc(89)] GCM channel request failed.
+7月 25, 2017 23:55:34.35 [3728:16016:0725/235534.350:ERROR:gcm_channel_status_request.cc(89)] GCM channel request failed.
+7月 25, 2017 23:59:30.21 [3728:16016:0725/235930.211:ERROR:gcm_channel_status_request.cc(89)] GCM channel request failed.
+7月 26, 2017 24:02:16.15 [1772:15516:0726/000216.150:ERROR:child_thread_impl.cc(762)] Request for unknown Channel-associated interface: ui::mojom::GpuMain
+7月 26, 2017 24:02:37.98 [10612:8776:0726/000237.980:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -118
+7月 26, 2017 24:03:01.34 [10612:8960:0726/000301.345:ERROR:get_updates_processor.cc(244)] PostClientToServerMessage() failed during GetUpdates

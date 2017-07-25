@@ -1,0 +1,21 @@
+package qrCode;
+
+import java.util.HashMap;
+import java.util.Map;
+
+/**使用zxinng.jar完成二维码的生成*/
+public class CreateQRCode {
+
+	public static void main(String[] args) {
+		
+		//1.定义参数
+		int width = 500;
+		int height = 500;
+		String imgType = "png";
+		String content = "https://github.com/";	
+		Map<String, Object> encodeHintType = new HashMap<String, Object>();
+		param.put("", value)
+		
+		
+	}
+}
