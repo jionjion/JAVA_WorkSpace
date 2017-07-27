@@ -1553,3 +1553,86 @@
 7月 26, 2017 24:02:16.15 [1772:15516:0726/000216.150:ERROR:child_thread_impl.cc(762)] Request for unknown Channel-associated interface: ui::mojom::GpuMain
 7月 26, 2017 24:02:37.98 [10612:8776:0726/000237.980:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -118
 7月 26, 2017 24:03:01.34 [10612:8960:0726/000301.345:ERROR:get_updates_processor.cc(244)] PostClientToServerMessage() failed during GetUpdates
+
+7月 26, 2017 18:03:21.83 NEW SESSION
+7月 26, 2017 18:03:21.83 [11564:10736:0726/180321.830:ERROR:child_thread_impl.cc(762)] Request for unknown Channel-associated interface: ui::mojom::GpuMain
+7月 26, 2017 18:06:10.55 [716:4004:0726/180610.556:ERROR:get_updates_processor.cc(244)] PostClientToServerMessage() failed during GetUpdates
+7月 26, 2017 18:06:52.84 [716:1664:0726/180652.846:ERROR:account_tracker.cc(385)] OnNetworkError -1
+7月 26, 2017 18:09:42.85 [716:4620:0726/180942.850:ERROR:ssl_client_socket_impl.cc(1136)] handshake failed; returned -1, SSL error code 1, net_error -101
+7月 26, 2017 18:10:09.58 [716:4004:0726/181009.578:ERROR:get_updates_processor.cc(244)] PostClientToServerMessage() failed during GetUpdates
+7月 26, 2017 18:11:52.65 [716:4620:0726/181152.652:ERROR:ssl_client_socket_impl.cc(1136)] handshake failed; returned -1, SSL error code 1, net_error -101
+7月 26, 2017 18:11:53.08 [716:4620:0726/181153.087:ERROR:ssl_client_socket_impl.cc(1136)] handshake failed; returned -1, SSL error code 1, net_error -101
+7月 26, 2017 18:13:58.67 [716:1664:0726/181358.677:ERROR:gcm_channel_status_request.cc(89)] GCM channel request failed.
+7月 26, 2017 18:16:25.41 [716:1664:0726/181625.409:ERROR:gcm_channel_status_request.cc(89)] GCM channel request failed.
+7月 26, 2017 18:16:25.66 [716:4004:0726/181625.668:ERROR:get_updates_processor.cc(244)] PostClientToServerMessage() failed during GetUpdates
+7月 26, 2017 18:19:12.45 [716:1664:0726/181912.454:ERROR:gcm_channel_status_request.cc(89)] GCM channel request failed.
+7月 26, 2017 18:22:39.53 [716:1664:0726/182239.533:ERROR:gcm_channel_status_request.cc(89)] GCM channel request failed.
+7月 26, 2017 18:28:31.70 [716:4004:0726/182831.702:ERROR:get_updates_processor.cc(244)] PostClientToServerMessage() failed during GetUpdates
+7月 26, 2017 18:28:31.94 [716:1664:0726/182831.939:ERROR:gcm_channel_status_request.cc(89)] GCM channel request failed.
+
+7月 27, 2017 24:23:43.87 NEW SESSION
+7月 27, 2017 24:23:43.87 [11024:14904:0727/002343.869:ERROR:child_thread_impl.cc(762)] Request for unknown Channel-associated interface: ui::mojom::GpuMain
+7月 27, 2017 24:26:24.31 [15048:5932:0727/002624.310:ERROR:child_thread_impl.cc(762)] Request for unknown Channel-associated interface: ui::mojom::GpuMain
+7月 27, 2017 24:35:03.63 [15260:5412:0727/003503.637:ERROR:account_tracker.cc(356)] OnGetTokenFailure: Connection failed (-118).
+7月 27, 2017 24:35:03.63 [15260:5412:0727/003503.637:ERROR:account_tracker.cc(356)] OnGetTokenFailure: Connection failed (-118).
+7月 27, 2017 24:35:51.81 [15260:5412:0727/003551.814:ERROR:gcm_channel_status_request.cc(89)] GCM channel request failed.
+
+7月 27, 2017 14:03:13.68 NEW SESSION
+7月 27, 2017 14:03:13.68 [5336:3728:0727/140313.676:ERROR:child_thread_impl.cc(762)] Request for unknown Channel-associated interface: ui::mojom::GpuMain
+7月 27, 2017 14:07:05.41 [2596:8312:0727/140705.415:ERROR:get_updates_processor.cc(244)] PostClientToServerMessage() failed during GetUpdates
+7月 27, 2017 14:07:05.65 [2596:10320:0727/140705.657:ERROR:gcm_channel_status_request.cc(89)] GCM channel request failed.
+7月 27, 2017 14:08:18.18 [2596:10320:0727/140818.179:ERROR:gcm_channel_status_request.cc(89)] GCM channel request failed.
+7月 27, 2017 14:09:32.68 [2596:10320:0727/140932.682:ERROR:gcm_channel_status_request.cc(89)] GCM channel request failed.
+7月 27, 2017 14:11:19.10 [2596:10320:0727/141119.103:ERROR:gcm_channel_status_request.cc(89)] GCM channel request failed.
+7月 27, 2017 14:13:24.84 [2596:8312:0727/141324.848:ERROR:get_updates_processor.cc(244)] PostClientToServerMessage() failed during GetUpdates
+7月 27, 2017 14:16:17.55 [2596:10320:0727/141617.552:ERROR:gcm_channel_status_request.cc(89)] GCM channel request failed.
+7月 27, 2017 14:23:45.98 [2596:15860:0727/142345.982:ERROR:ssl_client_socket_impl.cc(1136)] handshake failed; returned -1, SSL error code 1, net_error -101
+7月 27, 2017 14:24:25.49 [2596:15860:0727/142425.495:ERROR:ssl_client_socket_impl.cc(1136)] handshake failed; returned -1, SSL error code 1, net_error -100
+7月 27, 2017 14:25:31.12 [2596:10320:0727/142531.124:ERROR:gcm_channel_status_request.cc(89)] GCM channel request failed.
+7月 27, 2017 14:25:51.99 [2596:8312:0727/142551.994:ERROR:get_updates_processor.cc(244)] PostClientToServerMessage() failed during GetUpdates
+7月 27, 2017 14:37:01.55 [2596:15860:0727/143701.553:ERROR:ssl_client_socket_impl.cc(1136)] handshake failed; returned -1, SSL error code 1, net_error -100
+7月 27, 2017 14:37:37.14 [2596:10320:0727/143737.142:ERROR:gcm_channel_status_request.cc(89)] GCM channel request failed.
+7月 27, 2017 14:37:37.39 [2596:8312:0727/143737.390:ERROR:get_updates_processor.cc(244)] PostClientToServerMessage() failed during GetUpdates
+7月 27, 2017 14:49:43.16 [2596:10320:0727/144943.168:ERROR:gcm_channel_status_request.cc(89)] GCM channel request failed.
+7月 27, 2017 14:49:43.40 [2596:8312:0727/144943.403:ERROR:get_updates_processor.cc(244)] PostClientToServerMessage() failed during GetUpdates
+
+7月 27, 2017 21:42:53.48 NEW SESSION
+7月 27, 2017 21:42:53.48 [9860:9376:0727/214253.484:ERROR:child_thread_impl.cc(762)] Request for unknown Channel-associated interface: ui::mojom::GpuMain
+7月 27, 2017 21:43:17.15 [10872:16600:0727/214317.155:ERROR:child_thread_impl.cc(762)] Request for unknown Channel-associated interface: ui::mojom::GpuMain
+7月 27, 2017 21:43:38.88 [7864:13948:0727/214338.882:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -118
+7月 27, 2017 21:44:29.02 [7864:13948:0727/214429.020:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -118
+7月 27, 2017 21:45:42.69 [7864:13948:0727/214542.696:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -118
+7月 27, 2017 21:47:25.38 [7864:13948:0727/214725.382:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -118
+7月 27, 2017 21:48:51.04 [7864:896:0727/214851.040:ERROR:account_tracker.cc(356)] OnGetTokenFailure: Connection failed (-118).
+7月 27, 2017 21:48:51.04 [7864:896:0727/214851.040:ERROR:account_tracker.cc(356)] OnGetTokenFailure: Connection failed (-118).
+7月 27, 2017 21:51:12.65 [7864:17460:0727/215112.657:ERROR:get_updates_processor.cc(244)] PostClientToServerMessage() failed during GetUpdates
+7月 27, 2017 21:58:12.19 [7864:896:0727/215812.194:ERROR:gcm_channel_status_request.cc(89)] GCM channel request failed.
+7月 27, 2017 22:00:43.29 [7864:896:0727/220043.298:ERROR:gcm_channel_status_request.cc(89)] GCM channel request failed.
+7月 27, 2017 22:03:19.25 [7864:17460:0727/220319.253:ERROR:get_updates_processor.cc(244)] PostClientToServerMessage() failed during GetUpdates
+7月 27, 2017 22:03:19.50 [7864:896:0727/220319.506:ERROR:gcm_channel_status_request.cc(89)] GCM channel request failed.
+7月 27, 2017 22:07:22.29 [7864:896:0727/220722.294:ERROR:gcm_channel_status_request.cc(89)] GCM channel request failed.
+7月 27, 2017 22:12:42.57 [7864:896:0727/221242.570:ERROR:gcm_channel_status_request.cc(89)] GCM channel request failed.
+7月 27, 2017 22:15:25.84 [7864:17460:0727/221525.845:ERROR:get_updates_processor.cc(244)] PostClientToServerMessage() failed during GetUpdates
+7月 27, 2017 22:21:45.26 [7864:896:0727/222145.264:ERROR:gcm_channel_status_request.cc(89)] GCM channel request failed.
+7月 27, 2017 22:27:32.43 [7864:17460:0727/222732.434:ERROR:get_updates_processor.cc(244)] PostClientToServerMessage() failed during GetUpdates
+7月 27, 2017 22:33:51.85 [7864:896:0727/223351.854:ERROR:gcm_channel_status_request.cc(89)] GCM channel request failed.
+7月 27, 2017 22:39:39.03 [7864:17460:0727/223939.032:ERROR:get_updates_processor.cc(244)] PostClientToServerMessage() failed during GetUpdates
+7月 27, 2017 22:45:58.45 [7864:896:0727/224558.450:ERROR:gcm_channel_status_request.cc(89)] GCM channel request failed.
+7月 27, 2017 22:51:45.62 [7864:17460:0727/225145.628:ERROR:get_updates_processor.cc(244)] PostClientToServerMessage() failed during GetUpdates
+7月 27, 2017 22:58:05.04 [7864:896:0727/225805.043:ERROR:gcm_channel_status_request.cc(89)] GCM channel request failed.
+7月 27, 2017 23:03:52.22 [7864:17460:0727/230352.224:ERROR:get_updates_processor.cc(244)] PostClientToServerMessage() failed during GetUpdates
+7月 27, 2017 23:10:11.64 [7864:896:0727/231011.640:ERROR:gcm_channel_status_request.cc(89)] GCM channel request failed.
+7月 27, 2017 23:15:58.81 [7864:17460:0727/231558.818:ERROR:get_updates_processor.cc(244)] PostClientToServerMessage() failed during GetUpdates
+7月 27, 2017 23:22:18.24 [7864:896:0727/232218.239:ERROR:gcm_channel_status_request.cc(89)] GCM channel request failed.
+7月 27, 2017 23:25:00.40 [7864:13948:0727/232500.406:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -118
+7月 27, 2017 23:25:46.60 [7864:13948:0727/232546.608:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -118
+7月 27, 2017 23:26:45.42 [7864:17460:0727/232645.422:ERROR:get_updates_processor.cc(244)] PostClientToServerMessage() failed during GetUpdates
+7月 27, 2017 23:27:05.79 [7864:13948:0727/232705.793:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -118
+7月 27, 2017 23:28:48.22 [7864:13948:0727/232848.221:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -118
+7月 27, 2017 23:28:51.20 [7864:17460:0727/232851.201:ERROR:get_updates_processor.cc(244)] PostClientToServerMessage() failed during GetUpdates
+7月 27, 2017 23:34:24.84 [7864:896:0727/233424.843:ERROR:gcm_channel_status_request.cc(89)] GCM channel request failed.
+7月 27, 2017 23:40:57.79 [7864:17460:0727/234057.795:ERROR:get_updates_processor.cc(244)] PostClientToServerMessage() failed during GetUpdates
+7月 27, 2017 23:46:31.43 [7864:896:0727/234631.432:ERROR:gcm_channel_status_request.cc(89)] GCM channel request failed.
+7月 27, 2017 23:53:04.40 [7864:17460:0727/235304.403:ERROR:get_updates_processor.cc(244)] PostClientToServerMessage() failed during GetUpdates
+7月 27, 2017 23:58:38.02 [7864:896:0727/235838.023:ERROR:gcm_channel_status_request.cc(89)] GCM channel request failed.
+7月 28, 2017 24:04:11.87 [7864:17460:0728/000411.869:ERROR:get_updates_processor.cc(244)] PostClientToServerMessage() failed during GetUpdates

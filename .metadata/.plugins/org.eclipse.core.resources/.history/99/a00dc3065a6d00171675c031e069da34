@@ -1,7 +1,0 @@
-package xmlReadAndWriter.xmlWriter.sax;
-
-import org.xml.sax.helpers.DefaultHandler;
-
-public class SaxHandler extends DefaultHandler{
-
-}

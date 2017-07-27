@@ -1,5 +1,0 @@
-package xmlReadAndWriter.xmlRead.sax;
-
-public class ReadXmlBySax {
-
-}

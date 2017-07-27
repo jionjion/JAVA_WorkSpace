@@ -1,0 +1,21 @@
+package MicroServices.collector;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+@Controller
+public class HelloFreeMarker {
+
+	/**	该模块的显示页面
+	 * 	调用freemaker模板
+	 *  URL: 
+	 * */
+	@RequestMapping("/hello")
+	public String  getIndex() {
+		System.out.println("请求--------");
+		ModelAndView model = new  ModelAndView("hello");
+		return "hello";
+	}
+	
+}

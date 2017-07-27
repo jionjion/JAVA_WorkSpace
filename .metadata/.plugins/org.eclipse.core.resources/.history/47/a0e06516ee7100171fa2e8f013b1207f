@@ -1,0 +1,19 @@
+package MicroServices;
+
+import javax.persistence.Entity;
+
+/**	数据库的映射类*/
+@Entity
+public class User {
+
+	private Integer id;
+	
+	private String username;
+	
+	private String password;
+
+	public User() {
+		super();
+	}
+	
+}

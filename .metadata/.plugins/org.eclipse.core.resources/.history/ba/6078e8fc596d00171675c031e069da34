@@ -1,5 +1,0 @@
-package xmlReadAndWriter.xmlWriter.sax;
-
-public class SaxHandler {
-
-}

@@ -1,0 +1,25 @@
+package MicroServices.collector;
+
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.validation.Errors;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+@Controller
+public class HelloFreeMarker {
+
+	/**	该模块的显示页面
+	 * 	调用freemaker模板
+	 *  URL: 
+	 * */
+	@RequestMapping("/hello")
+	public String  getIndex(Map<String, Object>,HttpServletRequest request) {
+		System.out.println("请求--------");
+		return "hello";
+	}
+	
+}

@@ -1,9 +1,0 @@
-package xmlReadAndWriter.xmlWriter.dom;
-
-/**	使用Dom方式生成XML文件*/
-public class WriteXmlByDom {
-
-	public static void main(String[] args) {
-		
-	}
-}

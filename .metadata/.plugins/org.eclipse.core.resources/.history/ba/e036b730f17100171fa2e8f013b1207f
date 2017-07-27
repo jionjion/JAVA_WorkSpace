@@ -1,0 +1,11 @@
+package MicroServices;
+
+
+
+/**	接口,调用jpa*/
+
+public interface UserRepository extends JpaRepository<User, Integer> {
+
+
+	
+}

@@ -1,0 +1,17 @@
+package MicroServices;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+/**	接口,调用jpa*/
+
+public interface UserRepository extends JpaRepository<User, Integer> {
+
+	@Override
+	default Page<User> findAll(Pageable arg0) {
+		return this.findAll();
+	}
+
+	
+}

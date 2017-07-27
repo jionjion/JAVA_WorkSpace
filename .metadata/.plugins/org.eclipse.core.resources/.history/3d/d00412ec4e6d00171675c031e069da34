@@ -1,5 +1,0 @@
-package xmlReadAndWriter.xmlWriter.dom;
-
-public class WriteXmlByDom {
-
-}

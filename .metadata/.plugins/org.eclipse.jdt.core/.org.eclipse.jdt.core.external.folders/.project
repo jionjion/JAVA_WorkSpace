@@ -19,5 +19,10 @@
 			<type>2</type>
 			<location>E:/Java/some Jar/Mybatis/mybatis-3.3.0</location>
 		</link>
+		<link>
+			<name>.link2</name>
+			<type>2</type>
+			<location>E:/Java/some Jar/Maven/JarLibrary/org/springframework/spring-context-support</location>
+		</link>
 	</linkedResources>
 </projectDescription>
