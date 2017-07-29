@@ -2,9 +2,7 @@
 <classpath>
 	<classpathentry kind="src" path="src/test/java"/>
 	<classpathentry kind="src" path="src/main/resources"/>
-	<classpathentry kind="src" path="src/test/resources"/>
 	<classpathentry kind="src" path="src/main/java"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
 	<classpathentry kind="lib" path="lib/spring/spring-aop-4.0.5.RELEASE.jar" sourcepath="lib/resource/spring/spring-aop-4.0.5.RELEASE-sources.jar"/>
 	<classpathentry kind="lib" path="lib/spring/spring-aspects-4.0.5.RELEASE.jar"/>
 	<classpathentry kind="lib" path="lib/spring/spring-beans-4.0.5.RELEASE.jar" sourcepath="lib/resource/spring/spring-beans-4.0.5.RELEASE-sources.jar"/>
@@ -32,5 +30,6 @@
 	<classpathentry kind="lib" path="lib/aspect/aopalliance-1.0.jar"/>
 	<classpathentry kind="lib" path="lib/aspect/aspectjweaver-1.7.4.jar"/>
 	<classpathentry kind="lib" path="lib/javax.inject.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="output" path="classes"/>
 </classpath>

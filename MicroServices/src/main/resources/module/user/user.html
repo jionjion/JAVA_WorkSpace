@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>用户信息页面</title>
+</head>
+<body>
+	<h1>用户列表</h1>
+	
+	<fieldset>
+    	<legend>基本数据类型</legend>
+		<!-- 基本数据类型 -->
+		<p>整型:${intType}</p>
+		<p>长整型:${longType}</p>
+		<p>浮点型:${doubleType}</p>
+		<p>布尔型:${booleanType}</p>
+  	</fieldset>
+
+	<fieldset>
+	    <legend>日期类型</legend>
+		<!-- 日期类型,可以转义,SQLDate不需要转义 -->
+		<p>日期型:${dateType}</p>
+		<p>时间戳:${dateType!?string('yyyy-MM-dd  hh:mm:ss')}</p><!-- 判断为空不,不为空则进行转义 -->
+ 	</fieldset>
+	
+	
+	<fieldset>
+	    <legend>判断为空</legend>
+		<!-- 默认值 -->
+		<p>为空默认:${nothing!'默认值'}</p>
+		<p>判断集合是否为空:${listType??}</p>
+		<p>判断集合是否为空:${listType?exists}</p>
+	</fieldset>
+	
+	<fieldset>
+		<legend>自定义变量</legend>
+		<!-- 自定义变量,并调用 -->
+		<#assign param="哔哩哔哩"/>
+		<p>自定义变量:${param}</p>
+		<#assign num=50/>
+		<p>变量计算求和:${num+100}</p>
+	</fieldset>
+	
+	<fieldset>
+		<legend>自定义引用类型</legend>
+		<!-- 对象类型 -->
+		<p>姓名:${user.username}</p>					<!-- 获取对象属性 -->
+		<p>密码:${user.password!}</p>					<!-- 获取不存在的属性,使用! -->
+		<p>地址:${(address.position)!}</p>			<!-- 使用!结合(),判断对象是否存在,如果存在则获取属性 -->
+	</fieldset>
+
+	<fieldset>
+		<legend>字符串类型</legend>
+		<!-- 调用字符串 -->
+		<p>消息:${message}</p>
+		<!-- 为防止为空,可以加!,避免空指针 -->
+		<p>${nothing!}</p>
+		<!-- 富文本输出 -->
+		<p>富文本:${briefType}</p>
+		<!-- html语言输出 -->
+		<p>html文本:${briefType?html}</p>				<!-- 使用?html进行转义 -->
+	</fieldset>
+	
+	<fieldset>
+		<legend>List集合类型</legend>
+		<!-- 获取List集合 -->
+		<#list listType as item>
+			<p>${item}</p>
+		</#list>
+	</fieldset>
+	
+	<fieldset>
+		<legend>Map集合类型</legend>
+		<!-- 存放Map集合 -->
+		<#list mapType?keys as key>					<!-- 将键作为List遍历,通过   名称[键]  的方式完成获取 -->
+			<p>键:${key}	值:${mapType[key]}</p>
+		</#list>
+	</fieldset>
+	
+	<fieldset>
+		<legend>逻辑运算符</legend>
+		<#if true && (false || !false)>
+			<p>非!,与&&,或||</p>
+		</#if>
+	</fieldset>
+	
+	<fieldset>
+		<legend>逻辑if</legend>
+		<#assign score = 60 />						<!-- 自定义数据 -->
+		
+		<!-- if逻辑 -->
+		<#if score==60>
+			<p>及格万岁</p>
+		</#if>
+		
+		<!-- if...else逻辑 -->
+		<#if score&lt;90>							<!-- 小于90分 -->
+			<p>渣渣...</p>
+		<#else>
+			<p>流弊啊..</p>
+		</#if>
+		
+		<!-- if..elseif..else逻辑 -->
+		<#if score&lt;60>							<!-- 小于60分 -->
+			<p>不及格</p>
+		<#elseif score&lt;90>						<!-- 不小于60分,但小于90分 -->
+			<p>只是及格了</p>
+		<#else>										<!-- 其他情况 -->
+			<p>还可以</p>
+		</#if>
+	</fieldset>
+
+	<fieldset>
+		<legend>String的内建函数</legend>
+		<#assign a='hello' b=' world'/>
+		<p>字符串相加:${(a+b)}</p>
+ 		<p>字符串截取:${(a+b)?substring(6,8)}</p>		<!-- [6,8)的位置,从0开始 -->
+		<p>字符裁剪空串:${(a+b)?trim}</p>	
+		<p>字符的长度:${(a+b)?length}</p>
+		<p>首字母大写:${(a+b)?cap_first}</p>
+		<p>字符转大写:${(a+b)?upper_case}</p>
+		<p>字符转小写:${(a+b)?lower_case}</p>
+		<p>前索引'o'位置:${(a+b)?index_of('o')}</p>
+		<p>后索引'o'位置:${(a+b)?last_index_of('o')}</p>
+		<p>替换'o'为'O':${(a+b)?replace('o','O')}</p>
+		<p>是否以'o'结尾:${(a+b)?ends_with('d')}</p>
+		<p>是否包含'o':${(a+b)?contains('o')}</p>
+		
+		<!-- 字符串分隔 -->
+		<#list "a|b|c|d"?split("|") as item>
+			<strong>${item}</strong>
+		</#list>
+		
+		<!-- 字符串转日期 -->
+		<#assign date1 = "2017-7-29"?date("yyyy-MM-dd")>
+		<p>${date1}</p>
+		
+		<#assign date2 = "12:00:00"?time("HH:mm:ss")>
+		<p>${date2}</p>
+		
+		<#assign date3 = "2017-7-29 12:30 PM"?datetime("yyyy-MM-dd hh:mm")>
+		<p>${date3}</p>				
+		
+		<#assign pi=3.141596278/>
+		<p>小数点后两位:${pi?string('0.##')}</p>
+		<p>小数四舍五入:${pi?round}</p>
+		<p>小数舍一:${pi?floor}</p>
+		<p>小数进一:${pi?ceiling}</p>
+	</fieldset>
+
+
+	<fieldset>
+		<legend>自定义函数,数列求和</legend>
+		<#assign listNum = [1,2,3]/>
+		<p>求和:${sum_list(listNum,'sum')}</p>
+	</fieldset>
+	
+	
+	<fieldset>
+		<legend>List排序指令</legend>
+		<#assign listNum = [1,4,7,8,9,6,3,2,5]/>
+			
+		<#list listNum?sort?reverse as item>		<!-- ?sort调用排序方法,?reverse反转数列 -->
+			<p>${item_index}:${item}</p>			<!-- _index表示元素的位置 -->
+		</#list>
+		<p>list的长度:${listNum?size}</p>				<!-- lsit的长度 -->
+		<p>获取第一个:${listNum[0]}</p>					<!-- 通过[]获取指定位置元素,不是排序后的第一个-->
+	</fieldset>
+	
+	<fieldset>
+		<legend>宏指令</legend>
+		<!-- 自定义无参的指令	  	no_param_macro:指令名称-->
+		<#macro no_param_macro>
+			<p><em>调用时输出的html文本</em></p>
+		</#macro>
+		<!-- 调用自定义无参的指令 -->
+		<@no_param_macro/>
+		
+		<!-- 自定义有参的指令	 	has_param_macro:指令名称	param1:参数	param2="默认参数.." 具有默认参数的,如果不传递,则使用默认参数-->
+		<#macro has_param_macro param1 param2="默认参数..">
+			<p><strong>收到参数:<em>${param1}</em>,<em>${param2}</em></strong></p>
+		</#macro>
+		<!-- 调用自定义有参的指令 -->
+		 <@has_param_macro param1="参数一" param2="参数二" />
+		
+		
+		<!-- 自定义参数不固定的指令	  	no_param_macro:指令名称	params:表示其他参数	-->
+		<#macro many_param_macro params...>
+			<p>	参数一:<strong>${params['one']}</strong>
+				参数二:<strong>${params['two']}</strong>
+				参数三:<strong>${params['three']}</strong></p>
+		</#macro>
+		<!-- 调用自定义无参的指令 -->
+		<@many_param_macro one="元素一" two="元素二" three="元素三"/>
+		
+		
+		<!-- 自定义模板片段 -->
+		
+		<!-- 自定义函数 -->
+		<#function add_num param1 param2>
+			<#return param1 + param2>
+		</#function>
+		<!-- 调用 -->
+		<p>自定义函数相加:1+2=${add_num(1,2)}</p>
+	</fieldset>
+</body>
+</html>

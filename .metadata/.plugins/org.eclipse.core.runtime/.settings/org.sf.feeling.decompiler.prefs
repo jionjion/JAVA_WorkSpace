@@ -1,6 +1,5 @@
 brightStyle={"text"\:{"foreground"\:"COLOR_RED"}}
 darkStyle={"text"\:{"foreground"\:"COLOR_BLUE"}}
-decompile.count=4
 eclipse.preferences.version=1
 trayLinkStrategy=[]
 uuid=53fc4aeb-8f61-4a02-91b5-1b3f1fd4e95a

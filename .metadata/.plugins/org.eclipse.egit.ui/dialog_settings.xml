@@ -7,6 +7,11 @@
 		<item value="ssh://csisadm@10.18.2.239:22/WindowsAPP\SSH\Files\home\csisadm\CS_PROJECT"/>
 		<item value="ssh://csisadm@10.18.111.109:22/WindowsAPP/SSH/Files/home/csisadm/CS_PROJECT"/>
 	</list>
+	<list key="EGit.KnownHosts">
+		<item value="git.eclipse.org"/>
+		<item value="github.com"/>
+		<item value="bitbucket.org"/>
+	</list>
 	<list key="CommitDialog.authorValues">
 		<item value="zhangqian &lt;1434501783@qq.com&gt;"/>
 	</list>

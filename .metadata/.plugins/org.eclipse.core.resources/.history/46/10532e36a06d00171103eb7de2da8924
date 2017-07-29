@@ -1,5 +1,0 @@
-package xmlReadAndWriter.xmlWriter.dom4j;
-
-public class WriteRssByDom4j {
-
-}
