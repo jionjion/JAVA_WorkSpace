@@ -1,6 +1,0 @@
-package junit.test;
-/**
- * 	测试套件的使用,完成对多个测试类内的多个测试方法完成*/
-public class SuitTest {
-
-}

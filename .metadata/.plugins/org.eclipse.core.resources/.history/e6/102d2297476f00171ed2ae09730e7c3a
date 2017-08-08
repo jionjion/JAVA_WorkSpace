@@ -1,5 +1,0 @@
-package junit.test;
-/**	参数化测试*/
-public class ParameterTest {
-
-}

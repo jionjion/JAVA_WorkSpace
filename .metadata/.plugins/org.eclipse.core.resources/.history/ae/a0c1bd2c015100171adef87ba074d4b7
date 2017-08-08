@@ -1,9 +1,0 @@
-package helloExcel;
-/**字体样式和风格的实现*/
-public class FontsStyleOrFontsRule {
-
-	/**字体风格*/
-	public void fontsStyle() {
-		
-	}
-}

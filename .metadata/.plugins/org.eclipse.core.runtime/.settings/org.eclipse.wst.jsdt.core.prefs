@@ -1,4 +1,4 @@
 eclipse.preferences.version=1
-org.eclipse.wst.jsdt.core.PREF_JS_RUNTIME_INSTALLS_XML=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\r\n<runtimeSettings/>\r\n
+org.eclipse.wst.jsdt.core.PREF_JS_RUNTIME_INSTALLS_XML=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\r\n<runtimeSettings>\r\n<runtimeType defaultRuntime\="GlobalNodeJsRuntime" id\="org.eclipse.wst.jsdt.js.node.runtimeType">\r\n<runtime id\="__nodejs_version_7.10.0" name\="Node 7.10.0" path\="C\:\\Users\\14345\\.webclipse\\nodejs\\7.10.0\\node.exe"/>\r\n</runtimeType>\r\n</runtimeSettings>\r\n
 org.eclipse.wst.jsdt.core.codeComplete.visibilityCheck=enabled
 strictOnKeywordUsage=disabled

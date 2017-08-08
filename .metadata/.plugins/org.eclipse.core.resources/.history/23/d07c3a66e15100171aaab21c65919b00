@@ -1,6 +1,0 @@
-package bean;
-/**解析为JSON对象*/
-public class ParseJSONObject {
-
-	
-}

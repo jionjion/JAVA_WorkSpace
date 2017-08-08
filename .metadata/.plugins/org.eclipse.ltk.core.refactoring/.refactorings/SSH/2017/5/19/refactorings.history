@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">&#x0A;<refactoring comment="Move &apos;web.xml&apos; to &apos;WEB-INF&apos;" description="Move &apos;web.xml&apos; to &apos;WEB-INF&apos;" destination="WebContent/WEB-INF" element1="/sdasdadad/WebContent/WEB-INF/web.xml" flags="7" id="org.eclipse.ltk.core.refactoring.move.resources" resources="1" stamp="1494665299060" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;SSH/WebContent/jsp&apos; to &apos;jsps&apos;" description="Rename resource &apos;jsp&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="WebContent/jsp" name="jsps" stamp="1494667944604" updateReferences="true"/>
-</session>

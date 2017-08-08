@@ -1,5 +1,0 @@
-package redis;
-/**连接redis,导入jedis.jar*/
-public class RedisConnect {
-
-}

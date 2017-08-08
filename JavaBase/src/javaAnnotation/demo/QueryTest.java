@@ -1,6 +1,5 @@
 package javaAnnotation.demo;
 
-import static org.hamcrest.CoreMatchers.instanceOf;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;

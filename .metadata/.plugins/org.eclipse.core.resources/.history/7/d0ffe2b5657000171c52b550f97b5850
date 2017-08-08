@@ -1,9 +1,0 @@
-package qrCode;
-
-/**使用zxinng.jar完成二维码的生成*/
-public class CreateQRCode {
-
-	public static void main(String[] args) {
-		
-	}
-}

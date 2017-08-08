@@ -1,16 +1,19 @@
 package MicroServices.bean;
 
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+import org.hibernate.validator.constraints.Length;
+
 
 /**	数据库的映射类*/
 @Entity
-public class User {
+public class User implements Serializable{
 
 	@Id
 	@GeneratedValue
@@ -18,6 +21,7 @@ public class User {
 	
 	private String username;
 	
+	@Length(min=6,message="密码最短为6位!!")
 	private String password;
 	
 	private Date brithday;

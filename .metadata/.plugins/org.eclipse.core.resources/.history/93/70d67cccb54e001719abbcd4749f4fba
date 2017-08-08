@@ -1,5 +1,0 @@
-package dao;
-/**数据库命令主表对应的Dao层*/
-public class CommandDao {
-
-}

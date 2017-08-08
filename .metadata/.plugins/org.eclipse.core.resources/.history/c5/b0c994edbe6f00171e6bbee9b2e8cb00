@@ -1,8 +1,0 @@
-package annotationBean;
-
-public class ATeacher {
-
-	private String sid;
-	
-	private String tname;
-}

@@ -1,7 +1,0 @@
-#Thu May 11 08:28:50 CST 2017
-__DEFAULT__=false
-org.eclipse.sdk.Eclipse.master=true
-org.eclipse.sdk.Google.master=true
-org.eclipse.help.ui.localSearch.master=true
-org.hibernate.eclipse.help.HibernateWiki.master=true
-expression=New Spring Bean Definition file

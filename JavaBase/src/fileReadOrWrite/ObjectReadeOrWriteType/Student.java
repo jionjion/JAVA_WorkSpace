@@ -6,6 +6,8 @@ import java.io.Serializable;
 /**学生类,实现序列化接口*/
 public class Student implements Serializable{
 
+	private static final long serialVersionUID = 1L;
+
 	private int id;
 	
 	private transient String  name;
