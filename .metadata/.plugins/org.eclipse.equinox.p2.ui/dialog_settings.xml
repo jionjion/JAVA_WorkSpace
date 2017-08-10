@@ -18,6 +18,13 @@
 		<item value="525" key="AvailableNameColumnWidth"/>
 		<item value="false" key="FilterOnEnv"/>
 	</section>
+	<section name="org.jboss.tools.discovery.core.internal.connectors.PrepareInstallProfileJob$2.WizardSettings">
+		<item value="889" key="DIALOG_WIDTH"/>
+		<item value="1|Microsoft YaHei UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Microsoft YaHei UI" key="DIALOG_FONT_NAME"/>
+		<item value="622" key="DIALOG_HEIGHT"/>
+		<item value="-85" key="DIALOG_X_ORIGIN"/>
+		<item value="15" key="DIALOG_Y_ORIGIN"/>
+	</section>
 	<section name="org.eclipse.equinox.internal.p2.ui.dialogs.InstallWizard.ResolutionResultsPage">
 		<item value="200" key="DetailsSashWeight"/>
 		<item value="400" key="NameColumnWidth"/>

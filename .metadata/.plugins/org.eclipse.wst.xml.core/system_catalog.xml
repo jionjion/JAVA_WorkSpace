@@ -152,13 +152,6 @@
   <uri name="http://java.sun.com/xml/ns/javaee/web-partialresponse_2_0.xsd" uri="jar:file:/E:/Eclipse/eclipse/plugins/org.eclipse.jst.standard.schemas_1.2.201.v201501151629.jar!/dtdsAndSchemas/web-partialresponse_2_0.xsd"/>
   <uri name="http://xmlns.jcp.org/xml/ns/javaee/web-partialresponse_2_0.xsd" uri="jar:file:/E:/Eclipse/eclipse/plugins/org.eclipse.jst.standard.schemas_1.2.201.v201501151629.jar!/dtdsAndSchemas/web-partialresponse_2_0.xsd"/>
   <uri name="http://xmlns.jcp.org/xml/ns/javaee/web-partialresponse_2_2.xsd" uri="jar:file:/E:/Eclipse/eclipse/plugins/org.eclipse.jst.standard.schemas_1.2.201.v201501151629.jar!/dtdsAndSchemas/web-partialresponse_2_2.xsd"/>
-  <system systemId="http://maven.apache.org/maven-v4_0_0.xsd" uri="jar:file:/E:/Eclipse/eclipse/plugins/org.eclipse.m2e.model.edit_1.8.0.20170516-2043.jar!/xsd/maven-v4_0_0.xsd"/>
-  <system systemId="http://maven.apache.org/xsd/maven-4.0.0.xsd" uri="jar:file:/E:/Eclipse/eclipse/plugins/org.eclipse.m2e.model.edit_1.8.0.20170516-2043.jar!/xsd/maven-v4_0_0.xsd"/>
-  <system systemId="http://maven.apache.org/xsd/settings-1.0.0.xsd" uri="jar:file:/E:/Eclipse/eclipse/plugins/org.eclipse.m2e.model.edit_1.8.0.20170516-2043.jar!/xsd/settings-v1_0_0.xsd"/>
-  <system systemId="http://maven.apache.org/xsd/profiles-1.0.0.xsd" uri="jar:file:/E:/Eclipse/eclipse/plugins/org.eclipse.m2e.model.edit_1.8.0.20170516-2043.jar!/xsd/profiles-v1_0_0.xsd"/>
-  <system systemId="http://maven.apache.org/xsd/archetype-1.0.0.xsd" uri="jar:file:/E:/Eclipse/eclipse/plugins/org.eclipse.m2e.model.edit_1.8.0.20170516-2043.jar!/xsd/archetype-1.0.0.xsd"/>
-  <system systemId="http://maven.apache.org/xsd/archetype-catalog-1.0.0.xsd" uri="jar:file:/E:/Eclipse/eclipse/plugins/org.eclipse.m2e.model.edit_1.8.0.20170516-2043.jar!/xsd/archetype-catalog-1.0.0.xsd"/>
-  <system systemId="http://maven.apache.org/xsd/archetype-descriptor-1.0.0.xsd" uri="jar:file:/E:/Eclipse/eclipse/plugins/org.eclipse.m2e.model.edit_1.8.0.20170516-2043.jar!/xsd/archetype-descriptor-1.0.0.xsd"/>
   <public publicId="-//WAPFORUM//DTD WML 1.1//EN" uri="jar:file:/E:/Eclipse/eclipse/plugins/org.eclipse.wst.standard.schemas_1.0.800.v201706011851.jar!/dtds/wml11.dtd"/>
   <public publicId="-//W3C//DTD XHTML 1.0 Strict//EN" uri="jar:file:/E:/Eclipse/eclipse/plugins/org.eclipse.wst.standard.schemas_1.0.800.v201706011851.jar!/dtds/xhtml1-strict.dtd" webURL="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"/>
   <public publicId="-//W3C//DTD XHTML 1.0 Transitional//EN" uri="jar:file:/E:/Eclipse/eclipse/plugins/org.eclipse.wst.standard.schemas_1.0.800.v201706011851.jar!/dtds/xhtml1-transitional.dtd" webURL="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"/>
@@ -664,4 +657,11 @@
   <uri name="http://jboss.com/products/seam/wicket-2.3.xsd" uri="jar:file:/E:/Eclipse/eclipse/plugins/org.jboss.tools.seam.xml_3.8.3.v20161214-1452.jar!/schemas/wicket-2.3.xsd"/>
   <uri name="http://jboss.org/schema/seam/wicket-2.3.xsd" uri="jar:file:/E:/Eclipse/eclipse/plugins/org.jboss.tools.seam.xml_3.8.3.v20161214-1452.jar!/schemas2/wicket-2.3.xsd"/>
   <public publicId="-//OASIS//DTD DocBook XML V4.1.2//EN" uri="file:/E:/Eclipse/eclipse/plugins/org.jboss.tools.vpe.docbook_3.8.3.v20161201-1638/dtds/docbookx-4.1.2.dtd"/>
+  <system systemId="http://maven.apache.org/maven-v4_0_0.xsd" uri="jar:file:/E:/Eclipse/eclipse/plugins/org.eclipse.m2e.model.edit_1.8.1.20170728-1531.jar!/xsd/maven-v4_0_0.xsd"/>
+  <system systemId="http://maven.apache.org/xsd/maven-4.0.0.xsd" uri="jar:file:/E:/Eclipse/eclipse/plugins/org.eclipse.m2e.model.edit_1.8.1.20170728-1531.jar!/xsd/maven-v4_0_0.xsd"/>
+  <system systemId="http://maven.apache.org/xsd/settings-1.0.0.xsd" uri="jar:file:/E:/Eclipse/eclipse/plugins/org.eclipse.m2e.model.edit_1.8.1.20170728-1531.jar!/xsd/settings-v1_0_0.xsd"/>
+  <system systemId="http://maven.apache.org/xsd/profiles-1.0.0.xsd" uri="jar:file:/E:/Eclipse/eclipse/plugins/org.eclipse.m2e.model.edit_1.8.1.20170728-1531.jar!/xsd/profiles-v1_0_0.xsd"/>
+  <system systemId="http://maven.apache.org/xsd/archetype-1.0.0.xsd" uri="jar:file:/E:/Eclipse/eclipse/plugins/org.eclipse.m2e.model.edit_1.8.1.20170728-1531.jar!/xsd/archetype-1.0.0.xsd"/>
+  <system systemId="http://maven.apache.org/xsd/archetype-catalog-1.0.0.xsd" uri="jar:file:/E:/Eclipse/eclipse/plugins/org.eclipse.m2e.model.edit_1.8.1.20170728-1531.jar!/xsd/archetype-catalog-1.0.0.xsd"/>
+  <system systemId="http://maven.apache.org/xsd/archetype-descriptor-1.0.0.xsd" uri="jar:file:/E:/Eclipse/eclipse/plugins/org.eclipse.m2e.model.edit_1.8.1.20170728-1531.jar!/xsd/archetype-descriptor-1.0.0.xsd"/>
 </catalog>
