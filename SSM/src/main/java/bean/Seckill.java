@@ -13,9 +13,9 @@ public class Seckill {
 	
 	private Date createTime;
 	
-	private Date startTiem;
+	private Date startTime;
 	
-	private Date endTiem;
+	private Date endTime;
 
 	public long getSeckillId() {
 		return seckillId;
@@ -49,26 +49,27 @@ public class Seckill {
 		this.createTime = createTime;
 	}
 
-	public Date getStartTiem() {
-		return startTiem;
+	public Date getStartTime() {
+		return startTime;
 	}
 
-	public void setStartTiem(Date startTiem) {
-		this.startTiem = startTiem;
+	public void setStartTime(Date startTime) {
+		this.startTime = startTime;
 	}
 
-	public Date getEndTiem() {
-		return endTiem;
+	public Date getEndTime() {
+		return endTime;
 	}
 
-	public void setEndTiem(Date endTiem) {
-		this.endTiem = endTiem;
+	public void setEndTime(Date endTime) {
+		this.endTime = endTime;
 	}
 
 	@Override
 	public String toString() {
 		return "Seckill [seckillId=" + seckillId + ", name=" + name + ", number=" + number + ", createTime="
-				+ createTime + ", startTiem=" + startTiem + ", endTiem=" + endTiem + "]";
+				+ createTime + ", startTime=" + startTime + ", endTime=" + endTime + "]";
 	}
+
 	
 }

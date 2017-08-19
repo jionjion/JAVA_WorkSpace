@@ -3,27 +3,31 @@
 
 <!-- SeckillDao接口的SQL映射 -->
 <mapper namespace="dao.SeckillDao">
-	
+
 	<!-- 减库存 -->
 	<update id="reduceNumber">
-		update seckill set number = number -1 
-		where seckill_id = #{seckillId} 
-		and start_time <![CDATA[<=]]>  #{killTime}
-		and end_time >= #{killTie}
+		update seckill set number = number -1
+		where seckill_id = #{seckillId}
+		and start_time <![CDATA[<=]]>
+		#{killTime}
+		and end_time >= #{killTime}
 		and number > 0;
 	</update>
-	
+
 	<!-- 查询秒杀商品 -->
 	<select id="queryById" resultType="Seckill" parameterType="long">
-		select seckill_id , name , start_time , create_time from seckill
+		select seckill_id , name , create_time , start_time , end_time from
+		seckill
 		where seckill_id = #{seckill_id};
 	</select>
-	
+
 	<!-- 分页查询全部 -->
-	<select id="queryAll">
-		select seckill_id , name , start_time , create_time from seckill
+	<select id="queryAll" resultType="Seckill">
+		select seckill_id , name ,
+		start_time , create_time from seckill
 		order by create_time desc
-		limit #{offset}, #{limit};
+		limit
+		#{offset}, #{limit};
 	</select>
-	
+
 </mapper>    
