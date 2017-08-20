@@ -22,8 +22,7 @@
 		s.number as 'seckill.number',
 		s.start_time as 'seckill.start_time',
 		s.end_time as 'seckill.end_time',
-		s.create_time as
-		'seckill.create_time'
+		s.create_time as 'seckill.create_time'
 		from success_kill sk
 		inner join seckill s on
 		sk.seckill_id = s.seckill_id

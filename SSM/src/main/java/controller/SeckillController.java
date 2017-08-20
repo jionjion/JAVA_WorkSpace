@@ -73,18 +73,18 @@ public class SeckillController {
 	
 	/**
 	 * 将秒杀暴露接口,通过JSON数据传出
-	 * @return 
+	 * @return 秒杀信息接口对象
 	 */
 	@RequestMapping(value="/{seckillId}/exposer",method=RequestMethod.GET,produces={"application/json; charset=UTF-8"})
 	@ResponseBody	//返回为JSON格式
-	public SeckillResult<Exposer> exposer(Long serckillId) {
+	public SeckillResult<Exposer> exposer(@PathVariable("seckillId") Long serckillId) {
 		SeckillResult<Exposer> seckillResult = null;
 		try {
 			Exposer exposer = seckillService.exportSeckillUrl(serckillId);
 			seckillResult = new SeckillResult<Exposer>(true, exposer);
 		} catch (Exception e) {
 			logger.error(e.getMessage());
-			seckillResult = new SeckillResult<>(false, e.getMessage());
+			seckillResult = new SeckillResult<Exposer>(false, e.getMessage());
 		}
 		return seckillResult; 
 	}
@@ -97,6 +97,8 @@ public class SeckillController {
 	 * @param md5 :携带的消息摘要
 	 * @return :秒杀结果,并封装为JSON格式
 	 */
+	@RequestMapping(value = "/{seckillId}/{md5}/execution", method = RequestMethod.POST, produces = {"application/json;charset=UTF-8" })
+	@ResponseBody	//返回为JSON格式
 	public SeckillResult<SeckillExecution> execute(	@PathVariable("seckillId") Long seckillId,
 													@CookieValue(value = "userPhone", required = false) Long userPhone,
 													@PathVariable("md5") String md5) {
@@ -112,16 +114,16 @@ public class SeckillController {
 		} catch (RepeatKillException e) {
 			//重复秒杀,逻辑异常,不需要日志记录
 			SeckillExecution seckillExecution = new SeckillExecution(seckillId, SeckillStatEnum.REPEAT_KILL);
-			return new SeckillResult<SeckillExecution>(false, seckillExecution);
+			return new SeckillResult<SeckillExecution>(true, seckillExecution);
 		} catch (SeckillCloseException e) {
 			//秒杀关闭,逻辑异常,不需要日志记录
 			SeckillExecution seckillExecution = new SeckillExecution(seckillId, SeckillStatEnum.END_KILL);
-			return new SeckillResult<SeckillExecution>(false, seckillExecution);
+			return new SeckillResult<SeckillExecution>(true, seckillExecution);
 		} catch (SeckillException e) {
 			//其他异常,需要日志
 			logger.error(e.getMessage());
 			SeckillExecution seckillExecution = new SeckillExecution(seckillId, SeckillStatEnum.INNER_ERROR);
-			return new SeckillResult<SeckillExecution>(false, seckillExecution);
+			return new SeckillResult<SeckillExecution>(true, seckillExecution);
 		}
 	}
 	
@@ -130,6 +132,8 @@ public class SeckillController {
 	 * 返回服务器的系统时间
 	 * @return 服务器的系统时间
 	 */
+	@RequestMapping(value="/time/now",method=RequestMethod.GET,produces={"application/json; charset=UTF-8"})
+	@ResponseBody	//返回为JSON格式
 	public SeckillResult<Long> getNowTime(){
 		Date now = new Date();
 		return new SeckillResult<Long>(true, now.getTime());

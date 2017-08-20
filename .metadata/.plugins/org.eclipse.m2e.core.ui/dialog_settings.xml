@@ -39,6 +39,19 @@
 		<item value="96" key="y"/>
 		<item value="667" key="height"/>
 	</section>
+	<section name="MavenProjectImportWizardPage">
+		<list key="rootDirectory">
+			<item value="F:\JAVA_WorkSpace"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
 	<section name="MavenProjectWizardArchetypePage">
 		<item value="All Catalogs" key="catalog"/>
 		<list key="projectNameTemplate">
@@ -70,6 +83,7 @@
 		<list key="packageCombo">
 		</list>
 		<list key="location">
+			<item value="F:\JAVA_WorkSpace"/>
 			<item value="F:\JAVA_WorkSpace\SSM"/>
 			<item value="F:\JAVA_WorkSpace\SSH"/>
 		</list>

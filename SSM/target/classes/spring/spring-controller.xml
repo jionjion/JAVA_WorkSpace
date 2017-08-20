@@ -9,8 +9,13 @@
 	<!-- 配置SpringMVC -->
 
 	<!-- 基于注解的controller配置,简化配置 (1)自动注册DefaultAnnotationHandlerMapping,AnnotationMethodHandlerAdapter 
-		(2)提供数据绑定,日期,JSON,XML,数组格式化 @NumberFormat,@DataTimeFormat -->
-	<mvc:annotation-driven />
+		(2)提供数据绑定,日期,XML,数组格式化 @NumberFormat,@DataTimeFormat -->
+	<mvc:annotation-driven>
+	    <mvc:message-converters>
+            <bean class="org.springframework.http.converter.StringHttpMessageConverter" />  
+            <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter" />  
+        </mvc:message-converters>
+	</mvc:annotation-driven>
 
 
 	<!-- 静态资源的处理 -->
@@ -21,10 +26,10 @@
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="viewClass"
 			value="org.springframework.web.servlet.view.JstlView" />
-		<property name="prefix" value="/WEB-INF/jsp" />
+		<property name="prefix" value="/WEB-INF/jsp/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
 
 	<!-- 包扫描 -->
-	<context:component-scan base-package="controller" />
+	<context:component-scan base-package="controller"/>
 </beans>
