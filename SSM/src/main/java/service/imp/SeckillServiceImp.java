@@ -14,6 +14,7 @@ import bean.Seckill;
 import bean.SuccessSeckill;
 import dao.SeckillDao;
 import dao.SuccessSeckillDao;
+import dao.cache.RedisDao;
 import dto.Exposer;
 import dto.SeckillExecution;
 import enums.SeckillStatEnum;
@@ -33,6 +34,8 @@ public class SeckillServiceImp implements SeckillService {
 	@Autowired
 	private SeckillDao seckillDao;
 	@Autowired
+	private RedisDao redisDao;
+	@Autowired
 	private SuccessSeckillDao successSeckillDao;
 
 	
@@ -48,11 +51,24 @@ public class SeckillServiceImp implements SeckillService {
 
 	@Override
 	public Exposer exportSeckillUrl(long seckillId) {
-		Seckill seckill = seckillDao.queryById(seckillId);
-		//如果没有该秒杀物品,返回空
-		if (seckill == null) {	
-			return new Exposer(false, seckillId);
-		}
+		/*秒杀地址的暴露,MySQL版*/
+//		Seckill seckill = seckillDao.queryById(seckillId);
+		
+		/*秒杀地址的暴露,Redis缓存版*/
+		//1.尝试从缓存中获取
+		Seckill seckill =  redisDao.getSeckill(seckillId);
+		//2.获取失败,从数据库中获取
+		if (seckill == null) {
+			seckill = seckillDao.queryById(seckillId);
+			//3.判断,如果还是获取不到,则传入有误
+			if (seckill == null) {
+				return new Exposer(false, seckillId);
+			}else {
+			//3.放入缓存中
+				redisDao.setSeckill(seckill);
+			}
+				
+		}			
 		//获得秒杀物的时间信息,并比较
 		Date startTime = seckill.getStartTime();
 		Date endTime = seckill.getEndTime();
@@ -81,20 +97,23 @@ public class SeckillServiceImp implements SeckillService {
 			if(md5 == null || !md5.equals(getMD5(seckillId))) {
 				throw new SeckillException("秒杀地址异常,请从新进入提交");
 			}
-			//执行秒杀事务过程	1.首先进行减库存
-			int updateResult = seckillDao.reduceNumber(seckillId, new Date());
-			if (updateResult <= 0) {
-				//没有库存减少,秒杀失败
-				throw new SeckillCloseException("很抱歉,秒杀活动已经结束");
-			}
-			//2.记录结果
+			/*执行秒杀事务过程*/	
+			
+			//记录结果 [优化:首先出入购买明细]
 			int insertResult = successSeckillDao.insertSuccessKill(seckillId, userPhone);
 			if (insertResult <= 0) {
 				//插入秒杀成功记录,秒杀失败
 				throw new RepeatKillException("抱歉,你已经秒杀成功,本次秒杀无效");
 			}
+			//进行减库存 [优化:减少持有行级所更新数据的时间]
+			int updateResult = seckillDao.reduceNumber(seckillId, new Date());
+			if (updateResult <= 0) {
+				//没有库存减少,秒杀失败
+				throw new SeckillCloseException("很抱歉,秒杀活动已经结束");
+			}
 			SuccessSeckill successSeckill = successSeckillDao.queryByIdIdWithSeckill(seckillId, userPhone);
 			return new SeckillExecution(seckillId,SeckillStatEnum.SUCCESS,successSeckill);
+			
 		} catch (SeckillCloseException e) {
 			throw e;
 		} catch (RepeatKillException e) {
