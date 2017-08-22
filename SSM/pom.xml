@@ -24,6 +24,14 @@
 	    <scope>test</scope>
 	</dependency>
 	
+	<!-- commons的工具包,集合框架 -->
+	<!-- https://mvnrepository.com/artifact/commons-collections/commons-collections -->
+	<dependency>
+	    <groupId>commons-collections</groupId>
+	    <artifactId>commons-collections</artifactId>
+	    <version>3.2.2</version>
+	</dependency>
+	
 	<!-- 日志,规范接口 -->
 	<!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
 	<dependency>

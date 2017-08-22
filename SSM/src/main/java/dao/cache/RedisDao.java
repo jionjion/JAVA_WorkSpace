@@ -23,7 +23,7 @@ public class RedisDao {
 	private final JedisPool jedisPool;
 	
 	//序列化对象的约束
-	private RuntimeSchema<Seckill> schema = RuntimeSchema.createFrom(Seckill.class);
+	private RuntimeSchema<Seckill> runtimeSchema = RuntimeSchema.createFrom(Seckill.class);
 	
 	/**
 	 * @param ip 地址
@@ -51,9 +51,9 @@ public class RedisDao {
 				//缓存中获取序列化,并转为对象
 				if (bytes != null) {
 					//创建空对象
-					Seckill seckill = schema.newMessage();
+					Seckill seckill = runtimeSchema.newMessage();
 					//传入 取出的字节数组,空对象,对象约束->构建缓存对象
-					ProtostuffIOUtil.mergeFrom(bytes, seckill, schema);
+					ProtostuffIOUtil.mergeFrom(bytes, seckill, runtimeSchema);
 					//返回 反序列化的结果
 					return seckill;
 				}
@@ -80,7 +80,7 @@ public class RedisDao {
 			try {
 				String key = "seckill:"+seckill.getSeckillId();	//序列化的键
 				//将对象转为字节数组	传入,对象,对象序列化约束,缓存器的大小(这里使用缓存器的默认大小)
-				byte[] bytes = ProtostuffIOUtil.toByteArray(seckill, schema, LinkedBuffer.allocate(LinkedBuffer.DEFAULT_BUFFER_SIZE));
+				byte[] bytes = ProtostuffIOUtil.toByteArray(seckill, runtimeSchema, LinkedBuffer.allocate(LinkedBuffer.DEFAULT_BUFFER_SIZE));
 				//传入key,超时时间,序列化对象字节数组
 				String result = jedis.setex(key.getBytes(), 60*60*3, bytes);
 				return result;

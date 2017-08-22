@@ -38,7 +38,7 @@ public interface SeckillService {
 	 * @param serckillId 如果开启秒杀则暴露秒杀地址,否则返回系统时间
 	 * @return 是否开启秒杀
 	 */
-	Exposer exportSeckillUrl(long serckillId);
+	Exposer exportSeckillUrl(long seckillId);
 
 	
 	/**
@@ -53,4 +53,13 @@ public interface SeckillService {
 	 */
 	SeckillExecution executeSeckill(long seckillId,long userPhone,String md5)
 				throws RepeatKillException,SeckillCloseException,SeckillException;
+	
+	/**
+	 * 执行秒杀工作,通过存储过程
+	 * @param seckillId 秒杀物品的ID
+	 * @param userPhone 用户电话
+	 * @param md5 验证URL
+	 * @return 秒杀结果
+	 */
+	SeckillExecution executeSeckillByProcedure(long seckillId,long userPhone,String md5);	
 }

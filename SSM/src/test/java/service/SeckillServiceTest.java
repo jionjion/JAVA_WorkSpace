@@ -80,5 +80,20 @@ public class SeckillServiceTest {
 			logger.error(e.getMessage());
 		}
 	}
+	
+	/*通过存储过程进行秒杀逻辑*/
+	@Test
+	public void testExecuteSeckillByProcedure() {
+		long seckillId = 1000L;
+		long userPhone = 15516559778L;
+		Exposer exposer = seckillService.exportSeckillUrl(seckillId);	//暴露接口,完成调用
+		if (exposer.isExposed()) {
+			//如果暴露
+			String md5 = exposer.getMd5();
+			SeckillExecution seckillExecution = seckillService.executeSeckillByProcedure(seckillId, userPhone, md5);
+			logger.info(seckillExecution.getStateInfo());
+		}
+		
+	}
 }
 

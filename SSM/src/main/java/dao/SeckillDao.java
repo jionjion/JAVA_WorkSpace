@@ -2,6 +2,7 @@ package dao;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Param;
 
@@ -36,4 +37,11 @@ public interface SeckillDao {
 	 * 	offset注解实现向SQL传入参数名称
 	 */
 	List<Seckill> queryAll(@Param("offset")int offset,@Param("limit")int limit);
+	
+	
+	/**
+	 * 通过调用存储过程,完成调用
+	 * @param paramMap 传入的参数
+	 */
+	void executeSeckillByProcedure(Map<String, Object> paramMap);
 }

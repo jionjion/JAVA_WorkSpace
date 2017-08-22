@@ -24,7 +24,7 @@ public enum SeckillStatEnum {
 		return stateInfo;
 	}
 	
-	/**传入状态索引,迭代返回状态数字*/
+	/**传入状态索引,迭代返回枚举,在存储过程的返回结果中进行调用*/
 	public static SeckillStatEnum stateOf(int index) {
 		for(SeckillStatEnum state: values()) {
 			if (state.getState() == index) {

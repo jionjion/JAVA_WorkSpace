@@ -1,8 +1,11 @@
 package service.imp;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import org.apache.commons.collections.MapUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -134,6 +137,40 @@ public class SeckillServiceImp implements SeckillService {
 		String base = SeckillId + '/' + salt;
 		String md5 = DigestUtils.md5DigestAsHex(base.getBytes());
 		return md5;
+	}
+
+	
+	/*
+	 *	调用存储过程完成事物逻辑的判断 
+	 */
+	@Override
+	public SeckillExecution executeSeckillByProcedure(long seckillId, long userPhone, String md5){
+		//将用户携带的md5和服务器端的进行比较
+		if(md5 == null || !md5.equals(getMD5(seckillId))) {
+			return new SeckillExecution(seckillId, SeckillStatEnum.DATA_REWRITE);//数据被修改
+		}
+		Date killTime = new Date();
+		Map<String, Object> map = new HashMap<String,Object>();
+		map.put("seckillId", 1000);				//传入参数
+		map.put("phone", userPhone);
+		map.put("killTime", killTime);
+		map.put("result", null);				//输出参数
+		try {
+			seckillDao.executeSeckillByProcedure(map);
+			//获取map中的执行结果.使用common的工具包
+			int result = MapUtils.getInteger(map, "result",-2);		//获得map中的值,如果为空,则返回-2
+			if (result == 1) {
+				//正常执行,返回执行的结果.
+				SuccessSeckill successSeckill = successSeckillDao.queryByIdIdWithSeckill(seckillId, userPhone);
+				return new SeckillExecution(seckillId, SeckillStatEnum.SUCCESS, successSeckill);
+			}else{
+				return new SeckillExecution(seckillId, SeckillStatEnum.stateOf(result));
+			}
+			
+		} catch (Exception e) {
+			logger.error(e.getMessage(), e);
+			return new SeckillExecution(seckillId, SeckillStatEnum.INNER_ERROR);
+		}
 	}
 
 }

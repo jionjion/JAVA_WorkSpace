@@ -108,8 +108,11 @@ public class SeckillController {
 		}
 		
 		try {
-			//获得秒杀执行结果
-			SeckillExecution seckillExecution = seckillService.executeSeckill(seckillId, userPhone, md5);
+			//使用Mybatis调用JDBC获得秒杀执行结果
+//			SeckillExecution seckillExecution = seckillService.executeSeckill(seckillId, userPhone, md5);
+			//使用Mybatis调用存储过程获得执行结果
+			SeckillExecution seckillExecution = seckillService.executeSeckillByProcedure(seckillId, userPhone, md5);
+			
 			return new SeckillResult<SeckillExecution>(true, seckillExecution);
 		} catch (RepeatKillException e) {
 			//重复秒杀,逻辑异常,不需要日志记录
