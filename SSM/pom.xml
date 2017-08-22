@@ -87,14 +87,12 @@
 	    <groupId>com.dyuproject.protostuff</groupId>
 	    <artifactId>protostuff-core</artifactId>
 	    <version>1.1.1</version>
-	    <scope>test</scope>
 	</dependency>
 	<!-- https://mvnrepository.com/artifact/com.dyuproject.protostuff/protostuff-runtime -->
 	<dependency>
 	    <groupId>com.dyuproject.protostuff</groupId>
 	    <artifactId>protostuff-runtime</artifactId>
 	    <version>1.1.1</version>
-	    <scope>test</scope>
 	</dependency>
 	
 					

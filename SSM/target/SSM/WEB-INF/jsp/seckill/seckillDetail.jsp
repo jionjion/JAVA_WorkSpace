@@ -39,7 +39,7 @@
 	</div>
 	
 	<!-- 模态弹窗 -->
-	<div id="killPhoneModal" class="modal fade">
+	<div id="userPhoneModal" class="modal fade">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -50,14 +50,14 @@
 				<div class="modal-body">
 					<div class="row">
 						<div class="col-xs-8 col-xs-offset-2">
-							<input type="text" name="killPhone" id="killPhoneKey" placeholder="请填写手机号" class="form-control">
+							<input type="text" name="userPhone" id="userPhoneKey" placeholder="请填写手机号" class="form-control">
 						</div>
 					</div>
 				</div>
 				<div class="modal-footer">
 					<!-- 验证 -->
-					<span id="killPhoneMessage" class="glyphicon"></span>
-					<button type="button" id="killPhoneBtn" class="btn btn-success">
+					<span id="userPhoneMessage" class="glyphicon"></span>
+					<button type="button" id="userPhoneBtn" class="btn btn-success">
 						<span class="glyphicon glyphicon-phone">提交</span>
 					</button>
 				</div>
