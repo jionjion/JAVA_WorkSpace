@@ -7,6 +7,7 @@ package javaReflex;
  * 	类类型,为单例模式,一个类只能是Class类的唯一表达*/
 public class GetClass {
 
+	@SuppressWarnings({ "rawtypes", "unused" })
 	public static void main(String[] args) throws Exception{
 		
 		User user = new User();
