@@ -1,40 +1,32 @@
-# JAVA_WorkSpace
-这是我的JAVA工作空间，使用Eclipse编辑。
+# JAVA工作空间
 
-### 目录结构
+Tags : JAVA8 Eclipse
 
-所有的练习项目如下
+---
 
-```
-\---------------------------工作空间
-   |------------------Doc:一些未完成的文档   
-   |------------------Hibernate:hibernate框架
-   |------------------JavaBase:java基础的练习
-   |------------------JavaSenior:java设计模式
-   |------------------JMS:使用maven构建的java message
-   |------------------JSON:JSON数据结构的练习
-   |------------------Mybatis:Mybatis框架
-   |------------------Office:使用AOP完成对Office格式的导入导出
-   |------------------RemoteSystemsTempFiles:工作空间自带的
-   |------------------Servers:Tomcat8的配置
-   |------------------ServletClient:使用JSP+Servlet等构建的项目,模拟客户端
-   |------------------Spring:Spring框架
-   |------------------SpringMVC:SpringMVC的框架
-   |------------------SSH:基于Spring+Struts2+Hibernate的框架整合
-   |------------------Struts:Struts2框架
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
- 
-```
+[TOC]
 
+---
+
+##简介
+仓库中是笔者日常工作时有用到的技术,也有平时练习的总结.
+项目以**工作空间**的形式上传,以`Eclipse`作为开发环境,涉及到常用的Spring,Mybatis,Hibernate等主流框架,也有
+##目录结构
+* Doc  在项目编写初期的一些临时文档,未整理笔记以及代码片段
+* Hibernate 框架的使用...**待补充**
+* JMS   JAVA消息机制的使用...**待补充** 
+* JSON  JSON数据对象的创建使用
+* JavaBase  JAVA基础的练习
+* JavaSenior    JAVA中设计模式和设计思想的练习
+* MicroServices 模拟消息通信的服务端
+* Mybatis   框架的使用
+* Office    Office组件在WEB中的使用
+* SSH   基于SSH框架的一个小项目...**做什么还没有想好**
+* SSM   基于SSM框架的一个小项目...**做什么同样没有想好**
+* ServletClient 模拟消息通信的客户端
+* Spring 框架的使用
+* SpringMVC 基于SpringMVC的一个小项目...**做什么同样没有想好**
+* Struts 框架的使用
+##项目简介
+### DOC
+    **这个交给各个功能下的子文件读取**
