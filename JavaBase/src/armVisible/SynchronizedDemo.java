@@ -4,7 +4,7 @@ package armVisible;
 public class SynchronizedDemo {
 
 	/**共享变量*/
-	private boolean ready = false;
+	private boolean ready = false;	//是否可读标志
 	private int result = 0;
 	private int number = 1;
 	
