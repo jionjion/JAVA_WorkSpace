@@ -179,8 +179,8 @@ public class VolatileDemo {
 	private Lock lock = new ReentrantLock();
 	
 	//对改变变量进行自增操作
-	public void inCreate() {				//增加synchronized关键字保证原子性
-							//自加分三步:读取->自加->写入,不能保证原子性,在多线程多次写入后,发生抢占数据,值会改变
+	public void inCreate() {		//增加synchronized关键字保证原子性
+						//自加分三步:读取->自加->写入,不能保证原子性,在多线程多次写入后,发生抢占数据,值会改变
 		//增加锁
 		lock.lock();
 		try {
