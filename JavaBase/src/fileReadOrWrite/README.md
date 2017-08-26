@@ -16,16 +16,16 @@ java中对文件读取进行了抽象,实现方式有字节流,字符流.
 ## 包结构
 
 * *[BufferedInputOrOutputType][1]*                 带缓冲的字节流读写
-* *`[BufferedReaderOrWriteOrPrintType][2]`*    带缓冲的字符流过滤器读写
+* *[BufferedReaderOrWriteOrPrintType][2]*    带缓冲的字符流过滤器读写
 * *[DataInputOrOutputSteamType][3]*             扩展数据类型的字节流读写
 * *[demo][4]*                                                    一些功能尝试
 * *[encoedType][5]*                                          文本编码格式
-* *FileReadOrFileWrite*                                文件字符流读写
-* *fileType*                                                 java文件类型读写
-* *InputOrOutputStreamType*                   字符流读写
-* *InputSteamReaderOrOutputSteamWriteType*        带缓冲的字节流读写操作
-* *ObjectReadeOrWriteType*                    对象读取操作
-*  *RandomAccessFileType*                      随机文件读取
+* *[FileReadOrFileWrite][6]*                                文件字符流读写
+* *[fileType][7]*                                                 文件类型读写
+* *[InputOrOutputStreamType][8]*                   字符流读写
+* *[InputSteamReaderOrOutputSteamWriteType][9]*        带缓冲的字节流读写操作
+* *[ObjectReadeOrWriteType][10]*                    对象读取操作
+*  *[RandomAccessFileType][11]*                      随机文件读取
 
 ## 子包描述
 ### `BufferedInputOrOutputType`包
@@ -48,20 +48,37 @@ java中对文件读取进行了抽象,实现方式有字节流,字符流.
 
 介绍了常用的编码格式
 
-### `fileReadOrfilewrite`包
+### `FileReadOrFileWrite`包
 
-
+实现了对文件以字节流方式的直接访问
 
 ### `fileType`包
+
+`File`类抽象了文件对象,其指向可以是一个目录,也可以是一个具体的文件
+
 ### `InputOrOutputStreamType`包
-### `BufferedInputOrOutputType`包
+
+`FileInputSteam`类和`FileOutputSteam`继承了其抽象父类`InputSteam`和`OutputSteam`,实现了对文件以字节流方法进行访问
+
 ### `InputSteamReaderOrOutputSteamWriteType`包
+
+`InputStreamReader`类和`OutputStreamWriter`继承了其抽象父类`Reader`和`Writer`,包装或解析了byte流和char流之间的转换.
+
 ### `ObjectReadeOrWriteType`包
-**这个交给各个子模块实现**
 
+`ObjectInputStream`和`ObjectOutputStream`实现了将对象转字节数组,实现了对象的序列化操作.
 
-  [1]: https://github.com/jionjion/JAVA_WorkSpace/tree/master/JavaBase/bin/fileReadOrWrite/BufferedInputOrOutputType
-  [2]: https://github.com/jionjion/JAVA_WorkSpace/tree/master/JavaBase/bin/fileReadOrWrite/BufferedReaderOrWriteOrPrintType
-  [3]: https://github.com/jionjion/JAVA_WorkSpace/tree/master/JavaBase/bin/fileReadOrWrite/DataInputOrOutputSteamType
-  [4]: https://github.com/jionjion/JAVA_WorkSpace/tree/master/JavaBase/bin/fileReadOrWrite/demo
-  [5]: https://github.com/jionjion/JAVA_WorkSpace/tree/master/JavaBase/bin/fileReadOrWrite/encoedType
+### `RandomAccessFileType`包
+`randomAccessFile`实现了对文件任意位置的访问写入.可以用来执行多线程文件下载写入.
+
+  [1]: https://github.com/jionjion/JAVA_WorkSpace/tree/master/JavaBase/src/fileReadOrWrite/BufferedInputOrOutputType
+  [2]: https://github.com/jionjion/JAVA_WorkSpace/tree/master/JavaBase/src/fileReadOrWrite/BufferedReaderOrWriteOrPrintType
+  [3]: https://github.com/jionjion/JAVA_WorkSpace/tree/master/JavaBase/src/fileReadOrWrite/DataInputOrOutputSteamType
+  [4]: https://github.com/jionjion/JAVA_WorkSpace/tree/master/JavaBase/src/fileReadOrWrite/demo
+  [5]: https://github.com/jionjion/JAVA_WorkSpace/tree/master/JavaBase/src/fileReadOrWrite/encoedType
+  [6]: https://github.com/jionjion/JAVA_WorkSpace/tree/master/JavaBase/src/fileReadOrWrite/FileReadOrFileWrite
+  [7]: https://github.com/jionjion/JAVA_WorkSpace/tree/master/JavaBase/src/fileReadOrWrite/fileType
+  [8]: https://github.com/jionjion/JAVA_WorkSpace/tree/master/JavaBase/src/fileReadOrWrite/InputOrOutputStreamType
+  [9]: https://github.com/jionjion/JAVA_WorkSpace/tree/master/JavaBase/src/fileReadOrWrite/InputSteamReaderOrOutputSteamWriteType
+  [10]: https://github.com/jionjion/JAVA_WorkSpace/tree/master/JavaBase/src/fileReadOrWrite/ObjectReadeOrWriteType
+  [11]: https://github.com/jionjion/JAVA_WorkSpace/tree/master/JavaBase/src/fileReadOrWrite/RandomAccessFileType
