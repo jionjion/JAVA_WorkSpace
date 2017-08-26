@@ -8,7 +8,6 @@
 	<classpathentry kind="lib" path="src/javaEail/mysql-connector-java-5.1.18-bin.jar"/>
 	<classpathentry kind="lib" path="src/jdbc/Until/c3p0-0.9.1-pre6.jar" sourcepath="E:/Java/some Jar/c3p0/c3p0-0.9.1-pre6.src.zip"/>
 	<classpathentry kind="lib" path="src/jdbc/Until/mchange-commons-0.2.jar"/>
-	<classpathentry kind="lib" path="src/fileReadOrWrite/common/commons-io-2.2.jar"/>
 	<classpathentry kind="lib" path="src/javaEncryption/bcprov-jdk16-136.jar" sourcepath="E:/Java/some Jar/Boucncy Castle/bcprov-jdk16-136-sources.jar">
 		<attributes>
 			<attribute name="source_encoding" value="UTF-8"/>
@@ -19,5 +18,7 @@
 	<classpathentry kind="lib" path="src/xmlReadAndWriter/xmlRead/dom4j/dom4j-2.0.1.jar"/>
 	<classpathentry kind="lib" path="src/qrCode/zxing-core-3.3.0.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="src/commons/io/commons-io-2.5.jar"/>
+	<classpathentry kind="lib" path="src/commons/collections/commons-collections4-4.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
