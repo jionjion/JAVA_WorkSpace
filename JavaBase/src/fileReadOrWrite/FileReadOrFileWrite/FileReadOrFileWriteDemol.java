@@ -1,4 +1,4 @@
-package fileReadOrWrite.fileReadOrfilewrite;
+package fileReadOrWrite.FileReadOrFileWrite;
 import java.io.FileReader;
 import java.io.FileWriter;
 /**文件读入,不能指定编码格式*/
