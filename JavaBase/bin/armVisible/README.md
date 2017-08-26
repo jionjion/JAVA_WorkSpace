@@ -83,7 +83,134 @@ volatile变量在每次被线程访问时,总会从主内存中重读最新值;�
 3. 共享变量更新后的值没有在工作内存与主内存间及时更新
 
 # 代码实现
-## `volatile`关键字实现
+## 需求描述
+在类中定义了一组共享变量,它们可以被一对`write()`方法和`read()`进行修改和读取.通过继承`Thread`类重写`run()`方法,进行多线程执行.我们在`main()`方法中**多次调用,可以得到不同不的结果.**
 
+ - 修改前代码
 
+``` java
+public class SynchronizedDemo {
+
+	/**共享变量*/
+	private boolean ready = false;	//是否可读标志
+	private int result = 0;
+	private int number = 1;
+	/**写操作,为共享变量写入最新值*/
+	public  void write() {
+		ready = true;				//①
+		number = 2;					//②
+	}
+	/**读操作,为共享变量读取最新值*/
+	public  void read() {
+		if (ready) {				//③
+			result = number * 3;	//④	
+		}
+		System.out.println("result的值为:"+result);
+	}
+	/**内部类*/
+	private class ReadWriteThread extends Thread{
+		//根据构造方法中传入的flag参数,确定线程执行读操作或者写操作
+		private boolean flag;
+		public ReadWriteThread (boolean flag) {
+			this.flag = flag;
+		}
+		
+		@Override
+		public void run() {
+			if (flag) {
+				write();
+			}else{
+				read();
+			}
+		}
+	}
+	/**	启动线程
+	 * 	结果为6: ①->②->③->④
+	 * 	结果为0:
+	 * */
+	public static void main(String[] args) {
+		SynchronizedDemo demo  = new SynchronizedDemo();
+		//启动线程,执行写操作
+		demo.new ReadWriteThread(true).start();
+		//启动线程,执行写操作
+		demo.new ReadWriteThread(false).start();
+	}
+}
+
+```
+## 代码分析
+我们在代`write()`方法和`read()`中进行了对共享变量的操作,在多线程执行时,会根据线程抢到的CPU时间片进行操作,也就是说,对于①,②,③,④的操作在不同线程的间的执行顺序是不同的,可能会因为A线程修改过数据后未及时将其写入主内存中,造成B线程操作时数据尚未及时修正,最终出现输出结果的不同
+## `synchronized`关键字实现
+
+对于需要修改共享内存方法,我们可以通过`synchronized`关键字修饰,实现对其方法修改变量的一致性维护.
+
+``` java
+
+/**写操作,为共享变量写入最新值*/
+	public synchronized void write() {		//synchronized修饰
+		ready = true;				//①
+		number = 2;					//②
+	}
+	
+	/**读操作,为共享变量读取最新值*/
+	public synchronized void read() {
+		if (ready) {				//③
+			result = number * 3;	//④	
+		}
+		System.out.println("result的值为:"+result);
+	}
+	
+```
+	
 ## `volatile` 关键字实现
+通过`volatile`修饰共享变量,结合`ReentrantLock()`原子锁,实现对共享方法的调用.
+
+``` java
+public class VolatileDemo {
+
+	//声明一个变量
+	private volatile int number = 0;
+	
+	//提供get方法,获取该变量
+	public int getNumber() {
+		return this.number;
+	}
+	//原子锁
+	private Lock lock = new ReentrantLock();
+	
+	//对改变变量进行自增操作
+	public void inCreate() {				//增加synchronized关键字保证原子性
+							//自加分三步:读取->自加->写入,不能保证原子性,在多线程多次写入后,发生抢占数据,值会改变
+		//增加锁
+		lock.lock();
+		try {
+			this.number ++;		//执行自增操作
+		} finally {
+			lock.unlock();		//解锁
+		}
+	}
+	
+	
+	/**主线程,使用不同的分线程,完成自加操作*/
+	public static void main(String[] args) {
+		
+		final VolatileDemo demo = new VolatileDemo();
+		for (int i = 0; i < 500	; i++) {	//执行500次多线程
+			//传入匿名内部类,创建实例
+			new Thread(new Runnable() {
+				@Override
+				public void run() {
+					demo.inCreate();
+				}
+			}).start();					//执行线程
+		}
+		
+		/**如果当前仍有子线程在运行,则让主线让出CUP,等待所有子线程运行完后,执行主线程*/
+		while(Thread.activeCount() > 1){
+			Thread.yield();
+		}
+		System.out.println("当前变量值为:"+demo.getNumber());
+	}
+}
+
+```
