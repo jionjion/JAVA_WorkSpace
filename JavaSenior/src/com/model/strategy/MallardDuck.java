@@ -1,4 +1,7 @@
 package com.model.strategy;
+
+import com.model.strategy.impl.FlyWithWin;
+
 /**	绿脖鸭子*/
 public class MallardDuck extends Duck {
 

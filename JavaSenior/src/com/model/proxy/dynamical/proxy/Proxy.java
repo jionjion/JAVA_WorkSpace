@@ -6,6 +6,7 @@ import java.lang.reflect.Method;
 
 import javax.tools.JavaCompiler;
 import javax.tools.JavaCompiler.CompilationTask;
+import javax.tools.JavaFileObject;
 import javax.tools.StandardJavaFileManager;
 import javax.tools.ToolProvider;
 
@@ -17,7 +18,7 @@ public class Proxy {
 
 	
 	/**自定义返回一个动态代理 */
-	public static Object newProxyInstance(Class inface,InvocationHandler handler) throws Exception{
+	public static Object newProxyInstance(Class<?> inface,InvocationHandler handler) throws Exception{
 		//1.声明一段源码
 		String rt = "\t\n";
 		String methodName = "";
@@ -59,7 +60,7 @@ public class Proxy {
 		StandardJavaFileManager standardJavaFileManager = 
 					javaCompiler.getStandardFileManager(null, null, null);
 		//得到文件
-		Iterable units = standardJavaFileManager.getJavaFileObjects(fileName);
+		Iterable<? extends JavaFileObject> units = standardJavaFileManager.getJavaFileObjects(fileName);
 		//编译任务
 		CompilationTask compilationTask = javaCompiler.getTask(null, standardJavaFileManager, null, null, null, units);
 		//进行编译

@@ -1,6 +1,9 @@
-package com.model.strategy;
+package com.model.strategy.impl;
 
-/**	飞行的一个扩展类*/
+import com.model.strategy.FlyStrategy;
+
+/**	该包为策略模式的各种实现类..
+ * 	飞行的一个扩展类*/
 public class FlyWithWin implements FlyStrategy {
 
 	@Override

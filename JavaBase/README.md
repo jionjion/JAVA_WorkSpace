@@ -16,8 +16,8 @@ Tags : JDK8 Eclipse
 ##包结构
 
 * *[armVisible][1]*                JAVA中内存可见性的分析,介绍了内存争议出现和避免方式
-* *commons*                   apache基金会提供的一组扩展JAVA的工具类,简化代码
-* *fileReadOrWrite*           JAVA中基础的文件读写操作
+* *[commons][2]*                   apache基金会提供的一组扩展JAVA的工具类,简化代码
+* *[fileReadOrWrite][3]*           JAVA中基础的文件读写操作
 * *javaAnnotation*            JAVA注解的使用
 * *javaEail*                  JAVA中邮件的发布
 * *javaEncryption*            JAVA安全框架下的加解密操作
@@ -42,3 +42,5 @@ Tags : JDK8 Eclipse
 
 
   [1]: https://github.com/jionjion/JAVA_WorkSpace/tree/master/JavaBase/src/armVisible
+  [2]: https://github.com/jionjion/JAVA_WorkSpace/tree/master/JavaBase/src/commons
+  [3]: https://github.com/jionjion/JAVA_WorkSpace/tree/master/JavaBase/src/fileReadOrWrite
