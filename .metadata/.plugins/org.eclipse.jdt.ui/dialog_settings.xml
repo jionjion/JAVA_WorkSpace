@@ -2,6 +2,9 @@
 <section name="Workbench">
 	<item value="E:\Java\some Jar\mysql" key="org.eclipse.jdt.ui.lastextjar"/>
 	<item value="false" key="delegateUpdating"/>
+	<section name="SelfEncapsulateFieldWizard">
+		<item value="false" key="GenerateJavadoc"/>
+	</section>
 	<section name="DialogBounds_GenerateConstructorUsingFieldsSelectionDialog">
 		<item value="709" key="DIALOG_WIDTH"/>
 		<item value="1|Microsoft YaHei UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Microsoft YaHei UI" key="DIALOG_FONT_NAME"/>
