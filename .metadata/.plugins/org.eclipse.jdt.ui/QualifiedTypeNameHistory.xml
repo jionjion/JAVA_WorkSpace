@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="com.dyuproject.protostuff.ProtostuffIOUtil"/>
-<fullyQualifiedTypeName name="com.dyuproject.protostuff.LinkedBuffer"/>
-<fullyQualifiedTypeName name="dao.SeckillDao"/>
-<fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
-<fullyQualifiedTypeName name="dao.cache.RedisDao"/>
 <fullyQualifiedTypeName name="bean.Seckill"/>
 <fullyQualifiedTypeName name="java.util.Date"/>
 <fullyQualifiedTypeName name="java.util.HashMap"/>
@@ -43,15 +38,11 @@
 <fullyQualifiedTypeName name="com.model.chainOfResponsibleity.handler.PriceHandler"/>
 <fullyQualifiedTypeName name="java.util.Random"/>
 <fullyQualifiedTypeName name="com.sun.xml.internal.bind.v2.schemagen.xmlschema.List"/>
-<fullyQualifiedTypeName name="java.util.List"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
-<fullyQualifiedTypeName name="java.lang.Object"/>
 <fullyQualifiedTypeName name="com.model.observer.Observer"/>
 <fullyQualifiedTypeName name="com.model.observer.ConcreateObserver"/>
 <fullyQualifiedTypeName name="com.model.observer.ConcreteSubject"/>
 <fullyQualifiedTypeName name="com.model.observer.WeatherConcreateObserver"/>
 <fullyQualifiedTypeName name="com.model.observer.WeatherConcreteSubject"/>
-<fullyQualifiedTypeName name="com.model.observer.template.ConcreateObserver"/>
 <fullyQualifiedTypeName name="com.model.adapter.TargetInterface"/>
 <fullyQualifiedTypeName name="com.model.adapter.ClientClass"/>
 <fullyQualifiedTypeName name="com.model.adapter.AdapteerClass"/>
@@ -59,5 +50,14 @@
 <fullyQualifiedTypeName name="org.junit.Test"/>
 <fullyQualifiedTypeName name="com.model.adapter.AdapteerClassByExtends"/>
 <fullyQualifiedTypeName name="com.sun.org.apache.xml.internal.security.keys.keyresolver.implementations.PrivateKeyResolver"/>
+<fullyQualifiedTypeName name="com.model.observer.template.ConcreateObserver"/>
+<fullyQualifiedTypeName name="com.model.observer.observerByJDK.WeatherConcreateObserver"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.util.Observer"/>
+<fullyQualifiedTypeName name="com.model.observer.observerByDIY.WeatherSubject"/>
+<fullyQualifiedTypeName name="java.lang.Object"/>
 <fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="com.model.observer.observerByDIY.WeatherConcreateSubject"/>
+<fullyQualifiedTypeName name="com.model.observer.observerByJDK.WeatherConcreateSubject"/>
 </qualifiedTypeNameHistroy>

@@ -1,37 +1,27 @@
 package com.model.observer.observerByDIY;
-/**
- * 	目标对象,知道观察者是谁,提供给观察者相应的添加/删除接口
- */
 
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 	区别观察者
+ * 	定义一个抽象的被观察者,交由子类完成实现
+ * 	*/
 public abstract class WeatherSubject {
 
-	/**保存订阅天气预报的人*/
-	private List<WeatherObserver> observers = new ArrayList<WeatherObserver>();
+	//保存观察者对象
+	public List<Observer> observers = new ArrayList<Observer>();
 	
-	/**添加订阅天气的人*/
-	public void attach(WeatherObserver observer) {
+	//增加观察者对象
+	public void attach(Observer observer) {
 		observers.add(observer);
 	}
 	
-	/**删除订阅天气的人*/
-	public void detach(WeatherObserver observer) {
+	//删除观察者
+	public void detach(Observer observer) {
 		observers.remove(observer);
 	}
 	
-	/**使用拉模型更新天气的状态*/
-	protected void notifyObserver() {
-		for(WeatherObserver observer : observers) {
-			observer.update(this);
-		}
-	}
-	
-	/**使用推模型更新天气的状态,推送的为文本信息*/
-	protected void notifyObserver(String content) {
-		for(WeatherObserver observer : observers) {
-			observer.update(content);
-		}
-	}
+	/**父类定义抽象的方法,交由子类去实现*/
+	protected abstract void notifyObservers();
 }

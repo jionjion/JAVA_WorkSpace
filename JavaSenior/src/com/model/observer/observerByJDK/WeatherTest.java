@@ -1,8 +1,10 @@
-package com.model.observer.observerByDIY;
+package com.model.observer.observerByJDK;
 
 import org.junit.Test;
 
-/**	对区别观察者模式测试*/
+/**
+ * 	测试JDK提供的观察者模式*/
+
 public class WeatherTest {
 
 	/**	测试类,完成目标请求*/
@@ -15,16 +17,14 @@ public class WeatherTest {
 		//2.创建观察者
 		WeatherConcreateObserver observerGirl = new WeatherConcreateObserver();
 		observerGirl.setObserverName("女票");
-		observerGirl.setRemindThing("下雨了,淘宝买买买....");
 		WeatherConcreateObserver observerMum = new WeatherConcreateObserver();
 		observerMum.setObserverName("母上大人");
-		observerMum.setRemindThing("在家打扫屋子....");
-
+		
 		//3.注册观察者
-		weatherConcreteSubject.attach(observerGirl);
-		weatherConcreteSubject.attach(observerMum);
+		weatherConcreteSubject.addObserver(observerGirl);
+		weatherConcreteSubject.addObserver(observerMum);
 		
 		//4.通知更新
-		weatherConcreteSubject.setWeatherContent("雪");	//晴,雨,雪
+		weatherConcreteSubject.setContent("明天天气,晴朗");
 	}
 }

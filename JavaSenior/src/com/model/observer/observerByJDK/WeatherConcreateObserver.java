@@ -5,7 +5,7 @@ import java.util.Observer;
 
 /**
  * 	具体的观察者实现对象*/
-public class ConcreateObserver implements Observer {
+public class WeatherConcreateObserver implements Observer {
 
 	/**观察者的名称对象*/
 	private String observerName;
@@ -19,7 +19,8 @@ public class ConcreateObserver implements Observer {
 		//推的方式
 		System.out.println(observerName+"收到消息,目标推送消息是:"+object);
 		//拉的方式
-		System.out.println(observerName+"收到消息,目标推送消息是:"+object);
+		System.out.println(observerName+"拉取消息是:"
+									+((WeatherConcreateSubject)observable).getContent());
 	}
 
 	public String getObserverName() {

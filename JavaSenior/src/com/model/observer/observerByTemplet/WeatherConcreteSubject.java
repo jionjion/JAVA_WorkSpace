@@ -1,4 +1,4 @@
-package com.model.observer.observerByDIY;
+package com.model.observer.observerByTemplet;
 
 /**
  *	具体的目标对象,负责把有关状态存入到相应的观察者中

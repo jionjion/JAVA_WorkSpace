@@ -1,44 +1,32 @@
 package com.model.observer.observerByDIY;
 
-/**
- *	观察者的具体实现
- *	具体的观察者对象	
- */
-public class WeatherConcreateObserver implements WeatherObserver{
+public class WeatherConcreateObserver implements Observer {
 
-	/*进行消息提示*/
-	private String observerName;				//提醒对象的名称
+	/**观察者的名称*/
+	private String observerName;
 	
-	private String weatherContent;				//天气状态
+	//天气情况的内容
+	private String weatherContent;
 	
-	private String remindThing;					//提醒内容
+	/**提醒内容,子类实现*/
+	private String remindThing;
 	
-	/**
-	 * 	将目标类的状态同步到观察者的状态中
-	 * 	使用拉模型,将目标出入观察者中
-	 */
+	/**通知发布*/
 	@Override
 	public void update(WeatherSubject subject) {
-		this.weatherContent = ((WeatherConcreteSubject) subject).getWeatherContent();
-		
-		System.out.println(observerName + "收到了," + weatherContent + "提醒的" + remindThing);
+		//从被观察者中获取信息
+	 	weatherContent = ((WeatherConcreateSubject)subject).getWeatherContent();
+	 	System.out.println(observerName + "收到了" + weatherContent +"," + remindThing);
 	}
 
-	/**
-	 * 	推模型,将信息推送给观察者
-	 */
 	@Override
-	public void update(String weatherContent) {
-		this.weatherContent = weatherContent ;
-		System.out.println(observerName + "收到了," + weatherContent + "提醒的" + remindThing);
-	}
-	
-	public String getObserverName() {
-		return observerName;
-	}
-
 	public void setObserverName(String observerName) {
 		this.observerName = observerName;
+	}
+
+	@Override
+	public String getObserverName() {
+		return observerName;
 	}
 
 	public String getWeatherContent() {
@@ -56,6 +44,6 @@ public class WeatherConcreateObserver implements WeatherObserver{
 	public void setRemindThing(String remindThing) {
 		this.remindThing = remindThing;
 	}
-
+	
 	
 }
