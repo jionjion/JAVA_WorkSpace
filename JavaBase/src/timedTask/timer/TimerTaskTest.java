@@ -1,12 +1,11 @@
 package timedTask.timer;
 
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.TimerTask;
-/**×Ô¶¨Òå¶¨Ê±ÈÎÎñ*/
+/**è‡ªå®šä¹‰å®šæ—¶ä»»åŠ¡*/
 public class TimerTaskTest extends TimerTask{
 
-	/**·â×°ÊôĞÔ*/
+	/**å°è£…å±æ€§*/
 	private String name;
 	public  String getName() {
 		return name;
@@ -15,29 +14,29 @@ public class TimerTaskTest extends TimerTask{
 		this.name = name;
 	}
 
-	/**Ö´ĞĞ¼ÆÊı*/
+	/**æ‰§è¡Œè®¡æ•°*/
 	public int count = 0;
-	/**×Ô¶¨Òå´òÓ¡ÈÎÎñ*/
+	/**è‡ªå®šä¹‰æ‰“å°ä»»åŠ¡*/
 	public void printTask() {
 		if (name != null) {
 			if (count <= 3) {
-				System.out.println("ÈÎÎñÖ´ĞĞ.....ĞÕÃû:"+name);
+				System.out.println("ä»»åŠ¡æ‰§è¡Œ.....å§“å:"+name);
 				SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd : hh:mm:ss");
-				System.out.println("ÏÂ´ÎÖ´ĞĞÊ±¼ä:"
+				System.out.println("ä¸‹æ¬¡æ‰§è¡Œæ—¶é—´:"
 							+ simpleDateFormat.format(scheduledExecutionTime()));
 				count ++;
 			}else{
-				cancel();		//È¡ÏûÖ´ĞĞ
-				System.out.println("ÈÎÎñÈ¡Ïû");
+				cancel();		//å–æ¶ˆæ‰§è¡Œ
+				System.out.println("ä»»åŠ¡å–æ¶ˆ");
 				scheduledExecutionTime();
 			}
 		}
 	}
 
 	@Override
-	/**¸²¸ÇÖ´ĞĞ·½·¨*/
+	/**è¦†ç›–æ‰§è¡Œæ–¹æ³•*/
 	public void run() {
-		//½øĞĞÈÎÎñµ÷¶È
+		//è¿›è¡Œä»»åŠ¡è°ƒåº¦
 		printTask();
 	}
 	

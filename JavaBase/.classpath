@@ -20,5 +20,17 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="src/commons/io/commons-io-2.5.jar"/>
 	<classpathentry kind="lib" path="src/commons/collections/commons-collections4-4.1.jar"/>
+	<classpathentry kind="lib" path="src/jsonAndGson/json/ezmorph-1.0.6.jar"/>
+	<classpathentry kind="lib" path="src/jsonAndGson/json/commons-beanutils.jar"/>
+	<classpathentry kind="lib" path="src/jsonAndGson/json/json-lib-2.2.2-jdk15.jar"/>
+	<classpathentry kind="lib" path="src/jsonAndGson/json/commons-lang.jar"/>
+	<classpathentry kind="lib" path="src/jsonAndGson/json/commons-logging.jar"/>
+	<classpathentry kind="lib" path="src/jsonAndGson/json/commons-collections-3.1.jar"/>
+	<classpathentry kind="lib" path="src/jsonAndGson/gson/gson-2.3.1-sources.jar"/>
+	<classpathentry kind="lib" path="src/jsonAndGson/gson/gson-2.3.1.jar"/>
+	<classpathentry kind="lib" path="src/timedTask/quartz/c3p0-0.9.5.2.jar"/>
+	<classpathentry kind="lib" path="src/timedTask/quartz/quartz-2.3.0.jar" sourcepath="C:/Users/14345/AppData/Local/Temp/.org.sf.feeling.decompiler1504426612512/source/quartz-2.3.0-sources-1504436602710.jar"/>
+	<classpathentry kind="lib" path="src/timedTask/quartz/slf4j-api-1.7.7.jar"/>
+	<classpathentry kind="lib" path="src/timedTask/quartz/slf4j-simple-1.7.7.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

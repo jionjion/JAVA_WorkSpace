@@ -6,7 +6,8 @@
 <typeInfo handle="=JavaSenior/src&lt;com.model.chainOfResponsibleity.handler{PriceHandler.java[PriceHandler" modifiers="1025" timestamp="1503933582301"/>
 <typeInfo handle="=JavaSenior/src&lt;com.model.chainOfResponsibleity.handler{PriceHandlerFactory.java[PriceHandlerFactory" modifiers="1" timestamp="1503934667383"/>
 <typeInfo handle="=JavaSenior/E:\/Java\/java_8\/jdk\/jre\/lib\/rt.jar&lt;java.util(Observable.class[Observable" modifiers="33" timestamp="1493033509546"/>
-<typeInfo handle="=JavaSenior/src&lt;com.model.observer.observerByDIY{WeatherSubject.java[WeatherSubject" modifiers="1025" timestamp="1504274766985"/>
+<typeInfo handle="=JavaSenior/src&lt;com.model.observer.observerByDIY{WeatherSubject.java[WeatherSubject" modifiers="1025" timestamp="1504277989877"/>
 <typeInfo handle="=JavaSenior/src&lt;com.model.observer.observerByDIY{Observer.java[Observer" modifiers="513" timestamp="1504276914867"/>
 <typeInfo handle="=JavaSenior/E:\/Java\/java_8\/jdk\/jre\/lib\/rt.jar&lt;java.util(Observer.class[Observer" modifiers="1537" timestamp="1493033509546"/>
+<typeInfo handle="=JavaBase/src\/timedTask\/quartz\/quartz-2.3.0.jar&lt;org.quartz(Job.class[Job" modifiers="1537" timestamp="1504409115657"/>
 </typeInfoHistroy>

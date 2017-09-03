@@ -6,150 +6,150 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 
-/**¶Ô×Ô¶¨ÒåÊ±¼äÈÎÎñ½øĞĞµ÷¶È*/
+/**å¯¹è‡ªå®šä¹‰æ—¶é—´ä»»åŠ¡è¿›è¡Œè°ƒåº¦*/
 public class TimerTest {
 	
-	/**»ù±¾ÓÃ·¨*/
+	/**åŸºæœ¬ç”¨æ³•*/
 	public void testOne() {
-		//1.´´½¨µ÷¶ÈÊµÀı
+		//1.åˆ›å»ºè°ƒåº¦å®ä¾‹
 		Timer timer = new Timer();
-		//2.´´½¨ÈÎÎñÊµÀı
+		//2.åˆ›å»ºä»»åŠ¡å®ä¾‹
 		TimerTaskTest task = new TimerTaskTest();
 		task.setName("JION.JION");
-		//3.Ö´ĞĞ¶¨Ê±µ÷¶È:µ±Ç°Ê±¼ä½øĞĞµ÷¶È,ËæºóÃ»Á½Ãë½øĞĞÒ»´Î.
-		//Ö´ĞĞÈÎÎñµÄrun·½·¨,µ±Ç°Ê±¼äºó¶àÉÙºÁÃë,Ëæºó¼ä¸ô¶àÉÙºÁÃë
+		//3.æ‰§è¡Œå®šæ—¶è°ƒåº¦:å½“å‰æ—¶é—´è¿›è¡Œè°ƒåº¦,éšåæ²¡ä¸¤ç§’è¿›è¡Œä¸€æ¬¡.
+		//æ‰§è¡Œä»»åŠ¡çš„runæ–¹æ³•,å½“å‰æ—¶é—´åå¤šå°‘æ¯«ç§’,éšåé—´éš”å¤šå°‘æ¯«ç§’
 		timer.schedule(task, 2000L, 1000L);	
 	}
 	
 
-	/**Éè¶¨Ê±¼ä,Ëæºó½øĞĞµ÷¶È*/
+	/**è®¾å®šæ—¶é—´,éšåè¿›è¡Œè°ƒåº¦*/
 	public void testTwo() {
 		Timer timer = new Timer();
 		TimerTaskTest task = new TimerTaskTest();
 		task.setName("JION.JION");
-		//´´½¨Ê±¼ä¶ÔÏó
-		Calendar calendar = Calendar.getInstance();//µ¥ÀıÄ£Ê½
-		//´´½¨Ê±¼ä¸ñÊ½¶ÔÏó 
+		//åˆ›å»ºæ—¶é—´å¯¹è±¡
+		Calendar calendar = Calendar.getInstance();//å•ä¾‹æ¨¡å¼
+		//åˆ›å»ºæ—¶é—´æ ¼å¼å¯¹è±¡ 
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd : hh:mm:ss");
-		//´òÓ¡µ±Ç°Ê±¼ä
-		System.out.println("Ö´ĞĞÊ±¼ä"+simpleDateFormat.format(calendar.getTime()));
-		//Îªµ±Ç°Ê±¼ä¼Ó5Ãë
+		//æ‰“å°å½“å‰æ—¶é—´
+		System.out.println("æ‰§è¡Œæ—¶é—´"+simpleDateFormat.format(calendar.getTime()));
+		//ä¸ºå½“å‰æ—¶é—´åŠ 5ç§’
 		calendar.add(Calendar.SECOND, 5);
-		//Ö´ĞĞÈÎÎñµÄrun·½·¨,µ±Ç°Ê±¼äºó¶àÉÙºÁÃë,ËæºóÏß³Ì×èÈû
+		//æ‰§è¡Œä»»åŠ¡çš„runæ–¹æ³•,å½“å‰æ—¶é—´åå¤šå°‘æ¯«ç§’,éšåçº¿ç¨‹é˜»å¡
 		timer.schedule(task, calendar.getTime());
 	}
 	
-	/**Éè¶¨Ê±¼ä,Ëæºó½øĞĞµ÷¶È,Ã¿¸ôºÁÃëÊı½øĞĞ*/
+	/**è®¾å®šæ—¶é—´,éšåè¿›è¡Œè°ƒåº¦,æ¯éš”æ¯«ç§’æ•°è¿›è¡Œ*/
 	public void testThree() {
 		Timer timer = new Timer();
 		TimerTaskTest task = new TimerTaskTest();
 		task.setName("JION.JION");
-		//´´½¨Ê±¼ä¶ÔÏó
-		Calendar calendar = Calendar.getInstance();//µ¥ÀıÄ£Ê½
-		//´´½¨Ê±¼ä¸ñÊ½¶ÔÏó 
+		//åˆ›å»ºæ—¶é—´å¯¹è±¡
+		Calendar calendar = Calendar.getInstance();//å•ä¾‹æ¨¡å¼
+		//åˆ›å»ºæ—¶é—´æ ¼å¼å¯¹è±¡ 
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd : hh:mm:ss");
-		//´òÓ¡µ±Ç°Ê±¼ä
-		System.out.println("Ö´ĞĞÊ±¼ä"+simpleDateFormat.format(calendar.getTime()));
-		//Îªµ±Ç°Ê±¼ä¼Ó5Ãë
+		//æ‰“å°å½“å‰æ—¶é—´
+		System.out.println("æ‰§è¡Œæ—¶é—´"+simpleDateFormat.format(calendar.getTime()));
+		//ä¸ºå½“å‰æ—¶é—´åŠ 5ç§’
 		calendar.add(Calendar.SECOND, 5);
-		//Ö´ĞĞÈÎÎñµÄrun·½·¨,µ±Ç°Ê±¼äºó¶àÉÙºÁÃë,Ëæºó¼ä¸ô2000ºÁÃë,½øĞĞÖ´ĞĞ
+		//æ‰§è¡Œä»»åŠ¡çš„runæ–¹æ³•,å½“å‰æ—¶é—´åå¤šå°‘æ¯«ç§’,éšåé—´éš”2000æ¯«ç§’,è¿›è¡Œæ‰§è¡Œ
 		timer.schedule(task, calendar.getTime(),2000L);
 	}
 	
-	/**Éè¶¨Ê±¼ä,Ëæºó½øĞĞµ÷¶È,Ã¿¸ôºÁÃëÊı½øĞĞ*/
+	/**è®¾å®šæ—¶é—´,éšåè¿›è¡Œè°ƒåº¦,æ¯éš”æ¯«ç§’æ•°è¿›è¡Œ*/
 	public void testFour() {
 		Timer timer = new Timer();
 		TimerTaskTest task = new TimerTaskTest();
 		task.setName("JION.JION");
-		//´´½¨Ê±¼ä¶ÔÏó
-		Calendar calendar = Calendar.getInstance();//µ¥ÀıÄ£Ê½
-		//´´½¨Ê±¼ä¸ñÊ½¶ÔÏó 
+		//åˆ›å»ºæ—¶é—´å¯¹è±¡
+		Calendar calendar = Calendar.getInstance();//å•ä¾‹æ¨¡å¼
+		//åˆ›å»ºæ—¶é—´æ ¼å¼å¯¹è±¡ 
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd : hh:mm:ss");
-		//´òÓ¡µ±Ç°Ê±¼ä
-		System.out.println("Ö´ĞĞÊ±¼ä"+simpleDateFormat.format(calendar.getTime()));
-		//Ö´ĞĞÈÎÎñµÄrun·½·¨,ÑÓÊ±2000ºÁÃë,½øĞĞÖ´ĞĞ
+		//æ‰“å°å½“å‰æ—¶é—´
+		System.out.println("æ‰§è¡Œæ—¶é—´"+simpleDateFormat.format(calendar.getTime()));
+		//æ‰§è¡Œä»»åŠ¡çš„runæ–¹æ³•,å»¶æ—¶2000æ¯«ç§’,è¿›è¡Œæ‰§è¡Œ
 		timer.schedule(task,2000L);
 	}
 	
-	/**Éè¶¨Ê±¼ä,Ëæºó½øĞĞµ÷¶È,Ã¿¸ôºÁÃëÊı½øĞĞ*/
+	/**è®¾å®šæ—¶é—´,éšåè¿›è¡Œè°ƒåº¦,æ¯éš”æ¯«ç§’æ•°è¿›è¡Œ*/
 	public void testFive() {
 		Timer timer = new Timer();
 		TimerTaskTest task = new TimerTaskTest();
 		task.setName("JION.JION");
-		//´´½¨Ê±¼ä¶ÔÏó
-		Calendar calendar = Calendar.getInstance();//µ¥ÀıÄ£Ê½
-		//´´½¨Ê±¼ä¸ñÊ½¶ÔÏó 
+		//åˆ›å»ºæ—¶é—´å¯¹è±¡
+		Calendar calendar = Calendar.getInstance();//å•ä¾‹æ¨¡å¼
+		//åˆ›å»ºæ—¶é—´æ ¼å¼å¯¹è±¡ 
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd : hh:mm:ss");
-		//´òÓ¡µ±Ç°Ê±¼ä
-		System.out.println("Ö´ĞĞÊ±¼ä"+simpleDateFormat.format(calendar.getTime()));
-		//Ö´ĞĞÈÎÎñµÄrun·½·¨,ÑÓÊ±2000ºÁÃë,½øĞĞÖ´ĞĞ,ËæºóÃ¿5sÖ´ĞĞ
+		//æ‰“å°å½“å‰æ—¶é—´
+		System.out.println("æ‰§è¡Œæ—¶é—´"+simpleDateFormat.format(calendar.getTime()));
+		//æ‰§è¡Œä»»åŠ¡çš„runæ–¹æ³•,å»¶æ—¶2000æ¯«ç§’,è¿›è¡Œæ‰§è¡Œ,éšåæ¯5sæ‰§è¡Œ
 		timer.schedule(task,2000L,5000L);
 	}
 	
-	/**Éè¶¨Ê±¼ä,ËæºóÖ¸¶¨Ê±¼ä½øĞĞµ÷¶È,Ã¿¸ôºÁÃëÊı½øĞĞ*/
+	/**è®¾å®šæ—¶é—´,éšåæŒ‡å®šæ—¶é—´è¿›è¡Œè°ƒåº¦,æ¯éš”æ¯«ç§’æ•°è¿›è¡Œ*/
 	public void testSix() {
 		Timer timer = new Timer();
 		TimerTaskTest task = new TimerTaskTest();
 		task.setName("JION.JION");
-		//´´½¨Ê±¼ä¶ÔÏó
-		Calendar calendar = Calendar.getInstance();//µ¥ÀıÄ£Ê½
-		//´´½¨Ê±¼ä¸ñÊ½¶ÔÏó 
+		//åˆ›å»ºæ—¶é—´å¯¹è±¡
+		Calendar calendar = Calendar.getInstance();//å•ä¾‹æ¨¡å¼
+		//åˆ›å»ºæ—¶é—´æ ¼å¼å¯¹è±¡ 
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd : hh:mm:ss");
-		//´òÓ¡µ±Ç°Ê±¼ä
-		System.out.println("Ö´ĞĞÊ±¼ä"+simpleDateFormat.format(calendar.getTime()));
-		//Îªµ±Ç°Ê±¼ä¼Ó5Ãë
+		//æ‰“å°å½“å‰æ—¶é—´
+		System.out.println("æ‰§è¡Œæ—¶é—´"+simpleDateFormat.format(calendar.getTime()));
+		//ä¸ºå½“å‰æ—¶é—´åŠ 5ç§’
 		calendar.add(Calendar.SECOND, 5);
-		//Ö´ĞĞÈÎÎñµÄrun·½·¨,Ö´ĞĞÊ±¼äÎªµ±Ç°Ê±¼äºó¼Ó5s,ËæºóÃ¿2sÖ´ĞĞ
+		//æ‰§è¡Œä»»åŠ¡çš„runæ–¹æ³•,æ‰§è¡Œæ—¶é—´ä¸ºå½“å‰æ—¶é—´ååŠ 5s,éšåæ¯2sæ‰§è¡Œ
 		timer.scheduleAtFixedRate(task, calendar.getTime(),2000L);
 	}
 	
-	/**Éè¶¨Ê±¼ä,Ëæºó½øĞĞµ÷¶È,Ã¿¸ôºÁÃëÊı½øĞĞ*/
+	/**è®¾å®šæ—¶é—´,éšåè¿›è¡Œè°ƒåº¦,æ¯éš”æ¯«ç§’æ•°è¿›è¡Œ*/
 	public void testSeven() {
 		Timer timer = new Timer();
 		TimerTaskTest task = new TimerTaskTest();
 		task.setName("JION.JION");
-		//´´½¨Ê±¼ä¶ÔÏó
-		Calendar calendar = Calendar.getInstance();//µ¥ÀıÄ£Ê½
-		//´´½¨Ê±¼ä¸ñÊ½¶ÔÏó 
+		//åˆ›å»ºæ—¶é—´å¯¹è±¡
+		Calendar calendar = Calendar.getInstance();//å•ä¾‹æ¨¡å¼
+		//åˆ›å»ºæ—¶é—´æ ¼å¼å¯¹è±¡ 
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd : hh:mm:ss");
-		//´òÓ¡µ±Ç°Ê±¼ä
-		System.out.println("Ö´ĞĞÊ±¼ä"+simpleDateFormat.format(calendar.getTime()));
-		//Îªµ±Ç°Ê±¼ä¼Ó5Ãë
+		//æ‰“å°å½“å‰æ—¶é—´
+		System.out.println("æ‰§è¡Œæ—¶é—´"+simpleDateFormat.format(calendar.getTime()));
+		//ä¸ºå½“å‰æ—¶é—´åŠ 5ç§’
 		calendar.add(Calendar.SECOND, 5);
-		//Ö´ĞĞÈÎÎñµÄrun·½·¨,ÑÓÊ±5sºóÖ´ĞĞ,ËæºóÃ¿2sÖ´ĞĞ
+		//æ‰§è¡Œä»»åŠ¡çš„runæ–¹æ³•,å»¶æ—¶5såæ‰§è¡Œ,éšåæ¯2sæ‰§è¡Œ
 		timer.scheduleAtFixedRate(task, 5000L,2000L);
 	}
 	
-	/**ÈÎÎñÖ´ĞĞÊ±¼äÎªµ±Ç°Ê±¼äÖ®Ç°.
-	 * schedule:Êµ¼ÊÖ´ĞĞÊ±¼äÎªµ±Ç°Ê±¼ä,²¢ÎªÁË¸ÏÉÏ½ø¶È¶øÔÚºóÃæ¶à´ÎÖ´ĞĞ
-	 * scheduleAtFixedRate:Êµ¼ÊÖ´ĞĞÎªµ±Ç°Ê±¼ä,²¢ÎªÁË¸ÏÉÏ½ø¶È¶øÁ¢¼´¶à´Î²¹ÉÏÖ´ĞĞ.
-	 * ÈÎÎñÖ´ĞĞÊ±¼ä³¬¹ı¼ä¸ôÊ±¼ä
-	 * schedule:ÏÂÒ»´ÎµÄÖ´ĞĞÊ±¼ä´Ó±¾´ÎÊµ¼ÊµÄ¿ªÊ¼½øĞĞ,Òò´ËÈÎÎñ²»¶Ïµ÷ÕûÊµ¼ÊÖ´ĞĞÊ±¼ä
-	 * scheduleAtFixedRate:¼ÌĞø°´ÕÕÕı³£Ê±¼ä½øĞĞ,ÓĞ²¢·¢ĞÔ*/
+	/**ä»»åŠ¡æ‰§è¡Œæ—¶é—´ä¸ºå½“å‰æ—¶é—´ä¹‹å‰.
+	 * schedule:å®é™…æ‰§è¡Œæ—¶é—´ä¸ºå½“å‰æ—¶é—´,å¹¶ä¸ºäº†èµ¶ä¸Šè¿›åº¦è€Œåœ¨åé¢å¤šæ¬¡æ‰§è¡Œ
+	 * scheduleAtFixedRate:å®é™…æ‰§è¡Œä¸ºå½“å‰æ—¶é—´,å¹¶ä¸ºäº†èµ¶ä¸Šè¿›åº¦è€Œç«‹å³å¤šæ¬¡è¡¥ä¸Šæ‰§è¡Œ.
+	 * ä»»åŠ¡æ‰§è¡Œæ—¶é—´è¶…è¿‡é—´éš”æ—¶é—´
+	 * schedule:ä¸‹ä¸€æ¬¡çš„æ‰§è¡Œæ—¶é—´ä»æœ¬æ¬¡å®é™…çš„å¼€å§‹è¿›è¡Œ,å› æ­¤ä»»åŠ¡ä¸æ–­è°ƒæ•´å®é™…æ‰§è¡Œæ—¶é—´
+	 * scheduleAtFixedRate:ç»§ç»­æŒ‰ç…§æ­£å¸¸æ—¶é—´è¿›è¡Œ,æœ‰å¹¶å‘æ€§*/
 	public void testEight() {
 		Timer timer = new Timer();
-		//´´½¨Ê±¼ä¶ÔÏó
-		Calendar calendar = Calendar.getInstance();//µ¥ÀıÄ£Ê½
-		//´´½¨Ê±¼ä¸ñÊ½¶ÔÏó 
+		//åˆ›å»ºæ—¶é—´å¯¹è±¡
+		Calendar calendar = Calendar.getInstance();//å•ä¾‹æ¨¡å¼
+		//åˆ›å»ºæ—¶é—´æ ¼å¼å¯¹è±¡ 
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd : hh:mm:ss");
-		//´òÓ¡µ±Ç°Ê±¼ä
-		System.out.println("Ö´ĞĞÊ±¼ä"+simpleDateFormat.format(calendar.getTime()));
-		//Îªµ±Ç°Ê±¼ä5ÃëÖ®Ç°
+		//æ‰“å°å½“å‰æ—¶é—´
+		System.out.println("æ‰§è¡Œæ—¶é—´"+simpleDateFormat.format(calendar.getTime()));
+		//ä¸ºå½“å‰æ—¶é—´5ç§’ä¹‹å‰
 		calendar.add(Calendar.SECOND, -5);
-		//Ö´ĞĞÈÎÎñµÄrun·½·¨,µ±Ç°Ê±¼äºó¶àÉÙºÁÃë,Ëæºó¼ä¸ô2000ºÁÃë,½øĞĞÖ´ĞĞ
+		//æ‰§è¡Œä»»åŠ¡çš„runæ–¹æ³•,å½“å‰æ—¶é—´åå¤šå°‘æ¯«ç§’,éšåé—´éš”2000æ¯«ç§’,è¿›è¡Œæ‰§è¡Œ
 		timer.scheduleAtFixedRate(new TimerTask() {
 //		timer.schedule(new TimerTask() {
 			@Override
 			public void run() {
 				SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd : hh:mm:ss");
-				System.out.println("ÄäÃûÄÚ²¿ÀàÕıÔÚ½øĞĞ....");
+				System.out.println("åŒ¿åå†…éƒ¨ç±»æ­£åœ¨è¿›è¡Œ....");
 				try {
 					Thread.sleep(5000);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
-					System.err.println("Ïß³ÌÖ´ĞĞ³öÏÖÎÊÌâ...");
+					System.err.println("çº¿ç¨‹æ‰§è¡Œå‡ºç°é—®é¢˜...");
 				}
-				System.out.println("×î½üÖ´ĞĞÊ±¼ä"+simpleDateFormat.format(scheduledExecutionTime()));
+				System.out.println("æœ€è¿‘æ‰§è¡Œæ—¶é—´"+simpleDateFormat.format(scheduledExecutionTime()));
 			}
 		}, calendar.getTime(),2000L);	
 	}
