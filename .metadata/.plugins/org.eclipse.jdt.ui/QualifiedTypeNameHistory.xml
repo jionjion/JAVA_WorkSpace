@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="com.model.templet.CoffeeDrink"/>
 <fullyQualifiedTypeName name="com.model.strategy.FlyWithWin"/>
 <fullyQualifiedTypeName name="com.model.strategy.MallardDuck"/>
 <fullyQualifiedTypeName name="com.model.strategy.impl.FlyNoWay"/>
@@ -50,7 +49,6 @@
 <fullyQualifiedTypeName name="org.quartz.JobKey"/>
 <fullyQualifiedTypeName name="org.quartz.TriggerKey"/>
 <fullyQualifiedTypeName name="org.quartz.JobDataMap"/>
-<fullyQualifiedTypeName name="java.lang.String"/>
 <fullyQualifiedTypeName name="org.junit.Test"/>
 <fullyQualifiedTypeName name="timedTask.quartz.SimpleTriggerTest"/>
 <fullyQualifiedTypeName name="org.quartz.SimpleTrigger"/>
@@ -59,5 +57,7 @@
 <fullyQualifiedTypeName name="javax.swing.plaf.synth.SynthSpinnerUI"/>
 <fullyQualifiedTypeName name="java.util.Date"/>
 <fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
+<fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="java.lang.Runnable"/>
 <fullyQualifiedTypeName name="java.lang.Thread"/>
 </qualifiedTypeNameHistroy>
