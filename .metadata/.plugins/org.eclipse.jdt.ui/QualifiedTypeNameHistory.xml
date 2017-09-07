@@ -1,14 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="com.model.strategy.FlyWithWin"/>
-<fullyQualifiedTypeName name="com.model.strategy.MallardDuck"/>
-<fullyQualifiedTypeName name="com.model.strategy.impl.FlyNoWay"/>
-<fullyQualifiedTypeName name="com.model.strategy.RubberDuck"/>
-<fullyQualifiedTypeName name="com.model.strategy.FlyStrategy"/>
-<fullyQualifiedTypeName name="com.model.strategy.BigYellowDuck"/>
-<fullyQualifiedTypeName name="com.model.strategy.impl.FlyWithRocket"/>
-<fullyQualifiedTypeName name="java.lang.Override"/>
-<fullyQualifiedTypeName name="com.model.strategy.Duck"/>
 <fullyQualifiedTypeName name="java.util.function.Supplier"/>
 <fullyQualifiedTypeName name="com.model.chainOfResponsibleity.Customer"/>
 <fullyQualifiedTypeName name="com.model.chainOfResponsibleity.handler.Sales"/>
@@ -45,7 +36,6 @@
 <fullyQualifiedTypeName name="org.quartz.SchedulerFactory"/>
 <fullyQualifiedTypeName name="org.quartz.impl.StdSchedulerFactory"/>
 <fullyQualifiedTypeName name="org.quartz.Scheduler"/>
-<fullyQualifiedTypeName name="java.lang.Exception"/>
 <fullyQualifiedTypeName name="org.quartz.JobKey"/>
 <fullyQualifiedTypeName name="org.quartz.TriggerKey"/>
 <fullyQualifiedTypeName name="org.quartz.JobDataMap"/>
@@ -59,5 +49,15 @@
 <fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
 <fullyQualifiedTypeName name="java.lang.String"/>
 <fullyQualifiedTypeName name="java.lang.Runnable"/>
+<fullyQualifiedTypeName name="com.sun.java.util.jar.pack.Package.File"/>
+<fullyQualifiedTypeName name="java.io.File"/>
+<fullyQualifiedTypeName name="java.io.OutputStream"/>
+<fullyQualifiedTypeName name="java.io.ObjectOutputStream"/>
+<fullyQualifiedTypeName name="java.io.FileOutputStream"/>
+<fullyQualifiedTypeName name="java.lang.Exception"/>
+<fullyQualifiedTypeName name="javax.print.attribute.standard.MediaName"/>
+<fullyQualifiedTypeName name="threadAndRunnable.WriterFileByRunnable"/>
 <fullyQualifiedTypeName name="java.lang.Thread"/>
+<fullyQualifiedTypeName name="java.util.Scanner"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
 </qualifiedTypeNameHistroy>
