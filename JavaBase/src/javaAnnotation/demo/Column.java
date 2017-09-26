@@ -5,7 +5,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-@Target({ElementType.FIELD})				//类上的注解
+@Target({ElementType.FIELD})				//字段上的注解
 @Retention(RetentionPolicy.RUNTIME)		//运行时注解
 public @interface Column {
 
