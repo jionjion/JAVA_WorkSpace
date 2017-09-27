@@ -1,6 +1,6 @@
 # JAVA中使用自定义注解
 
-Tags : JDK8 Eclipse Annotation
+Tags : JDK8 Eclipse
 
 ---
 
