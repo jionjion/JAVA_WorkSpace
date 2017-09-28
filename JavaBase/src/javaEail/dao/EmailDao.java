@@ -5,7 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 import javaEail.bean.User;
-import javaEail.until.Until;
+import javaEail.until.ConnectUntil;
 
 /**将业务表同步到数据库中*/
 public class EmailDao {
@@ -15,11 +15,11 @@ public class EmailDao {
 		
 		try {
 			String sql = " insert into userEmail value (?,?,?,?,?,?,?) ";
-			Connection connection = Until.getConnect();
+			Connection connection = ConnectUntil.getConnect();
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setInt(1,user.getUid());
 			preparedStatement.setString(2,user.getUsername());
-				preparedStatement.setString(3,user.getPassword());
+			preparedStatement.setString(3,user.getPassword());
 			preparedStatement.setString(4,user.getNickname());
 			preparedStatement.setString(5,user.getEmail());
 			preparedStatement.setInt(6,user.getState());

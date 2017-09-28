@@ -13,6 +13,4 @@ public class EmailService {
 		dao.regist(user);
 		EmailUntil.sendEmail(user.getEmail(), user.getCode());
 	}
-
-	
 }

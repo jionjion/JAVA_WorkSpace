@@ -103,7 +103,8 @@ public class GoddessDao {
 	
 	public Goddess getGoddess(Goddess goddess) {
 		try{
-			Connection connection = DBUntil.getMySQLConnection();
+//			Connection connection = DBUntil.getMySQLConnection();
+			Connection connection = C3P0Pool.getC3P0Connection();
 			String sql = " select id, user_name,sex,age,birthday,email,mobile,"
 					+ "		create_user,create_date,update_user,update_date,isDel "
 					+ " 	from goddess where id = ?";

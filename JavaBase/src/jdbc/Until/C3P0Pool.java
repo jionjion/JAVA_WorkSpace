@@ -8,8 +8,7 @@ import java.util.Properties;
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 
 /**	使用C3P0连接池,完成数据库的连接.
- * 
- * 	有问题.....*/
+ * */
 public class C3P0Pool {
 
 	
@@ -37,6 +36,7 @@ public class C3P0Pool {
 		try {
 			
 			Connection connection = dataSource.getConnection();
+			return connection;
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.err.println("C3P0连接池出现异常....");

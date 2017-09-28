@@ -1,19 +1,19 @@
 package javaEail.bean;
 /**用户的实体类*/
 public class User {
-
+	//用户ID
 	private int uid;
-	
+	//用户名
 	private String username;
-	
+	//账号密码
 	private String password;
-	
+	//账号昵称
 	private String nickname;
-	
+	//邮箱
 	private String email;
-	
+	//账号状态
 	private int state;
-	
+	//验证hash
 	private String code;
 
 	public int getUid() {

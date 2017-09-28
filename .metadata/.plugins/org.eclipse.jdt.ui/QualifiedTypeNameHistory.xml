@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="java.util.function.Supplier"/>
 <fullyQualifiedTypeName name="com.model.chainOfResponsibleity.Customer"/>
 <fullyQualifiedTypeName name="com.model.chainOfResponsibleity.handler.Sales"/>
 <fullyQualifiedTypeName name="com.model.chainOfResponsibleity.handler.PriceHandler"/>
@@ -60,4 +59,5 @@
 <fullyQualifiedTypeName name="java.lang.Thread"/>
 <fullyQualifiedTypeName name="java.util.Scanner"/>
 <fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="jdbc.Until.C3P0Pool"/>
 </qualifiedTypeNameHistroy>

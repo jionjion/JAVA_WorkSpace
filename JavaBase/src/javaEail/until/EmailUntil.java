@@ -21,7 +21,7 @@ public class EmailUntil {
 		try {
 			//创建连接对象
 			//创建配置服务信息
-			//QQ邮箱的令牌  lulyxaugngsfhhad
+			//QQ邮箱的授权码  lulyxaugngsfhhad
 			Properties props = new Properties();
 			// 开启debug调试
 			props.setProperty("mail.debug", "true");
@@ -47,7 +47,7 @@ public class EmailUntil {
 			String html = "	<h1>你好,很高兴认识你</hi><p>您的UUID为:"+code+"</p>";		//设置邮件内容
 			message.setContent(html, "text/html;charset=UTF-8");				//设置邮件文本格式
 			
-		//发送邮件
+			//发送邮件
 			Transport transport = session.getTransport();
 	        transport.connect("smtp.qq.com", "1434501783@qq.com", "lulyxaugngsfhhad");					//获取连接(连接方式,发送人邮箱,发送人密码)
 	        transport.sendMessage(message, new Address[] { new InternetAddress(to) });	//以列表形式发送邮件.群发
@@ -56,7 +56,5 @@ public class EmailUntil {
 			System.err.println("创建邮件服务发生意外.....");
 			e.printStackTrace();
 		}
-		
-		
 	}
 }

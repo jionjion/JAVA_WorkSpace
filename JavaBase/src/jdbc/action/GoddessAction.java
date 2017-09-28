@@ -51,7 +51,7 @@ public class GoddessAction {
 	@Test
 	public void	getGoddess(){
 		Goddess goddess = new Goddess();
-		goddess.setId(2);
+		goddess.setId(1);
 		goddess = dao.getGoddess(goddess);
 		System.out.println(goddess);
 	}

@@ -11,7 +11,7 @@ public class EmailControl {
 
 	@Test
 	public void doGet() {
-		String username = "简艳梅";
+		String username = "张谦";
 		String password = "123456";
 		String nickname = "JION";
 		String email = "2890283899@qq.com";
