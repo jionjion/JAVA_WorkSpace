@@ -36,7 +36,7 @@ public class ParameterTest {
 	public static Collection<Object[]> returnList() {
 		
 		List<Object[]> list = new ArrayList<Object[]>();		//作为返回值
-		Object[][] objects = new Object[][]{{2,2,1},{3,9,3}};	//创建一个二维数组,保存为变量和结果
+		Object[][] objects = new Object[][]{{2,2,1},{3,9,3}};	//创建一个二维数组,保存为变量和结果	2=2/1  3=9/3
 		list = Arrays.asList(objects);
 		return list;
 	}

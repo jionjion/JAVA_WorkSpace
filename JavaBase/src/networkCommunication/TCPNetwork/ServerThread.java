@@ -11,14 +11,14 @@ import java.net.Socket;
  * 	传入一个Socket,交由多线程任务同步进行,类似于回调函数,可以处理多并发请求*/
 public class ServerThread extends Thread {
 
-	//和本线程相关的socket
+	//1.本线程相关的socket
 	Socket socket = new Socket();
 	
 	public ServerThread(Socket socket) {
 		this.socket = socket;
 	}
 	
-	/**重写线程方法,调用一个线程,相应客户端的请求*/
+	/**2.重写线程方法,调用一个线程,相应客户端的请求*/
 	@Override
 	public void run() {
 		

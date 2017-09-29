@@ -34,8 +34,6 @@ public class ParseJSONObject {
 		}
 		boolean single = jsonObject.getBoolean("single");
 		System.out.println("单身:"+single);
-		
-		
 	}
 	
 	public static void main(String[] args) throws Exception{

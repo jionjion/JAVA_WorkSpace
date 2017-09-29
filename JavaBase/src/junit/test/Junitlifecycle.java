@@ -19,7 +19,6 @@ public class Junitlifecycle {
 		System.out.println("类实初始化前创建,只执行一次");
 	}
 
-
 	/**前面的通用代码块*/
 	@Before
 	public void setUp() throws Exception {

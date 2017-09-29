@@ -43,7 +43,5 @@ public class CreateQRCode {
 	    //将二维码传入路径文件中.
 	    Path png = new File("src/qrCode/生成的二维码.png").toPath();
 	    MatrixToImageWriter.writeToPath(bitMatrix, imgType, png);
-	    
 	}
-	
 }

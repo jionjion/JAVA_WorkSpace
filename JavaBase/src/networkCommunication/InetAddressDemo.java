@@ -24,6 +24,5 @@ public class InetAddressDemo {
 		InetAddress address3 = InetAddress.getByName("192.168.0.1");
 		System.out.println("计算机名:"+address3.toString());
 		System.out.println("IP地址:"+address3.getHostAddress());
-	
 	}
 }

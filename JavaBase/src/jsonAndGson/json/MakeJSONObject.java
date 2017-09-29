@@ -57,7 +57,6 @@ public class MakeJSONObject {
 		System.out.println("JSON解析:");
 		System.out.println(jsonObject.toString());
 		System.out.println("-------------------");
-		
 	}
 	
 	/**将javaBean解析JSON*/
