@@ -6,7 +6,7 @@ import java.util.Set;
 /**
  *	多对多的实体类
  *	项目信息
- */
+ */	
 public class Project {
 
 	private int proId;

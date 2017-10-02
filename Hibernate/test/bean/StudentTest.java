@@ -97,7 +97,7 @@ public class StudentTest{
 	@Test
 	public void testWriteBlob() throws Exception{
 		//创建学生对象
-		Student student = new Student(1,"简艳梅","女",new Date(),"上海");
+		Student student = new Student(1,"小简","女",new Date(),"上海");
 		//获得文件
 		File file = new File("F:"+File.separator+"JAVA_WorkSpace"+File.separator+"Hibernate"+File.separator+"picture"+File.separator+"jym.jpg");
 		//获取输入流
@@ -109,6 +109,9 @@ public class StudentTest{
 		session.save(student);
 	}
 	
+	/**
+	 * 	读取数据库中二进制文件
+	 */
 	@Test
 	public void testReadBlod()throws Exception{
 		Student student = (Student) session.get(Student.class, 1);
@@ -137,7 +140,6 @@ public class StudentTest{
 		student.setAddress(new Address("451300", "15516559772", "河南科技学院"));
 		//保存对象
 		session.save(student);
-		
 	}
 	
 	/*

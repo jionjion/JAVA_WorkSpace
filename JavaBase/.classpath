@@ -6,8 +6,6 @@
 	<classpathentry kind="lib" path="src/redis/commons-pool2-2.2.jar"/>
 	<classpathentry kind="lib" path="src/javaEail/javax.mail.jar" sourcepath="E:/Java/some Jar/Email/javamail-JAVAMAIL-1_5_6.zip"/>
 	<classpathentry kind="lib" path="src/javaEail/mysql-connector-java-5.1.18-bin.jar"/>
-	<classpathentry kind="lib" path="src/jdbc/Until/c3p0-0.9.1-pre6.jar" sourcepath="E:/Java/some Jar/c3p0/c3p0-0.9.1-pre6.src.zip"/>
-	<classpathentry kind="lib" path="src/jdbc/Until/mchange-commons-0.2.jar"/>
 	<classpathentry kind="lib" path="src/javaEncryption/bcprov-jdk16-136.jar" sourcepath="E:/Java/some Jar/Boucncy Castle/bcprov-jdk16-136-sources.jar">
 		<attributes>
 			<attribute name="source_encoding" value="UTF-8"/>

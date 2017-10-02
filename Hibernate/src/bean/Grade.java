@@ -5,10 +5,12 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- *	班级,为多方
+ *	班级,为一方
  */
 public class Grade implements Serializable {
 
+	private static final long serialVersionUID = 1L;
+	
 	private int gid;
 	private String gname;
 	private String gdescribe;

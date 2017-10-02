@@ -1,24 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="com.model.chainOfResponsibleity.Customer"/>
-<fullyQualifiedTypeName name="com.model.chainOfResponsibleity.handler.Sales"/>
-<fullyQualifiedTypeName name="com.model.chainOfResponsibleity.handler.PriceHandler"/>
-<fullyQualifiedTypeName name="java.util.Random"/>
-<fullyQualifiedTypeName name="com.sun.xml.internal.bind.v2.schemagen.xmlschema.List"/>
-<fullyQualifiedTypeName name="com.model.observer.Observer"/>
-<fullyQualifiedTypeName name="com.model.observer.ConcreateObserver"/>
-<fullyQualifiedTypeName name="com.model.observer.ConcreteSubject"/>
-<fullyQualifiedTypeName name="com.model.observer.WeatherConcreateObserver"/>
-<fullyQualifiedTypeName name="com.model.observer.WeatherConcreteSubject"/>
-<fullyQualifiedTypeName name="com.model.adapter.TargetInterface"/>
-<fullyQualifiedTypeName name="com.model.adapter.ClientClass"/>
-<fullyQualifiedTypeName name="com.model.adapter.AdapteerClass"/>
-<fullyQualifiedTypeName name="com.model.adapter.AdapteeClass"/>
-<fullyQualifiedTypeName name="com.model.adapter.AdapteerClassByExtends"/>
-<fullyQualifiedTypeName name="com.sun.org.apache.xml.internal.security.keys.keyresolver.implementations.PrivateKeyResolver"/>
 <fullyQualifiedTypeName name="com.model.observer.template.ConcreateObserver"/>
 <fullyQualifiedTypeName name="com.model.observer.observerByJDK.WeatherConcreateObserver"/>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="java.util.Observer"/>
 <fullyQualifiedTypeName name="com.model.observer.observerByDIY.WeatherSubject"/>
@@ -44,7 +27,6 @@
 <fullyQualifiedTypeName name="org.quartz.impl.calendar.CronCalendar"/>
 <fullyQualifiedTypeName name="org.quartz.CronScheduleBuilder"/>
 <fullyQualifiedTypeName name="javax.swing.plaf.synth.SynthSpinnerUI"/>
-<fullyQualifiedTypeName name="java.util.Date"/>
 <fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
 <fullyQualifiedTypeName name="java.lang.String"/>
 <fullyQualifiedTypeName name="java.lang.Runnable"/>
@@ -60,4 +42,22 @@
 <fullyQualifiedTypeName name="java.util.Scanner"/>
 <fullyQualifiedTypeName name="java.lang.System"/>
 <fullyQualifiedTypeName name="jdbc.Until.C3P0Pool"/>
+<fullyQualifiedTypeName name="jdbc.dao.GoddessDao"/>
+<fullyQualifiedTypeName name="com.mysql.jdbc.Statement"/>
+<fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.util.Map"/>
+<fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="jdbc.Until.DBUntil"/>
+<fullyQualifiedTypeName name="com.mysql.jdbc.Connection"/>
+<fullyQualifiedTypeName name="java.sql.Date"/>
+<fullyQualifiedTypeName name="java.sql.Statement"/>
+<fullyQualifiedTypeName name="java.sql.Connection"/>
+<fullyQualifiedTypeName name="javax.transaction.Transaction"/>
+<fullyQualifiedTypeName name="org.junit.Before"/>
+<fullyQualifiedTypeName name="org.junit.After"/>
+<fullyQualifiedTypeName name="java.util.Set"/>
+<fullyQualifiedTypeName name="org.hibernate.Transaction"/>
+<fullyQualifiedTypeName name="org.hibernate.cfg.Configuration"/>
+<fullyQualifiedTypeName name="org.hibernate.service.ServiceRegistry"/>
 </qualifiedTypeNameHistroy>

@@ -24,8 +24,10 @@
     	<property name="hbm2ddl.auto">update</property>
     	<!-- 事务种类 线程事务GetCurrentSession使用 -->
     	<property name="current_session_context_class">thread</property>
-    
+    	
+    	<!-- 使用二级缓存 -->
   	  	<property name="hibernate.cache.use_second_level_cache">true</property>
+  	  	<!-- 二级缓存的工厂类 -->
 		<property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>
 	
 	   	<!-- 配置连接的对象关系文件 -->

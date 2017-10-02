@@ -11,220 +11,218 @@ import redis.clients.jedis.BinaryClient;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 
-/**²»Í¬ÖÖÀàµÄÊı¾İ±£´æ¶ÁÈ¡*/
+/**ä¸åŒç§ç±»çš„æ•°æ®ä¿å­˜è¯»å–*/
 public class RedisData {
 	
 	public GenericObjectPoolConfig genericObjectPoolConfig = null;
 	public JedisPool jedisPool = null;
 	public Jedis jedis = null;
 	
-	//¹¹Ôì·½·¨,ÔÚÀà¼ÓÔØÊ±´´½¨
+	//æ„é€ æ–¹æ³•,åœ¨ç±»åŠ è½½æ—¶åˆ›å»º
 	public RedisData() {
 		genericObjectPoolConfig = new GenericObjectPoolConfig();
-		//ÉèÖÃ×î´óÁ¬½ÓÊı
+		//è®¾ç½®æœ€å¤§è¿æ¥æ•°
 		genericObjectPoolConfig.setMaxTotal(20);
-		//ÉèÖÃ×î´ó¿ÕÏĞÊı
+		//è®¾ç½®æœ€å¤§ç©ºé—²æ•°
 		genericObjectPoolConfig.setMaxIdle(10);
-		//´´½¨Á¬½Ó³Ø
+		//åˆ›å»ºè¿æ¥æ± 
 		jedisPool = new JedisPool(genericObjectPoolConfig, "127.0.01", 6379, 2000);
-		//´´½¨ºËĞÄ¶ÔÏó
+		//åˆ›å»ºæ ¸å¿ƒå¯¹è±¡
 		jedis = jedisPool.getResource();
 	}
 	
 	
-	/**StringÀàĞÍµÄ×Ö·û»ñÈ¡*/
+	/**Stringç±»å‹çš„å­—ç¬¦è·å–*/
 	@Test
 	public void setOrGetString() {
-		//±£´æÊı¾İ
-		jedis.set("name","ÕÅÇ«");
-		System.out.println("±£´æºó»ñÈ¡StringÀàĞÍ:"+jedis.get("name"));
-		//ĞŞ¸ÄÊı¾İ,ÖµÓò
+		//ä¿å­˜æ•°æ®
+		jedis.set("name","å¼ è°¦");
+		System.out.println("ä¿å­˜åè·å–Stringç±»å‹:"+jedis.get("name"));
+		//ä¿®æ”¹æ•°æ®,å€¼åŸŸ
 		jedis.set("name","JION.JION");
-		System.out.println("ĞŞ¸ÄºóStringÀàĞÍ:"+jedis.get("name"));
-		//×·¼Ó×Ö·û´®
+		System.out.println("ä¿®æ”¹åStringç±»å‹:"+jedis.get("name"));
+		//è¿½åŠ å­—ç¬¦ä¸²
 		jedis.append("name", ".Love");
-		System.out.println("×·¼Ó×Ö·û´®ºóÎª:"+jedis.get("name"));
-		//ĞŞ¸ÄÊı¾İ,¼üÃû
+		System.out.println("è¿½åŠ å­—ç¬¦ä¸²åä¸º:"+jedis.get("name"));
+		//ä¿®æ”¹æ•°æ®,é”®å
 		jedis.rename("name", "NAME");
-		System.out.println("ĞŞ¸Äºó,¼üÃûÎª:"+jedis.get("NAME"));
-		//É¾³ıÊı¾İ
+		System.out.println("ä¿®æ”¹å,é”®åä¸º:"+jedis.get("NAME"));
+		//åˆ é™¤æ•°æ®
 		jedis.del("NAME");
-		System.out.println("É¾³ıºó,NAMEÖµÎª:"+jedis.get("NAME"));
+		System.out.println("åˆ é™¤å,NAMEå€¼ä¸º:"+jedis.get("NAME"));
 	}
 	
-	/**numberÀàĞÍµÄ×Ö·û»ñÈ¡,²»´æÔÚÔò´´½¨,²¢±£´æÎª0,Ä¬ÈÏ½«×Ö·û´®½âÎöÎªÊı×Ö,µ«ÒªÇóÎªÕûÊıĞÍ*/
+	/**numberç±»å‹çš„å­—ç¬¦è·å–,ä¸å­˜åœ¨åˆ™åˆ›å»º,å¹¶ä¿å­˜ä¸º0,é»˜è®¤å°†å­—ç¬¦ä¸²è§£æä¸ºæ•°å­—,ä½†è¦æ±‚ä¸ºæ•´æ•°å‹*/
 	@Test
 	public void setOrGetNumber() {
-		//±£´æÊı¾İ
+		//ä¿å­˜æ•°æ®
 		jedis.set("count","0");
-		//ÎªÆä×ÔÔö
+		//ä¸ºå…¶è‡ªå¢
 		jedis.incr("count");
-		System.out.println("×ÔÔöºóÊı¾İÖµÎª:"+jedis.get("count"));
-		//ÎªÆä×Ô¼õ
+		System.out.println("è‡ªå¢åæ•°æ®å€¼ä¸º:"+jedis.get("count"));
+		//ä¸ºå…¶è‡ªå‡
 		jedis.decr("count");
-		System.out.println("×Ô¼õºóÊı¾İÖµÎª:"+jedis.get("count"));
-		//Ö¸¶¨Êı×ÖÔö¼Ó
+		System.out.println("è‡ªå‡åæ•°æ®å€¼ä¸º:"+jedis.get("count"));
+		//æŒ‡å®šæ•°å­—å¢åŠ 
 		jedis.incrBy("count", 10);
-		System.out.println("Ôö¼ÓºóÊı¾İÖµÎª:"+jedis.get("count"));
-		//Ö¸¶¨Êı×Ö¼õÉÙ
+		System.out.println("å¢åŠ åæ•°æ®å€¼ä¸º:"+jedis.get("count"));
+		//æŒ‡å®šæ•°å­—å‡å°‘
 		jedis.decrBy("count", 5);
-		System.out.println("¼õÉÙºóÊı¾İÖµÎª:"+jedis.get("count"));
+		System.out.println("å‡å°‘åæ•°æ®å€¼ä¸º:"+jedis.get("count"));
 	}
 	
-	/**HashÀàĞÍµÄÊ¹ÓÃ¹şÏ£¼¯ºÏ*/
+	/**Hashç±»å‹çš„ä½¿ç”¨å“ˆå¸Œé›†åˆ*/
 	@Test
 	public void setOrGetHash() {
-		//±£´æÊı¾İ:ÊôĞÔ,¶ÔÏó,ÊôĞÔÖµ
-		jedis.hset("name", "student", "ÕÅÇ«");
+		//ä¿å­˜æ•°æ®:å±æ€§,å¯¹è±¡,å±æ€§å€¼
+		jedis.hset("name", "student", "å¼ è°¦");
 		jedis.hset("age", "student", "23");
 		Map<String, String> teacher = new HashMap<String, String>();
-		teacher.put("name", "ÕÅĞ¡Ç«");
+		teacher.put("name", "å¼ å°è°¦");
 		teacher.put("age", "23");
-		//±£´æÊı¾İ:¶ÔÏó,ÊôĞÔ¼üÖµ¶Ô
+		//ä¿å­˜æ•°æ®:å¯¹è±¡,å±æ€§é”®å€¼å¯¹
 		jedis.hmset("teacher", teacher);
-		teacher = null;	//ÖÃ¿Õ,É¾³ı¶ÔÏó
-		//Ôö¼Ó»ò¼õÉÙÊı×Ö
+		teacher = null;	//ç½®ç©º,åˆ é™¤å¯¹è±¡
+		//å¢åŠ æˆ–å‡å°‘æ•°å­—
 		jedis.hincrBy("age", "student", 10);
-		//ÅĞ¶ÏÊôĞÔÊÇ·ñ´æÔÚ
+		//åˆ¤æ–­å±æ€§æ˜¯å¦å­˜åœ¨
 		jedis.hexists("age", "student");
-		//¶ÁÈ¡Êı¾İ:ÊôĞÔ,¶ÔÏó
+		//è¯»å–æ•°æ®:å±æ€§,å¯¹è±¡
 		String name = jedis.hget("name", "student");
-		System.out.println("»ñÈ¡ÊôĞÔÖµname:"+name);
-		//¶ÁÈ¡Êı¾İ:¶ÔÏó
+		System.out.println("è·å–å±æ€§å€¼name:"+name);
+		//è¯»å–æ•°æ®:å¯¹è±¡
 		teacher = jedis.hgetAll("teacher");
-		System.out.println("»ñÈ¡ÊôĞÔÖµname:"+teacher.get("name")
-						+"\t»ñÈ¡ÊôĞÔÖµage:"+teacher.get("age"));
-		//É¾³ı:ÊôĞÔ,¶ÔÏó
-		jedis.hdel("name", "student");	//É¾³ıstudent¶ÔÏóµÄnameÊôĞÔ
-		System.out.println("É¾³ıºóµÄÊôĞÔÖµname:"+jedis.hget("name", "student"));
-		//É¾³ı:¶ÔÏó,ÊôĞÔ×é
+		System.out.println("è·å–å±æ€§å€¼name:"+teacher.get("name")
+						+"\tè·å–å±æ€§å€¼age:"+teacher.get("age"));
+		//åˆ é™¤:å±æ€§,å¯¹è±¡
+		jedis.hdel("name", "student");	//åˆ é™¤studentå¯¹è±¡çš„nameå±æ€§
+		System.out.println("åˆ é™¤åçš„å±æ€§å€¼name:"+jedis.hget("name", "student"));
+		//åˆ é™¤:å¯¹è±¡,å±æ€§ç»„
 		jedis.hdel("teacher", new String[] {"name","age"});
-		System.out.println("»ñÈ¡ÊôĞÔÖµname:"+jedis.hgetAll("teacher").get("name")
-		+"\t»ñÈ¡ÊôĞÔÖµage:"+jedis.hgetAll("teacher").get("age"));
-		//É¾³ıÕû¸ö¼¯ºÏ
+		System.out.println("è·å–å±æ€§å€¼name:"+jedis.hgetAll("teacher").get("name")
+		+"\tè·å–å±æ€§å€¼age:"+jedis.hgetAll("teacher").get("age"));
+		//åˆ é™¤æ•´ä¸ªé›†åˆ
 		jedis.del("teacher");
 	}
 	
-	/**ListÀàĞÍµÄÊ¹ÓÃË«ÏòÁ´±í,¶àÓÃÓÚÏûÏ¢¶ÓÁĞ*/
+	/**Listç±»å‹çš„ä½¿ç”¨åŒå‘é“¾è¡¨,å¤šç”¨äºæ¶ˆæ¯é˜Ÿåˆ—*/
 	@Test
 	public void setOrGetList() {
-		//±£´æ¶ÔÏó
-		jedis.lpush("×ó²àÁ´±í", "ÔªËØÒ»","ÔªËØ¶ş","ÔªËØÈı");
-		jedis.rpush("ÓÒ²àÁ´±í", "ÔªËØÒ»","ÔªËØ¶ş","ÔªËØÈı");
-		//²é¿´ÁĞ±í,×ó²à°´ÕÕÏÈºóË³Ğò,ÄæÏò²åÈë,³¬¹ıÔ½½çºó»á½øĞĞÑ­»·²éÑ¯
-		System.out.println("²é¿´×ó²àÁĞ±í:"+jedis.lrange("×ó²àÁ´±í", 0, 2));
-		//²é¿´ÁĞ±í,ÓÒ²à°´ÕÕÏÈºóË³Ğò,²é¿´È«²¿
-		System.out.println("²é¿´ÓÒ²àÁĞ±í:"+jedis.lrange("ÓÒ²àÁ´±í", 0, -1));
-		//µ¯³öÍ·²¿ÔªËØ,µ¯³öºó,²»ÔÙÓĞ¸ÃÔªËØ
-		jedis.lpop("×ó²àÁ´±í");
-		jedis.rpop("ÓÒ²àÁ´±í");
-		//²ú¿´Á´±í³¤¶È
-		System.out.println("×ó²àÁ´±í³¤¶ÈÎª:"+jedis.llen("×ó²àÁ´±í"));
-		System.out.println("ÓÒ²àÁ´±í³¤¶ÈÎª:"+jedis.llen("ÓÒ²àÁ´±í"));
-		//Í·²¿Ñ¹ÈëÔªËØ,Èç¹û´æÔÚ¸ÃÁ´±í,ÔòÑ¹Èë
-//		jedis.lpushx("×ó²àÁ´±í", "×·¼ÓÔªËØÒ»","×·¼ÓÔªËØ¶ş");
-//		jedis.rpushx("ÓÒ²àÁ´±í", "×·¼ÓÔªËØ¶ş","×·¼ÓÔªËØ¶ş");
-		//ĞŞ¸Ä
-		jedis.lset("×ó²àÁ´±í", 0, "¿ªÊ¼Öµ");
-		jedis.lset("ÓÒ²àÁ´±í", -1,"½áÊøÖµ");
-		//ÔÚÖ¸¶¨ÔªËØÇ°½øĞĞ²åÈë
-		jedis.linsert("×ó²àÁ´±í",BinaryClient.LIST_POSITION.BEFORE, "ÔªËØ¶ş", "×·¼ÓÔªËØ");
-		//½«Ç°ÕßÁ´±íµ¯³öµ½ºóÕß
-		jedis.rpoplpush("×ó²àÁ´±í", "ÓÒ²àÁ´±í");
+		//ä¿å­˜å¯¹è±¡
+		jedis.lpush("å·¦ä¾§é“¾è¡¨", "å…ƒç´ ä¸€","å…ƒç´ äºŒ","å…ƒç´ ä¸‰");
+		jedis.rpush("å³ä¾§é“¾è¡¨", "å…ƒç´ ä¸€","å…ƒç´ äºŒ","å…ƒç´ ä¸‰");
+		//æŸ¥çœ‹åˆ—è¡¨,å·¦ä¾§æŒ‰ç…§å…ˆåé¡ºåº,é€†å‘æ’å…¥,è¶…è¿‡è¶Šç•Œåä¼šè¿›è¡Œå¾ªç¯æŸ¥è¯¢
+		System.out.println("æŸ¥çœ‹å·¦ä¾§åˆ—è¡¨:"+jedis.lrange("å·¦ä¾§é“¾è¡¨", 0, 2));
+		//æŸ¥çœ‹åˆ—è¡¨,å³ä¾§æŒ‰ç…§å…ˆåé¡ºåº,æŸ¥çœ‹å…¨éƒ¨
+		System.out.println("æŸ¥çœ‹å³ä¾§åˆ—è¡¨:"+jedis.lrange("å³ä¾§é“¾è¡¨", 0, -1));
+		//å¼¹å‡ºå¤´éƒ¨å…ƒç´ ,å¼¹å‡ºå,ä¸å†æœ‰è¯¥å…ƒç´ 
+		jedis.lpop("å·¦ä¾§é“¾è¡¨");
+		jedis.rpop("å³ä¾§é“¾è¡¨");
+		//äº§çœ‹é“¾è¡¨é•¿åº¦
+		System.out.println("å·¦ä¾§é“¾è¡¨é•¿åº¦ä¸º:"+jedis.llen("å·¦ä¾§é“¾è¡¨"));
+		System.out.println("å³ä¾§é“¾è¡¨é•¿åº¦ä¸º:"+jedis.llen("å³ä¾§é“¾è¡¨"));
+		//å¤´éƒ¨å‹å…¥å…ƒç´ ,å¦‚æœå­˜åœ¨è¯¥é“¾è¡¨,åˆ™å‹å…¥
+//		jedis.lpushx("å·¦ä¾§é“¾è¡¨", "è¿½åŠ å…ƒç´ ä¸€","è¿½åŠ å…ƒç´ äºŒ");
+//		jedis.rpushx("å³ä¾§é“¾è¡¨", "è¿½åŠ å…ƒç´ äºŒ","è¿½åŠ å…ƒç´ äºŒ");
+		//ä¿®æ”¹
+		jedis.lset("å·¦ä¾§é“¾è¡¨", 0, "å¼€å§‹å€¼");
+		jedis.lset("å³ä¾§é“¾è¡¨", -1,"ç»“æŸå€¼");
+		//åœ¨æŒ‡å®šå…ƒç´ å‰è¿›è¡Œæ’å…¥
+		jedis.linsert("å·¦ä¾§é“¾è¡¨",BinaryClient.LIST_POSITION.BEFORE, "å…ƒç´ äºŒ", "è¿½åŠ å…ƒç´ ");
+		//å°†å‰è€…é“¾è¡¨å¼¹å‡ºåˆ°åè€…
+		jedis.rpoplpush("å·¦ä¾§é“¾è¡¨", "å³ä¾§é“¾è¡¨");
 	}
 	
-	/**SetÀàĞÍµÄ,²»ÔÊĞí³öÏÖÖØ¸´,×î¶à4294967295¸ö,¶àÓÃÀ´¸ú×ÙÎ¨Ò»ĞÔÊı¾İ;Î¬»¤Êı¾İ¶ÔÏóµÄ¾ÛºÏ¹ØÏµ*/
+	/**Setç±»å‹çš„,ä¸å…è®¸å‡ºç°é‡å¤,æœ€å¤š4294967295ä¸ª,å¤šç”¨æ¥è·Ÿè¸ªå”¯ä¸€æ€§æ•°æ®;ç»´æŠ¤æ•°æ®å¯¹è±¡çš„èšåˆå…³ç³»*/
 	@Test
 	public void setOrGetSet() {
-		//Ìí¼ÓÔªËØ
-		jedis.sadd("¼¯ºÏÒ»", "a","b","c","d","e");
-		jedis.sadd("¼¯ºÏ¶ş", "c","d","e");
-		//É¾³ıÔªËØ
-		jedis.srem("¼¯ºÏÒ»", "d","e");
-		//²é¿´Êı¾İ
-		System.out.println("ÔªËØÒ»:"+jedis.smembers("¼¯ºÏÒ»"));
-		System.out.println("ÔªËØ¶ş:"+jedis.smembers("¼¯ºÏ¶ş"));
-		//ÅĞ¶ÏÊÇ·ñÔÚÔªËØ
-		System.out.println("ÔªËØÒ»ÖÖÊÇ·ñÓĞa:"+jedis.sismember("¼¯ºÏÒ»", "a"));
-		//¼¯ºÏ²î¼¯ÔËËã,¼¯ºÏ1-¼¯ºÏ2
-		//½«¼¯ºÏ1ºÍ¼¯ºÏ2µÄ²î¼¯¸³Óè¼¯ºÏÒ»
-//		jedis.sdiffstore("¼¯ºÏÒ»", "¼¯ºÏÒ»","¼¯ºÏ¶ş");
-		Set<String> set = jedis.sdiff("¼¯ºÏÒ»","¼¯ºÏ¶ş");
-		System.out.print("²î¼¯ÔËËã£º");
+		//æ·»åŠ å…ƒç´ 
+		jedis.sadd("é›†åˆä¸€", "a","b","c","d","e");
+		jedis.sadd("é›†åˆäºŒ", "c","d","e");
+		//åˆ é™¤å…ƒç´ 
+		jedis.srem("é›†åˆä¸€", "d","e");
+		//æŸ¥çœ‹æ•°æ®
+		System.out.println("å…ƒç´ ä¸€:"+jedis.smembers("é›†åˆä¸€"));
+		System.out.println("å…ƒç´ äºŒ:"+jedis.smembers("é›†åˆäºŒ"));
+		//åˆ¤æ–­æ˜¯å¦åœ¨å…ƒç´ 
+		System.out.println("å…ƒç´ ä¸€ç§æ˜¯å¦æœ‰a:"+jedis.sismember("é›†åˆä¸€", "a"));
+		//é›†åˆå·®é›†è¿ç®—,é›†åˆ1-é›†åˆ2
+		//å°†é›†åˆ1å’Œé›†åˆ2çš„å·®é›†èµ‹äºˆé›†åˆä¸€
+//		jedis.sdiffstore("é›†åˆä¸€", "é›†åˆä¸€","é›†åˆäºŒ");
+		Set<String> set = jedis.sdiff("é›†åˆä¸€","é›†åˆäºŒ");
+		System.out.print("å·®é›†è¿ç®—ï¼š");
 		for (String string : set) {
 			System.out.print(string+"\t");
 		}
-		//¼¯ºÏ½»¼¯ÔËËã,¼¯ºÏ1+¼¯ºÏ2
-		set = jedis.sinter("¼¯ºÏÒ»","¼¯ºÏ¶ş");
-		//½«¼¯ºÏ1ºÍ¼¯ºÏ2µÄ²î¼¯¸³Óè¼¯ºÏÒ»
-//		jedis.sinterstore("¼¯ºÏÒ»", "¼¯ºÏÒ»","¼¯ºÏ¶ş");
+		//é›†åˆäº¤é›†è¿ç®—,é›†åˆ1+é›†åˆ2
+		set = jedis.sinter("é›†åˆä¸€","é›†åˆäºŒ");
+		//å°†é›†åˆ1å’Œé›†åˆ2çš„å·®é›†èµ‹äºˆé›†åˆä¸€
+//		jedis.sinterstore("é›†åˆä¸€", "é›†åˆä¸€","é›†åˆäºŒ");
 		System.out.println();
-		System.out.print("½»¼¯ÔËËã£º");
+		System.out.print("äº¤é›†è¿ç®—ï¼š");
 		for (String string : set) {
 			System.out.print(string+"\t");
 		}
-		//¼¯ºÏ²¢¼¯ÔËËã,¼¯ºÏ1+¼¯ºÏ2
-		set = jedis.sunion("¼¯ºÏÒ»","¼¯ºÏ¶ş");
-		//½«¼¯ºÏ1ºÍ¼¯ºÏ2µÄ²î¼¯¸³Óè¼¯ºÏÒ»
-//		jedis.sunionstore("¼¯ºÏÒ»", "¼¯ºÏÒ»","¼¯ºÏ¶ş");
+		//é›†åˆå¹¶é›†è¿ç®—,é›†åˆ1+é›†åˆ2
+		set = jedis.sunion("é›†åˆä¸€","é›†åˆäºŒ");
+		//å°†é›†åˆ1å’Œé›†åˆ2çš„å·®é›†èµ‹äºˆé›†åˆä¸€
+//		jedis.sunionstore("é›†åˆä¸€", "é›†åˆä¸€","é›†åˆäºŒ");
 		System.out.println();
-		System.out.print("²¢¼¯ÔËËã£º");
+		System.out.print("å¹¶é›†è¿ç®—ï¼š");
 		for (String string : set) {
 			System.out.print(string+"\t");
 		}
-		//»ñµÃ³ÉÔ±ÊıÁ¿
-		System.out.println("¼¯ºÏÒ»¸öÊı:"+jedis.scard("¼¯ºÏÒ»"));
-		//Ëæ»ú·ÃÎÊ
-		System.out.println("Ëæ»ú·ÃÎÊ¼¯ºÏÒ»"+jedis.srandmember("¼¯ºÏÒ»"));
+		//è·å¾—æˆå‘˜æ•°é‡
+		System.out.println("é›†åˆä¸€ä¸ªæ•°:"+jedis.scard("é›†åˆä¸€"));
+		//éšæœºè®¿é—®
+		System.out.println("éšæœºè®¿é—®é›†åˆä¸€"+jedis.srandmember("é›†åˆä¸€"));
 	}
 	
 	@Test
-	/**ÓĞĞòsetµÄÊ¹ÓÃ,ÓÎÏ·ÅÅĞò,Ë÷Òı¹¹½¨*/
+	/**æœ‰åºsetçš„ä½¿ç”¨,æ¸¸æˆæ’åº,ç´¢å¼•æ„å»º*/
 	public void setOrGetSortedSet() {
-		//Ôö¼Ó
+		//å¢åŠ 
 		Map<String, Double> set = new HashMap<String,Double>();
-		set.put("ÕÅÈı", 95D);set.put("ÀîËÄ", 98D);set.put("ÍõÎå", 97D);set.put("ÕÔÁù", 94D);
-		jedis.zadd("ÅÅĞò", set);
-		//²éÑ¯
-		System.out.println("ÕÅÈı·ÖÊı:"+jedis.zscore("ÅÅĞò", "ÕÅÈı"));
-		//²éÑ¯µ±Ç°¼¯ºÏÊıÁ¿
-		System.out.println("µ±Ç°¼¯ºÏÊıÁ¿:"+jedis.zcard("ÅÅĞò"));
-		//É¾³ı
-//		jedis.zrem("ÅÅĞò", "ÕÅÈı","ÀîËÄ");
-		//·¶Î§²éÕÒ
-		jedis.zrange("ÅÅĞò", 0, -1);		//²åĞğµ½×îºóÒ»¸öµÄ¼¯ºÏ
-		//´ÓĞ¡µ½´óÅÅĞò
-		jedis.zrevrange("ÅÅĞò", 0, -1);	//µ¹ĞğÅÅÁĞ
-		//°´ÕÕ·¶Î§½øĞĞÉ¾³ı
-		jedis.zrangeByScore("ÅÅĞò", 0, 4);	//É¾³ı0~4·¶Î§µÄ
-		//°´ÕÕ·ÖÊıÏÔÊ¾Ç°Á½¸ö
-		jedis.zrangeByScore("ÅÅĞò", 0, 100);	
-		//Ö¸¶¨ÔªËØĞŞ¸Ä
-		jedis.zincrby("ÅÅĞò", 3d, "ÀîËÄ");
-		//²éÑ¯Ö¸¶¨¶ÎµÄÊıÁ¿
-		jedis.zcount("ÅÅĞò", 95, 100);
+		set.put("å¼ ä¸‰", 95D);set.put("æå››", 98D);set.put("ç‹äº”", 97D);set.put("èµµå…­", 94D);
+		jedis.zadd("æ’åº", set);
+		//æŸ¥è¯¢
+		System.out.println("å¼ ä¸‰åˆ†æ•°:"+jedis.zscore("æ’åº", "å¼ ä¸‰"));
+		//æŸ¥è¯¢å½“å‰é›†åˆæ•°é‡
+		System.out.println("å½“å‰é›†åˆæ•°é‡:"+jedis.zcard("æ’åº"));
+		//åˆ é™¤
+//		jedis.zrem("æ’åº", "å¼ ä¸‰","æå››");
+		//èŒƒå›´æŸ¥æ‰¾
+		jedis.zrange("æ’åº", 0, -1);		//æ’å™åˆ°æœ€åä¸€ä¸ªçš„é›†åˆ
+		//ä»å°åˆ°å¤§æ’åº
+		jedis.zrevrange("æ’åº", 0, -1);	//å€’å™æ’åˆ—
+		//æŒ‰ç…§èŒƒå›´è¿›è¡Œåˆ é™¤
+		jedis.zremrangeByScore("æ’åº", 0, 4);	//åˆ é™¤0~4èŒƒå›´çš„
+		//æŒ‰ç…§åˆ†æ•°æ˜¾ç¤ºå‰ä¸¤ä¸ª
+		jedis.zrangeByScore("æ’åº", 0, 100);	
+		//æŒ‡å®šå…ƒç´ ä¿®æ”¹
+		jedis.zincrby("æ’åº", 3d, "æå››");
+		//æŸ¥è¯¢æŒ‡å®šæ®µçš„æ•°é‡
+		jedis.zcount("æ’åº", 95, 100);
 	}
 	
 	@Test
-	/**Í¨ÓÃ²Ù×÷*/
+	/**é€šç”¨æ“ä½œ*/
 	public void commonOperate() {
-		//É¾³ı
-		jedis.del("¶ÔÏóÒ»");
-		//ÅĞ¶ÏÊé·ñ´æÔÚ
-		jedis.exists("¶ÔÏó¶ş");
-		//ÖØÃüÃû
-		jedis.rename("¶ÔÏóÒ»", "ĞÂ¶ÔÏóÒ»");
-		//ÉèÖÃ¹ıÆÚÊ±¼ä,µ¥Î»s
-		jedis.expire("¶ÔÏó¶ş", 100);
-		//ËùÊ£Ê±¼ä
-		jedis.ttl("¶ÔÏó¶ş");
-		//»ñÈ¡keyµÄÀàĞÍ
-		jedis.type("ÅÅĞò");		//·µ»ØÅÅĞò¹şÏ£ÀàĞÍ
-		//Çå¿ÕÊı¾İ¿â
+		//åˆ é™¤
+		jedis.del("å¯¹è±¡ä¸€");
+		//åˆ¤æ–­å¦å­˜åœ¨
+		jedis.exists("å¯¹è±¡äºŒ");
+		//é‡å‘½å
+		jedis.rename("å¯¹è±¡ä¸€", "æ–°å¯¹è±¡ä¸€");
+		//è®¾ç½®è¿‡æœŸæ—¶é—´,å•ä½s
+		jedis.expire("å¯¹è±¡äºŒ", 100);
+		//æ‰€å‰©æ—¶é—´
+		jedis.ttl("å¯¹è±¡äºŒ");
+		//è·å–keyçš„ç±»å‹
+		jedis.type("æ’åº");		//è¿”å›æ’åºå“ˆå¸Œç±»å‹
+		//æ¸…ç©ºæ•°æ®åº“
 		jedis.flushAll();
-		//Çå¿Õµ±Ç°×ÓÊı¾İ¿â
+		//æ¸…ç©ºå½“å‰å­æ•°æ®åº“
 		jedis.flushDB();
 	}
-	
-	
 }

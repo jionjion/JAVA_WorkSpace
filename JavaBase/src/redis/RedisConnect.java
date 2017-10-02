@@ -6,52 +6,52 @@ import org.junit.Test;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 
-/**	Á¬½Óredis,µ¼Èëjedis.jar
+/**	è¿æ¥redis,å¯¼å…¥jedis.jar
  * 	E:\Aedis\redis-server.exe
- *	Redis-cli.exe ¨Ch 127.0.0.1 ¨Cp 6379
+ *	Redis-cli.exe â€“h 127.0.0.1 â€“p 6379
  */
 public class RedisConnect {
 
 	@Test
-	/**Ê¹ÓÃIP¶Ë¿Ú½øĞĞÁ¬½Ó*/
+	/**ä½¿ç”¨IPç«¯å£è¿›è¡Œè¿æ¥*/
 	public void connectByIP() {
-		//´´½¨Êı¾İ¿âÁ¬½Ó,Ö¸¶¨IP,¶Ë¿Ú,³¬Ê±Ê±¼ä
+		//åˆ›å»ºæ•°æ®åº“è¿æ¥,æŒ‡å®šIP,ç«¯å£,è¶…æ—¶æ—¶é—´
 		Jedis jedis = new Jedis("127.0.0.1", 6379, 2000);
-		//±£´æÊı¾İ
-		jedis.set("name", "ÕÅÇ«");
-		//»ñÈ¡Êı¾İ
+		//ä¿å­˜æ•°æ®
+		jedis.set("name", "å¼ è°¦");
+		//è·å–æ•°æ®
 		String name = jedis.get("name");
-		//´òÓ¡Êä³ö
+		//æ‰“å°è¾“å‡º
 		System.out.println(name);
-		//ÊÍ·Å×ÊÔ´
+		//é‡Šæ”¾èµ„æº
 		jedis.close();
 	}
 	
 	@Test
-	/**Ê¹ÓÃÁ¬½Ó³Ø½øĞĞÁ¬½Ó*/
+	/**ä½¿ç”¨è¿æ¥æ± è¿›è¡Œè¿æ¥*/
 	public void connectByPool() {
-		//»ñµÃÁ¬½Ó³ØÅäÖÃ¶ÔÏó
+		//è·å¾—è¿æ¥æ± é…ç½®å¯¹è±¡
 		GenericObjectPoolConfig genericObjectPoolConfig = new GenericObjectPoolConfig();
-		//ÉèÖÃ×î´óÁ¬½ÓÊı
+		//è®¾ç½®æœ€å¤§è¿æ¥æ•°
 		genericObjectPoolConfig.setMaxTotal(20);
-		//ÉèÖÃ×î´ó¿ÕÏĞÊı
+		//è®¾ç½®æœ€å¤§ç©ºé—²æ•°
 		genericObjectPoolConfig.setMaxIdle(10);
-		//´´½¨Á¬½Ó³Ø
+		//åˆ›å»ºè¿æ¥æ± 
 		JedisPool jedisPool = new JedisPool(genericObjectPoolConfig, "127.0.01", 6379, 2000);
-		//»ñµÃºËĞÄ¶ÔÏó
+		//è·å¾—æ ¸å¿ƒå¯¹è±¡
 		Jedis jedis = null;
 		try {
-			//Í¨¹ıÁ¬½Ó³Ø»ñµÃ
+			//é€šè¿‡è¿æ¥æ± è·å¾—
 			jedis = jedisPool.getResource();
-			//±£´æÊı¾İ
+			//ä¿å­˜æ•°æ®
 			jedis.set("name", "JION.JION");
-			//»ñÈ¡Êı¾İ
+			//è·å–æ•°æ®
 			String name = jedis.get("name");
 			System.out.println(name);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			//¹Ø±ÕÁ¬½Ó
+			//å…³é—­è¿æ¥
 			if (jedis != null) {
 				jedis.close();
 			}
@@ -60,5 +60,4 @@ public class RedisConnect {
 			}
 		}
 	}
-	
 }

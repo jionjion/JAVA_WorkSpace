@@ -1,4 +1,4 @@
-package jdbc.model;
+package jdbc.MysqlJDBC.model;
 
 import java.util.Date;
 

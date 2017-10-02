@@ -1,3 +1,5 @@
 eclipse.preferences.version=1
 encoding//src/propertiesReadAndWriter/student.properties=UTF-8
+encoding//src/redis/RedisConnect.java=UTF-8
+encoding//src/redis/RedisData.java=UTF-8
 encoding//src/timedTask/quartz/quartz.properties=UTF-8

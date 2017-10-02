@@ -1,11 +1,11 @@
-package jdbc.action;
+package jdbc.MysqlJDBC.action;
 
 import java.util.List;
 
 import org.junit.Test;
 
-import jdbc.dao.ProcedureDao;
-import jdbc.model.Goddess;
+import jdbc.MysqlJDBC.dao.ProcedureDao;
+import jdbc.MysqlJDBC.model.Goddess;
 
 /**调用无参的存储过程*/
 public class ProcedureAction {
@@ -15,7 +15,6 @@ public class ProcedureAction {
 	/**调用无参的存储过程*/
 	@Test
 	public void procedure_select_nofilter() {
-		
 		List<Goddess> list = dao.procedure_select_nofilter();
 		System.out.println(list.toString());
 	}

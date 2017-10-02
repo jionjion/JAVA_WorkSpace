@@ -39,6 +39,4 @@ public class TimerTaskTest extends TimerTask{
 		//进行任务调度
 		printTask();
 	}
-	
-	
 }

@@ -9,6 +9,7 @@ import com.mchange.v2.c3p0.ComboPooledDataSource;
 
 /**	使用C3P0连接池,完成数据库的连接.
  * */
+/**	使用C3P0连接池,完成数据库的连接.*/
 public class C3P0Pool {
 
 	

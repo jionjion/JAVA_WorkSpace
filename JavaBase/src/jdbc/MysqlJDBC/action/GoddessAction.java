@@ -1,4 +1,4 @@
-package jdbc.action;
+package jdbc.MysqlJDBC.action;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -8,8 +8,8 @@ import java.util.Map;
 
 import org.junit.Test;
 
-import jdbc.dao.GoddessDao;
-import jdbc.model.Goddess;
+import jdbc.MysqlJDBC.dao.GoddessDao;
+import jdbc.MysqlJDBC.model.Goddess;
 
 /**控制层*/
 public class GoddessAction {

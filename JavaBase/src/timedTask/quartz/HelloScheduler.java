@@ -83,5 +83,4 @@ public class HelloScheduler {
 		scheduler.scheduleJob(jobDetail,trigger);												//绑定任务和定时周期
 		scheduler.start();																		//开始执行
 	}
-	
 }

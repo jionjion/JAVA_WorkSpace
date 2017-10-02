@@ -56,7 +56,7 @@ public class TimerTest {
 		timer.schedule(task, calendar.getTime(),2000L);
 	}
 	
-	/**设定时间,随后进行调度,每隔毫秒数进行*/
+	/**设定时间,随后进行延时调度*/
 	public void testFour() {
 		Timer timer = new Timer();
 		TimerTaskTest task = new TimerTaskTest();
@@ -71,7 +71,7 @@ public class TimerTest {
 		timer.schedule(task,2000L);
 	}
 	
-	/**设定时间,随后进行调度,每隔毫秒数进行*/
+	/**设定时间,随后进行延时调度,每隔毫秒数进行*/
 	public void testFive() {
 		Timer timer = new Timer();
 		TimerTaskTest task = new TimerTaskTest();

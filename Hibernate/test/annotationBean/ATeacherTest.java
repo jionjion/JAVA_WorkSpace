@@ -1,25 +1,12 @@
 package annotationBean;
 
-import static org.hamcrest.CoreMatchers.startsWith;
-
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.sql.Blob;
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
-import org.hibernate.Hibernate;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
-import org.hibernate.jdbc.Work;
 import org.hibernate.service.ServiceRegistry;
 import org.hibernate.service.ServiceRegistryBuilder;
 import org.junit.After;

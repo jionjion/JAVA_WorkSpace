@@ -1,8 +1,9 @@
-package jdbc.dao;
+package jdbc.MysqlJDBC.dao;
+
 
 import java.sql.Connection;
 
-import jdbc.Until.DBUntil;
+import jdbc.MysqlJDBC.until.DBUntil;
 
 /***
  * 	原子性:事务是一个完整的操作
@@ -27,7 +28,6 @@ public class TransactionDao {
 		connection.setAutoCommit(false);
 		try {
 			/*业务部分,成立则提交,失败则回滚*/
-			
 			
 			connection.commit();
 		} catch (Exception e) {

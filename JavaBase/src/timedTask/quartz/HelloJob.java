@@ -32,13 +32,10 @@ public class HelloJob implements Job {
 		JobKey jobKey = context.getJobDetail().getKey();
 		JobDataMap jobDataMap = context.getJobDetail().getJobDataMap();
 		System.out.println("任务名:"+jobKey.getName() + "任务组:"+jobKey.getGroup() + "参数信息:"+jobDataMap.getString("message"));
-		
 		//获取触发器信息
 		TriggerKey triggerKey = context.getTrigger().getKey();
 		JobDataMap triggerDataMap = context.getTrigger().getJobDataMap();
 		System.out.println("调度名"+triggerKey.getName() + "调度组"+triggerKey.getGroup() + "参数信息:"+ getMessage());			//使用get方法,完成参数的绑定
-		
-		
 	}
 
 	
@@ -46,13 +43,9 @@ public class HelloJob implements Job {
 	 * 	通过get/set方式获得传入参数 
 	 */
 	private String message;
-
-
 	public String getMessage() {
 		return message;
 	}
-
-
 	public void setMessage(String message) {
 		this.message = message;
 	}

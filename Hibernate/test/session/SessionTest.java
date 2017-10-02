@@ -44,8 +44,14 @@ public class SessionTest {
 	
 	//开启事物
  	Transaction transaction = session.beginTransaction();
-	
+ 		//这里写业务代码.....
+ 	
+ 	//提交事务
+ 	transaction.commit();
+ 	//回滚事务
+ 	transaction.rollback();
 	}
+	
 	
 	@Test
 	public void testGetCurrentSession(){

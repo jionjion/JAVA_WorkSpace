@@ -163,6 +163,4 @@ public class CacheTest {
 		session.close();
 		sessionFactory.close();
 	}
-	
-	
 }

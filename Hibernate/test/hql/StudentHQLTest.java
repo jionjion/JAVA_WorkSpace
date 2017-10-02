@@ -16,7 +16,7 @@ import org.junit.Test;
 
 import bean.Grade;
 import bean.Student;
-
+@SuppressWarnings({"unchecked","rawtypes"})
 public class StudentHQLTest {
 
 	//会话工厂

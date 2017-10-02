@@ -16660,3 +16660,75 @@ Caused by: org.eclipse.aether.transfer.ArtifactNotFoundException: Failure to fin
 2017-09-29 21:16:00,432 [Worker-25] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 3 resources
 2017-09-29 21:16:00,438 [Worker-25] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
 2017-09-29 21:16:00,439 [Worker-25] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\JAVA_WorkSpace\SpringMVC\src\test\resources
+2017-09-30 08:49:50,938 [Worker-11] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2017-09-30 08:50:39,700 [Worker-9] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2017-09-30 08:50:39,749 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 3 resources
+2017-09-30 08:50:39,758 [Worker-9] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2017-09-30 08:50:39,760 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\JAVA_WorkSpace\JMS\src\test\resources
+2017-09-30 08:50:55,728 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-09-30 08:50:55,731 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2017-09-30 08:50:55,764 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 28 resources
+2017-09-30 08:50:55,783 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-09-30 08:50:55,784 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\JAVA_WorkSpace\MicroServices\src\test\resources
+2017-09-30 08:50:59,403 [Worker-3] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2017-09-30 08:50:59,407 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 8 resources
+2017-09-30 08:50:59,416 [Worker-3] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2017-09-30 08:50:59,418 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\JAVA_WorkSpace\SSM\src\test\resources
+2017-09-30 08:51:00,362 [Worker-3] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2017-09-30 08:51:00,366 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 3 resources
+2017-09-30 08:51:00,371 [Worker-3] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2017-09-30 08:51:00,373 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\JAVA_WorkSpace\SpringMVC\src\test\resources
+2017-09-30 23:00:15,582 [Worker-1] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2017-09-30 23:00:55,516 [Worker-0] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2017-09-30 23:00:55,557 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 3 resources
+2017-09-30 23:00:55,564 [Worker-0] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2017-09-30 23:00:55,565 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\JAVA_WorkSpace\JMS\src\test\resources
+2017-09-30 23:01:08,917 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-09-30 23:01:08,918 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2017-09-30 23:01:09,012 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 28 resources
+2017-09-30 23:01:09,079 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-09-30 23:01:09,079 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\JAVA_WorkSpace\MicroServices\src\test\resources
+2017-09-30 23:01:12,231 [Worker-8] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2017-09-30 23:01:12,232 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 8 resources
+2017-09-30 23:01:12,236 [Worker-8] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2017-09-30 23:01:12,237 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\JAVA_WorkSpace\SSM\src\test\resources
+2017-09-30 23:01:12,843 [Worker-8] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2017-09-30 23:01:12,845 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 3 resources
+2017-09-30 23:01:12,847 [Worker-8] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2017-09-30 23:01:12,848 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\JAVA_WorkSpace\SpringMVC\src\test\resources
+2017-10-01 10:47:28,563 [Worker-4] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2017-10-01 10:48:08,427 [Worker-10] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2017-10-01 10:48:08,456 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 3 resources
+2017-10-01 10:48:08,464 [Worker-10] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2017-10-01 10:48:08,465 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\JAVA_WorkSpace\JMS\src\test\resources
+2017-10-01 10:48:18,597 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-10-01 10:48:18,598 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2017-10-01 10:48:18,645 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 28 resources
+2017-10-01 10:48:18,671 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-10-01 10:48:18,672 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\JAVA_WorkSpace\MicroServices\src\test\resources
+2017-10-01 10:48:22,104 [Worker-6] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2017-10-01 10:48:22,106 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 8 resources
+2017-10-01 10:48:22,109 [Worker-6] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2017-10-01 10:48:22,111 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\JAVA_WorkSpace\SSM\src\test\resources
+2017-10-01 10:48:22,701 [Worker-6] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2017-10-01 10:48:22,703 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 3 resources
+2017-10-01 10:48:22,705 [Worker-6] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2017-10-01 10:48:22,706 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\JAVA_WorkSpace\SpringMVC\src\test\resources
+2017-10-02 08:39:53,123 [Worker-10] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2017-10-02 08:40:32,623 [Worker-0] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2017-10-02 08:40:32,651 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 3 resources
+2017-10-02 08:40:32,663 [Worker-0] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2017-10-02 08:40:32,664 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\JAVA_WorkSpace\JMS\src\test\resources
+2017-10-02 08:40:46,767 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-10-02 08:40:46,771 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2017-10-02 08:40:46,816 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 28 resources
+2017-10-02 08:40:46,847 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-10-02 08:40:46,847 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\JAVA_WorkSpace\MicroServices\src\test\resources
+2017-10-02 08:40:52,606 [Worker-4] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2017-10-02 08:40:52,609 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 8 resources
+2017-10-02 08:40:52,613 [Worker-4] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2017-10-02 08:40:52,615 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\JAVA_WorkSpace\SSM\src\test\resources
+2017-10-02 08:40:53,283 [Worker-4] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2017-10-02 08:40:53,284 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 3 resources
+2017-10-02 08:40:53,285 [Worker-4] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2017-10-02 08:40:53,286 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\JAVA_WorkSpace\SpringMVC\src\test\resources

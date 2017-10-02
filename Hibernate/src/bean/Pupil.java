@@ -7,6 +7,8 @@ import java.io.Serializable;
  */
 public class Pupil implements Serializable{
 
+	private static final long serialVersionUID = 1L;
+	
 	private int pid;
 	private String pname;
 	private String psex;

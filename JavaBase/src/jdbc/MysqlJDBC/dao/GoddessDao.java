@@ -1,4 +1,4 @@
-package jdbc.dao;
+package jdbc.MysqlJDBC.dao;
 
 import java.sql.Connection;
 import java.sql.Date;
@@ -9,13 +9,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import jdbc.Until.C3P0Pool;
-import jdbc.Until.DBUntil;
-import jdbc.model.Goddess;
+import jdbc.MysqlJDBC.model.Goddess;
+import jdbc.MysqlJDBC.until.C3P0Pool;
+import jdbc.MysqlJDBC.until.DBUntil;
 
 /**女神表的*/
 public class GoddessDao {
 
+	/**增*/
 	public void addGoddess(Goddess goddess) {
 		try {
 			Connection connection = DBUntil.getMySQLConnection();
@@ -40,6 +41,7 @@ public class GoddessDao {
 		}
 	}
 	
+	/**删*/
 	public void deleteGoddess(Goddess goddess) {
 		try{
 			Connection connection = DBUntil.getMySQLConnection();
@@ -54,6 +56,7 @@ public class GoddessDao {
 		}
 	}
 	
+	/**改*/
 	public void updateGoddess(Goddess goddess) {
 		try{
 			Connection connection = DBUntil.getMySQLConnection();
@@ -78,6 +81,7 @@ public class GoddessDao {
 		}
 	}
 	
+	/**查询列表*/
 	public List<Goddess> queryGoddess(){
 		try {
 			Connection connection = DBUntil.getMySQLConnection();
@@ -101,6 +105,7 @@ public class GoddessDao {
 		return null;
 	}
 	
+	/**查询单个*/
 	public Goddess getGoddess(Goddess goddess) {
 		try{
 //			Connection connection = DBUntil.getMySQLConnection();
@@ -134,6 +139,7 @@ public class GoddessDao {
 		return null;
 	}
 	
+	/**条件查询*/
 	public List<Goddess> queryGoddessBySome(List<Map<String, Object>> param){
 		try {
 			Connection connection = DBUntil.getMySQLConnection();
