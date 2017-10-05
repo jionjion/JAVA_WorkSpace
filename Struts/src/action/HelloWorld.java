@@ -4,6 +4,8 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class HelloWorld extends ActionSupport {
 
+	private static final long serialVersionUID = 1L;
+
 	/**默认的方法,默认必须执行*/
 	@Override
 	public String execute() throws Exception {

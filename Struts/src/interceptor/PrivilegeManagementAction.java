@@ -10,6 +10,8 @@ import bean.User;
 
 public class PrivilegeManagementAction extends ActionSupport implements SessionAware{
 
+	private static final long serialVersionUID = 1L;
+
 	private User user;
 	
 	private Map<String, Object> session;	//session的维护容器,实现SessionAware接口获得
@@ -42,7 +44,5 @@ public class PrivilegeManagementAction extends ActionSupport implements SessionA
 	public void setUser(User user) {
 		this.user = user;
 	}
-
-	
 	
 }

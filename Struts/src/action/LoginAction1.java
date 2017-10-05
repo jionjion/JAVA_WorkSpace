@@ -18,9 +18,6 @@ public class LoginAction1 extends ActionSupport {
 		return SUCCESS;
 	}
 
-	
-	
-	
 	public String getUsername() {
 		return username;
 	}

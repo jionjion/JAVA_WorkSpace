@@ -10,6 +10,8 @@ import com.opensymphony.xwork2.interceptor.AbstractInterceptor;
 
 public class PrivilegeManagementInterceptor extends AbstractInterceptor {
 
+	private static final long serialVersionUID = 1L;
+
 	@Override
 	public String intercept(ActionInvocation actionInvocation) throws Exception {
 		
@@ -24,5 +26,4 @@ public class PrivilegeManagementInterceptor extends AbstractInterceptor {
 			return "login";	//用户未登录,需要登录
 		}
 	}
-
 }

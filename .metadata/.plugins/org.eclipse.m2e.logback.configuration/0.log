@@ -16768,3 +16768,33 @@ Caused by: org.eclipse.aether.transfer.ArtifactNotFoundException: Failure to fin
 2017-10-02 23:54:48,379 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 3 resources
 2017-10-02 23:54:48,382 [Worker-4] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
 2017-10-02 23:54:48,383 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\JAVA_WorkSpace\SpringMVC\src\test\resources
+2017-10-05 13:43:38,726 [Worker-8] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2017-10-05 13:44:28,196 [Worker-1] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2017-10-05 13:44:28,228 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 3 resources
+2017-10-05 13:44:28,234 [Worker-1] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2017-10-05 13:44:28,235 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\JAVA_WorkSpace\JMS\src\test\resources
+2017-10-05 13:44:36,171 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-10-05 13:44:36,172 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2017-10-05 13:44:36,206 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 28 resources
+2017-10-05 13:44:36,242 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-10-05 13:44:36,242 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\JAVA_WorkSpace\MicroServices\src\test\resources
+2017-10-05 13:44:39,362 [Worker-5] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2017-10-05 13:44:39,364 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 8 resources
+2017-10-05 13:44:39,367 [Worker-5] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2017-10-05 13:44:39,369 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\JAVA_WorkSpace\SSM\src\test\resources
+2017-10-05 13:44:39,979 [Worker-5] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2017-10-05 13:44:39,980 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 3 resources
+2017-10-05 13:44:39,981 [Worker-5] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2017-10-05 13:44:39,981 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\JAVA_WorkSpace\SpringMVC\src\test\resources
+2017-10-05 15:25:11,187 [Worker-23] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2017-10-05 15:25:11,193 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2017-10-05 15:25:11,198 [Worker-23] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2017-10-05 15:25:11,199 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\JAVA_WorkSpace\SSM\src\test\resources
+2017-10-05 17:09:19,927 [Worker-49] INFO  j.exodus.env.EnvironmentImpl - Exodus environment created: F:\JAVA_WorkSpace\.metadata\com.genuitec.eclipse.webclipse.livepreview\0\store
+2017-10-05 17:09:20,209 [Worker-49] INFO  j.exodus.env.EnvironmentImpl - Exodus environment created: F:\JAVA_WorkSpace\.metadata\com.genuitec.eclipse.webclipse.livepreview\1\store
+2017-10-05 17:09:22,473 [Worker-49] INFO  j.exodus.env.EnvironmentImpl - Exodus environment created: F:\JAVA_WorkSpace\.metadata\com.genuitec.eclipse.webclipse.livepreview\2\store
+2017-10-05 17:09:23,552 [Worker-49] INFO  j.exodus.env.EnvironmentImpl - Exodus environment created: F:\JAVA_WorkSpace\.metadata\com.genuitec.eclipse.webclipse.livepreview\3\store
+2017-10-05 17:41:15,633 [Worker-67] INFO  j.exodus.env.EnvironmentImpl - Store get cache hit rate: 0.0%
+2017-10-05 17:41:15,633 [Worker-67] INFO  j.exodus.env.EnvironmentImpl - Tree nodes cache hit rate: 0.0%
+2017-10-05 17:41:15,633 [Worker-67] INFO  j.exodus.env.EnvironmentImpl - Exodus log cache hit rate: 0.0%
+2017-10-05 17:41:15,878 [Worker-67] INFO  j.exodus.env.EnvironmentImpl - Exodus environment created: F:\JAVA_WorkSpace\.metadata\com.genuitec.eclipse.webclipse.livepreview\3\store
