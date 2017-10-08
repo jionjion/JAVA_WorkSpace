@@ -18,7 +18,7 @@
 	<!-- 将其他功能模块独立到另一个xml中,使用时包含进来 -->
     <include file="HelloWorld.xml"/> 
 	<include file="Login.xml"/> 	
-	<include file="Interceptor.xml"/> 
+	<include file="Interceptor.xml"/>
 	<!--  name:可以有多个,包名唯一	namespace:url命名空间,在根项目下添加		extends:继承父类的包名  abstract:抽象包不能定义action -->
     <package name="default" namespace="/" extends="struts-default" abstract="false">
 
@@ -69,8 +69,6 @@
         	<result name="add">/jsp/{1}.jsp</result>
         	<result name="update">/jsp/{1}.jsp</result>
         </action>   
-             
     </package>
-
 
 </struts>
