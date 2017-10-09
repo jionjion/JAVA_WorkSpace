@@ -17,7 +17,6 @@
 		<input type="submit"/>
 	</form>
 	
-	<!-- if进行成绩判断 -->
 	<c:choose>
 		<c:when test="${param.score >= 90}">
 			<c:out value="恭喜,成绩优秀"></c:out>
