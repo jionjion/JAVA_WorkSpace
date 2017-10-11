@@ -29,7 +29,8 @@ Tags : JAVA8 Eclipse
 * *Struts* 框架的使用
 ##项目简介
 ### DOC
-**这个交给各个子模块实现**
-
+当前项目完成情况
+![整体进度][2]
 
   [1]: https://github.com/jionjion/JAVA_WorkSpace/tree/master/JavaBase
+  [2]: https://raw.githubusercontent.com/jionjion/Picture_Space/master/WorkSpace/Java/java.gif
