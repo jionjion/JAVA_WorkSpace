@@ -16,7 +16,7 @@ Tags : JAVA8 Eclipse
 * *Hibernate* 框架的使用...**待补充**
 * *JMS*   JAVA消息机制的使用...**待补充** 
 * *JSON*  JSON数据对象的创建使用
-* *![JavaBase][1]*  JAVA基础的练习
+* *[JavaBase][1]*  JAVA基础的练习
 * *JavaSenior*    JAVA中设计模式和设计思想的练习
 * *MicroServices* 模拟消息通信的服务端
 * *Mybatis*   框架的使用
@@ -31,7 +31,6 @@ Tags : JAVA8 Eclipse
 ### DOC
 当前项目完成情况
 ![整体进度][2]
-
 
   [1]: https://github.com/jionjion/JAVA_WorkSpace/tree/master/JavaBase
   [2]: https://raw.githubusercontent.com/jionjion/Picture_Space/master/WorkSpace/Java/java.gif
