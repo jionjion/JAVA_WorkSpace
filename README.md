@@ -30,7 +30,8 @@ Tags : JAVA8 Eclipse
 ##项目简介
 ### DOC
 当前项目完成情况
-![整体进度][2]
+![完成进度][2]
+
 
   [1]: https://github.com/jionjion/JAVA_WorkSpace/tree/master/JavaBase
-  [2]: https://raw.githubusercontent.com/jionjion/Picture_Space/master/WorkSpace/Java/java.gif
+  [2]: https://raw.githubusercontent.com/jionjion/Picture_Space/master/WorkSpace/Java/java.gif
