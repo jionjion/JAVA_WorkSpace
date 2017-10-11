@@ -201,9 +201,6 @@
   <uri name="http://camel.apache.org/schema/spring-integration" uri="jar:file:/E:/Eclipse/eclipse/plugins/org.fusesource.ide.catalogs_10.1.0.v20170810-1329.jar!/xsd/fuse/camel-spring-integration-2.18.1.xsd"/>
   <uri name="http://camel.apache.org/schema/spring-security" uri="jar:file:/E:/Eclipse/eclipse/plugins/org.fusesource.ide.catalogs_10.1.0.v20170810-1329.jar!/xsd/fuse/camel-spring-security-2.18.1.xsd"/>
   <uri name="http://www.osgi.org/xmlns/blueprint/v1.0.0" uri="jar:file:/E:/Eclipse/eclipse/plugins/org.fusesource.ide.catalogs_10.1.0.v20170810-1329.jar!/xsd/fuse/osgi-blueprint-1.0.0.xsd"/>
-  <public publicId="-//Hibernate/Hibernate Mapping DTD 3.0//EN" uri="file:/E:/Eclipse/eclipse/plugins/org.hibernate.eclipse.mapper_5.2.1.v20170821-1412/dtd/hibernate-mapping-3.0.dtd" webURL="http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd"/>
-  <public publicId="-//Hibernate/Hibernate Configuration DTD 3.0//EN" uri="file:/E:/Eclipse/eclipse/plugins/org.hibernate.eclipse.mapper_5.2.1.v20170821-1412/dtd/hibernate-configuration-3.0.dtd" webURL="http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd"/>
-  <public publicId="-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" uri="file:/E:/Eclipse/eclipse/plugins/org.hibernate.eclipse.mapper_5.2.1.v20170821-1412/dtd/hibernate-reverse-engineering-3.0.dtd"/>
   <public publicId="-//Puppy Crawl//DTD Check Configuration 1.2//EN" uri="jar:file:/E:/Eclipse/eclipse/plugins/org.jboss.tools.as.catalog_3.3.1.v20170811-1737.jar!/schema/dtd/configuration_1_2.dtd"/>
   <public publicId="-//GlassFish.org//DTD GlassFish Application Server 3.1 Resource Definitions//EN" uri="jar:file:/E:/Eclipse/eclipse/plugins/org.jboss.tools.as.catalog_3.3.1.v20170811-1737.jar!/schema/dtd/glassfish-resources_1_5.dtd"/>
   <public publicId="-//GlassFish.org//DTD GlassFish Application Server 3.1 Servlet 3.0//EN" uri="jar:file:/E:/Eclipse/eclipse/plugins/org.jboss.tools.as.catalog_3.3.1.v20170811-1737.jar!/schema/dtd/glassfish-web-app_3_0-1.dtd"/>
@@ -665,4 +662,7 @@
   <uri name="http://jboss.com/products/seam/wicket-2.3.xsd" uri="jar:file:/E:/Eclipse/eclipse/plugins/org.jboss.tools.seam.xml_3.8.200.v20170822-1712.jar!/schemas/wicket-2.3.xsd"/>
   <uri name="http://jboss.org/schema/seam/wicket-2.3.xsd" uri="jar:file:/E:/Eclipse/eclipse/plugins/org.jboss.tools.seam.xml_3.8.200.v20170822-1712.jar!/schemas2/wicket-2.3.xsd"/>
   <public publicId="-//OASIS//DTD DocBook XML V4.1.2//EN" uri="file:/E:/Eclipse/eclipse/plugins/org.jboss.tools.vpe.docbook_3.8.100.v20170908-0908/dtds/docbookx-4.1.2.dtd"/>
+  <public publicId="-//Hibernate/Hibernate Mapping DTD 3.0//EN" uri="file:/E:/Eclipse/eclipse/plugins/org.hibernate.eclipse.mapper_5.2.1.v20170927-0826/dtd/hibernate-mapping-3.0.dtd" webURL="http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd"/>
+  <public publicId="-//Hibernate/Hibernate Configuration DTD 3.0//EN" uri="file:/E:/Eclipse/eclipse/plugins/org.hibernate.eclipse.mapper_5.2.1.v20170927-0826/dtd/hibernate-configuration-3.0.dtd" webURL="http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd"/>
+  <public publicId="-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" uri="file:/E:/Eclipse/eclipse/plugins/org.hibernate.eclipse.mapper_5.2.1.v20170927-0826/dtd/hibernate-reverse-engineering-3.0.dtd"/>
 </catalog>

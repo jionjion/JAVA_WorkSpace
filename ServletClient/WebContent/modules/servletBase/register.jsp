@@ -38,7 +38,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
 			    		<input type="submit" value="注册"/>&nbsp;&nbsp;
 			    	    <input type="reset" value="取消"/>&nbsp;&nbsp;<br>
-
 			</form>
   </body>
 </html>

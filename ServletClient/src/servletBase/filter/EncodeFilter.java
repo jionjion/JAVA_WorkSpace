@@ -29,5 +29,4 @@ public class EncodeFilter implements Filter {
 	/**销毁方法*/
 	public void destroy() {
 	}
-
 }
