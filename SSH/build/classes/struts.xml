@@ -37,6 +37,5 @@
 			<result name="delete" type="redirectAction">employee_findAll.action</result>
 			<result name="update" type="redirectAction">employee_findAll.action</result>
 		</action>
-		
 	</package>
 </struts>
