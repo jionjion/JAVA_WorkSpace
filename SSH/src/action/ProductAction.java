@@ -12,6 +12,8 @@ import service.ProductService;
 
 public class ProductAction extends ActionSupport implements ModelDriven<Product>{
 
+	private static final long serialVersionUID = 1L;
+	
 	/*使用模型驱动装配传入参数*/
 	private Product product = new Product();
 	@Override

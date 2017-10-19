@@ -209,6 +209,109 @@ Spring默认在`src`目录下查找`applicationContext.xml`作为其默认的配
 	</package>
 </struts>	
 ```
-### 
+## 演示实例
+这里以一个简单的保存商品的页面为例,进行从前台到后台最终保存进入数据库的过程.
 
-### 演示实例
+### 创建JSP页面
+在这里使用下划线的方式,通过`struts.xml`配置,完成映射.
+
+``` xml
+<h1>保存商品的页面</h1>
+<form action="product_save" method="post">
+	商品:<input type="text" name="pname"><br>
+	价格:<input type="text" name="price"><br>
+		<input type="submit" value="保存"><br>	 
+</form> 
+```
+
+### 配置struts的映射
+这里将URL中`product_save`进行解析,对应为Spring的`productAction`bean代表的类,并执行里面的`save()`方法
+``` xml
+<package name="ssh" extends="struts-default" namespace="/">
+	<action name="product_*" class="productAction" method="{1}"></action>
+</package>
+```
+
+### 创建Action类
+这里通过继承`ActionSupport`类耦合Struts2,实现`ModelDriven<T>`,并指定泛型为`Product`类,实现将前台传入属性映射为对象属性,组装为数据库持久化对象.
+
+``` java
+public class ProductAction extends ActionSupport implements ModelDriven<Product>{
+
+	private static final long serialVersionUID = 1L;
+	
+	/*使用模型驱动装配传入参数*/
+	private Product product = new Product();
+	@Override
+	public Product getModel() {
+		return product;
+	}
+	
+	/*使用插件包,完成自动装配*/
+	private ProductService productService;
+
+	public void setProductService(ProductService productService) {
+		this.productService = productService;
+	}
+
+	/**保存商品的方法,注意方法名和Struts2的配置文件的一致*/
+	public String save() {
+		
+		System.out.println("Action执行了:"+product.toString());
+		productService.save(product);
+		//无返回页面
+		return this.NONE;
+	}
+	
+}
+```
+
+### 创建Service类
+通过私有Dao层的接口类,面向接口编程,提供`set()`方法并在`applicationContext.xml`配置文件中指明实现类,完成依赖注入
+
+``` xml
+<bean id="productService" class="service.ProductService">
+	<property name="productDao" ref="productDao"/>
+</bean>
+```
+
+
+通过在类方法中使用`@Transactional`注解,将其标注为一个事务类
+``` java
+@Transactional
+public class ProductService {
+
+	private ProductDao productDao;
+
+	public void setProductDao(ProductDao productDao) {
+		this.productDao = productDao;
+	}
+
+	public void save(Product product) {
+		productDao.save(product);
+		System.out.println("Service的方法执行");
+	}
+	
+}
+```
+
+
+### 创建Dao类
+通过继承Spring的`HibernateDaoSupport`方法,使用Spring的数据库模板,调用模板方法,完成数据对象的持久化工作.
+
+``` java
+public class ProductDao extends HibernateDaoSupport {
+	public void save(Product product) {
+		this.getHibernateTemplate().save(product);
+		System.out.println("Dao层中保存了对象");
+	}
+}
+```
+
+## 其他技术尝试
+### 一对多关联映射
+
+
+### 分页类实现
+
+### Spring的Hibernate模板方法
