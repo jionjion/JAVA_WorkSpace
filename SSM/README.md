@@ -309,9 +309,127 @@ public class ProductDao extends HibernateDaoSupport {
 ```
 
 ## 其他技术尝试
-### 一对多关联映射
+### 一对多双向关联映射
+- 在一方通过`Set<T>`集合引用多方
+- 在一方配置文件中使用`<set>`标签,并设置控制反转
+
+``` xml
+<set name="employees" table="EMPLOYEE" inverse="true" lazy="true" access="field" cascade="delete">
+	<key>
+		<column name="DID" />
+	</key>
+	<one-to-many class="bean.Employee" />
+</set>
+```
+
+- 在多方通过私有多方的类,完成引用
+- 在多方配置文件中使用`<many-to-one>`标签,指向多方的类
+
+``` xml
+<many-to-one name="department" class="bean.Department" cascade="none" fetch="join">
+	<column name="DID" />
+</many-to-one>
+```
+
 
 
 ### 分页类实现
+1. 创建分页类,并在`setCurrentPage()`方法中对当前页小于0和大于最大页的情况进行校准.
+
+``` java
+public class PageBean<T> {
+
+	//当前页
+	private int currentPage;
+	//每页显示条数
+	private int pageSize;
+	//总条数
+	private int totalCount;
+	//总页数
+	private int totalPage;
+	//每页显示的
+	private List<T> list;
+	public int getCurrentPage() {
+		return currentPage;
+	}
+	//分页,针对于当前页在另外的情况
+	public void setCurrentPage(int currentPage) {
+		if (currentPage < 1) {
+			this.currentPage = 1;
+		}else if (currentPage>totalPage){
+			this.currentPage = totalCount;
+		}else {
+			this.currentPage = currentPage;
+		}
+	}
+	public int getPageSize() {
+		return pageSize;
+	}
+	public void setPageSize(int pageSize) {
+		this.pageSize = pageSize;
+	}
+	public int getTotalCount() {
+		return totalCount;
+	}
+	public void setTotalCount(int totalCount) {
+		this.totalCount = totalCount;
+	}
+	public int getTotalPage() {
+		return totalPage;
+	}
+	public void setTotalPage(int totalPage) {
+		this.totalPage = totalPage;
+	}
+	public List<T> getList() {
+		return list;
+	}
+	public void setList(List<T> list) {
+		this.list = list;
+	}
+}
+```
+
+2. 分页类的实现
+Dao层通过调用Mybatis的分页方法,完成分页.
+
+``` java
+@Override
+public List<Employee> findByPage(int begin, int pageSize) {
+	DetachedCriteria criteria = DetachedCriteria.forClass(Employee.class);
+	//MySQL的分页查询语句
+	List<Employee> list = this.getHibernateTemplate().findByCriteria(criteria, begin, pageSize);
+	return list;
+}
+```
+
+3. 分页查询的返回
+Service层传入需求的页数,并设置分页类的初始条件,获得查询
+
+``` java
+@Override
+public PageBean<Employee> findByPage(Integer currentPage) {
+
+	PageBean<Employee> pageBean = new PageBean<Employee>();
+	//封装每页显示记录数量
+	int pageSize = 3;
+	pageBean.setPageSize(pageSize);
+	//封装总记录数
+	int totalCount = employeeDao.findCount();
+	pageBean.setTotalCount(totalCount);
+	//封装总页数
+	double tc = totalCount;
+	Double num = Math.ceil(tc / pageSize);
+	pageBean.setTotalPage(num.intValue());
+	//封装当前页数
+	pageBean.setCurrentPage(currentPage);
+	//封装每页显示的数据
+	int begin = (currentPage -1) * pageSize;	//MySQL开始查询的位置
+	List<Employee> list = employeeDao.findByPage(begin,pageSize);
+	pageBean.setList(list);
+
+	return pageBean;
+}
+```
+
 
 ### Spring的Hibernate模板方法

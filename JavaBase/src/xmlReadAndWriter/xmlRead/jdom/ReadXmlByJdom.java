@@ -46,6 +46,5 @@ public class ReadXmlByJdom {
 				System.out.println("孙子节点名: "+grandsonElementName+"	节点值: "+grandsonElementvalue);
 			}
 		}
-	
 	}
 }

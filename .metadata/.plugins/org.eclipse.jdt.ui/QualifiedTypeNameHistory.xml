@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="com.model.observer.template.ConcreateObserver"/>
-<fullyQualifiedTypeName name="com.model.observer.observerByJDK.WeatherConcreateObserver"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="java.util.Observer"/>
 <fullyQualifiedTypeName name="com.model.observer.observerByDIY.WeatherSubject"/>
 <fullyQualifiedTypeName name="java.lang.Object"/>
@@ -60,4 +57,7 @@
 <fullyQualifiedTypeName name="org.hibernate.Transaction"/>
 <fullyQualifiedTypeName name="org.hibernate.cfg.Configuration"/>
 <fullyQualifiedTypeName name="org.hibernate.service.ServiceRegistry"/>
+<fullyQualifiedTypeName name="com.imooc.test.base.UnitTestBase"/>
+<fullyQualifiedTypeName name="beanannotation.javabased.StringStore"/>
+<fullyQualifiedTypeName name="beanannotation.injection.service.InjectionService"/>
 </qualifiedTypeNameHistroy>
