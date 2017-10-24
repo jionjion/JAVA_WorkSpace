@@ -12,6 +12,45 @@ Spring是一个轻量级的控制反转(IOC)与依赖注入( DI)和面向切面(
 本项目介绍了Spring框架中常用的技术,例如控制反转和切面编程,基于XML和注解的配置方式,已经SpringData等扩展模块的介绍.
 
 # 包结构
+- `main` 编写的类,实现各个功能
+	- `java` 各种功能实现类
+		- `aop`
+		- `autowiring`
+		- `aware`
+		- `bean`
+		- `beanannotation`
+		- `ioc`
+		- `lifecycle`
+		- `resource`
+	- `resource`各种功能对应的配置文件
+		- `config.properties`数据库配置文件
+		- `config.txt`
+		-  `config.xml`
+		-  `jdbc.properties`
+		-  `spring-aop-api.xml`
+		-  `spring-aop-aspectj.xml`
+		-  `spring-aop-schema-advice.xml`
+		-  `spring-aop-schema-advisors.xml`
+		-  `spring-autowiring.xml`
+		-  `spring-aware.xml`
+		-  `spring-beanannotation.xml`
+		-  `spring-beanscope.xml`
+		-  `spring-injection.xml`
+		-  `spring-ioc.xml`
+		-  `spring-lifecycle.xml`
+		-  `spring-resource.xml`
+- `test` 对应的测试类
+	- `java` 各种功能测试类
+		- `aop` 
+		- `autowiring`
+		- `aware`
+		- `base` 编写基础的测试类,便于其他测试类继承使用
+		- `bean`
+		- `beanannotation`
+		- `ioc`
+		- `lifecycle`
+		- `resource`
+	- `resource`各种功能对应的配置文件的测试类
 
 
 # 各功能实现
@@ -88,7 +127,45 @@ public class UnitTestBase {
 }
 ```
 
+**Spring容器的加载方式**
+1. 使用文件路径加载
 
+``` java
+FileSystemXmlApplicationContext context = new FileSystemXmlApplicationContext("F:/workspace/appcontext.xml")
+```
+
+
+2. 使用类路径加载
+
+``` java
+ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("classpath:application.xml")
+```
+
+3. 使用Web.xml加载
+加载Web前端控制器
+``` xml
+<servlet>
+	<servlet-name>springDispatcherServlet</servlet-name>
+	<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+	<init-param>
+		<!-- 将Spring的所有XML路径写下 -->
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath:spring/spring-*.xml</param-value>
+	</init-param>
+	<load-on-startup>1</load-on-startup>
+</servlet>
+```
+加载类容器
+``` xml
+<listener>
+  	<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+  <servlet>
+  	<servlet-name>context</servlet-name>
+  	<servlet-class>org.springframework.web.context.ContextLoaderListener</servlet-class>
+  	<load-on-startup>1</load-on-startup>
+</servlet>
+```
 
 ## IOC控制反转与DI依赖注入
 ### IOC控制反转
@@ -96,3 +173,9 @@ public class UnitTestBase {
 
 ### DI依赖注入
 是对控制反转的一种实现,负责创建对象并维护对象之间的关系.
+在启动Spring容器加载Bean配置的时候,完成的对变量赋值的行为
+
+- 构造注入
+
+
+- 设值注入

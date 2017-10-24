@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="java.util.Observer"/>
-<fullyQualifiedTypeName name="com.model.observer.observerByDIY.WeatherSubject"/>
 <fullyQualifiedTypeName name="java.lang.Object"/>
 <fullyQualifiedTypeName name="com.model.observer.observerByDIY.WeatherConcreateSubject"/>
 <fullyQualifiedTypeName name="com.model.observer.observerByJDK.WeatherConcreateSubject"/>
@@ -60,4 +58,6 @@
 <fullyQualifiedTypeName name="com.imooc.test.base.UnitTestBase"/>
 <fullyQualifiedTypeName name="beanannotation.javabased.StringStore"/>
 <fullyQualifiedTypeName name="beanannotation.injection.service.InjectionService"/>
+<fullyQualifiedTypeName name="org.springframework.context.support.FileSystemXmlApplicationContext"/>
+<fullyQualifiedTypeName name="org.springframework.context.support.ClassPathXmlApplicationContext"/>
 </qualifiedTypeNameHistroy>
