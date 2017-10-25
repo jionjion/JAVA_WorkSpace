@@ -17,7 +17,6 @@ public class TestAutoWiring extends UnitTestBase {
 	@Test
 	public void testSay() {
 		AutoWiringService service = super.getBean("autoWiringService");
-		service.say(" this is a test");
 	}
 
 }

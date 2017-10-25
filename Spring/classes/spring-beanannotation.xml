@@ -8,6 +8,6 @@
         http://www.springframework.org/schema/context/spring-context.xsd" >
         
         <!-- 使用注解完成注入,其中表示扫描范围 -->
-        <context:component-scan base-package="com.imooc.beanannotation"></context:component-scan>
+        <context:component-scan base-package="beanannotation"/>
         
  </beans>

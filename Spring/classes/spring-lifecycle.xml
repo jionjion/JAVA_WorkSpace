@@ -8,6 +8,7 @@
   
   
   <!-- Bean的初始化,销毁方法 -->      
-        <bean id="beanLifeCycle" class="com.imooc.lifecycle.BeanLifeCycle"  init-method="start" destroy-method="stop"></bean>
+        <bean id="beanLifeCycle" class="lifecycle.BeanLifeCycle"  
+        		init-method="start" destroy-method="stop"/>
 	
  </beans>

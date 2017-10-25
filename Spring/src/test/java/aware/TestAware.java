@@ -25,5 +25,4 @@ public class TestAware extends UnitTestBase {
 	public void textMoocBeanName() {
 		System.out.println("测试获取Bean的名字 : " + super.getBean("moocBeanName").hashCode());
 	}
-	
 }

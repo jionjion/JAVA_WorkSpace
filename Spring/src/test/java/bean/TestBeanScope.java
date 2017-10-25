@@ -11,8 +11,9 @@ import base.UnitTestBase;
 @RunWith(BlockJUnit4ClassRunner.class)
 public class TestBeanScope extends UnitTestBase {
 	
+	
 	public TestBeanScope() {
-		super("classpath*:spring-beanscope.xml");
+		super("classpath:spring-beanscope.xml");
 	}
 	
 	@Test
@@ -24,11 +25,4 @@ public class TestBeanScope extends UnitTestBase {
 		BeanScope beanScope2 = super.getBean("beanScope");
 		beanScope2.say();
 	}
-	
-	@Test
-	public void testSay2() {
-		BeanScope beanScope  = super.getBean("beanScope");
-		beanScope.say();
-	}
-
 }

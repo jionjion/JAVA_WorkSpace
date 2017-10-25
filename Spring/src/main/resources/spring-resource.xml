@@ -5,6 +5,6 @@
         http://www.springframework.org/schema/beans/spring-beans.xsd" >
         
     <!-- 资源文件请求 -->    
-        <bean  id="moocResource" class="com.imooc.resource.MoocResource" ></bean>
+        <bean  id="moocResource" class="resource.MoocResource" ></bean>
 	
  </beans>

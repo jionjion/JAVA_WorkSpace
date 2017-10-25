@@ -25,5 +25,4 @@ public class TestResource extends UnitTestBase {
 			e.printStackTrace();
 		}
 	}
-	
 }

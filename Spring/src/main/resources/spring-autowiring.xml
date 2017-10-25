@@ -9,8 +9,8 @@
         <!-- 自动装配的类型:constructor(构造器);byName(名字);byType(类型);"default"(默认);no(禁止) -->
         
         
-        <bean id="autoWiringService" class="com.imooc.autowiring.AutoWiringService" ></bean>
+        <bean id="autoWiringService" class="autowiring.AutoWiringService" ></bean>
         
-        <bean id="autoWiringDAO" class="com.imooc.autowiring.AutoWiringDAO" ></bean>
+        <bean id="autoWiringDAO" class="autowiring.AutoWiringDAO" ></bean>
 	
  </beans>

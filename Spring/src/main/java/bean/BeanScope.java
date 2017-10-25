@@ -3,7 +3,7 @@ package bean;
 public class BeanScope {
 	
 	public void say() {
-		System.out.println("BeanScope say : " + this.hashCode());
+		System.out.println("这个Bean的哈希值 : " + this.hashCode());
 	}
 	
 }
