@@ -30,7 +30,6 @@ public class TestBeanAnnotation extends UnitTestBase {
 	public void testScpoe() {			//bean的默认名称为首字母小写的类名
 		BeanAnnotation bean = super.getBean("beanAnnotation");
 		bean.myHashCode();
-		
 		bean = super.getBean("beanAnnotation");
 		bean.myHashCode();
 	}

@@ -16,5 +16,4 @@ public class BeanAnnotation {
 	public void myHashCode() {
 		System.out.println("使用注解 : " + this.hashCode());
 	}
-	
 }

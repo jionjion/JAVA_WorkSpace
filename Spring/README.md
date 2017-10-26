@@ -19,6 +19,11 @@ Spring是一个轻量级的控制反转(IOC)与依赖注入( DI)和面向切面(
 		- `aware` 对应资源获取
 		- `bean`  Bean作用范围
 		- `beanannotation`
+			- `injection` Bean注解实现依赖注入
+			- `javabased`
+			- `jsr`
+			- `multibean`
+			- `BeanAnnotation`  Bean的注解配置
 		- `ioc`
 		- `lifecycle` Bean生命周期
 		- `resource` 获得资源文件
@@ -47,6 +52,10 @@ Spring是一个轻量级的控制反转(IOC)与依赖注入( DI)和面向切面(
 		- `base` 编写基础的测试类,便于其他测试类继承使用
 		- `bean` Bean作用范围的测试
 		- `beanannotation`
+			- `TestBeanAnnotation`  Bean的注解配置的测试
+			- `TestInjection`Bean注解实现依赖注入的测试和泛型装配的测试
+			- `TestJavabased`
+			- `TestJsr`
 		- `ioc`
 		- `lifecycle`  Bean生命周期的测试
 		- `resource`  获得资源文件的测试
@@ -567,7 +576,7 @@ public class TestResource extends UnitTestBase {
 ## 注解使用
 
 ### 注解的开启与包扫描
-通过在配置文件中使用`<context:annotation-config/>`或者`<context:component-scan base-package="com.imooc.beanannotation"/>`开启注解配置
+通过在配置文件中使用`<context:annotation-config/>`或者`<context:component-scan base-package="com.imooc.beanannotation"/>`开启注解配置,并可以配置`scoped- proxy`代理方式.
 前者默认开启Spring下的所有类的注解扫描.
 后者指定包路径,开启指定类下的注解扫描.,推荐使用后者
 
@@ -602,3 +611,176 @@ public class TestResource extends UnitTestBase {
 |                          |          |                                                |
 |                          |          |                                                |
 |                          |          |                                                |
+
+
+### `@Component`和`@Scope`注解
+`@Component`是通用注解,可以注解任意类,可以在`value`属性中指定Bean的名字,如果不指定则默认为类名首字母小写为Bean的名字
+`@Scope`指定Bean的作用域,与XML中范围一致.
+
+``` java
+@Component("bean")	//通用注解,并指定注bean的名字
+@Scope("prototype")					//作用范围,默认单例
+public class BeanAnnotation {
+	
+	public void say(String arg) {
+		System.out.println("使用注解 : " + arg);
+	}
+	
+	/**通过注解,实现作用范围*/
+	public void myHashCode() {
+		System.out.println("使用注解 : " + this.hashCode());
+	}
+	
+}
+```
+**测试类**
+通过构造器,传入XML配置的注解扫描,扫描包下的所有类.
+用过自定义的Bean名称获得实例,如果不指定,则为Bean类名的首字母小写
+用过`@Scope`注解可以配置Bean实例的作用范围.
+
+``` java
+@RunWith(BlockJUnit4ClassRunner.class)
+public class TestBeanAnnotation extends UnitTestBase {
+	
+	public TestBeanAnnotation() {
+		super("classpath*:spring-beanannotation.xml");
+	}
+	
+	/**通过在注解创建bean时指定名称*/
+	@Test
+	public void testSay() {
+		//在创建bean的时候,在注解中指定bean的名字
+		BeanAnnotation bean = super.getBean("bean");
+		bean.say("这是测试.");
+	}
+	
+	/**测试bean的作用范围*/
+	@Test
+	public void testScpoe() {			//bean的默认名称为首字母小写的类名
+		BeanAnnotation bean = super.getBean("beanAnnotation");
+		bean.myHashCode();
+		
+		bean = super.getBean("beanAnnotation");
+		bean.myHashCode();
+	}
+	
+}
+```
+
+
+### `@Required`和`@Service`和`@Autowired`注解
+`@Required`注解适用于bean属性的setter方法
+在这个注解仅仅表示,受影响的bean属性必须在配置时被填充,通过在bean定义或通过自动装配一个明确的属性值.
+`@Autowired`可以放在`set()`方法,构造器或者成员变量之上,实现自动装配该对象
+可以通过设置`required`属性为`false`避免
+`@Repository`,注解在Dao层的实现类中,表示这是一个数据库映射对象
+`@Service`,注解在Service层的实现类中,表示这是一个服务层对象
+
+**模拟依赖注入关系**
+- 模拟Dao层的接口
+
+``` java
+public interface InjectionDAO {
+	
+	public void save(String arg);
+	
+}
+```
+
+- 模拟Dao层的实现类
+在实现类中配置注解`@Repository	`
+``` java
+@Repository		//Dao层的专用注解
+public class InjectionDAOImpl implements InjectionDAO {
+	
+	public void save(String arg) {
+		//模拟数据库保存操作
+		System.out.println("保存数据：" + arg);
+	}
+}
+```
+
+- 模拟Service层的接口
+
+``` java
+public interface InjectionService {
+	
+	public void save(String arg);
+	
+}
+```
+
+- 模拟Service层的实现类
+在实现类中配置注解`@Service`
+set方法,私有属性,构造器中均可使用注解`@Autowired`
+``` java
+@Service	//Service层的专用注解
+public class InjectionServiceImpl implements InjectionService {
+	
+	@Autowired	//可以注解在私有属性上
+	private InjectionDAO injectionDAO;
+	
+//	@Autowired	//可以注解在构造器上
+//	public InjectionServiceImpl(InjectionDAO injectionDAO) {
+//		this.injectionDAO = injectionDAO;
+//	}
+	
+//	@Autowired	//可以注解在set方法中
+	public void setInjectionDAO(InjectionDAO injectionDAO) {
+		this.injectionDAO = injectionDAO;
+	}
+
+	public void save(String arg) {
+		//模拟业务操作
+		System.out.println("Service接收参数：" + arg);
+		arg = arg + ":" + this.hashCode();
+		injectionDAO.save(arg);
+	}
+}
+```
+
+**测试依赖关系**
+
+``` java
+public class TestInjection extends UnitTestBase {
+	
+	public TestInjection() {
+		super("classpath:spring-beanannotation.xml");
+	}
+	
+	/**对自动注入进行验证*/
+	@Test
+	public void testAutowired() {
+		InjectionService service = super.getBean("injectionServiceImpl");
+		service.save("使用注解自动注入");
+	}
+}	
+```
+
+## `@Component`和`@Order`注解
+`@Component`注解适用于任何类,表示将该类托管交由Spring容器管理
+`@Order`注解表示该类在依赖注入时的优先等级
+
+
+**多态中,依赖注入的原则**
+- 定义父接口
+这里定义一个空类,作为父类,交由子类实现
+``` java
+public interface BeanInterface {
+
+}
+```
+
+- 定义子类实现
+使用`@Order(1)`注解,表示该类为第一优先子类实现,优先依赖注入
+使用`@Component`注解,将类托管给Spring容器
+
+``` java
+@Order(1)		//排序为1,传入整形数字
+@Component		//万能的注解
+public class BeanImplTwo implements BeanInterface {   }
+
+@Order(2)		//排序为1,传入整形数字
+@Component		//万能的注解
+public class BeanImplOne implements BeanInterface {   }
+```
