@@ -11,18 +11,18 @@
         http://www.springframework.org/schema/aop/spring-aop.xsd">
         
      <!-- 创建实现接口的通知类 -->   
-     <bean id="moocBeforeAdvice" class="com.imooc.aop.api.MoocBeforeAdvice"></bean>
+     <bean id="moocBeforeAdvice" class="aop.api.MoocBeforeAdvice"></bean>
      
-     <bean id="moocAfterReturningAdvice" class="com.imooc.aop.api.MoocAfterReturningAdvice"></bean>
+     <bean id="moocAfterReturningAdvice" class="aop.api.MoocAfterReturningAdvice"></bean>
      
-     <bean id="moocMethodInterceptor" class="com.imooc.aop.api.MoocMethodInterceptor"></bean>
+     <bean id="moocMethodInterceptor" class="aop.api.MoocMethodInterceptor"></bean>
      
-     <bean id="moocThrowsAdvice" class="com.imooc.aop.api.MoocThrowsAdvice"></bean>
+     <bean id="moocThrowsAdvice" class="aop.api.MoocThrowsAdvice"></bean>
      
      
     
     <!-- 处理方式 --> 
-    <bean id="bizLogicImplTarget" class="com.imooc.aop.api.BizLogicImpl"></bean>
+    <bean id="bizLogicImplTarget" class="aop.api.BizLogicImpl"></bean>
 
 	<bean id="pointcutBean" class="org.springframework.aop.support.NameMatchMethodPointcut">
 		<property name="mappedNames">
@@ -35,7 +35,7 @@
  	<bean id="defaultAdvisor" class="org.springframework.aop.support.DefaultPointcutAdvisor">
 		<property name="advice" ref="moocBeforeAdvice" />
 		<property name="pointcut" ref="pointcutBean" />
-	</bean> -->
+	</bean>
 	
 	
 	<bean id="bizLogicImpl" class="org.springframework.aop.framework.ProxyFactoryBean">
@@ -54,14 +54,14 @@
         
         
     <!-- 创建代理类 -->    
-	<bean id="bizLogicImplTarget" class="com.imooc.aop.api.BizLogicImpl"></bean>
+	<bean id="bizLogicImplTarget" class="aop.api.BizLogicImpl"></bean>
 
 	<bean id="bizLogicImpl" class="org.springframework.aop.framework.ProxyFactoryBean">
 		<property name="proxyInterfaces">
-			<value>com.imooc.aop.api.BizLogic</value>
+			<value>aop.api.BizLogic</value>
 		</property>
 		<property name="target">
-<!-- 			<bean class="com.imooc.aop.api.BizLogicImpl"/> -->
+<!-- 			<bean class="aop.api.BizLogicImpl"/> -->
 			<ref bean="bizLogicImplTarget"/>
 		</property>
 		<property name="interceptorNames">
@@ -83,10 +83,10 @@
 	
 	<bean id="bizLogicImpl"  parent="baseProxyBean">
 		<property name="target">
-			<bean class="com.imooc.aop.api.BizLogicImpl"></bean>
+			<bean class="aop.api.BizLogicImpl"></bean>
 		</property>
 		<property name="proxyInterfaces">
-			<value>com.imooc.aop.api.BizLogic</value>
+			<value>aop.api.BizLogic</value>
 		</property>
 		<property name="interceptorNames">
 			<list>

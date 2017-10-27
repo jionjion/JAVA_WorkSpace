@@ -15,14 +15,17 @@ Spring是一个轻量级的控制反转(IOC)与依赖注入( DI)和面向切面(
 - `main` 编写的类,实现各个功能
 	- `java` 各种功能实现类
 		- `aop`
+			- `introduction`
+			- `aspectj`
+			- `schema`
 		- `autowiring`  依赖注入的实现方式
 		- `aware` 对应资源获取
 		- `bean`  Bean作用范围
 		- `beanannotation`
 			- `injection` Bean注解实现依赖注入
-			- `javabased`
-			- `jsr`
-			- `multibean`
+			- `javabased` Spring容器注解
+			- `jsr` Bean的其他注解
+			- `multibean` Bean泛型和多态实例的自动注入
 			- `BeanAnnotation`  Bean的注解配置
 		- `ioc`
 		- `lifecycle` Bean生命周期
@@ -38,7 +41,7 @@ Spring是一个轻量级的控制反转(IOC)与依赖注入( DI)和面向切面(
 		-  `spring-aop-schema-advisors.xml`
 		-  `spring-autowiring.xml`  依赖注入的配置文件
 		-  `spring-aware.xml` 对应资源获取的配置文件
-		-  `spring-beanannotation.xml`
+		-  `spring-beanannotation.xml` Bean扫描的配置文件
 		-  `spring-beanscope.xml` Bean作用范围的配置文件
 		-  `spring-injection.xml`
 		-  `spring-ioc.xml`
@@ -47,15 +50,20 @@ Spring是一个轻量级的控制反转(IOC)与依赖注入( DI)和面向切面(
 - `test` 对应的测试类
 	- `java` 各种功能测试类
 		- `aop` 
+			- `aspectj`
+			- `TestAOPAPI`
+			- `TestAOPSchemaAdvice`
+			- `TestAOPSchemaAdvisors`
 		- `autowiring` 依赖注入的测试
 		- `aware` 对应资源获取的测试
 		- `base` 编写基础的测试类,便于其他测试类继承使用
 		- `bean` Bean作用范围的测试
-		- `beanannotation`
+		- `beanannotation`  
 			- `TestBeanAnnotation`  Bean的注解配置的测试
-			- `TestInjection`Bean注解实现依赖注入的测试和泛型装配的测试
-			- `TestJavabased`
-			- `TestJsr`
+			- `TestInjection`Bean注解实现依赖注入的测试
+			- `TestJavabased`  Spring容器注解的测试
+			- `TestJsr` Bean的其他注解的测试
+			- `TestMulti`Bean泛型和多态实例的自动注入的测试
 		- `ioc`
 		- `lifecycle`  Bean生命周期的测试
 		- `resource`  获得资源文件的测试
@@ -272,6 +280,9 @@ public class TestAutoWiring extends UnitTestBase {
 | `<constructor-arg>` | `<bean>`子标签 | 使用构造器注入时,传入构造器的参数 |
 | `<property>`        | `<bean>`子标签 | 使用属性值注入时,set私有属性的类  |
 |                     | name           | 指向私有属性的Bean实例的id        |
+|`<qualifier>` | `<bean>`子标签| 缩小自动装配时的查找范围|
+|`<context:property-placeholder>` |   | 属性文件的加载|
+|						|	location  | 属性文件的路径|
 
 
 ### Bean的作用范围
@@ -757,9 +768,9 @@ public class TestInjection extends UnitTestBase {
 }	
 ```
 
-## `@Component`和`@Order`注解
+### `@Component`和`@Qualifier`注解
 `@Component`注解适用于任何类,表示将该类托管交由Spring容器管理
-`@Order`注解表示该类在依赖注入时的优先等级
+`@Qualifier`注解,缩小自动装配时类的查找范围,可以传入类的名字或者匹配关键字查找,类似于`<Bean>`下的`<qualifier>`标签避免一个父类多个子类情况时由于装配失败而抛出异常.
 
 
 **多态中,依赖注入的原则**
@@ -772,15 +783,548 @@ public interface BeanInterface {
 ```
 
 - 定义子类实现
-使用`@Order(1)`注解,表示该类为第一优先子类实现,优先依赖注入
 使用`@Component`注解,将类托管给Spring容器
 
 ``` java
-@Order(1)		//排序为1,传入整形数字
 @Component		//万能的注解
 public class BeanImplTwo implements BeanInterface {   }
 
-@Order(2)		//排序为1,传入整形数字
 @Component		//万能的注解
 public class BeanImplOne implements BeanInterface {   }
 ```
+
+- 使用父接口,指明具体子类泛型
+引入父接口,由于`@Qualifier`注解,则使用指定的实现类.
+``` java
+@Component
+public class BeanInvoker {
+	@Autowired
+	@Qualifier("beanImplTwo")	//通过@Qualifier注解,指定接口的实现类
+	private BeanInterface beanInterface;
+	
+	public void say() {
+		if (null != beanInterface) {
+			System.out.println("通过@Qualifier注解,指定接口的实现类为:"+beanInterface.getClass().getName());
+		} else {
+			System.out.println("beanInterface 为空...");
+		}	
+	}
+}
+```
+
+**测试多态中依赖注入**
+
+``` java
+@RunWith(BlockJUnit4ClassRunner.class)
+public class TestMulti extends UnitTestBase {
+	
+	public TestInjection() {
+		super("classpath:spring-beanannotation.xml");
+	}
+		
+	/**对带有泛型的类实现对泛型的自动注入*/
+	@Test
+	public void testMultiBean() {
+		BeanInvoker invoker = super.getBean("beanInvoker");
+		invoker.say();
+	}
+	
+}
+```
+
+### `@Order`注解
+使用`@Order`注解可以在集合框架中实现排序,排序的优先级与注解值相关,数值越小,优先级越大
+
+**集合框架中泛型的使用及其具体实现类**
+
+- 定义父接口
+这里定义一个空类,作为父类,交由子类实现
+``` java
+public interface BeanInterface {
+
+}
+```
+
+- 定义子类实现
+使用`@Component`注解,将类托管给Spring容器
+
+``` java
+@Component		//万能的注解
+public class BeanImplTwo implements BeanInterface {   }
+
+@Component		//万能的注解
+public class BeanImplOne implements BeanInterface {   }
+```
+
+- 使用集合框架,泛型指定为父接口
+Spring会自动识别接口的所有实现类,并按照`@Order`中的优先级进行排序.
+
+``` java
+@Component
+public class BeanInvoker {
+	
+	@Autowired	//自动注解泛型中BeanInterface的类
+	private List<BeanInterface> list;
+	
+	@Autowired
+	private Map<String, BeanInterface> map;
+	
+	/**对自动注入的类进行遍历,由于默认为单例模式,所以只是注册了一个类类型*/
+	public void say() {
+		if (null != list && 0 != list.size()) {
+			System.out.println("读取list中...");
+			for (BeanInterface bean : list) {
+				System.out.println(bean.getClass().getName());
+			}
+		} else {
+			System.out.println("List<BeanInterface> list 为空 !!!!!!!!!!");
+		}
+		
+		System.out.println("-------");
+		
+		if (null != map && 0 != map.size()) {
+			System.out.println("读取map中...");
+			for (Map.Entry<String, BeanInterface> entry : map.entrySet()) {
+				System.out.println(entry.getKey() + "      " + entry.getValue().getClass().getName());
+			}
+		} else {
+			System.out.println("Map<String, BeanInterface> map 为空 !!!!!!!!!!");
+		}
+	}
+}
+```
+
+**测试集合框架中泛型的注入**
+由于实现了`@Order`的顺序,会在容器中按照顺序进行排序
+
+``` java
+@RunWith(BlockJUnit4ClassRunner.class)
+public class TestMulti extends UnitTestBase {
+
+	public TestMulti() {
+		super("classpath:spring-beanannotation.xml");
+	}
+	
+	/**对带有泛型的类实现对泛型的自动注入*/
+	@Test
+	public void testMultiBean() {
+		BeanInvoker invoker = super.getBean("beanInvoker");
+		invoker.say();
+	}
+}
+```
+
+
+### 容器注解`@Configuration`,`@Bean`,`@ImportResource`,`@Value`
+
+`@Configuration`将该类注解为容器类,可以在该类中配置Spring容器.
+`@Bean`标注在方法上,表示该类的返回对象作为Spring容器的Bean,进行托管,可以在`name`属性中指定Bean的名字,默认为方法名作为Bean的名字,`initMethod`和`destroyMethod`分别指定Bean的初始化和销毁方法.
+`@ImportResource`表示对XML资源文件的读取,通过`<context:property-placeholder>`标签指定属性文件的位置.
+`@Value`获取配置文件中的属性值.
+`@Scope`表示该类的作用范围,`proxyMode`属性可以配置类的代理方式
+
+**类文件继承说明**
+
+
+| 名称            | 类型       | 说明                                              |
+| --------------- | ---------- | ------------------------------------------------- |
+| `Store<T>`        | 接口       | 作为父接口                                        |
+| `StringStore`     | 接口实现类 | 实现接口,并创建两个方法,配置为初始化,销毁方法     |
+| `IntegerStore`    | 接口实现类 | 实现接口                                          |
+| `StoreConfig`     | 容器类     | 被`@Configuration`注解配置,作为Spring容器         |
+| `MyDriverManager` | 类         | 使用`@ImportResource`在容器类中获得配置文件的信息 |
+| `TestJavabased`   | 测试类     | 对以上类的方法进行测试                            |
+
+
+**Spring容器中Bean的托管**
+
+- 创建Spring容器类,并提供返回Bean的方法
+
+``` java
+@Configuration	//在类上注解,表示将其配置为Spring容器进行配置,包括对Bean的生成和属性文件的读取
+public class StoreConfig {
+	
+	/**使用@Bean,直接将方法返回的bean对象返回,完成IOC对象的获取.
+	 * bean的名字为方法的名字**/
+	@Bean
+	public StringStore stringStore() {
+		return new StringStore();
+	}
+
+}
+```
+
+- 测试获取`@Bean`注解中配置的Bean对象
+
+``` java
+@RunWith(BlockJUnit4ClassRunner.class)
+public class TestJavabased extends UnitTestBase {
+	
+	public TestJavabased() {
+		super("classpath:spring-beanannotation.xml");
+	}
+	
+	/**测试,获取子类的名称接口Bean的实现,注意bean的名称的定义*/
+	@Test
+	public void test() {
+		Store store = super.getBean("stringStore");
+		System.out.println(store.getClass().getName());
+	}
+}
+```
+
+**Bean的作用范围及代理模式**
+
+- `@Scope`注解中,通过`value`属性可以指定Bean的作用范围;通过`proxyMode`属性可以指定代理方式
+
+``` java
+@Configuration	//在类上注解,表示将其配置为Spring容器进行配置,包括对Bean的生成和属性文件的读取
+public class StoreConfig {
+	/**创建Bean并指定名字,
+	 * 指定范围为请求IOC时创建新的对象,代理方式为类代理*/
+	@Bean(name = "stringStore")
+	@Scope(value="prototype", proxyMode = ScopedProxyMode.TARGET_CLASS)
+	public Store stringStore() {
+		return new StringStore();
+	}
+}
+```
+
+- 测试Bean的作用范围
+通过对Bean的两次获取并打印对象的哈希,进而判断其是否为同一个对象.
+
+``` java
+@RunWith(BlockJUnit4ClassRunner.class)
+public class TestJavabased extends UnitTestBase {
+	
+	public TestJavabased() {
+		super("classpath:spring-beanannotation.xml");
+	}
+	
+	/**测试,对Bean的范围和代理方式的测试**/
+	@Test
+	public void testScope() {
+		Store store = super.getBean("stringStore");
+		System.out.println(store.hashCode());
+		
+		store = super.getBean("stringStore");
+		System.out.println(store.hashCode());
+	}
+}
+```
+
+
+
+
+**指定Bean的名字,并设定初始化,销毁方法**
+
+- 在Bean中两个方法
+``` java
+public class StringStore implements Store<String> {
+	
+	public void init() {
+		System.out.println("自定义初始化方法.");
+	}
+	
+	public void destroy() {
+		System.out.println("自定义销毁方法.");
+	}
+	
+}
+```
+
+- 在`@Bean`注解中`name`属性指定Bean的名字,`initMethod`和`destroyMethod`分别指定初始化方法和销毁方法
+
+``` java
+@Configuration	//在类上注解,表示将其配置为Spring容器进行配置,包括对Bean的生成和属性文件的读取
+public class StoreConfig {
+	/**创建bean并指定名字,此时bean名称不与返回类一致
+	 * 指定初始化方法和销毁方法均指定*/
+	@Bean(name = "stringStore", initMethod="init", destroyMethod="destroy")
+	public Store stringStore() {
+		return new StringStore();
+	}
+}	
+```
+
+
+- 测试类进行测试
+
+``` java
+@RunWith(BlockJUnit4ClassRunner.class)
+public class TestJavabased extends UnitTestBase {
+	
+	public TestJavabased() {
+		super("classpath:spring-beanannotation.xml");
+	}
+	
+	/**测试,获取子类的名称接口Bean的实现,注意bean的名称的定义*/
+	@Test
+	public void test() {
+		Store store = super.getBean("stringStore");
+		System.out.println(store.getClass().getName());
+	}
+}
+```
+
+**资源文件的获取**
+
+- 创建需要资源文件中信息的对象
+
+``` java
+public class MyDriverManager {
+	public MyDriverManager(String url, String userName, String password) {
+		//验证方法
+		System.out.println("读取配置文件中url : " + url);
+		System.out.println("读取配置文件中userName: " + userName);
+		System.out.println("读取配置文件中password: " + password);
+	}
+}
+```
+
+- `@ImportResource`注解引入资源文件
+使用`@ImportResource`引入配置文件的位置,交由Spring容器进行加载
+使用`@Value`注解对属性文件中的键进行值的匹配,通过私有属性成员,绑定配置文件中属性值
+
+``` java
+@Configuration	//在类上注解,表示将其配置为Spring容器进行配置,包括对Bean的生成和属性文件的读取
+@ImportResource("classpath:config.xml")	//在配置类中,引入对xml文件的读取,进而获取xml的引用的属性文件获取
+public class StoreConfig {
+	
+	
+	/**获取配置文件的值,使用${key}来获取文件中的值**/
+	@Value("${url}")
+	private String url;
+	
+	@Value("${jdbc.username}")	//注意名字为.风格,确保key的唯一性,而不会获取到系统的预设变量
+	private String username;
+	
+	@Value("${password}")
+	private String password;
+	
+	/**自定义的类,用来使用配置文件中的值,在构造器中有打印验证*/
+	@Bean
+	public MyDriverManager myDriverManager() {
+		return new MyDriverManager(url, username, password);
+	}
+}
+```
+
+- XML中的配置及指向的属性文件
+
+XML文件中引入配置文件
+``` xml
+<beans>
+    <!-- 作为xml,被Bean通过注解注入.xml中配置引用属性文件的地址 -->    
+    <context:property-placeholder location="classpath:/config.properties"/>
+</beans>
+```
+
+配置文件的内容
+```
+jdbc.username=root
+password=root
+url=127.0.0.1
+```
+
+- 测试对资源文件的读取
+
+``` java
+@RunWith(BlockJUnit4ClassRunner.class)
+public class TestJavabased extends UnitTestBase {
+	
+	public TestJavabased() {
+		super("classpath:spring-beanannotation.xml");
+	}
+	
+	/**测试,对配置文件中的属性值的获取**/
+	@Test
+	public void testMyDriverManager() {
+		MyDriverManager manager = super.getBean("myDriverManager");
+		System.out.println("读取配置文件成功,创建自定义JDBC连接:"+manager.getClass().getName());
+	}
+}
+
+```
+
+**基于泛型的自动装配**
+通过使用`@Bean`注解,为容器中注入Bean实例
+使用`@Autowire`注解泛型进行装配
+对测试Bean进行注入,返回测试.
+
+``` java
+@Configuration	//在类上注解,表示将其配置为Spring容器进行配置,包括对Bean的生成和属性文件的读取
+public class StoreConfig {
+	/**对String类型实现自动装配**/
+	@Bean
+	public StringStore stringStore() {
+		return new StringStore();
+	}
+	
+	/**对Integer类型实现自动装配**/
+	@Bean
+	public IntegerStore integerStore() {
+		return new IntegerStore();
+	}
+	
+	/**容器,存入String类型**/
+	@Autowired
+	private Store<String> s1;
+	
+	/**容器,存入Integer类型**/
+	@Autowired
+	private Store<Integer> s2;
+	
+	/**对同一个接口的不同实现类的进行测试**/
+	@Bean(name = "stringStoreTest")
+	public Store stringStoreTest() {
+		System.out.println("s1 的类名: " + s1.getClass().getName());
+		System.out.println("s2 的类名: " + s2.getClass().getName());
+		return new StringStore();
+	}
+}
+```
+
+- 测试类,对泛型装配进行测试
+
+``` java
+@RunWith(BlockJUnit4ClassRunner.class)
+public class TestJavabased extends UnitTestBase {
+	public TestJavabased() {
+		super("classpath:spring-beanannotation.xml");
+	}
+	
+	/**测试,对store接口容器的不同实现类进行验证**/
+	@Test
+	public void testG() {
+		StringStore store = super.getBean("stringStoreTest");
+	}
+}
+```
+
+### 其他注解`@Resource`,`@Inject`,`@Named`,`@PostConstruct`,`@PreDestroy`
+
+`@Repository`注解,专门用于注解Dao层
+`@Service`注解,专门用户注解Service层
+`@Name`注解,显式给类提供Bean名,可以注解在类名上,成员方法上,方法参数中,默认值或缺省值为类名首字符小写
+`@Resource`将依赖属性注入,在Set方法上注解,提供name值作为Bean的名称
+`@Inject`将依赖属性注入,与`@autoWire`效果相同.
+`@PostConstruct`本类中的初始化方法
+`@PreDestroy`本类中的销毁方法
+
+
+- 模拟Dao层
+
+``` java
+@Repository		//Dao层的接口
+public class JsrDAO {
+	public void save() {
+		System.out.println("Dao层保存数据.");
+	}
+}
+```
+
+- 默认Service层
+
+``` java
+@Service
+//@Named
+public class JsrServie {
+	
+//	@Inject		//autoWire相等
+	@Resource	//私有属性注入实例,指定其生命周期,也可以使用autoWire
+	private JsrDAO jsrDAO;
+	
+//	@Inject		//autoWire相等
+//	@Resource	//set方法注入实例,指定其生命周期,也可以使用autoWire
+	//@name注解指定类名
+	public void setJsrDAO(@Named("jsrDAO") JsrDAO jsrDAO) {
+		this.jsrDAO = jsrDAO;	
+	}
+	
+	@PostConstruct	
+	public void init() {
+		System.out.println("初始化注解.");
+	}
+	
+	@PreDestroy
+	public void destroy() {
+		System.out.println("销毁注解");
+	}
+
+	/**调用保存的方法**/
+	public void save() {
+		jsrDAO.save();
+	}
+	
+}
+```
+
+- 测试
+
+``` java
+@RunWith(BlockJUnit4ClassRunner.class)
+public class TestJsr extends UnitTestBase {
+	public TestJsr() {
+		super("classpath:spring-beanannotation.xml");
+	}
+
+	@Test
+	public void testSave() {
+		JsrServie service = getBean("jsrServie");
+		service.save();
+	}
+}
+```
+
+## AOP面向切面编程
+
+面向切面编程是指通过预编译的方式结合运行期代理实现程序统一维护的技术.
+
+
+| 名称                    | 说明                                                                                                  | 举例                                        |
+| ----------------------- | ----------------------------------------------------------------------------------------------------- | ------------------------------------------- |
+| 切面(Aspect)            | 一个关注点的模块化,这个关注点会横切多个对象                                                           | 多个模块间通用的服务                        |
+| 连接点(Joinpoint)       | 程序执行过程的某个特定的点                                                                            | 具体的方法                                  |
+| 通知(Advice)            | 在切面的某个特定连接点上执行的动作                                                                    | 在具体方法执行时,指定的额外功能             |
+| 切入点(Pointcut)        | 匹配连接点的断言,在AOP中通知和一个切入点表达式关联                                                    | 匹配链接点的表达式                          |
+| 引入(Introduction)      | 在不修改类代码的前提下,为类添加新的方法和属性                                                         | 编译期的动态增加新功能                      |
+| 目标对象(Target Object) | 被一个或者多个切面所通知的对象                                                                        | 被关注的模块功能                            |
+| AOP代理(AOP Proxy)      | AOP框架创建的对象,用来实现切面契约( aspect  contract)                                                 | 通知方法执行的对象,由框架代理               |
+| 织入(Weaving)           | 把切面连接到其他应用程序类型或者对象上,并创建一个被通知的对象.分为:编译时织入,类加载时织入,执行时织入 | 将切面和对象关联起来,在时间点上进行通知操作 |
+
+通知类型
+
+| 名称                                  | 说明                                                                             |
+| ------------------------------------- | -------------------------------------------------------------------------------- |
+| 前置通知(Before advice)               | 在某个连接点(Join point)之前执行的通知,但是它不能阻止连接点前的执行,除非抛出异常 |
+| 返回后通知(After returning advice)    | 在某个连接点(Join point)正常执行完成后的通知                                     |
+| 抛出异常后通知(After throwing advice) | 在方法抛出异常退出时执行的通知                                                   |
+| 后通知(After advice)                  | 当某个连接点退出的时候执行的通知(无论正常返回还是异常退出)                       |
+| 环绕通知(Around Advice)               | 包围一个连接点(Join point)的通知                                                 |
+
+### 传统方式实现切面编程
+通过实现各种接口,完成对切面编程的实现.
+
+- 创建接口,定义方法
+
+``` java
+public interface BizLogic {
+	
+	String save();
+
+}
+```
+
+- 创建接口实现类
+
+``` java
+public class BizLogicImpl implements BizLogic {
+	public String save() {
+		System.out.println("正在进行保存.....");
+		return "返回处理结果为.....";
+	}
+}
+```
+
+

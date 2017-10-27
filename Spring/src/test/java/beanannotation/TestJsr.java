@@ -12,7 +12,7 @@ import beanannotation.jsr.JsrServie;
 public class TestJsr extends UnitTestBase {
 	
 	public TestJsr() {
-		super("classpath*:spring-beanannotation.xml");
+		super("classpath:spring-beanannotation.xml");
 	}
 	
 	@Test

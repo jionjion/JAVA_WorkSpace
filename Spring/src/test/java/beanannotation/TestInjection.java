@@ -21,12 +21,4 @@ public class TestInjection extends UnitTestBase {
 		InjectionService service = super.getBean("injectionServiceImpl");
 		service.save("使用注解自动注入");
 	}
-	
-	/**对带有泛型的类实现对泛型的自动注入*/
-	@Test
-	public void testMultiBean() {
-		BeanInvoker invoker = super.getBean("beanInvoker");
-		invoker.say();
-	}
-	
 }
