@@ -11,7 +11,7 @@
         http://www.springframework.org/schema/aop/spring-aop.xsd">
 	<!-- 使用 -->
 	<!-- 配置包扫描 -->
-	<context:component-scan base-package="com.imooc.aop.schema"></context:component-scan>
+	<context:component-scan base-package="aop.schema"></context:component-scan>
 
 	<!-- 配置AOP切面 -->
 	<aop:config>
@@ -19,16 +19,16 @@
 		<aop:aspect id="concurrentOperationRetry" ref="concurrentOperationExecutor">
 			<!-- 织入,唯一ID后,使用匹配表达式 -->
 			<aop:pointcut id="idempotentOperation"
-				expression="execution(* com.imooc.aop.schema.advisors.service.*.*(..)) " />
-<!--      			expression="execution(* com.imooc.aop.schema.service.*.*(..)) and -->
-<!--         						@annotation(com.imooc.aop.schema.Idempotent)" /> -->
+				expression="execution(* aop.schema.advisors.service.*.*(..)) " />
+<!--      			expression="execution(* aop.schema.service.*.*(..)) and -->
+<!--         						@annotation(aop.schema.Idempotent)" /> -->
 			<!-- 环绕通知 -->
 			<aop:around pointcut-ref="idempotentOperation" method="doConcurrentOperation" />
 		</aop:aspect>
 	</aop:config>
 	
 	<!-- 切点处理类 -->
-	<bean id="concurrentOperationExecutor" class="com.imooc.aop.schema.advisors.ConcurrentOperationExecutor">
+	<bean id="concurrentOperationExecutor" class="aop.schema.advisors.ConcurrentOperationExecutor">
 		<!-- 最大重置顺序 -->
 		<property name="maxRetries" value="3" />
 		<!-- 排序 -->

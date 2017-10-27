@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.BlockJUnit4ClassRunner;
 
 import base.UnitTestBase;
-import beanannotation.injection.service.InjectionService;
+import ioc.injection.service.InjectionService;
 
 
 @RunWith(BlockJUnit4ClassRunner.class)

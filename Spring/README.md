@@ -15,9 +15,9 @@ Spring是一个轻量级的控制反转(IOC)与依赖注入( DI)和面向切面(
 - `main` 编写的类,实现各个功能
 	- `java` 各种功能实现类
 		- `aop`
-			- `introduction`
-			- `aspectj`
-			- `schema`
+			- `api` 使用接口的方式配置通知
+			- `aspectj` 注解配置通知
+			- `schema` XML配置通知
 		- `autowiring`  依赖注入的实现方式
 		- `aware` 对应资源获取
 		- `bean`  Bean作用范围
@@ -28,32 +28,34 @@ Spring是一个轻量级的控制反转(IOC)与依赖注入( DI)和面向切面(
 			- `multibean` Bean泛型和多态实例的自动注入
 			- `BeanAnnotation`  Bean的注解配置
 		- `ioc`
+			- `injection` Web中依赖注入
+			- `interfaces` 接口中依赖注入
 		- `lifecycle` Bean生命周期
 		- `resource` 获得资源文件
 	- `resource`各种功能对应的配置文件
 		- `config.properties`数据库配置文件
-		- `config.txt`
-		-  `config.xml`
-		-  `jdbc.properties`
-		-  `spring-aop-api.xml`
-		-  `spring-aop-aspectj.xml`
-		-  `spring-aop-schema-advice.xml`
-		-  `spring-aop-schema-advisors.xml`
+		- `config.txt` 
+		-  `config.xml` 资源文件的获取
+		-  `jdbc.properties` 资源文件的获取
+		-  `spring-aop-api.xml`  使用接口的方式配置通知的配置文件
+		-  `spring-aop-aspectj.xml` 注解配置通知的配置文件
+		-  `spring-aop-schema-advice.xml` XML配置通知的配置文件
+		-  `spring-aop-schema-advisors.xml`  XML配置通知的配置文件
 		-  `spring-autowiring.xml`  依赖注入的配置文件
 		-  `spring-aware.xml` 对应资源获取的配置文件
 		-  `spring-beanannotation.xml` Bean扫描的配置文件
 		-  `spring-beanscope.xml` Bean作用范围的配置文件
-		-  `spring-injection.xml`
-		-  `spring-ioc.xml`
+		-  `spring-injection.xml` Web中依赖注入的配置文件
+		-  `spring-ioc.xml`  接口中依赖注入
 		-  `spring-lifecycle.xml`  Bean生命周期的配置文件
 		-  `spring-resource.xml` 获得资源文件的配置文件
 - `test` 对应的测试类
 	- `java` 各种功能测试类
 		- `aop` 
-			- `aspectj`
-			- `TestAOPAPI`
-			- `TestAOPSchemaAdvice`
-			- `TestAOPSchemaAdvisors`
+			- `aspectj`  注解配置通知的测试
+			- `TestAOPAPI`  使用接口的方式配置通知的测试
+			- `TestAOPSchemaAdvice`  XML配置通知的测试
+			- `TestAOPSchemaAdvisors`  XML配置通知的测试
 		- `autowiring` 依赖注入的测试
 		- `aware` 对应资源获取的测试
 		- `base` 编写基础的测试类,便于其他测试类继承使用
@@ -65,6 +67,8 @@ Spring是一个轻量级的控制反转(IOC)与依赖注入( DI)和面向切面(
 			- `TestJsr` Bean的其他注解的测试
 			- `TestMulti`Bean泛型和多态实例的自动注入的测试
 		- `ioc`
+			- `TestInjection` Web中依赖注入的测试
+			- `TestOneInterface`接口中依赖注入的测试
 		- `lifecycle`  Bean生命周期的测试
 		- `resource`  获得资源文件的测试
 	- `resource`各种功能对应的配置文件的测试类
@@ -188,6 +192,62 @@ ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("cla
 ### IOC控制反转
 控制权的转移,应用程序不负责依赖对象的创建和维护,而由外部容器负责创建和维护.
 
+- 定义接口
+
+``` java
+public interface OneInterface {
+	public void say(String arg);
+}
+```
+
+- 定义实现类
+
+``` java
+public class OneInterfaceImpl implements OneInterface {
+	public void say(String arg) {
+		System.out.println("实现类: " + arg);
+	}
+}
+```
+
+- 托管Spring容器
+
+``` xml
+<beans>
+    <!-- 对Spring的Bean的配置,托管后交由 Spring管理-->    
+	<bean id="oneInterface" class="ioc.interfaces.OneInterfaceImpl"></bean>
+ </beans>
+```
+
+- 测试获取
+
+``` java
+@RunWith(BlockJUnit4ClassRunner.class)
+//继承自基础类,传入配置文件的路径,Spring容器加载配置文件,并返回对应的bean对象
+public class TestOneInterface extends UnitTestBase {
+
+	public TestOneInterface() {
+		super("classpath*:spring-ioc.xml");
+	}
+	
+	/**通过传入配置文件中bean的名字完成IOC控制反转*/
+	@Test
+	public void testSay() {
+		OneInterface oneInterface = super.getBean("oneInterface");
+		oneInterface.say("测试类...");
+	}
+
+	/**通过传入类型的类类型,完成IOC控制反转*/
+	@Test
+	public void testSay2() {
+		
+		OneInterface oneInterface = super.getBean(OneInterface.class);
+		oneInterface.say("测试类...");
+	}
+}
+```
+
+
 ### DI依赖注入
 是对控制反转的一种实现,负责创建对象并维护对象之间的关系.
 在启动Spring容器加载Bean配置的时候,完成的对变量赋值的行为
@@ -224,9 +284,8 @@ public class AutoWiringService {
 		System.out.println("通过构造器,自动注入Dao层");
 		this.autoWiringDAO = autoWiringDAO;
 	}
-	}	
+}	
 ```
-
 
 - 设值注入
 1. 私有注入对象的属性
@@ -262,6 +321,108 @@ public class TestAutoWiring extends UnitTestBase {
 	}
 }
 ```
+
+### Web中常用的依赖注入方式
+- 创建Dao层接口
+
+``` java
+public interface InjectionDAO {
+	public void save(String arg);
+}
+```
+
+- 创建Dao层接口实现类
+
+``` java
+public class InjectionDAOImpl implements InjectionDAO {
+	public void save(String arg) {
+		//模拟数据库保存操作
+		System.out.println("保存数据：" + arg);
+	}
+}
+```
+
+- 创建Service层接口
+
+``` java
+public interface InjectionService {
+	public void save(String arg);
+}
+```
+
+- 创建Service层接口实现类并通过构造器注入依赖
+
+``` java
+public class InjectionServiceImpl implements InjectionService {
+	
+	//必须,首先私有Dao层
+	private InjectionDAO injectionDAO;
+	
+	/**构造器注入,如果用设置注入,则不用构造器,注意构造器内的传入参数的名字需要和xml中的bean的Id一致*/
+	public InjectionServiceImpl(InjectionDAO injectionDAO) {
+		this.injectionDAO = injectionDAO;
+	}
+	
+	public void save(String arg) {
+		//模拟业务操作
+		System.out.println("Service接收参数：" + arg);
+		arg = arg + ":" + this.hashCode();
+		injectionDAO.save(arg);
+	}
+}
+```
+
+XML中配置
+
+``` xml
+<?xml version="1.0" encoding="UTF-8"?>
+<beans >
+    <!-- bean的名字为接口,指向实现类 -->
+    <bean id="injectionDAO" class="ioc.injection.dao.InjectionDAOImpl"></bean>
+	<!-- 通过构造注入,在Service层使用Dao层,注意构造器中传入参数的名称和bena的id一致 -->
+		<!-- bean的名字为接口,指向为实现类 -->
+ 		<bean id="injectionService" class="ioc.injection.service.InjectionServiceImpl">
+        	<constructor-arg name="injectionDAO" ref="injectionDAO"></constructor-arg>
+        </bean>
+ </beans>
+```
+
+- 创建Service层接口实现类并通过设值注入依赖
+
+``` java
+public class InjectionServiceImpl implements InjectionService {
+	
+	//必须,首先私有Dao层
+	private InjectionDAO injectionDAO;
+	
+	/**设值注入,只需要get()方法即可,如果用构造器,则不需要set()*/
+	public void setInjectionDAO(InjectionDAO injectionDAO) {
+		this.injectionDAO = injectionDAO;
+	}
+
+	public void save(String arg) {
+		//模拟业务操作
+		System.out.println("Service接收参数：" + arg);
+		arg = arg + ":" + this.hashCode();
+		injectionDAO.save(arg);
+	}
+}
+```
+XML中配置
+
+``` xml
+<beans>
+    <!-- bean的名字为接口,指向实现类 -->
+    <bean id="injectionDAO" class="ioc.injection.dao.InjectionDAOImpl"></bean>
+	
+	<!-- 通过设置注入,在Service层使用Dao层 -->     
+	 <bean id="injectionService" class="ioc.injection.service.InjectionServiceImpl">
+		<property name="injectionDAO" ref="injectionDAO"></property>
+	</bean> 
+</beans>
+```
+
+
 
 ## Bean配置
 ## xml中`<bean>`标签
@@ -618,10 +779,7 @@ public class TestResource extends UnitTestBase {
 | `@PreDestroy`            |          | 销毁方法                                       |
 | `@Inject`                |          | 等效于`@Autowired`,可以用于类,属性,方法,构造器 |
 | `@Name`                  |          | 指定Bean的名称                                 |
-|                          |          |                                                |
-|                          |          |                                                |
-|                          |          |                                                |
-|                          |          |                                                |
+
 
 
 ### `@Component`和`@Scope`注解
@@ -1306,6 +1464,8 @@ public class TestJsr extends UnitTestBase {
 ### 传统方式实现切面编程
 通过实现各种接口,完成对切面编程的实现.
 
+**定义要横切的方法**
+
 - 创建接口,定义方法
 
 ``` java
@@ -1327,4 +1487,627 @@ public class BizLogicImpl implements BizLogic {
 }
 ```
 
+**定义各种通知**
 
+- 前置通知
+
+``` java
+public class MoocBeforeAdvice implements MethodBeforeAdvice {
+	@Override
+	public void before(Method method, Object[] args, Object target)
+			throws Throwable {
+		System.out.println("前置通知使用 : " + method.getName() + "     " + 
+				 target.getClass().getName());
+	}
+}
+```
+
+- 后置通知
+
+``` java
+public class MoocAfterReturningAdvice implements AfterReturningAdvice {
+	@Override
+	public void afterReturning(Object returnValue, Method method,
+			Object[] args, Object target) throws Throwable {
+		System.out.println("后置通知....." + method.getName() + "     " + 
+			target.getClass().getName() + "       " + returnValue);
+	}
+}
+```
+
+- 环绕通知
+
+``` java
+public class MoocMethodInterceptor implements MethodInterceptor {
+	@Override
+	public Object invoke(MethodInvocation invocation) throws Throwable {
+		System.out.println("方法执行前进行环绕通知..........: " + invocation.getMethod().getName() + "     " + 
+				invocation.getStaticPart().getClass().getName());
+		 Object obj = invocation.proceed();
+		 System.out.println("方法执行后进行环绕通知..........: " + obj);
+		 return obj;
+	}
+
+}
+```
+
+- 异常通知
+
+``` java
+public class MoocThrowsAdvice implements ThrowsAdvice {
+	public void afterThrowing(Exception ex) throws Throwable {
+		System.out.println("异常处理通知......");
+	}
+	public void afterThrowing(Method method, Object[] args, Object target, Exception ex) throws Throwable {
+		System.out.println("异常处理中.....参数为:" + method.getName() + "       " + 
+				target.getClass().getName());
+	}
+}
+```
+
+**XML中配置通知**
+1. 配置各通知的Bean
+2. 创建目标类,指向接口的实现类
+3. 创建切点类,指定横切的方法
+4. 将切点和某个通知进行织入,够成横切面
+5. 也可以通过代理的方式,为多个通知构成在同一个切点中多次使用
+``` xml
+<beans>
+        
+     <!-- 创建实现接口的通知类 -->   
+     <bean id="moocBeforeAdvice" class="aop.api.MoocBeforeAdvice"></bean>
+     
+     <bean id="moocAfterReturningAdvice" class="aop.api.MoocAfterReturningAdvice"></bean>
+     
+     <bean id="moocMethodInterceptor" class="aop.api.MoocMethodInterceptor"></bean>
+     
+     <bean id="moocThrowsAdvice" class="aop.api.MoocThrowsAdvice"></bean>
+     
+     
+    
+    <!-- 处理方式 --> 
+    <bean id="bizLogicImplTarget" class="aop.api.BizLogicImpl"></bean>
+
+	<bean id="pointcutBean" class="org.springframework.aop.support.NameMatchMethodPointcut">
+		<property name="mappedNames">
+			<list>
+				<value>sa*</value>
+			</list>
+		</property>
+	</bean>
+	
+ 	<bean id="defaultAdvisor" class="org.springframework.aop.support.DefaultPointcutAdvisor">
+		<property name="advice" ref="moocBeforeAdvice" />
+		<property name="pointcut" ref="pointcutBean" />
+	</bean>
+	
+	<bean id="bizLogicImpl" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="target">
+			<ref bean="bizLogicImplTarget"/>
+		</property>
+		<property name="interceptorNames">
+			<list>
+				<value>defaultAdvisor</value>
+				<value>moocAfterReturningAdvice</value>
+				<value>moocMethodInterceptor</value>
+				<value>moocThrowsAdvice</value>
+			</list>
+		</property>
+	</bean>
+ </beans>
+```
+
+**使用代理类配置通知**
+
+``` xml
+<beans>
+        
+     <!-- 创建实现接口的通知类 -->   
+     <bean id="moocBeforeAdvice" class="aop.api.MoocBeforeAdvice"></bean>
+     
+     <bean id="moocAfterReturningAdvice" class="aop.api.MoocAfterReturningAdvice"></bean>
+     
+     <bean id="moocMethodInterceptor" class="aop.api.MoocMethodInterceptor"></bean>
+     
+     <bean id="moocThrowsAdvice" class="aop.api.MoocThrowsAdvice"></bean>
+
+	<!-- 创建代理类 -->    
+	<bean id="bizLogicImplTarget" class="aop.api.BizLogicImpl"></bean>
+
+	<bean id="bizLogicImpl" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>aop.api.BizLogic</value>
+		</property>
+		<property name="target">
+<!-- 			<bean class="aop.api.BizLogicImpl"/> -->
+			<ref bean="bizLogicImplTarget"/>
+		</property>
+		<property name="interceptorNames">
+			<list>
+				<value>moocBeforeAdvice</value>
+				<value>moocAfterReturningAdvice</value>
+				<value>moocMethodInterceptor</value>
+				<value>moocThrowsAdvice</value>
+				<value>mooc*</value>
+			</list>
+		</property>
+	</bean>
+ </beans>
+```
+
+**使用代理类配置通知**
+
+``` xml
+<beans>
+     <!-- 创建实现接口的通知类 -->   
+     <bean id="moocBeforeAdvice" class="aop.api.MoocBeforeAdvice"></bean>
+     
+     <bean id="moocAfterReturningAdvice" class="aop.api.MoocAfterReturningAdvice"></bean>
+     
+     <bean id="moocMethodInterceptor" class="aop.api.MoocMethodInterceptor"></bean>
+     
+     <bean id="moocThrowsAdvice" class="aop.api.MoocThrowsAdvice"></bean>
+			lazy-init="true" abstract="true"></bean>
+	
+	<bean id="bizLogicImpl"  parent="baseProxyBean">
+		<property name="target">
+			<bean class="aop.api.BizLogicImpl"></bean>
+		</property>
+		<property name="proxyInterfaces">
+			<value>aop.api.BizLogic</value>
+		</property>
+		<property name="interceptorNames">
+			<list>
+				<value>moocBeforeAdvice</value>
+				<value>moocAfterReturningAdvice</value>
+				<value>moocMethodInterceptor</value>
+				<value>moocThrowsAdvice</value>
+			</list>
+		</property>
+	</bean>
+ </beans>
+```
+
+
+**测试通知**
+
+``` java
+@RunWith(BlockJUnit4ClassRunner.class)
+public class TestAOPAPI extends UnitTestBase {
+	public TestAOPAPI() {
+		super("classpath:spring-aop-api.xml");
+	}
+	@Test
+	public void testSave() {
+		BizLogic logic = (BizLogic)super.getBean("bizLogicImpl");
+		logic.save();
+	}
+}
+```
+
+
+### 使用XML配置切面编程
+
+**常用的切点表达式**
+
+| 表达式                                     | 解释                                |
+| ------------------------------------------ | ----------------------------------- |
+| `execution(public * *(..))`                  | 切点为执行所有的public方法时        |
+| `execution(* set*(..))`                      | 执行所有set开始方法时               |
+| `execution(* service.EmployeeService.*(..))` | 执行EmployeeService类下的所有方法时 |
+| `execution(* service..(..))`                 | 执行service包下的所有类方法时       |
+| `execution(* service...(..))`                | 执行service包及其子包下的所有方法   |
+
+
+- 声明代理类,及其实现,作为类型转换的类
+
+``` java
+public interface Fit {
+	void filter();
+}
+
+public class FitImpl implements Fit {
+	@Override
+	public void filter() {
+		System.out.println("接口实现通知代理.");
+	}
+}
+```
+
+- 创建业务类,调用无参或者有参的方法,对其进行通知的触发
+
+``` java
+public class AspectBiz {
+	public void biz() {
+		System.out.println("业务正在进行.");
+//		throw new RuntimeException();		//抛出异常,调用异常通知.而后置通知不再通知
+	}
+	public void init(String bizName, int times) {
+		System.out.println("业务中传入参数: " + bizName + "   " + times);
+	}
+}
+```
+
+- 创建各种通知方法
+其中传入参数对象`ProceedingJoinPoint`表示环绕通知的时候进行代理的对象.
+``` java
+public class MoocAspect {
+	
+	public void before() {
+		System.out.println("在执行方法前,进行前置通知.");
+	}
+	
+	public void afterReturning() {
+		System.out.println("在执行前方法后,进行后置通知.");
+	}
+	
+	public void afterThrowing() {
+		System.out.println("抛出异常了,进行通知.");
+	}
+	
+	public void after() {
+		System.out.println("在最后一步前,进行通知");
+	}
+	
+	/**环绕通知一般使用*/
+	public Object around(ProceedingJoinPoint pjp) {
+		Object obj = null;
+		try {
+			System.out.println("在类中所有方法执行前,进行环绕通知.");
+			obj = pjp.proceed();
+			System.out.println("在类中所有方法执行后,进行环绕通知.");
+		} catch (Throwable e) {
+			e.printStackTrace();
+		}
+		return obj;
+	}
+	
+	/**匹配参数的环绕通知,针对特定参数列表进行匹配**/
+	public Object aroundInit(ProceedingJoinPoint pjp, String bizName, int times) {
+		System.out.println(bizName + "   " + times);
+		Object obj = null;
+		try {
+			System.out.println("获得环绕通知传入参数.");
+			obj = pjp.proceed();
+			System.out.println("程序执行后,返回参数.");
+		} catch (Throwable e) {
+			e.printStackTrace();
+		}
+		return obj;
+	}
+}
+```
+
+- 配置XML
+
+``` xml
+<beans>
+
+	<!-- 使用XML。对切面编程进行配置 -->
+	<!-- 第一种方式,通过指定ID绑定基本类的AOP切面编程 -->
+	<!-- id:唯一标示,标示切面方法	class:切面具方法 -->
+	<bean id="moocAspect" class="aop.schema.advice.MoocAspect"></bean>
+	
+	<bean id="aspectBiz" class="aop.schema.advice.biz.AspectBiz"></bean>
+	
+	<!-- 可以有多个,表示一组aop配置 -->
+	<aop:config>
+		<!-- 准备进行的AOP配置.id:唯一名称 	ref:与切面方法的类一致 -->
+		<aop:aspect id="moocAspectAOP" ref="moocAspect">
+			<!-- 切点的配置,没有指定类型 	id:切入点的名字	expression:表达式,对这个包下的所有类进行	 -->	
+			<aop:pointcut id="moocPiontcut" expression="execution(* aop.schema.advice.biz.*Biz.*(..))"/>
+			<!-- 前置通知 	method:类型	pointcut-ref:切点的映射 -->
+ 			<aop:before method="before" pointcut-ref="moocPiontcut"/>
+ 			<!-- 后置通知 -->
+ 			<aop:after-returning method="afterReturning" pointcut-ref="moocPiontcut"/>
+ 			<!-- 抛出异常的方法 -->
+ 			<aop:after-throwing method="afterThrowing" pointcut-ref="moocPiontcut"/>
+ 			<!-- 最终通知 -->
+ 			<aop:after method="after" pointcut-ref="moocPiontcut"/>
+ 			<!-- 环绕通知 -->
+ 			<aop:around method="around" pointcut-ref="moocPiontcut"/>
+			<!-- 环绕通知,使用参数 -->
+			<aop:around method="aroundInit" pointcut="execution(* aop.schema.advice.biz.AspectBiz.init(String, int))
+							and args(bizName, times)"/>
+			<!-- 类型转化的通知,实现直接接口实现实现类,配置文件的通知只支持单例模式-->
+			<aop:declare-parents types-matching="aop.schema.advice.biz.*(+)" 
+					implement-interface="aop.schema.advice.Fit"
+					default-impl="aop.schema.advice.FitImpl"/>
+		</aop:aspect>
+	</aop:config>
+ </beans>
+```
+
+- 测试类
+
+``` java
+@RunWith(BlockJUnit4ClassRunner.class)
+public class TestAOPSchemaAdvice extends UnitTestBase {
+	
+	public TestAOPSchemaAdvice() {
+		super("classpath:spring-aop-schema-advice.xml");
+	}
+	
+	/**一般的通知测试**/
+	@Test
+	public void testBiz() {
+		AspectBiz biz = super.getBean("aspectBiz");
+		biz.biz();	//模拟业务方法
+	}
+	
+	/**带参数的环绕通知的测试**/
+	@Test
+	public void testInit() {
+		AspectBiz biz = super.getBean("aspectBiz");
+		biz.init("moocService", 3);
+	}
+	
+	/**对其他类强制转换为一个不想关的类,并代表原来的对象**/
+	@Test
+	public void testFit() {
+		Fit fit = (Fit)super.getBean("aspectBiz");
+		fit.filter();
+	}
+}
+```
+
+### 统计错误执行的次数,并返回结束
+
+- 正确/错误执行,被通知统计发生错误的次数,终止返回
+
+``` java
+@Service
+public class InvokeService {
+	
+	public void invoke() {
+		System.out.println("业务正在执行 ......");
+	}
+	
+	public void invokeException() {
+		throw new PessimisticLockingFailureException("主动抛出异常");
+	}
+}
+```
+
+- 声明接口类
+
+``` java
+@Retention(RetentionPolicy.RUNTIME)
+public @interface Idempotent {
+    // marker annotation
+}
+```
+
+- 自定义异常,统计次数
+
+``` java
+public class ConcurrentOperationExecutor implements Ordered {
+
+	private static final int DEFAULT_MAX_RETRIES = 2;
+
+	private int maxRetries = DEFAULT_MAX_RETRIES;
+	
+	private int order = 1;	
+
+	public void setMaxRetries(int maxRetries) {		//从XML文件中获得参数
+		this.maxRetries = maxRetries;
+	}
+
+	public int getOrder() {
+		return this.order;
+	}
+
+	public void setOrder(int order) {				//从配置文件中获得参数
+		this.order = order;
+	}
+
+	/**自定义异常,统计重置次数*/
+	public Object doConcurrentOperation(ProceedingJoinPoint pjp) throws Throwable {
+		int numAttempts = 0;		//记录次数
+		PessimisticLockingFailureException lockFailureException;
+		do {
+			numAttempts++;
+			System.out.println("重试次数 : " + numAttempts);
+			try {
+				return pjp.proceed();
+			} catch (PessimisticLockingFailureException ex) {
+				lockFailureException = ex;
+			}
+		} while (numAttempts <= this.maxRetries);
+		System.out.println("发生错误 : " + numAttempts);
+		throw lockFailureException;
+	}
+}
+```
+
+- XML配置文件
+
+``` xml
+<beans>
+	<!-- 使用 -->
+	<!-- 配置包扫描 -->
+	<context:component-scan base-package="aop.schema"></context:component-scan>
+
+	<!-- 配置AOP切面 -->
+	<aop:config>
+		<!-- 创建切点,指定切点处理类 -->
+		<aop:aspect id="concurrentOperationRetry" ref="concurrentOperationExecutor">
+			<!-- 织入,唯一ID后,使用匹配表达式 -->
+			<aop:pointcut id="idempotentOperation"
+				expression="execution(* aop.schema.advisors.service.*.*(..)) " />
+<!--      			expression="execution(* aop.schema.service.*.*(..)) and -->
+<!--         						@annotation(aop.schema.Idempotent)" /> -->
+			<!-- 环绕通知 -->
+			<aop:around pointcut-ref="idempotentOperation" method="doConcurrentOperation" />
+		</aop:aspect>
+	</aop:config>
+	
+	<!-- 切点处理类 -->
+	<bean id="concurrentOperationExecutor" class="aop.schema.advisors.ConcurrentOperationExecutor">
+		<!-- 最大重置顺序 -->
+		<property name="maxRetries" value="3" />
+		<!-- 排序 -->
+		<property name="order" value="100" />
+	</bean>
+ </beans>
+```
+
+- 测试类
+
+``` java
+@RunWith(BlockJUnit4ClassRunner.class)
+public class TestAOPSchemaAdvisors extends UnitTestBase {
+	
+	public TestAOPSchemaAdvisors() {
+		super("classpath:spring-aop-schema-advisors.xml");
+	}
+	
+	@Test
+	public void testSave() {
+		InvokeService service = super.getBean("invokeService");
+		service.invoke();		//正确执行
+		
+		System.out.println();	//错误执行
+		service.invokeException();
+ 	}
+
+}
+```
+
+
+
+### 使用注解配置切面编程
+
+切点表达式常用参数
+
+| 参数        | 说明                                                   |
+| ----------- | ------------------------------------------------------ |
+| execution   | 匹配方法执行的连接点                                   |
+| within      | 限定匹配特定类型的连接点                               |
+| this        | 匹配特定连接点的Bean引用是指定类型的实例的限制         |
+| target      | 限定匹配特定连接点的目标对象是指定类型的实例           |
+| args        | 限定匹配特定连接点的参数是给定类型的实例               |
+| @target     | 限定匹配特定连接点的类执行对象的具有给定类型的注解     |
+| @args       | 限定匹配特定连接点实际传入参数的类型具有给定类型的注解 |
+| @within     | 限定匹配到内具有给定的注释类型的连接点                 |
+| @annotation | 限定匹配特定连接点的主体具有给定的注解                 |
+
+
+- 开启包扫描
+
+``` xml
+<beans>
+        <!-- 使用aspectj注解方式完成切面编程 -->
+        <!-- 扫描包路径 -->
+        <context:component-scan base-package="aop.aspectj"/>
+     	<!-- 开启 -->
+     	<aop:aspectj-autoproxy/>
+ </beans>
+```
+
+
+- 创建切面类
+
+``` java
+@Service	//作为服务层,被切面横切
+public class MoocBiz {
+	
+	@MoocMethod("传入参数....")	//指定传入参数的值
+	public String save(String arg) {
+		System.out.println("业务保存参数 : " + arg);
+//		throw new RuntimeException("保存失败...");
+		return " 保存成功!";
+	}
+}
+```
+
+- 创建接口类
+
+``` java
+@Retention(RetentionPolicy.RUNTIME)	//运行时注解
+@Target(ElementType.METHOD)		
+public @interface MoocMethod {
+	
+	String value();
+
+}
+```
+
+- 创建通知
+
+``` java
+@Component	//通用bean的注入
+@Aspect		//将其转为切面类,不进行代理
+public class MoocAspect {
+	
+	//接入点的配置,指定其扫描包路径
+	@Pointcut("execution(* aop.aspectj.biz.*Biz.*(..))")
+	public void pointcut() {}
+	
+	//切入点的配置,确定连接的范围
+	@Pointcut("within(aop.aspectj.biz.*)")
+	public void bizPointcut() {}
+	
+	//前置切入点
+	@Before("pointcut()")
+	public void before() {
+		System.out.println("前置通知开始....");
+	}
+	
+	@Before("pointcut() && args(arg)")		//前置通知,并传入参数arg,参数名和方法中的一致
+	public void beforeWithParam(String arg) {
+		System.out.println("前置通知并传入参数:" + arg);
+	}
+	
+	@Before("pointcut() && @annotation(moocMethod)")	//传入参数,参数的注解的值和方法中的对象名一致
+	public void beforeWithAnnotaion(MoocMethod moocMethod) {
+		System.out.println("前置通知,并用注解获取方式:" + moocMethod.value());
+	}
+	
+	//后置通知
+	@AfterReturning(pointcut="bizPointcut()", returning="returnValue")	//后置通知,并有返回值
+	public void afterReturning(Object returnValue) {
+		System.out.println("后置通知,收到参数 : " + returnValue);
+	}
+	
+	//抛出异常后的通知
+	@AfterThrowing(pointcut="pointcut()", throwing="e")	//抛出异常,并传递异常参数
+	public void afterThrowing(RuntimeException e) {
+		System.out.println("抛出异常通知 : " + e.getMessage());
+	}
+	
+	//最终通知
+	@After("pointcut()")
+	public void after() {
+		System.out.println("最终通知开始......");
+	}
+
+	//环绕通知
+	@Around("pointcut()")
+	public Object around(ProceedingJoinPoint pjp) throws Throwable {
+		System.out.println("环绕通知在方法执行前.");
+		Object obj = pjp.proceed();
+		System.out.println("环绕通知在方法执行后.");
+		System.out.println("环绕通知在方法执行是返回对象为: " + obj);
+		return obj;
+	}
+}
+```
+
+- 测试类
+
+``` java
+@RunWith(BlockJUnit4ClassRunner.class)
+public class TestAspectJ extends UnitTestBase {
+	
+	public TestAspectJ() {
+		super("classpath:spring-aop-aspectj.xml");
+	}
+	
+	@Test
+	public void test() {
+		MoocBiz biz = getBean("moocBiz");
+		biz.save("通过注解保存这个参数.");
+	}
+}
+```

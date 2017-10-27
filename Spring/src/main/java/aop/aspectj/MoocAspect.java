@@ -15,11 +15,11 @@ import org.springframework.stereotype.Component;
 public class MoocAspect {
 	
 	//接入点的配置,指定其扫描包路径
-	@Pointcut("execution(* com.imooc.aop.aspectj.biz.*Biz.*(..))")
+	@Pointcut("execution(* aop.aspectj.biz.*Biz.*(..))")
 	public void pointcut() {}
 	
 	//切入点的配置,确定连接的范围
-	@Pointcut("within(com.imooc.aop.aspectj.biz.*)")
+	@Pointcut("within(aop.aspectj.biz.*)")
 	public void bizPointcut() {}
 	
 	//前置切入点

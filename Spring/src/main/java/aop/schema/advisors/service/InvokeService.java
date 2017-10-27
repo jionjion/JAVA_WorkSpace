@@ -11,7 +11,7 @@ public class InvokeService {
 	}
 	
 	public void invokeException() {
-		throw new PessimisticLockingFailureException("");
+		throw new PessimisticLockingFailureException("主动抛出异常");
 	}
 
 }

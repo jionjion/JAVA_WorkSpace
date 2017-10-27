@@ -20,7 +20,7 @@ public class TestOneInterface extends UnitTestBase {
 	@Test
 	public void testSay() {
 		OneInterface oneInterface = super.getBean("oneInterface");
-		oneInterface.say("This is a test.");
+		oneInterface.say("测试类...");
 	}
 
 	/**通过传入类型的类类型,完成IOC控制反转*/
@@ -28,7 +28,7 @@ public class TestOneInterface extends UnitTestBase {
 	public void testSay2() {
 		
 		OneInterface oneInterface = super.getBean(OneInterface.class);
-		oneInterface.say("This is a test.");
+		oneInterface.say("测试类...");
 	}
 
 }

@@ -6,6 +6,6 @@
     
     
     <!-- 对Spring的Bean的配置,托管后交由 Spring管理-->    
-	<bean id="oneInterface" class="com.imooc.ioc.interfaces.OneInterfaceImpl"></bean>
+	<bean id="oneInterface" class="ioc.interfaces.OneInterfaceImpl"></bean>
 	
  </beans>

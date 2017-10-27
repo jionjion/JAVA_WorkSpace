@@ -7,12 +7,12 @@
 <!-- Spring的注入方式 -->
 
     <!-- bean的名字为接口,指向实现类 -->
-    <bean id="injectionDAO" class="com.imooc.ioc.injection.dao.InjectionDAOImpl"></bean>
+    <bean id="injectionDAO" class="ioc.injection.dao.InjectionDAOImpl"></bean>
 	
 	
 <!-- 通过设置注入,在Service层使用Dao层 -->     
 <!--
-         <bean id="injectionService" class="com.imooc.ioc.injection.service.InjectionServiceImpl">
+         <bean id="injectionService" class="ioc.injection.service.InjectionServiceImpl">
          	<property name="injectionDAO" ref="injectionDAO"></property>
          </bean> 
 -->
@@ -20,7 +20,7 @@
 <!-- 通过构造注入,在Service层使用Dao层,注意构造器中传入参数的名称和bena的id一致 -->
 		<!-- bean的名字为接口,指向为实现类 -->
 
- 		<bean id="injectionService" class="com.imooc.ioc.injection.service.InjectionServiceImpl">
+ 		<bean id="injectionService" class="ioc.injection.service.InjectionServiceImpl">
         	<constructor-arg name="injectionDAO" ref="injectionDAO"></constructor-arg>
         </bean>
 

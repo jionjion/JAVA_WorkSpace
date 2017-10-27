@@ -37,7 +37,7 @@
 		<property name="pointcut" ref="pointcutBean" />
 	</bean>
 	
-	
+	<!-- 传统方式 -->
 	<bean id="bizLogicImpl" class="org.springframework.aop.framework.ProxyFactoryBean">
 		<property name="target">
 			<ref bean="bizLogicImplTarget"/>
@@ -77,7 +77,7 @@
 
 
 
-
+	<!--  -->
 	<bean id="baseProxyBean" class="org.springframework.aop.framework.ProxyFactoryBean" 
 			lazy-init="true" abstract="true"></bean>
 	
