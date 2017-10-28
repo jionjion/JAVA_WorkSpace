@@ -181,17 +181,6 @@
   <system systemId="http://www.w3.org/2001/xml.xsd" uri="jar:file:/E:/Eclipse/eclipse/plugins/org.eclipse.xsd_2.13.0.v20170609-0928.jar!/cache/www.w3.org/2001/xml.xsd"/>
   <uri name="http://www.w3.org/2001/XMLSchema" uri="jar:file:/E:/Eclipse/eclipse/plugins/org.eclipse.xsd_2.13.0.v20170609-0928.jar!/cache/www.w3.org/2001/XMLSchema.xsd"/>
   <uri id="org.w3c.xinclude" name="http://www.w3.org/2001/XInclude" uri="jar:file:/E:/Eclipse/eclipse/plugins/org.eclipse.wst.xsl.core_1.1.301.v201405151730.jar!/xslt-schemas/xinclude.xsd"/>
-  <public publicId="-//SPRING//DTD BEAN//EN" uri="platform:/plugin/org.springframework.beans/org/springframework/beans/factory/xml/spring-beans.dtd" webURL="http://www.springframework.org/dtd/spring-beans.dtd"/>
-  <public publicId="-//SPRING//DTD BEAN 2.0//EN" uri="jar:file:/E:/Eclipse/eclipse/plugins/org.springframework.beans_4.3.0.20160611-RELEASE.jar!/org/springframework/beans/factory/xml/spring-beans-2.0.dtd" webURL="http://www.springframework.org/dtd/spring-beans-2.0.dtd"/>
-  <public publicId="-//LOG4J//DTD LOG4J//EN" uri="jar:file:/E:/Eclipse/eclipse/plugins/org.springsource.ide.eclipse.commons.ui_3.9.0.201707061630-RELEASE.jar!/dtd/log4j-1.2.dtd" webURL="http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/xml/doc-files/log4j.dtd"/>
-  <public publicId="-//APACHE//DTD LOG4J 1.2//EN" uri="jar:file:/E:/Eclipse/eclipse/plugins/org.springsource.ide.eclipse.commons.ui_3.9.0.201707061630-RELEASE.jar!/dtd/log4j-1.2.dtd" webURL="http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/xml/doc-files/log4j.dtd"/>
-  <system systemId="http://maven.apache.org/maven-v4_0_0.xsd" uri="jar:file:/E:/Eclipse/eclipse/plugins/org.eclipse.m2e.model.edit_1.8.1.20170728-1531.jar!/xsd/maven-v4_0_0.xsd"/>
-  <system systemId="http://maven.apache.org/xsd/maven-4.0.0.xsd" uri="jar:file:/E:/Eclipse/eclipse/plugins/org.eclipse.m2e.model.edit_1.8.1.20170728-1531.jar!/xsd/maven-v4_0_0.xsd"/>
-  <system systemId="http://maven.apache.org/xsd/settings-1.0.0.xsd" uri="jar:file:/E:/Eclipse/eclipse/plugins/org.eclipse.m2e.model.edit_1.8.1.20170728-1531.jar!/xsd/settings-v1_0_0.xsd"/>
-  <system systemId="http://maven.apache.org/xsd/profiles-1.0.0.xsd" uri="jar:file:/E:/Eclipse/eclipse/plugins/org.eclipse.m2e.model.edit_1.8.1.20170728-1531.jar!/xsd/profiles-v1_0_0.xsd"/>
-  <system systemId="http://maven.apache.org/xsd/archetype-1.0.0.xsd" uri="jar:file:/E:/Eclipse/eclipse/plugins/org.eclipse.m2e.model.edit_1.8.1.20170728-1531.jar!/xsd/archetype-1.0.0.xsd"/>
-  <system systemId="http://maven.apache.org/xsd/archetype-catalog-1.0.0.xsd" uri="jar:file:/E:/Eclipse/eclipse/plugins/org.eclipse.m2e.model.edit_1.8.1.20170728-1531.jar!/xsd/archetype-catalog-1.0.0.xsd"/>
-  <system systemId="http://maven.apache.org/xsd/archetype-descriptor-1.0.0.xsd" uri="jar:file:/E:/Eclipse/eclipse/plugins/org.eclipse.m2e.model.edit_1.8.1.20170728-1531.jar!/xsd/archetype-descriptor-1.0.0.xsd"/>
   <uri name="http://activemq.apache.org/schema/spring" uri="jar:file:/E:/Eclipse/eclipse/plugins/org.fusesource.ide.catalogs_10.1.0.v20170810-1329.jar!/xsd/fuse/activemq-spring-5.11.0.redhat-620133.xsd"/>
   <uri name="http://activemq.apache.org/schema/ra" uri="jar:file:/E:/Eclipse/eclipse/plugins/org.fusesource.ide.catalogs_10.1.0.v20170810-1329.jar!/xsd/fuse/activemq-ra-5.11.0.redhat-620133.xsd"/>
   <uri name="http://camel.apache.org/schema/blueprint" uri="jar:file:/E:/Eclipse/eclipse/plugins/org.fusesource.ide.catalogs_10.1.0.v20170810-1329.jar!/xsd/fuse/camel-blueprint-2.17.3.xsd"/>
@@ -665,4 +654,15 @@
   <public publicId="-//Hibernate/Hibernate Mapping DTD 3.0//EN" uri="file:/E:/Eclipse/eclipse/plugins/org.hibernate.eclipse.mapper_5.2.1.v20170927-0826/dtd/hibernate-mapping-3.0.dtd" webURL="http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd"/>
   <public publicId="-//Hibernate/Hibernate Configuration DTD 3.0//EN" uri="file:/E:/Eclipse/eclipse/plugins/org.hibernate.eclipse.mapper_5.2.1.v20170927-0826/dtd/hibernate-configuration-3.0.dtd" webURL="http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd"/>
   <public publicId="-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" uri="file:/E:/Eclipse/eclipse/plugins/org.hibernate.eclipse.mapper_5.2.1.v20170927-0826/dtd/hibernate-reverse-engineering-3.0.dtd"/>
+  <system systemId="http://maven.apache.org/maven-v4_0_0.xsd" uri="jar:file:/E:/Eclipse/eclipse/plugins/org.eclipse.m2e.model.edit_1.8.2.20171007-0217.jar!/xsd/maven-v4_0_0.xsd"/>
+  <system systemId="http://maven.apache.org/xsd/maven-4.0.0.xsd" uri="jar:file:/E:/Eclipse/eclipse/plugins/org.eclipse.m2e.model.edit_1.8.2.20171007-0217.jar!/xsd/maven-v4_0_0.xsd"/>
+  <system systemId="http://maven.apache.org/xsd/settings-1.0.0.xsd" uri="jar:file:/E:/Eclipse/eclipse/plugins/org.eclipse.m2e.model.edit_1.8.2.20171007-0217.jar!/xsd/settings-v1_0_0.xsd"/>
+  <system systemId="http://maven.apache.org/xsd/profiles-1.0.0.xsd" uri="jar:file:/E:/Eclipse/eclipse/plugins/org.eclipse.m2e.model.edit_1.8.2.20171007-0217.jar!/xsd/profiles-v1_0_0.xsd"/>
+  <system systemId="http://maven.apache.org/xsd/archetype-1.0.0.xsd" uri="jar:file:/E:/Eclipse/eclipse/plugins/org.eclipse.m2e.model.edit_1.8.2.20171007-0217.jar!/xsd/archetype-1.0.0.xsd"/>
+  <system systemId="http://maven.apache.org/xsd/archetype-catalog-1.0.0.xsd" uri="jar:file:/E:/Eclipse/eclipse/plugins/org.eclipse.m2e.model.edit_1.8.2.20171007-0217.jar!/xsd/archetype-catalog-1.0.0.xsd"/>
+  <system systemId="http://maven.apache.org/xsd/archetype-descriptor-1.0.0.xsd" uri="jar:file:/E:/Eclipse/eclipse/plugins/org.eclipse.m2e.model.edit_1.8.2.20171007-0217.jar!/xsd/archetype-descriptor-1.0.0.xsd"/>
+  <public publicId="-//SPRING//DTD BEAN//EN" uri="platform:/plugin/org.springframework.beans/org/springframework/beans/factory/xml/spring-beans.dtd" webURL="http://www.springframework.org/dtd/spring-beans.dtd"/>
+  <public publicId="-//SPRING//DTD BEAN 2.0//EN" uri="jar:file:/E:/Eclipse/eclipse/plugins/org.springframework.beans_4.3.0.20160611-RELEASE.jar!/org/springframework/beans/factory/xml/spring-beans-2.0.dtd" webURL="http://www.springframework.org/dtd/spring-beans-2.0.dtd"/>
+  <public publicId="-//LOG4J//DTD LOG4J//EN" uri="jar:file:/E:/Eclipse/eclipse/plugins/org.springsource.ide.eclipse.commons.ui_3.9.1.201710100503-RELEASE.jar!/dtd/log4j-1.2.dtd" webURL="http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/xml/doc-files/log4j.dtd"/>
+  <public publicId="-//APACHE//DTD LOG4J 1.2//EN" uri="jar:file:/E:/Eclipse/eclipse/plugins/org.springsource.ide.eclipse.commons.ui_3.9.1.201710100503-RELEASE.jar!/dtd/log4j-1.2.dtd" webURL="http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/xml/doc-files/log4j.dtd"/>
 </catalog>

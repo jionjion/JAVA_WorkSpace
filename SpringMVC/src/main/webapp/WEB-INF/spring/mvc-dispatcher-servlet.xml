@@ -44,8 +44,9 @@
 			</bean>
 		</mvc:message-converters>
 	</mvc:annotation-driven>	
+	
 	<!-- 静态资源获得,对url中含有resources的进行映射到本地目录下 -->
-	<mvc:resources location="/resources/**" mapping="/resources"></mvc:resources>
+	<mvc:resources location="/resources/**" mapping="/resources"/>
 	
 	<!-- 对返回映射路径进行修改,获取视图
 		可以有多个,并进行order排序

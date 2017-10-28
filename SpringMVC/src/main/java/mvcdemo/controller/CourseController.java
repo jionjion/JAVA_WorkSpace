@@ -135,5 +135,4 @@ public class CourseController {
 		//返回一个泛型实体类,以及Http的状态
 		return new ResponseEntity<Course>(course,HttpStatus.OK);
 	}
-	
 }

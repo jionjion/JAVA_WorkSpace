@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Hello World</title>
 </head>
 <body>
-	<h1>HelloWorld,这是一个模型</h1>
+	<h1>Hello world,这是一个模型</h1>
 </body>
 </html>
