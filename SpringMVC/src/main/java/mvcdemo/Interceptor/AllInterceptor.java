@@ -40,6 +40,4 @@ public class AllInterceptor implements HandlerInterceptor {
 			throws Exception {
 		System.out.println("执行拦截器后的方法");
 	}
-
-
 }

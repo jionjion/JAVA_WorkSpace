@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="com.model.observer.observerByDIY.WeatherConcreateSubject"/>
-<fullyQualifiedTypeName name="com.model.observer.observerByJDK.WeatherConcreateSubject"/>
-<fullyQualifiedTypeName name="jsonAndGson.bean.Student"/>
 <fullyQualifiedTypeName name="org.quartz.JobDetail"/>
 <fullyQualifiedTypeName name="org.quartz.JobBuilder"/>
 <fullyQualifiedTypeName name="timedTask.quartz.HelloJob"/>
@@ -60,4 +57,7 @@
 <fullyQualifiedTypeName name="org.springframework.context.support.FileSystemXmlApplicationContext"/>
 <fullyQualifiedTypeName name="org.springframework.context.support.ClassPathXmlApplicationContext"/>
 <fullyQualifiedTypeName name="ioc.injection.service.InjectionService"/>
+<fullyQualifiedTypeName name="MicroServices.dao.UserRepository"/>
+<fullyQualifiedTypeName name="MicroServices.exception.UserException"/>
+<fullyQualifiedTypeName name="MicroServices.bean.User"/>
 </qualifiedTypeNameHistroy>

@@ -9,7 +9,7 @@ import freemarker.template.TemplateModelException;
 
 public class SumListMethod implements TemplateMethodModelEx{
 
-	@SuppressWarnings("deprecation")
+	@SuppressWarnings({ "deprecation", "unchecked", "rawtypes" })
 	@Override
 	public Object exec(List args) throws TemplateModelException {
 

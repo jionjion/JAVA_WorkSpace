@@ -1,6 +1,5 @@
 package MicroServices.service;
 
-import org.springframework.stereotype.Service;
 
 import MicroServices.bean.User;
 public interface UserService {

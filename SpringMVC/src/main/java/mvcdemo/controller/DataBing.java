@@ -45,7 +45,7 @@ public class DataBing {
 	
 	/**包装类数据类型的绑定*/
 	@RequestMapping("/packTypeInt")
-	@ResponseBody	//将返回字符串作为结果		@RequestParam:指定前台参数名称,必须传入
+	@ResponseBody	//将返回字符串作为结果		
 	public String packTypeInt( Integer param) {
 		return "收到参数"+param;	//包装类可以前台不同传递
 	}

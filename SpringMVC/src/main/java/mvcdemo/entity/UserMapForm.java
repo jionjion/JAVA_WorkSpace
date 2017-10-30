@@ -20,6 +20,4 @@ public class UserMapForm {
 	public String toString() {
 		return "UserMapForm [users=" + users + "]";
 	}
-	
-	
 }

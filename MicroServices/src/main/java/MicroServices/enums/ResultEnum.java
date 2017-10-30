@@ -14,7 +14,6 @@ public enum ResultEnum {
 	private Integer code;									//第一步:枚举的成员
 	
 	private String message;
-
 	
 	private ResultEnum(Integer code, String message) {		//第二步:定义一个使用全部成员变量的构造方法
 		this.code = code;
@@ -28,7 +27,4 @@ public enum ResultEnum {
 	public String getMessage() {
 		return message;
 	}
-	
-	
-	
 }

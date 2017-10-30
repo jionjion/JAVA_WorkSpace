@@ -13,7 +13,6 @@ import MicroServices.bean.User;
 
 public interface UserRepository extends JpaRepository<User, Integer> {
 
-
 	/**根据名字查询*/
 	public List<User> findByUsername(String usename);		//注意命名规范
 }

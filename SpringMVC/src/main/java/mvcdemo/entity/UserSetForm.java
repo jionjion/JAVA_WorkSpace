@@ -27,6 +27,4 @@ public class UserSetForm {
 	public String toString() {
 		return "UserSetForm [users=" + users + "]";
 	}
-	
-	
 }

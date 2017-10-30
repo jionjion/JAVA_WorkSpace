@@ -21,6 +21,4 @@ public class UserListForm {
 	public String toString() {
 		return "UserListForm [users=" + users + "]";
 	}
-	
-	
 }

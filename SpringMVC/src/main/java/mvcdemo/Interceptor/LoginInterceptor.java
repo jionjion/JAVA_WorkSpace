@@ -43,6 +43,4 @@ public class LoginInterceptor implements HandlerInterceptor {
 			throws Exception {
 		System.out.println("登录拦截器执行后");
 	}
-
-
 }

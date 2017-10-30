@@ -1,11 +1,11 @@
 package MicroServices.domain;
 /**	后台返回到*/
 public class ResultMessage<T> {
-
+	//代表消息状态
 	private Integer code;
-	
+	//详细内容
 	private String message;
-	
+	//存放数据
 	private T date;
 
 	public Integer getCode() {

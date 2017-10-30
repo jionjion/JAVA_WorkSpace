@@ -23,8 +23,9 @@ import MicroServices.enums.ResultEnum;
 import MicroServices.exception.UserException;
 import MicroServices.tool.ResultUtil;
 
+
 /**	用户的控制层类*/
-@RestController()
+@RestController
 @RequestMapping("/user")
 @Transactional			//事务接口,表示该类同时为事务
 public class UserController {

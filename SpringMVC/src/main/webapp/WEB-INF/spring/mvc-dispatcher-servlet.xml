@@ -96,6 +96,7 @@
  		<bean class="mvcdemo.Interceptor.AllInterceptor"/>
 		<!-- 其他的拦截器实现方法,无返回值 -->
 		<bean class="mvcdemo.Interceptor.OtherInterceptor"/>
+		<!-- 登录验证拦截器 -->
 		<mvc:interceptor>
 			<mvc:mapping path="/login/login"/>
 			<bean class="mvcdemo.Interceptor.LoginInterceptor"/>

@@ -22,6 +22,7 @@ public class ResultUtil {
 	}
 	
 	/**失败返回失败结果*/
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public static ResultMessage error(Integer code,String message) {
 		ResultMessage resultMessage = new ResultMessage();
 		resultMessage.setCode(code);
