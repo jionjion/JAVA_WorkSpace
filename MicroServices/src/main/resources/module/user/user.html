@@ -141,6 +141,7 @@
 		<#assign date3 = "2017-7-29 12:30 PM"?datetime("yyyy-MM-dd hh:mm")>
 		<p>${date3}</p>				
 		
+		<!-- 四舍五入 -->
 		<#assign pi=3.141596278/>
 		<p>小数点后两位:${pi?string('0.##')}</p>
 		<p>小数四舍五入:${pi?round}</p>

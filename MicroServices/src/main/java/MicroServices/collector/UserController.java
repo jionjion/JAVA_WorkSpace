@@ -44,9 +44,9 @@ public class UserController {
 	}
 	
 	/**	新增一个
-	 * 	URL: http://localhost:8080/MicroServices/user/users
+	 * 	URL: http://localhost:8080/MicroServices/user/user
 	 */
-	@PostMapping(value="/users")		//post方式,添加信息
+	@PostMapping(value="/user")		//post方式,添加信息
 	@Transactional						//事务接口,表示该方法为事务
 	public ResultMessage<User>	userSave(@Valid User user ,BindingResult result) {	//@Valid表示进行对象参数验证	BindingResult:为参数的验证结果
 		ResultMessage<User> resultMessage = new ResultMessage<User>();//封装的结果对象
@@ -71,7 +71,7 @@ public class UserController {
 	/**	更新一个
 	 * 	URL: http://localhost:8080/MicroServices/user/users/3 
 	 */
-	@PutMapping(value="/users/{id}")			//get方式,获得全部信息
+	@PutMapping(value="/users/{id}")			//put方式,获得全部信息
 	public User userUpdate(	@PathVariable("id") Integer id,
 							@RequestParam("username") String username,
 							@RequestParam("password") String password) {
@@ -86,7 +86,7 @@ public class UserController {
 	/**	删除一个
 	 * 	URL: http://localhost:8080/MicroServices/user/users/3  
 	 * */
-	@DeleteMapping(value="/users/{id}")			//get方式,获得全部信息
+	@DeleteMapping(value="/users/{id}")			//delete方式,获得全部信息
 	public void userDelete(@PathVariable("id") Integer id) {
 		userRepository.delete(id);
 	}

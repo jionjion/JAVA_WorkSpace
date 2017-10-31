@@ -28,11 +28,11 @@ public class HttpAspect {
 	private LogsRepository logsRepository;
 	
 	/*
-	 * 	一般的切面编程*/
-	
+	 * 	一般的切面编程
+	 * */
 	/**在访问前统一AOP处理*/
 //	@Before("execution(public * MicroServices.collector.UserController.userList(..))")						//拦截UserController类下的userList方法
-	@Before("execution(public * MicroServices.collector.UserController.*(..)))")						//拦截UserController类下的所有方法
+	@Before("execution(public * MicroServices.collector.UserController.*(..)))")							//拦截UserController类下的所有方法
 	public void logBefor() {
 		System.out.println("------------开始访问--------");
 	}
