@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="org.quartz.JobDetail"/>
 <fullyQualifiedTypeName name="org.quartz.JobBuilder"/>
 <fullyQualifiedTypeName name="timedTask.quartz.HelloJob"/>
 <fullyQualifiedTypeName name="org.quartz.Trigger"/>
@@ -60,4 +59,5 @@
 <fullyQualifiedTypeName name="MicroServices.dao.UserRepository"/>
 <fullyQualifiedTypeName name="MicroServices.exception.UserException"/>
 <fullyQualifiedTypeName name="MicroServices.bean.User"/>
+<fullyQualifiedTypeName name="org.bouncycastle.util.encoders.Hex"/>
 </qualifiedTypeNameHistroy>

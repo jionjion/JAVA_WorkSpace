@@ -18347,3 +18347,5 @@ org.eclipse.core.runtime.CoreException: Launch configuration UserControllerTest.
 2017-10-31 23:34:52,364 [Stop Help Server] INFO  o.e.jetty.server.AbstractConnector - Stopped ServerConnector@370c4e3b{HTTP/1.1,[http/1.1]}{127.0.0.1:0}
 2017-10-31 23:34:52,365 [Stop Help Server] INFO  org.eclipse.jetty.server.session - Stopped scavenging
 2017-10-31 23:34:52,435 [Stop Help Server] INFO  o.e.j.server.handler.ContextHandler - Stopped o.e.j.s.ServletContextHandler@3a8c1ae9{/help,null,UNAVAILABLE}
+2017-11-01 20:36:12,587 [Worker-6] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2017-11-02 19:53:43,515 [Worker-1] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.

@@ -8,7 +8,7 @@ import org.bouncycastle.util.encoders.Hex;
 /**
  * 	使用BouncyCastle实现MAC消息摘要
  * 	
- * 有错误!!!!*/
+ */
 public class MacByBouncyCastle {
 
 	public static void main(String[] args) throws Exception{
@@ -17,11 +17,11 @@ public class MacByBouncyCastle {
 		
 		//加密
 		HMac hMac = new HMac(new MD5Digest());
-		hMac.init(new KeyParameter(Hex.encode(new byte[]{'a','a','a','a','a','a','a','a','a','a'})));
+		hMac.init(new KeyParameter(Hex.decode("aaaaaaaaaa")));
 		hMac.update(source.getBytes(),0,source.getBytes().length);
 		byte[] hmacMD5Byte = new byte[hMac.getMacSize()];
 		hMac.doFinal(hmacMD5Byte, 0);
-		String encodeString = new String(Hex.decode(hmacMD5Byte));
+		String encodeString = new String(Hex.encode(hmacMD5Byte));
 		System.out.println("密文:"+encodeString);
 	}
 }
