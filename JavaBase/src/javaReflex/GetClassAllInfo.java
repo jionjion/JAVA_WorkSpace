@@ -9,9 +9,10 @@ import java.lang.reflect.Method;
  * 	*/
 public class GetClassAllInfo {
 
-	/**打印类的所有信息
+	/**
+	 * 打印类的所有信息
 	 */
-	public static  void printInfo(Object object) throws Exception {
+	public static void printInfo(Object object) throws Exception {
 		//要获取类的信息,首先要获取类的类型
 		Class<?> clazz = object.getClass();
 		

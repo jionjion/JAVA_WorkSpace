@@ -12,7 +12,7 @@ import org.apache.commons.codec.binary.Hex;
 
 
 /**	
- * 	使用PBE完成消息摘要算法
+ * 	使用PBE完成对称加密算法
  * */
 public class PbeByJDK {
 
@@ -43,7 +43,5 @@ public class PbeByJDK {
 		byte[] decodebyte = cipher.doFinal(Hex.decodeHex(encodeString.toCharArray()));	//字符串->十六进制字符数组->字节数组
 		String decodeString = new String(decodebyte);
 		System.out.println("明文:"+decodeString);
-		
-		
 	}
 }

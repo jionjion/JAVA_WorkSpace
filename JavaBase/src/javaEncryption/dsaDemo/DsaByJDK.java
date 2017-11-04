@@ -51,7 +51,5 @@ public class DsaByJDK {
 		signature.update(source.getBytes());
 		boolean result = signature.verify(encodeByte);
 		System.out.println("验证结果是:"+result);
-		
-		
 	}
 }

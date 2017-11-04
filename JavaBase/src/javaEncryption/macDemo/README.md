@@ -12,7 +12,7 @@ tags : JDK8 , Eclipse
 
 ## 文件列表
 
-- `MacByBouncyCastle.java`          BouncyCastle实现MAC消息摘要
+- `MacByBouncyCastle.java`          Bouncy Castle实现MAC消息摘要
 - `MacByJDK.java`                          JDK实现MAC消息摘要
 
 ## JDK实现MAC消息摘要

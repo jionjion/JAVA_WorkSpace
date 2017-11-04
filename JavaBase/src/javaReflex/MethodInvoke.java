@@ -7,7 +7,6 @@ import java.lang.reflect.Method;
  * 	*/
 public class MethodInvoke {
 	
-	
 	@SuppressWarnings("unused")
 	public static void  show() throws Exception{
 		//获取方法对象的类类型

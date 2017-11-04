@@ -10,6 +10,6 @@ public class ClassType {
 		System.out.println("基本数据类的名字"+intClass.getSimpleName());
 		System.out.println("基本数据类的全名"+intClass.getName());
 		System.out.println("引用数据类的名字"+stringClass.getSimpleName());
-		System.out.println("引用数据类1的全名"+stringClass.getName());
+		System.out.println("引用数据类的全名"+stringClass.getName());
 	}
 }
