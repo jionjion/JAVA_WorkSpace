@@ -60,6 +60,4 @@ public class Message {
 		return "Message [id=" + id + ", command=" + command + ", description=" + description + ", content=" + content
 				+ "]";
 	}
-	
-	
 }

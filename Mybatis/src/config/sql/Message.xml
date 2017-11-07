@@ -15,7 +15,7 @@
   
     <!-- 类似于常量定义,将经常使用到的SQL片段自定义使用 -->
     <sql id="deleteMessageSQL">delete from message</sql>
-  
+
   	<!-- id:唯一区分,与Dao层方法相同	parameterType:传入参数类型,为对象地址  	resultMap:返回类型,为封装后的对象 -->
     <select id="queryMessagesList" parameterType="bean.Message" resultMap="MessageResult">  
         select id,command,description,content from message 
