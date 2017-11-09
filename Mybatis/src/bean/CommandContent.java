@@ -49,6 +49,4 @@ public class CommandContent {
 	public void setcommandId(int commandId) {
 		this.commandId = commandId;
 	}
-	
-	
 }

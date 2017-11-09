@@ -23,5 +23,4 @@ public class DBAccess {
 		//返回一个会话实例
 		return sqlSession;
 	}
-	
 }

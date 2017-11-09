@@ -44,6 +44,4 @@ public class Command {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	
-	
 }

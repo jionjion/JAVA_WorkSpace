@@ -16,8 +16,9 @@
 	  
 	  <!-- 表别名不用在字段映射中直接出现,为了方便查询,可以使用字段别名后修改对应映射文件进行修改 -->
 	  <select id="queryCommandsList" parameterType="bean.Command" resultMap="CommandResult">
-	  	select  a.id as a_id,a.name,a.description,b.content from command a 
+	  	SELECT  a.id as a_id,a.name,a.description,b.content 
+	  	FROM command a 
 		LEFT JOIN command_content b
-		on a.id=b.command_id
+		ON a.id=b.command_id
 	  </select>
 </mapper>  

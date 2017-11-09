@@ -30,6 +30,5 @@
 		<mapper resource="config/sql/IMessage.xml"/>
 		<mapper resource="config/sql/Command.xml"/>
 		<mapper resource="config/sql/CommandContent.xml"/>
-	
 	</mappers>
 </configuration>

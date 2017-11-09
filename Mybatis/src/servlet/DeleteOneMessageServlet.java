@@ -27,7 +27,6 @@ public class DeleteOneMessageServlet extends HttpServlet {
 		messageListService.deleteOneMessage(id);
 		//跳转转发页面
 		request.getRequestDispatcher("/listServlet").forward(request, response);
-
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

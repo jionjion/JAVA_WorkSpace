@@ -72,6 +72,4 @@ public class Page {
 	public void setPace(int pace) {
 		this.pace = pace;
 	}
-	
-	
 }

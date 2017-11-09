@@ -35,7 +35,7 @@ tags : JDK8,Tomcat8
 	- `db`
 		- `DBAccess.java`
 	- `entity`
-		- `Page.java`
+		- `Page.java`                                                               分页类,封装分页查询的信息.
 	- `interceptor`
 		- `PageInterceptor.java`
 	- `service`
@@ -319,41 +319,490 @@ public class MessageDao {
 	        <if test="description != null and  ! &quot;&quot;.equals(description.trim())"> and description like '%' #{description} '%' </if>
     	</where> 
     </select>
-    
-    <!-- parameterType:为基本数据类型  #{_parameter}实现基本类型的注入 -->
-    <delete id="deleteOneMessage" parameterType="int">
-    	delete from message
-    	where id = #{_parameter}
-    </delete>
-    
-    <!-- 批量删除,此时为 parameterType:引用的类全路径-->
-    <delete id="deleteBatchMessage" parameterType="java.util.List">
-    	<!-- 使用SQL引用标签,实现对SQL代码的重复使用 -->
-    	<include refid="deleteMessageSQL"/>
-    	where id in (
-    		<!-- foreach循环遍历,中间用逗号分隔 -->
-    		<foreach collection="list" item="item" separator=",">
-    			#{item}
-    		</foreach>
-    	)
-    </delete>
-    
-  	<!-- @TODO -->
-  	<!-- 修改,使用set标签,完成对多个条件的修改 -->
-  	
-  	
-  	<!-- trim标签,前后缀修改 -->
-  	<!-- 
-		<trim prefix="" prefixOverrides="" suffix="" suffixOverrides=""></trim>		
-  	 -->
-  	 
-  	<!-- choose标签,多重选择 -->
-  	<!-- 
-  		<choose>
-  			<when test=""></when>
-  			<when test=""></when>
-  			<otherwise></otherwise>
-  		</choose>
-  	 --> 
 </mapper>  
 ```
+
+### 将映射文件添加到Mybatis配置中
+
+使用`<mapper>`标签中`resource`属性完成
+``` xml
+	<mappers>
+		<mapper resource="config/sql/Message.xml"/> 
+	</mappers>
+```
+
+
+
+### 创建SqlSession
+通过读取配置文件,创建Session会话
+
+``` xml
+public class DBAccess {
+	/**获取SQLSession对象的类*/
+	public SqlSession getSqlSession() throws Exception{
+		//1.读取配置文件
+		Reader reader = Resources.getResourceAsReader("config/Configuration.xml");
+		//2.创建SQLSessionFactory
+		SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
+		//3.通过SQLSessionFactory创建一个数据库会话
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		//返回一个会话实例
+		return sqlSession;
+	}
+}
+```
+### 使用Mybatis访问数据库
+通过使用`SqlSession`类的`selectList(String arg0, Object arg1)`方法,传入封装后的对象信息,调用(`Message.queryMessagesList`)命名空间.方法的ID,执行相关查询语句.
+
+``` java
+public class MessageDao {
+	public List<Message> queryMessagesList(String command,String description ) {
+		DBAccess dbAccess = new DBAccess();
+		SqlSession sqlSession = null;
+		try {
+			sqlSession = dbAccess.getSqlSession();
+			//通过SQLSession执行SQL语句,直接在方法中追加传入参数.参数只能传一个.多个参数封装为Map或者对象
+			//封装对象,传入查询
+			Message message = new Message();
+			message.setCommand(command);
+			message.setDescription(description);
+			List<Message> list = sqlSession.selectList("Message.queryMessagesList",message);
+			return list;
+		} catch (Exception e) {
+			System.err.println("SQLSession连接获取出现问题");
+			e.printStackTrace();
+		} finally {
+			//session关闭
+			if (sqlSession != null) {
+				sqlSession.close();
+			}
+		}
+		return null;
+	}
+}	
+```
+
+## 基于接口编程的Mybatis访问数据库
+
+### 创建接口类
+
+- 将命名空间改为接口的路径
+- 将方法名与ID相一致
+- 返回类型与XML配置文件一致
+- 参数类型与XML配置文件一致
+
+``` java
+public interface IMessage {
+
+	/**查询消息列表的方法*/
+	public List<Message> queryMessagesList(Map<String, Object> parameters);
+
+	/**查询模糊条件的总条数的方法*/
+	public int count(Message message);
+	
+	/**使用拦截完成分页查询*/
+	public List<Message> queryMessagesListByPageInterceptor(Map<String, Object> parameters);
+}
+```
+
+### 创建映射文件
+
+映射文件整体与之前无异
+1. `<mapper>`标签中命名空间`namespace`指向Dao层的接口
+2. `<select>`,`<insert>`,`<update>`,`<delete>`中`id`属性指向接口中的接口方法,注意参数类型与返回值类型相一致.
+3. 这里传入的查询参数不在不再是java对象而是Map类,Map类中封装了对象,因此直接使用`对象.属性`进行获取.
+
+``` xml
+<!-- 通过接口式编程,实现对其的访问,命名空间,为接口的路径 -->
+<mapper namespace="dao.IMessage"> 
+	<!-- 配置返回值的数据类型 	type:对应java对象实体类	id:唯一区分	--> 
+    <resultMap type="bean.Message" id="MessageResult">  
+    	<!-- 主键配置属性 	column:数据库字段名	jdbcType:数据类型  property:java类的属性名-->
+        <id column="id"  property="id" />
+        <!-- 非主键配置属性 -->  
+        <result column="COMMAND" jdbcType="VARCHAR" property="command" />
+        <result column="DESCRIPTION" jdbcType="VARCHAR" property="description"/>
+        <result column="CONTENT" jdbcType="VARCHAR" property="content"/>
+    </resultMap>
+  
+    <!-- 类似于常量定义,将经常使用到的SQL片段自定义使用 -->
+    <sql id="deleteMessageSQL">delete from message</sql>
+  
+  	<!-- id:唯一区分,与Dao层方法相同	parameterType:传入参数类型,为对象地址  	resultMap:返回类型,为封装后的对象 -->
+    <select id="queryMessagesList" parameterType="java.util.Map" resultMap="MessageResult">  
+        select id,command,description,content from message 
+		<!-- where根据关键字实现自动条件匹配和检索 -->
+		<where>
+			<!-- 传入类型为两个引用对象的类型,因此需要采用对象.属性的方式获取属性值 -->
+			<!-- if:判断,成立则追加,判断是否为空.	""转义为&quot;&quot;	通过.equals调用方法			#{属性名称}填充数据 -->
+	        <if test="message.command != null and  ! &quot;&quot;.equals(message.command.trim())"> and command = #{message.command} </if>
+	        																						<!-- like '%' #{属性名} '%' 进行模糊查询-->
+	        <if test="message.description != null and  ! &quot;&quot;.equals(message.description.trim())"> and description like '%' #{message.description} '%' </if>
+    	</where> 
+    	order by ID limit #{page.start},#{page.pace}
+    </select>
+</mapper>  
+```
+
+### 使用基于接口编程的Mybatis访问数据库
+
+``` java
+public class MessageDao {
+	public List<Message> queryMessagesListByInterface (Map<String, Object> parameters) {
+		DBAccess dbAccess = new DBAccess();
+		SqlSession sqlSession = null;
+		try {
+			sqlSession = dbAccess.getSqlSession();
+			//通过SQLSession执行SQL语句,直接在方法中追加传入参数.参数只能传一个.多个参数封装为Map或者对象
+			
+			//面向接口的编程
+			IMessage iMessage = sqlSession.getMapper(IMessage.class);
+			List<Message> list = iMessage.queryMessagesList(parameters);	//传入Map集合,自定义分页
+			return list;
+		} catch (Exception e) {
+			System.err.println("SQLSession连接获取出现问题");
+			e.printStackTrace();
+		} finally {
+			//session关闭
+			if (sqlSession != null) {
+				sqlSession.close();
+			}
+		}
+		return null;
+	}
+}	
+```
+
+
+## 分页查询
+
+### 分页类的构建
+根据MySQL的分页查询语句进行编写,传总页数和查询第几页,默认5条一分页,进行计算,最终计算出查询语句中的起始位置和偏移量.
+``` java
+public class Page {
+
+	/**总条数*/
+	private int totalNumber;
+	/**当前页*/
+	private int currentPage;
+	/**总页数*/
+	private int totalPage;
+	/**每页显示条数,默认5页*/
+	private int pageNumber = 5;
+	/**开始查询条数*/
+	private int start;	
+	/**偏移量*/
+	private int pace;
+	
+	/**计算总页数*/
+	public void count() {
+		int totalPageTemp = (totalNumber / pageNumber) + ((totalNumber % pageNumber) ==0 ? 0 : 1); 
+		//当前页数小于1
+		if (totalPageTemp <=0 ) {
+			totalPageTemp = 1;
+		}
+		this.totalPage = totalPageTemp;
+		//总页数小于当前页数
+		if(this.totalPage < this.currentPage){
+			this.currentPage = this.totalPage;
+		}
+		//当前页数小于1时,设置为1
+		if (this.currentPage < 1) {
+			this.currentPage = 1;
+		}
+		//计算limit传入分页参数
+		this.start = (this.currentPage -1) * this.pageNumber;
+		this.pace = this.pageNumber;
+	}
+	
+	public int getTotalNumber() {
+		return totalNumber;
+	}
+	public void setTotalNumber(int totalNumber) {
+		this.totalNumber = totalNumber;
+	}
+	public int getCurrentPage() {
+		return currentPage;
+	}
+	public void setCurrentPage(int currentPage) {
+		this.currentPage = currentPage;
+	}
+	public int getTotalPage() {
+		return totalPage;
+	}
+	public void setTotalPage(int totalPage) {
+		this.totalPage = totalPage;
+	}
+	public int getPageNumber() {
+		return pageNumber;
+	}
+	public void setPageNumber(int pageNumber) {
+		this.pageNumber = pageNumber;
+	}
+	public int getStart() {
+		return start;
+	}
+	public void setStart(int start) {
+		this.start = start;
+	}
+	public int getPace() {
+		return pace;
+	}
+	public void setPace(int pace) {
+		this.pace = pace;
+	}
+}
+```
+
+### 分页服务层编写
+
+接收到逻辑控制层中传入的分页对象,传递了要查询的页数和模糊查询的参数.
+这里需要调用Dao层中查询当前总记录数的方法
+
+``` java
+public class MessageListService {
+
+	/**传入参数进行模糊查询,如果没有参数则是全部查询**/
+	public List<Message> queryMessagesList(String command,String description, Page page ) {
+		//封装查询条件,为一个对象,进行总条数的查询
+		Message message = new Message();
+		message.setCommand(command);
+		message.setDescription(description);
+		MessageDao messageDao = new MessageDao();
+		int totalNumber = messageDao.count(message);	//查询总页数
+		page.setTotalNumber(totalNumber);				//初始化分页对象
+		page.count();									//计算分页详情
+		//由于Mybatis只能封装一种引用数据类型,这里采用Map进行封装
+		Map<String, Object> parameters = new HashMap<String,Object>();
+		parameters.put("page", page);
+		parameters.put("message", message);
+		List<Message> messagesList = messageDao.queryMessagesListByInterface(parameters);
+		return messagesList;
+	}
+}
+```
+
+### 查询Servlet类编写
+
+接收前台传入的模糊查询参数和要求分页查询的页数
+``` java
+public class ListServlet extends HttpServlet {
+protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//获取传入模糊查询
+		request.setCharacterEncoding("UTF-8");
+		String command = request.getParameter("command");
+		String description = request.getParameter("description");
+		//分页查询
+		String currentPage = request.getParameter("currentPage");
+		Page page = new Page();
+		Pattern pattern = Pattern.compile("[0-9]{1,9}");	//正则表达式,前端只能传入[0,9]数字
+		if (currentPage == null || currentPage.trim().equals("") || !pattern.matcher(currentPage).matches()) {
+			page.setCurrentPage(1);
+		}else{
+			page.setCurrentPage(Integer.parseInt(currentPage));
+		}
+		//分页,模糊查询
+		MessageListService messageListService = new MessageListService();
+		List<Message> messagesList = messageListService.queryMessagesList(command, description,page);
+		request.setAttribute("messagesList",messagesList);
+		//向页面传递参数:条件,分页
+		request.setAttribute("command", command);
+		request.setAttribute("description", description);
+		request.setAttribute("page", page);
+		//跳转转发页面
+		request.getRequestDispatcher("/WEB-INF/jsp/back/list.jsp").forward(request, response);
+	}
+}
+```
+
+# 关联查询
+
+## 主表和从表的JavaBean构建
+**主表`Command`命令**
+在主表中设定唯一主键,并配置其他字段必须的信息
+这里使用`List<CommandContent>`引用多方的集合
+
+``` java
+public class Command {
+	/**唯一主键*/
+	private int id;
+	/**命令*/
+	private String name;
+	/**描述*/
+	private String description;
+	/**对应的多方列表*/
+	private List<CommandContent> contentsList; 
+	
+	public List<CommandContent> getContentsList() {
+		return contentsList;
+	}
+
+	public void setContentsList(List<CommandContent> contentsList) {
+		this.contentsList = contentsList;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+}
+```
+
+**从表`CommandContent`命令回复内容**
+这里为从表设定唯一主键和其他字段
+私有主表的对象,进行双向关联.
+
+``` java
+public class CommandContent {
+	/**唯一主键*/
+	private int id;
+	/**内容*/
+	private String content;
+	/**外键*/
+	private int commandId;
+	/**主表的引用*/
+	private Command command;
+	
+	public int getCommandId() {
+		return commandId;
+	}
+
+	public void setCommandId(int commandId) {
+		this.commandId = commandId;
+	}
+
+	public Command getCommand() {
+		return command;
+	}
+
+	public void setCommand(Command command) {
+		this.command = command;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
+
+	public int getcommandId() {
+		return commandId;
+	}
+
+	public void setcommandId(int commandId) {
+		this.commandId = commandId;
+	}
+}
+```
+
+
+## 主表和从表的映射文件
+**从表的映射文件**
+从表的映射文件
+- 命名空间`namespace`保持唯一,一般与数据库表名一致
+- `<resultMap>`标签指向从表的JavaBean类,配置`<id>`标签与`<result>`标签
+- 在多方使用`<association>`标签,`property`属性指向从表中引用主表的Bean属性,`resultMap`属性指向主表的映射文件中的`<resultMap>`标签的ID
+
+``` xml
+<mapper namespace="CommandContent"> 
+	  <resultMap type="bean.CommandContent" id="CommandContentResult">
+	  	<id column="ID" jdbcType="INTEGER" property="id"/>
+	  	<result column="CONTENT" jdbcType="VARCHAR" property="content"/>
+	  	<result column="COMMAND_ID" jdbcType="INTEGER" property="commandId"/>
+	  	<!-- 多对一,一方的XML引用 -->
+	  	<association property="command" resultMap="Command.CommandResult"></association>
+	  </resultMap>
+</mapper>
+```
+
+**主表的映射文件**
+主表的映射文件
+- 命名空间`namespace`保持唯一,一般为数据库的表名
+- `<resultMap>`表示配置主键和其他字段属性映射
+- 在一方使用`<collection>`标签,`property`属性为主表配置的多方的List集合对象,`resultMap`属性指向从表映射文件中`<resultMap>`配置的返回类
+- 使用`<select>`进行查询,`parameterType`属性指向参数类型,为主表的Bean类型,`resultMap`指向返回类型,为`<resultMap>`配置的标签ID.
+- 联合查询的SQL语句中可以使用数据库函数或者伪列别名.
+``` xml
+<mapper namespace="Command"> 
+	  <resultMap type="bean.Command" id="CommandResult">
+	  	<!-- column:对应数据库查询时的字段名,如果查询语句用到了别名,则为别名 -->
+	  	<id column="A_ID" jdbcType="INTEGER" property="id"/>
+	  	<result column="NAME" jdbcType="VARCHAR" property="name"/>
+	  	<result column="DESCRIPTION" jdbcType="VARCHAR" property="description"/>
+	  	<!-- 一对多，引用多方的XML集合 -->
+	  	<collection property="contentsList" resultMap="CommandContent.CommandContentResult"/>
+	  </resultMap>
+	  
+	  <!-- 表别名不用在字段映射中直接出现,为了方便查询,可以使用字段别名后修改对应映射文件进行修改 -->
+	  <select id="queryCommandsList" parameterType="bean.Command" resultMap="CommandResult">
+	  	SELECT  a.id as a_id,a.name,a.description,b.content 
+	  	FROM command a 
+		LEFT JOIN command_content b
+		ON a.id=b.command_id
+	  </select>
+</mapper>  
+```
+
+## 基于接口编程的Mybatis访问
+这里使用命名空间调用映射文件中的方法
+返回联合查询的结果.
+``` java
+public class CommandDao {
+
+	/**使用Mybatis实现对数据库的访问查询,查询指令列表*/
+	public List<Command> queryCommandsList(String name,String description ) {
+		DBAccess dbAccess = new DBAccess();
+		SqlSession sqlSession = null;
+		try {
+			sqlSession = dbAccess.getSqlSession();
+			//通过SQLSession执行SQL语句,直接在方法中追加传入参数.参数只能传一个.多个参数封装为Map或者对象
+			//封装对象,传入查询
+			Command command = new Command();
+			command.setName(name);
+			command.setDescription(description);
+			List<Command> list = sqlSession.selectList("Command.queryCommandsList",command);
+			return list;
+		} catch (Exception e) {
+			System.err.println("SQLSession连接获取出现问题");
+			e.printStackTrace();
+		} finally {
+			//session关闭 
+			if (sqlSession != null) {
+				sqlSession.close();
+			}
+		}
+		return null;
+	}
+}
+```
+
+
+## 服务层调用
