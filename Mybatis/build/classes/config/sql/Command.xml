@@ -20,5 +20,13 @@
 	  	FROM command a 
 		LEFT JOIN command_content b
 		ON a.id=b.command_id
+	    <where>
+	    	<if test="name != null and !&quot;&quot;.equals(name.trim())">
+		    	and a.NAME=#{name}
+		    </if>
+		    <if test="description != null and !&quot;&quot;.equals(description.trim())">
+		    	and a.DESCRIPTION like '%' #{description} '%'
+		    </if>
+	    </where>		
 	  </select>
 </mapper>  

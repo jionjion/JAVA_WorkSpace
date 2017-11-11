@@ -41,12 +41,4 @@ public class CommandContent {
 	public void setContent(String content) {
 		this.content = content;
 	}
-
-	public int getcommandId() {
-		return commandId;
-	}
-
-	public void setcommandId(int commandId) {
-		this.commandId = commandId;
-	}
 }

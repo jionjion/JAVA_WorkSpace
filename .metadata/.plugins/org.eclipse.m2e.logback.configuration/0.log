@@ -18436,3 +18436,135 @@ org.eclipse.core.runtime.CoreException: Launch configuration UserControllerTest.
 2017-11-09 21:38:33,350 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 3 resources
 2017-11-09 21:38:33,362 [Worker-11] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
 2017-11-09 21:38:33,372 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\JAVA_WorkSpace\SpringMVC\src\test\resources
+2017-11-11 08:57:58,595 [Worker-6] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2017-11-11 09:14:39,462 [Worker-29] INFO  j.exodus.env.EnvironmentImpl - Exodus environment created: F:\JAVA_WorkSpace\.metadata\com.genuitec.eclipse.webclipse.livepreview\0\store
+2017-11-11 09:14:40,148 [Worker-29] INFO  j.exodus.env.EnvironmentImpl - Exodus environment created: F:\JAVA_WorkSpace\.metadata\com.genuitec.eclipse.webclipse.livepreview\1\store
+2017-11-11 10:42:28,432 [Thread-638] ERROR o.e.m.c.i.p.r.ProjectRegistryManager - Failed to read Maven project: 1 problem was encountered while building the effective model
+[FATAL] Non-readable POM F:\JAVA_WorkSpace\Mybatis\pom.xml: F:\JAVA_WorkSpace\Mybatis\pom.xml (系统找不到指定的文件。) @ 
+ for project  at F:\JAVA_WorkSpace\Mybatis\pom.xml
+org.apache.maven.project.ProjectBuildingException: 1 problem was encountered while building the effective model
+[FATAL] Non-readable POM F:\JAVA_WorkSpace\Mybatis\pom.xml: F:\JAVA_WorkSpace\Mybatis\pom.xml (系统找不到指定的文件。) @ 
+ for project  at F:\JAVA_WorkSpace\Mybatis\pom.xml
+	at org.apache.maven.project.DefaultProjectBuilder.build(DefaultProjectBuilder.java:168) ~[maven-core-3.3.9.jar:3.3.9]
+	at org.apache.maven.project.DefaultProjectBuilder.build(DefaultProjectBuilder.java:119) ~[maven-core-3.3.9.jar:3.3.9]
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.readMavenProject(MavenImpl.java:636) ~[org.eclipse.m2e.core_1.8.2.20171007-0217.jar:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager$5.call(ProjectRegistryManager.java:816) ~[org.eclipse.m2e.core_1.8.2.20171007-0217.jar:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager$5.call(ProjectRegistryManager.java:1) ~[org.eclipse.m2e.core_1.8.2.20171007-0217.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:177) ~[org.eclipse.m2e.core_1.8.2.20171007-0217.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:151) ~[org.eclipse.m2e.core_1.8.2.20171007-0217.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:99) ~[org.eclipse.m2e.core_1.8.2.20171007-0217.jar:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.execute(ProjectRegistryManager.java:967) ~[org.eclipse.m2e.core_1.8.2.20171007-0217.jar:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.readProjectWithDependencies(ProjectRegistryManager.java:811) ~[org.eclipse.m2e.core_1.8.2.20171007-0217.jar:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.create(ProjectRegistryManager.java:192) ~[org.eclipse.m2e.core_1.8.2.20171007-0217.jar:na]
+	at org.eclipse.m2e.core.internal.project.registry.MavenProjectManager.create(MavenProjectManager.java:80) [org.eclipse.m2e.core_1.8.2.20171007-0217.jar:na]
+	at org.fusesource.ide.camel.model.service.core.util.CamelMavenUtils.getMavenProjectFacade(CamelMavenUtils.java:101) [org.fusesource.ide.camel.model.service.core_10.1.0.v20171020-0649.jar:na]
+	at org.fusesource.ide.camel.model.service.core.util.CamelMavenUtils.getDependencyList(CamelMavenUtils.java:166) [org.fusesource.ide.camel.model.service.core_10.1.0.v20171020-0649.jar:na]
+	at org.fusesource.ide.camel.model.service.core.util.CamelMavenUtils.getDependencyList(CamelMavenUtils.java:162) [org.fusesource.ide.camel.model.service.core_10.1.0.v20171020-0649.jar:na]
+	at org.fusesource.ide.camel.model.service.core.util.CamelMavenUtils.getCamelVersionFromMaven(CamelMavenUtils.java:120) [org.fusesource.ide.camel.model.service.core_10.1.0.v20171020-0649.jar:na]
+	at org.fusesource.ide.camel.model.service.core.util.CamelMavenUtils.getCamelVersionFromMaven(CamelMavenUtils.java:105) [org.fusesource.ide.camel.model.service.core_10.1.0.v20171020-0649.jar:na]
+	at org.fusesource.ide.camel.model.service.core.util.ProjectClasspathChangedListener.notifyClasspathChanged(ProjectClasspathChangedListener.java:138) [org.fusesource.ide.camel.model.service.core_10.1.0.v20171020-0649.jar:na]
+	at org.fusesource.ide.camel.model.service.core.util.ProjectClasspathChangedListener.visit(ProjectClasspathChangedListener.java:127) [org.fusesource.ide.camel.model.service.core_10.1.0.v20171020-0649.jar:na]
+	at org.fusesource.ide.camel.model.service.core.util.ProjectClasspathChangedListener.visitChildren(ProjectClasspathChangedListener.java:82) [org.fusesource.ide.camel.model.service.core_10.1.0.v20171020-0649.jar:na]
+	at org.fusesource.ide.camel.model.service.core.util.ProjectClasspathChangedListener.visit(ProjectClasspathChangedListener.java:123) [org.fusesource.ide.camel.model.service.core_10.1.0.v20171020-0649.jar:na]
+	at org.fusesource.ide.camel.model.service.core.util.ProjectClasspathChangedListener.elementChanged(ProjectClasspathChangedListener.java:55) [org.fusesource.ide.camel.model.service.core_10.1.0.v20171020-0649.jar:na]
+	at org.eclipse.jdt.internal.core.DeltaProcessor$3.run(DeltaProcessor.java:1730) [org.eclipse.jdt.core_3.13.50.v20171007-0855.jar:na]
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42) [org.eclipse.equinox.common_3.9.0.v20170207-1454.jar:na]
+	at org.eclipse.jdt.internal.core.DeltaProcessor.notifyListeners(DeltaProcessor.java:1720) [org.eclipse.jdt.core_3.13.50.v20171007-0855.jar:na]
+	at org.eclipse.jdt.internal.core.DeltaProcessor.firePostChangeDelta(DeltaProcessor.java:1554) [org.eclipse.jdt.core_3.13.50.v20171007-0855.jar:na]
+	at org.eclipse.jdt.internal.core.DeltaProcessor.fire(DeltaProcessor.java:1530) [org.eclipse.jdt.core_3.13.50.v20171007-0855.jar:na]
+	at org.eclipse.jdt.internal.core.DeltaProcessor.notifyAndFire(DeltaProcessor.java:2246) [org.eclipse.jdt.core_3.13.50.v20171007-0855.jar:na]
+	at org.eclipse.jdt.internal.core.DeltaProcessor.resourceChanged(DeltaProcessor.java:2136) [org.eclipse.jdt.core_3.13.50.v20171007-0855.jar:na]
+	at org.eclipse.jdt.internal.core.DeltaProcessingState.resourceChanged(DeltaProcessingState.java:473) [org.eclipse.jdt.core_3.13.50.v20171007-0855.jar:na]
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:299) [org.eclipse.core.resources_3.12.0.v20170417-1558.jar:na]
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42) [org.eclipse.equinox.common_3.9.0.v20170207-1454.jar:na]
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:289) [org.eclipse.core.resources_3.12.0.v20170417-1558.jar:na]
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:152) [org.eclipse.core.resources_3.12.0.v20170417-1558.jar:na]
+	at org.eclipse.core.internal.resources.Workspace.broadcastPostChange(Workspace.java:374) [org.eclipse.core.resources_3.12.0.v20170417-1558.jar:na]
+	at org.eclipse.core.internal.resources.Workspace.endOperation(Workspace.java:1469) [org.eclipse.core.resources_3.12.0.v20170417-1558.jar:na]
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2253) [org.eclipse.core.resources_3.12.0.v20170417-1558.jar:na]
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2267) [org.eclipse.core.resources_3.12.0.v20170417-1558.jar:na]
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:795) [org.eclipse.jdt.core_3.13.50.v20171007-0855.jar:na]
+	at org.eclipse.jdt.core.JavaCore.setClasspathContainer(JavaCore.java:5730) [org.eclipse.jdt.core_3.13.50.v20171007-0855.jar:na]
+	at org.eclipse.jst.j2ee.internal.web.classpath.WebAppLibrariesContainer.install(WebAppLibrariesContainer.java:104) [org.eclipse.jst.j2ee.web_1.1.900.v201701262104.jar:na]
+	at org.eclipse.jst.j2ee.internal.web.classpath.WebAppLibrariesContainer.refresh(WebAppLibrariesContainer.java:153) [org.eclipse.jst.j2ee.web_1.1.900.v201701262104.jar:na]
+	at org.eclipse.jst.common.jdt.internal.classpath.FlexibleProjectContainerInitializer.requestClasspathContainerUpdate(FlexibleProjectContainerInitializer.java:82) [org.eclipse.jst.common.frameworks_1.1.701.v201509021802.jar:na]
+	at org.eclipse.jdt.internal.ui.wizards.buildpaths.BuildPathSupport.requestContainerUpdate(BuildPathSupport.java:257) [org.eclipse.jdt.ui_3.13.50.v20170929-1653.jar:na]
+	at org.eclipse.jdt.internal.ui.wizards.buildpaths.BuildPathSupport.updateContainerClasspath(BuildPathSupport.java:228) [org.eclipse.jdt.ui_3.13.50.v20170929-1653.jar:na]
+	at org.eclipse.jdt.internal.ui.wizards.buildpaths.BuildPathSupport.modifyClasspathEntry(BuildPathSupport.java:205) [org.eclipse.jdt.ui_3.13.50.v20170929-1653.jar:na]
+	at org.sf.feeling.decompiler.source.attach.attacher.InternalBasedSourceAttacherImpl36.attachSource(InternalBasedSourceAttacherImpl36.java:104) [org.sf.feeling.decompiler.source.attach_2.10.0.20170815.jar:na]
+	at org.sf.feeling.decompiler.source.attach.handler.JavaSourceAttacherHandler.attachSource(JavaSourceAttacherHandler.java:449) [org.sf.feeling.decompiler.source.attach_2.10.0.20170815.jar:na]
+	at org.sf.feeling.decompiler.source.attach.handler.JavaSourceAttacherHandler.processLibSources(JavaSourceAttacherHandler.java:334) [org.sf.feeling.decompiler.source.attach_2.10.0.20170815.jar:na]
+	at org.sf.feeling.decompiler.source.attach.handler.JavaSourceAttacherHandler.updateSourceAttachments(JavaSourceAttacherHandler.java:236) [org.sf.feeling.decompiler.source.attach_2.10.0.20170815.jar:na]
+	at org.sf.feeling.decompiler.source.attach.handler.AttachSourceHandler$2.run(AttachSourceHandler.java:68) [org.sf.feeling.decompiler.source.attach_2.10.0.20170815.jar:na]
+Caused by: org.apache.maven.model.building.ModelBuildingException: 1 problem was encountered while building the effective model
+[FATAL] Non-readable POM F:\JAVA_WorkSpace\Mybatis\pom.xml: F:\JAVA_WorkSpace\Mybatis\pom.xml (系统找不到指定的文件。) @ 
+
+	at org.apache.maven.model.building.DefaultModelProblemCollector.newModelBuildingException(DefaultModelProblemCollector.java:197) ~[maven-model-builder-3.3.9.jar:3.3.9]
+	at org.apache.maven.model.building.DefaultModelBuilder.readModel(DefaultModelBuilder.java:598) ~[maven-model-builder-3.3.9.jar:3.3.9]
+	at org.apache.maven.model.building.DefaultModelBuilder.build(DefaultModelBuilder.java:273) ~[maven-model-builder-3.3.9.jar:3.3.9]
+	at org.apache.maven.project.DefaultProjectBuilder.build(DefaultProjectBuilder.java:161) ~[maven-core-3.3.9.jar:3.3.9]
+	... 50 common frames omitted
+2017-11-11 10:42:52,513 [Thread-638] ERROR o.e.m.c.i.p.r.ProjectRegistryManager - Failed to read Maven project: 1 problem was encountered while building the effective model
+[FATAL] Non-readable POM F:\JAVA_WorkSpace\Mybatis\pom.xml: F:\JAVA_WorkSpace\Mybatis\pom.xml (系统找不到指定的文件。) @ 
+ for project  at F:\JAVA_WorkSpace\Mybatis\pom.xml
+org.apache.maven.project.ProjectBuildingException: 1 problem was encountered while building the effective model
+[FATAL] Non-readable POM F:\JAVA_WorkSpace\Mybatis\pom.xml: F:\JAVA_WorkSpace\Mybatis\pom.xml (系统找不到指定的文件。) @ 
+ for project  at F:\JAVA_WorkSpace\Mybatis\pom.xml
+	at org.apache.maven.project.DefaultProjectBuilder.build(DefaultProjectBuilder.java:168) ~[maven-core-3.3.9.jar:3.3.9]
+	at org.apache.maven.project.DefaultProjectBuilder.build(DefaultProjectBuilder.java:119) ~[maven-core-3.3.9.jar:3.3.9]
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.readMavenProject(MavenImpl.java:636) ~[org.eclipse.m2e.core_1.8.2.20171007-0217.jar:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager$5.call(ProjectRegistryManager.java:816) ~[org.eclipse.m2e.core_1.8.2.20171007-0217.jar:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager$5.call(ProjectRegistryManager.java:1) ~[org.eclipse.m2e.core_1.8.2.20171007-0217.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:177) ~[org.eclipse.m2e.core_1.8.2.20171007-0217.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:151) ~[org.eclipse.m2e.core_1.8.2.20171007-0217.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:99) ~[org.eclipse.m2e.core_1.8.2.20171007-0217.jar:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.execute(ProjectRegistryManager.java:967) ~[org.eclipse.m2e.core_1.8.2.20171007-0217.jar:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.readProjectWithDependencies(ProjectRegistryManager.java:811) ~[org.eclipse.m2e.core_1.8.2.20171007-0217.jar:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.create(ProjectRegistryManager.java:192) ~[org.eclipse.m2e.core_1.8.2.20171007-0217.jar:na]
+	at org.eclipse.m2e.core.internal.project.registry.MavenProjectManager.create(MavenProjectManager.java:80) [org.eclipse.m2e.core_1.8.2.20171007-0217.jar:na]
+	at org.fusesource.ide.camel.model.service.core.util.CamelMavenUtils.getMavenProjectFacade(CamelMavenUtils.java:101) [org.fusesource.ide.camel.model.service.core_10.1.0.v20171020-0649.jar:na]
+	at org.fusesource.ide.camel.model.service.core.util.CamelMavenUtils.getRepositories(CamelMavenUtils.java:42) [org.fusesource.ide.camel.model.service.core_10.1.0.v20171020-0649.jar:na]
+	at org.fusesource.ide.camel.model.service.core.catalog.cache.CamelCatalogCacheManager.getCamelModelForProject(CamelCatalogCacheManager.java:130) [org.fusesource.ide.camel.model.service.core_10.1.0.v20171020-0649.jar:na]
+	at org.fusesource.ide.camel.model.service.core.util.ProjectClasspathChangedListener.notifyClasspathChanged(ProjectClasspathChangedListener.java:149) [org.fusesource.ide.camel.model.service.core_10.1.0.v20171020-0649.jar:na]
+	at org.fusesource.ide.camel.model.service.core.util.ProjectClasspathChangedListener.visit(ProjectClasspathChangedListener.java:127) [org.fusesource.ide.camel.model.service.core_10.1.0.v20171020-0649.jar:na]
+	at org.fusesource.ide.camel.model.service.core.util.ProjectClasspathChangedListener.visitChildren(ProjectClasspathChangedListener.java:82) [org.fusesource.ide.camel.model.service.core_10.1.0.v20171020-0649.jar:na]
+	at org.fusesource.ide.camel.model.service.core.util.ProjectClasspathChangedListener.visit(ProjectClasspathChangedListener.java:123) [org.fusesource.ide.camel.model.service.core_10.1.0.v20171020-0649.jar:na]
+	at org.fusesource.ide.camel.model.service.core.util.ProjectClasspathChangedListener.elementChanged(ProjectClasspathChangedListener.java:55) [org.fusesource.ide.camel.model.service.core_10.1.0.v20171020-0649.jar:na]
+	at org.eclipse.jdt.internal.core.DeltaProcessor$3.run(DeltaProcessor.java:1730) [org.eclipse.jdt.core_3.13.50.v20171007-0855.jar:na]
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42) [org.eclipse.equinox.common_3.9.0.v20170207-1454.jar:na]
+	at org.eclipse.jdt.internal.core.DeltaProcessor.notifyListeners(DeltaProcessor.java:1720) [org.eclipse.jdt.core_3.13.50.v20171007-0855.jar:na]
+	at org.eclipse.jdt.internal.core.DeltaProcessor.firePostChangeDelta(DeltaProcessor.java:1554) [org.eclipse.jdt.core_3.13.50.v20171007-0855.jar:na]
+	at org.eclipse.jdt.internal.core.DeltaProcessor.fire(DeltaProcessor.java:1530) [org.eclipse.jdt.core_3.13.50.v20171007-0855.jar:na]
+	at org.eclipse.jdt.internal.core.DeltaProcessor.notifyAndFire(DeltaProcessor.java:2246) [org.eclipse.jdt.core_3.13.50.v20171007-0855.jar:na]
+	at org.eclipse.jdt.internal.core.DeltaProcessor.resourceChanged(DeltaProcessor.java:2136) [org.eclipse.jdt.core_3.13.50.v20171007-0855.jar:na]
+	at org.eclipse.jdt.internal.core.DeltaProcessingState.resourceChanged(DeltaProcessingState.java:473) [org.eclipse.jdt.core_3.13.50.v20171007-0855.jar:na]
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:299) [org.eclipse.core.resources_3.12.0.v20170417-1558.jar:na]
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42) [org.eclipse.equinox.common_3.9.0.v20170207-1454.jar:na]
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:289) [org.eclipse.core.resources_3.12.0.v20170417-1558.jar:na]
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:152) [org.eclipse.core.resources_3.12.0.v20170417-1558.jar:na]
+	at org.eclipse.core.internal.resources.Workspace.broadcastPostChange(Workspace.java:374) [org.eclipse.core.resources_3.12.0.v20170417-1558.jar:na]
+	at org.eclipse.core.internal.resources.Workspace.endOperation(Workspace.java:1469) [org.eclipse.core.resources_3.12.0.v20170417-1558.jar:na]
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2253) [org.eclipse.core.resources_3.12.0.v20170417-1558.jar:na]
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2267) [org.eclipse.core.resources_3.12.0.v20170417-1558.jar:na]
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:795) [org.eclipse.jdt.core_3.13.50.v20171007-0855.jar:na]
+	at org.eclipse.jdt.core.JavaCore.setClasspathContainer(JavaCore.java:5730) [org.eclipse.jdt.core_3.13.50.v20171007-0855.jar:na]
+	at org.eclipse.jst.j2ee.internal.web.classpath.WebAppLibrariesContainer.install(WebAppLibrariesContainer.java:104) [org.eclipse.jst.j2ee.web_1.1.900.v201701262104.jar:na]
+	at org.eclipse.jst.j2ee.internal.web.classpath.WebAppLibrariesContainer.refresh(WebAppLibrariesContainer.java:153) [org.eclipse.jst.j2ee.web_1.1.900.v201701262104.jar:na]
+	at org.eclipse.jst.common.jdt.internal.classpath.FlexibleProjectContainerInitializer.requestClasspathContainerUpdate(FlexibleProjectContainerInitializer.java:82) [org.eclipse.jst.common.frameworks_1.1.701.v201509021802.jar:na]
+	at org.eclipse.jdt.internal.ui.wizards.buildpaths.BuildPathSupport.requestContainerUpdate(BuildPathSupport.java:257) [org.eclipse.jdt.ui_3.13.50.v20170929-1653.jar:na]
+	at org.eclipse.jdt.internal.ui.wizards.buildpaths.BuildPathSupport.updateContainerClasspath(BuildPathSupport.java:228) [org.eclipse.jdt.ui_3.13.50.v20170929-1653.jar:na]
+	at org.eclipse.jdt.internal.ui.wizards.buildpaths.BuildPathSupport.modifyClasspathEntry(BuildPathSupport.java:205) [org.eclipse.jdt.ui_3.13.50.v20170929-1653.jar:na]
+	at org.sf.feeling.decompiler.source.attach.attacher.InternalBasedSourceAttacherImpl36.attachSource(InternalBasedSourceAttacherImpl36.java:104) [org.sf.feeling.decompiler.source.attach_2.10.0.20170815.jar:na]
+	at org.sf.feeling.decompiler.source.attach.handler.JavaSourceAttacherHandler.attachSource(JavaSourceAttacherHandler.java:449) [org.sf.feeling.decompiler.source.attach_2.10.0.20170815.jar:na]
+	at org.sf.feeling.decompiler.source.attach.handler.JavaSourceAttacherHandler.processLibSources(JavaSourceAttacherHandler.java:334) [org.sf.feeling.decompiler.source.attach_2.10.0.20170815.jar:na]
+	at org.sf.feeling.decompiler.source.attach.handler.JavaSourceAttacherHandler.updateSourceAttachments(JavaSourceAttacherHandler.java:236) [org.sf.feeling.decompiler.source.attach_2.10.0.20170815.jar:na]
+	at org.sf.feeling.decompiler.source.attach.handler.AttachSourceHandler$2.run(AttachSourceHandler.java:68) [org.sf.feeling.decompiler.source.attach_2.10.0.20170815.jar:na]
+Caused by: org.apache.maven.model.building.ModelBuildingException: 1 problem was encountered while building the effective model
+[FATAL] Non-readable POM F:\JAVA_WorkSpace\Mybatis\pom.xml: F:\JAVA_WorkSpace\Mybatis\pom.xml (系统找不到指定的文件。) @ 
+
+	at org.apache.maven.model.building.DefaultModelProblemCollector.newModelBuildingException(DefaultModelProblemCollector.java:197) ~[maven-model-builder-3.3.9.jar:3.3.9]
+	at org.apache.maven.model.building.DefaultModelBuilder.readModel(DefaultModelBuilder.java:598) ~[maven-model-builder-3.3.9.jar:3.3.9]
+	at org.apache.maven.model.building.DefaultModelBuilder.build(DefaultModelBuilder.java:273) ~[maven-model-builder-3.3.9.jar:3.3.9]
+	at org.apache.maven.project.DefaultProjectBuilder.build(DefaultProjectBuilder.java:161) ~[maven-core-3.3.9.jar:3.3.9]
+	... 48 common frames omitted
+2017-11-11 10:46:56,656 [Worker-7] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.

@@ -37,6 +37,7 @@ public class PageInterceptor implements Interceptor{
 		MappedStatement mappedStatement  = (MappedStatement) metaObject.getValue("delegate.mappedStatement");
 		//获得SQL语句的ID
 		String id = mappedStatement.getId();
+		//正则表达式,以ByPageInterceptor结尾的进行拦截器操作
 		if (id.matches(".+ByPageInterceptor$")) {
 			
 			BoundSql boundSql = statementHandler.getBoundSql();

@@ -17,47 +17,49 @@ tags : JDK8,Tomcat8
 
 - `src`
 	- `bean`
-		- `Command.java`
-		- `CommandContent.java`
-		- `Constant.java`
-		- `Message.java`
-	- `config`
-		- `sql`
-			- `Command.xml`
-			- `CommandContent.xml`
-			- `IMessage.xml`
-			- `Message.xml`
+		- `Command.java`                                                       主表,命令类
+		- `CommandContent.java`                                          从表,内容类
+		- `Constant.java`                                                         常量类
+		- `Message.java`                                                         单表查询,命令和消息类
+	- `config` 
+		- `sql`   
+			- `Command.xml`                                                    主表,命令类的映射文件
+			- `CommandContent.xml`                                       从表,命令类的映射文件
+			- `IMessage.xml`                                                     基于接口映射文件
+			- `Message.xml`                                                      基于命名空间的映射文件
 		- `Configuration.xml`
 	- `dao`
-		- `CommandDao.java`
-		- `IMessage.java`
-		- `MessageDao.java`
+		- `CommandContentDao.java`                                  实现类,从表的维护
+		- `ICommandContent.java`                                        接口,从表的维护
+		- `CommandDao.java`                                               主表的维护
+		- `IMessage.java`                                                      面向接口编程,消息类的维护
+		- `MessageDao.java`                                                 面向命名空间,消息类的维护
 	- `db`
-		- `DBAccess.java`
+		- `DBAccess.java`                                                      工具类,获取`SqlSession`
 	- `entity`
 		- `Page.java`                                                               分页类,封装分页查询的信息.
 	- `interceptor`
-		- `PageInterceptor.java`
+		- `PageInterceptor.java`                                              分页拦截器
 	- `service`
-		- `MessageListService.java`
-		- `QueryService.java`
+		- `MessageListService.java`                                      消息列表服务类,用于维护
+		- `QueryService.java`                                                对话服务类
 	- `servlet`
-		- `AutoReplyServlet.java`
-		- `DeleteBatchMessageServlet.java`
-		- `DeleteOneMessageServlet.java`
-		- `InitTalkServlet.java`
-		- `ListServlet.java`
-	- `log4j.properties`
+		- `AutoReplyServlet.java`                                          自动回复功能
+		- `DeleteBatchMessageServlet.java`                        批量删除功能
+		- `DeleteOneMessageServlet.java`                           单条删除功能
+		- `InitTalkServlet.java`                                                初始化对话功能
+		- `ListServlet.java`                                                     消息列表维护功能
+	- `log4j.properties`                                                        日志格式配置
 - `WebContent`
 	- `META-INF`
 	- `resources`
 	- `WEB-INF`
-		- `jsp`
-			- `back`
-			- `front`
+		- `jsp`                                                                      
+			- `back`                                                                  列表维护页面
+			- `front`                                                                  前台对话页面
 		- `lib`
-		- `web.xml`
-		- `index.jsp`
+		- `web.xml`                                                                站点配置文件
+		- `index.jsp`                                                               主页
 
 
 # 项目介绍
@@ -274,7 +276,7 @@ public class MessageDao {
 
 #### `<resultMap>`返回类型
 对数据库中字段与返回Java类属性相映射,`type`标识返回类型对应的java类,`id`进行唯一区分.
-`<id>`标签指定该属性对应数据库表的主键,`<result>`表示一般字段映射.`column`指向数据库字段名,`jdbcType`表示其数据库字段类型,`property`对应的属性名
+`<id>`标签指定该属性对应数据库表的主键,`<result>`表示一般字段映射.`column`指向数据库查询结果集字段名或其别名,`jdbcType`表示其数据库字段类型,`property`对应的属性名
 
 #### `<sql>`自定义SQL片段
 使用`<sql>`包裹自定义SQL片段,使用`id`属性进行唯一区分,使用`<include>`中的`refid`引用当前SQL片段,简化SQL编写代码量.
@@ -615,6 +617,82 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 }
 ```
 
+## 基于拦截器的分页查询
+### 创建分页拦截器
+- 实现`Interceptor`接口中的`plugin()`拦截前执行方法,`intercept`拦截后执行方法.
+- `@Intercepts`注解标识该类为拦截器类,`@Signature`表示注册,`type`注册拦截器类,`method`拦截方法,`args`参数.
+- 在拦截器方法`intercept()`中,获得拦截对象,对SQL语句进行反射操作.
+``` java
+/**分页拦截器*/
+@Intercepts({@Signature(type=StatementHandler.class,method="prepare",args={Connection.class})})
+public class PageInterceptor implements Interceptor{
+
+	/**拦截后的方法*/
+	@SuppressWarnings("unchecked")
+	@Override
+	public Object intercept(Invocation invocation) throws Throwable {
+
+		//获得拦截的对象的代理
+		StatementHandler statementHandler = (StatementHandler) invocation.getTarget();
+		MetaObject metaObject = MetaObject.forObject(statementHandler, SystemMetaObject.DEFAULT_OBJECT_FACTORY,SystemMetaObject.DEFAULT_OBJECT_WRAPPER_FACTORY, new DefaultReflectorFactory());
+		MappedStatement mappedStatement  = (MappedStatement) metaObject.getValue("delegate.mappedStatement");
+		//获得SQL语句的ID
+		String id = mappedStatement.getId();
+		if (id.matches(".+ByPageInterceptor$")) {
+			
+			BoundSql boundSql = statementHandler.getBoundSql();
+			String SQL = boundSql.getSql();	//获得原始的SQL
+			String countSQL = " select count(*) from (" + SQL + ") a";
+			Map<String, Object> parameters = (Map<String, Object>) boundSql.getParameterObject();	//获得传入的SQL参数
+			Page page = (Page) parameters.get("page");		//获得page实体类
+			
+			Connection connection = (Connection) invocation.getArgs()[0];	//获得传入参数,只有一个,因此取第一个
+			PreparedStatement preparedStatement = connection.prepareStatement(countSQL);
+			ParameterHandler parameterHandler = (ParameterHandler) metaObject.getValue("delegate.parameterHandler");
+			parameterHandler.setParameters(preparedStatement);
+			ResultSet resultSet = preparedStatement.executeQuery();
+			if (resultSet.next()) {
+				page.setTotalNumber(resultSet.getInt(1));	//获得总条数
+			}
+			String pageSQL = SQL + " limit " + page.getStart() + " , " + page.getPace();
+			metaObject.setValue("delegate.boundSql.sql", pageSQL);	//修改SQL为自定义的
+			
+		}
+		return invocation.proceed();
+	}
+
+	/**	执行拦截前的方法,将注解声明的类进行拦截
+	 * 	如果是符合条件的代理类,则完成返回拦截的对象的代理*/
+	@Override
+	public Object plugin(Object target) {
+		
+		return Plugin.wrap(target, this);	//拦截,拦截的类
+	}
+
+	/**	获得配置文件执行时的设置属性 */
+	@Override
+	public void setProperties(Properties properties) {
+		String info = properties.getProperty("info");
+		System.out.println(info);
+	}
+}
+```
+
+
+### 拦截器注册
+在`Configuration.xml`文件的开始处,添加
+`<plugin>`标签的`interceptor`属性指向拦截器的实现类
+`<property>`中的`name`和`value`属性便于拦截器类通过`setProperties()`方法,获得XML中配置的值
+``` xml
+	<!-- 引入拦截器,必须放在首部 -->
+	<plugins>
+		<plugin interceptor="interceptor.PageInterceptor">
+			<property name="info" value="this is my pageInterceptor...."/>
+		</plugin>
+	</plugins>
+```
+
+
 # 关联查询
 
 ## 主表和从表的JavaBean构建
@@ -712,14 +790,6 @@ public class CommandContent {
 	public void setContent(String content) {
 		this.content = content;
 	}
-
-	public int getcommandId() {
-		return commandId;
-	}
-
-	public void setcommandId(int commandId) {
-		this.commandId = commandId;
-	}
 }
 ```
 
@@ -804,5 +874,3 @@ public class CommandDao {
 }
 ```
 
-
-## 服务层调用
