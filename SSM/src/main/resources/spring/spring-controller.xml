@@ -8,7 +8,8 @@
 
 	<!-- 配置SpringMVC -->
 
-	<!-- 基于注解的controller配置,简化配置 (1)自动注册DefaultAnnotationHandlerMapping,AnnotationMethodHandlerAdapter 
+	<!-- 基于注解的controller配置,简化配置 
+		(1)自动注册DefaultAnnotationHandlerMapping,AnnotationMethodHandlerAdapter 
 		(2)提供数据绑定,日期,XML,数组格式化 @NumberFormat,@DataTimeFormat -->
 	<mvc:annotation-driven>
 	    <mvc:message-converters>
@@ -16,7 +17,6 @@
             <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter" />  
         </mvc:message-converters>
 	</mvc:annotation-driven>
-
 
 	<!-- 静态资源的处理 -->
 	<mvc:default-servlet-handler />

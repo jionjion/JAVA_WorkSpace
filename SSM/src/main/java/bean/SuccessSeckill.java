@@ -5,14 +5,14 @@ import java.util.Date;
 /**成功秒杀表,多方*/
 public class SuccessSeckill {
 
-	private long seckillId;
+	private long seckillId;		//秒杀ID
 	
-	private long userPhone;
+	private long userPhone;		//用户电话
 	
 	/**	-1:无效	0:成功	1:已发货	2:已收货	*/
-	private short state;
+	private short state;		//商品状态
 	
-	private Date createTime;
+	private Date createTime;	//创建时间
 
 	private Seckill seckill;	//多对一,方便存取
 	
@@ -61,7 +61,4 @@ public class SuccessSeckill {
 		return "SuccessSeckill [seckillId=" + seckillId + ", userPhone=" + userPhone + ", state=" + state
 				+ ", createTime=" + createTime + ", seckill=" + seckill + "]";
 	}
-	
-	
-	
 }

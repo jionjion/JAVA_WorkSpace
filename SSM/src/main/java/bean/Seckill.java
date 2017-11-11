@@ -5,17 +5,17 @@ import java.util.Date;
 /**秒杀表,单方*/
 public class Seckill {
 
-	private long seckillId;
+	private long seckillId; 	//秒杀ID
 	
-	private String name;
+	private String name;		//秒杀活动
 	
-	private int number;
+	private int number;			//库存数量
 	
-	private Date createTime;
+	private Date createTime;	//创建时间
 	
-	private Date startTime;
+	private Date startTime;		//开始时间
 	
-	private Date endTime;
+	private Date endTime;		//结束时间
 
 	public long getSeckillId() {
 		return seckillId;
@@ -70,6 +70,4 @@ public class Seckill {
 		return "Seckill [seckillId=" + seckillId + ", name=" + name + ", number=" + number + ", createTime="
 				+ createTime + ", startTime=" + startTime + ", endTime=" + endTime + "]";
 	}
-
-	
 }

@@ -12,7 +12,6 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
 		">
 
-
 	<!-- 配置动态扫描,扫描Service包下的所有注解类型 -->
 	<context:component-scan base-package="service" />
 

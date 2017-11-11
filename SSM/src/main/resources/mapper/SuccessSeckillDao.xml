@@ -30,6 +30,4 @@
 		and
 		sk.user_phone = #{userPhone};
 	</select>
-
-
 </mapper>  

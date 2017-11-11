@@ -41,7 +41,7 @@
 		<property name="basePackage" value="dao" />
 	</bean>
 	
-	<!-- RedisDao的注入 -->
+	<!-- RedisDao的注入,创建构造器设定参数-->
 	<bean id="redisDao" class="dao.cache.RedisDao">
 		<constructor-arg index="0" name="ip" value="localhost"/>
 		<constructor-arg index="1" name="port" value="6379"/>
