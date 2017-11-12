@@ -158,10 +158,6 @@ var seckill = {
 						console.log(result);
 					}
 				});
-				
-				
 			}
-			
 		}
-		
 	}

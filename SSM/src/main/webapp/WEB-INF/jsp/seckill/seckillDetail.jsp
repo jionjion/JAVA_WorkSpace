@@ -7,7 +7,7 @@
 <head>
 <base href="<%=basePath%>">
 <title>秒杀商品详情</title>
-<%@include file="../common/head.jsp"%>
+<%@ include file="../common/head.jsp"%>
 </head>
 	<script type="text/javascript" src="<%=basePath %>/static/js/seckill.js"></script>
 	<script type="text/javascript">

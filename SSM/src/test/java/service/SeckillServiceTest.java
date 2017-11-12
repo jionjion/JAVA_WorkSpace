@@ -93,7 +93,6 @@ public class SeckillServiceTest {
 			SeckillExecution seckillExecution = seckillService.executeSeckillByProcedure(seckillId, userPhone, md5);
 			logger.info(seckillExecution.getStateInfo());
 		}
-		
 	}
 }
 

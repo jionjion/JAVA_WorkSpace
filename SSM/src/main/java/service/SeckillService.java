@@ -34,7 +34,7 @@ public interface SeckillService {
 	Seckill getById(long seckillId);
 	
 	/**
-	 * 	是否开启秒杀
+	 * 是否开启秒杀
 	 * @param serckillId 如果开启秒杀则暴露秒杀地址,否则返回系统时间
 	 * @return 是否开启秒杀
 	 */

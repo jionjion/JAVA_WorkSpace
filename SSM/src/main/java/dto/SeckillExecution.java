@@ -8,13 +8,13 @@ import enums.SeckillStatEnum;
  */
 public class SeckillExecution {
 
-	private long seckillId;
+	private long seckillId;  				//秒杀对象ID
 	
-	private int state;
+	private int state;						//秒杀商品状态code
 	
-	private String stateInfo;
+	private String stateInfo;				//秒杀商品状态信息
 	
-	private SuccessSeckill successSeckill;
+	private SuccessSeckill successSeckill;	//秒杀成功对象
 
 	/**
 	 * 秒杀成功的状态
@@ -79,7 +79,4 @@ public class SeckillExecution {
 		return "SeckillExecution [seckillId=" + seckillId + ", state=" + state + ", stateInfo=" + stateInfo
 				+ ", successSeckill=" + successSeckill + "]";
 	}
-	
-	
-	
 }

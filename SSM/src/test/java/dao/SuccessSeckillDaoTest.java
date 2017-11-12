@@ -28,5 +28,4 @@ public class SuccessSeckillDaoTest {
 		SuccessSeckill  successSeckill = successSeckillDao.queryByIdIdWithSeckill(1000L,15516559772L);
 		System.out.println(successSeckill.toString());
 	}
-
 }

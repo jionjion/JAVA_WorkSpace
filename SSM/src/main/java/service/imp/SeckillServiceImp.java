@@ -172,5 +172,4 @@ public class SeckillServiceImp implements SeckillService {
 			return new SeckillExecution(seckillId, SeckillStatEnum.INNER_ERROR);
 		}
 	}
-
 }

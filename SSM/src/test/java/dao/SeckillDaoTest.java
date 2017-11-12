@@ -41,5 +41,4 @@ public class SeckillDaoTest {
 		List<Seckill> list = seckillDao.queryAll(0, 10);
 		System.out.println(list.toString());
 	}
-
 }

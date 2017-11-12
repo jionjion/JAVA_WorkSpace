@@ -4,20 +4,18 @@ package dto;
  */
 public class Exposer {
 
-	private boolean exposed;
+	private boolean exposed;		//是否开启活动
 	
-	private String md5;
+	private String md5;				//用户消息验证
 	
-	private long seckillId;
+	private long seckillId;			//秒杀活动ID
 	
-	private long now;
+	private long now;				//当前服务器时间
 	
-	private long start;
+	private long start;				//活动开始时间
 	
-	private long end;
+	private long end;				//活动结束时间
 
-	
-	
 	/**
 	 * 开启秒杀
 	 * @param exposed 是否开启秒杀
@@ -30,8 +28,6 @@ public class Exposer {
 		this.md5 = md5;
 		this.seckillId = seckillId;
 	}
-
-
 	
 	/**
 	 * 没有开始秒杀,返回系统时间
@@ -47,8 +43,6 @@ public class Exposer {
 		this.start = start;
 		this.end = end;
 	}
-
-
 
 	/**
 	 * 返回当前是否可以秒杀
@@ -108,15 +102,10 @@ public class Exposer {
 	public void setEnd(long end) {
 		this.end = end;
 	}
-
-
-
+	
 	@Override
 	public String toString() {
 		return "Exposer [exposed=" + exposed + ", md5=" + md5 + ", seckillId=" + seckillId + ", now=" + now + ", start="
 				+ start + ", end=" + end + "]";
 	}
-
-	
-	
 }
