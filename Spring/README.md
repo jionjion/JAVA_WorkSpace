@@ -74,7 +74,7 @@ Spring是一个轻量级的控制反转(IOC)与依赖注入( DI)和面向切面(
 	- `resource`各种功能对应的配置文件的测试类
 
 
-# 各功能实现
+# Spring核心
 
 ## 基础测试类的搭建
 1. 引入`junit-*.jar`导入工程
@@ -2111,3 +2111,95 @@ public class TestAspectJ extends UnitTestBase {
 	}
 }
 ```
+
+# Spring Data框架
+## 简介
+Spring-Data是Spring对各种数据库的接口定义,简化了数据访问层的代码量.
+- Spring Data JPA 对关系型数据库
+- Spring Data Mongo DB  对非结构文档数据库
+- Spring Data Redis  缓存数据库
+- Spring Data Solr 文本搜索数据库
+
+
+## 基础信息
+### `jdbc.properties`属性文件
+
+``` 
+jdbc.username=root
+jdbc.password=123456
+jdbc.url=jdbc\:mysql\://127.0.0.1\:3306/spring
+jdbc.driverClass=com.mysql.jdbc.Driver
+```
+
+### `Student`学生类创建
+
+``` java
+public class Student {
+
+	private int id;
+	
+	private String name;
+	
+	private int age;
+	
+	private String address;
+	
+	private Date date;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+	@Override
+	public String toString() {
+		return "Student [id=" + id + ", name=" + name + ", age=" + age + ", address=" + address + ", date=" + date
+				+ "]";
+	}
+}
+```
+
+
+### `spring-data`配置文件创建
+
+## JDBCTemplate方式访问数据库
+### 编码
+
+### 测试
+
+## Spring-Data-JPA方式访问数据库

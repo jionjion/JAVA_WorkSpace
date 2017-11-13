@@ -6,9 +6,7 @@ package autowiring;
 public class AutoWiringService {
 	
 	private AutoWiringDAO autoWiringDAO;
-	
-	
-	
+
 	public AutoWiringService(AutoWiringDAO autoWiringDAO) {
 		System.out.println("通过构造器,自动注入Dao层");
 		this.autoWiringDAO = autoWiringDAO;

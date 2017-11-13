@@ -13,7 +13,7 @@
 	<classpathentry kind="lib" path="lib/spring/spring-framework-bom-4.0.5.RELEASE.jar"/>
 	<classpathentry kind="lib" path="lib/spring/spring-instrument-4.0.5.RELEASE.jar"/>
 	<classpathentry kind="lib" path="lib/spring/spring-instrument-tomcat-4.0.5.RELEASE.jar"/>
-	<classpathentry kind="lib" path="lib/spring/spring-jdbc-4.0.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring/spring-jdbc-4.0.5.RELEASE.jar" sourcepath="C:/Users/14345/AppData/Local/Temp/.org.sf.feeling.decompiler1510576040563/source/spring-jdbc-4.0.5.RELEASE-sources.jar"/>
 	<classpathentry kind="lib" path="lib/spring/spring-jms-4.0.5.RELEASE.jar"/>
 	<classpathentry kind="lib" path="lib/spring/spring-messaging-4.0.5.RELEASE.jar"/>
 	<classpathentry kind="lib" path="lib/spring/spring-orm-4.0.5.RELEASE.jar"/>
@@ -31,5 +31,6 @@
 	<classpathentry kind="lib" path="lib/aspect/aspectjweaver-1.7.4.jar"/>
 	<classpathentry kind="lib" path="lib/javax.inject.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="lib/jdbc/mysql-connector-java-5.1.18-bin.jar"/>
 	<classpathentry kind="output" path="classes"/>
 </classpath>

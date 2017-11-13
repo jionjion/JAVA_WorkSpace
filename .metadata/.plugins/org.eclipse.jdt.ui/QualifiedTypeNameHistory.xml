@@ -1,30 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="timedTask.quartz.HelloJob"/>
-<fullyQualifiedTypeName name="org.quartz.Trigger"/>
-<fullyQualifiedTypeName name="org.quartz.TriggerBuilder"/>
-<fullyQualifiedTypeName name="org.quartz.SimpleScheduleBuilder"/>
-<fullyQualifiedTypeName name="org.quartz.SchedulerFactory"/>
-<fullyQualifiedTypeName name="org.quartz.impl.StdSchedulerFactory"/>
-<fullyQualifiedTypeName name="org.quartz.Scheduler"/>
-<fullyQualifiedTypeName name="org.quartz.JobKey"/>
-<fullyQualifiedTypeName name="org.quartz.TriggerKey"/>
-<fullyQualifiedTypeName name="org.quartz.JobDataMap"/>
-<fullyQualifiedTypeName name="org.junit.Test"/>
-<fullyQualifiedTypeName name="timedTask.quartz.SimpleTriggerTest"/>
-<fullyQualifiedTypeName name="org.quartz.SimpleTrigger"/>
 <fullyQualifiedTypeName name="org.quartz.impl.calendar.CronCalendar"/>
 <fullyQualifiedTypeName name="org.quartz.CronScheduleBuilder"/>
 <fullyQualifiedTypeName name="javax.swing.plaf.synth.SynthSpinnerUI"/>
 <fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
-<fullyQualifiedTypeName name="java.lang.String"/>
 <fullyQualifiedTypeName name="java.lang.Runnable"/>
 <fullyQualifiedTypeName name="com.sun.java.util.jar.pack.Package.File"/>
 <fullyQualifiedTypeName name="java.io.File"/>
 <fullyQualifiedTypeName name="java.io.OutputStream"/>
 <fullyQualifiedTypeName name="java.io.ObjectOutputStream"/>
 <fullyQualifiedTypeName name="java.io.FileOutputStream"/>
-<fullyQualifiedTypeName name="java.lang.Exception"/>
 <fullyQualifiedTypeName name="javax.print.attribute.standard.MediaName"/>
 <fullyQualifiedTypeName name="threadAndRunnable.WriterFileByRunnable"/>
 <fullyQualifiedTypeName name="java.lang.Thread"/>
@@ -34,12 +19,9 @@
 <fullyQualifiedTypeName name="jdbc.dao.GoddessDao"/>
 <fullyQualifiedTypeName name="com.mysql.jdbc.Statement"/>
 <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="java.util.Map"/>
-<fullyQualifiedTypeName name="java.util.Date"/>
 <fullyQualifiedTypeName name="jdbc.Until.DBUntil"/>
 <fullyQualifiedTypeName name="com.mysql.jdbc.Connection"/>
-<fullyQualifiedTypeName name="java.sql.Date"/>
 <fullyQualifiedTypeName name="java.sql.Statement"/>
 <fullyQualifiedTypeName name="java.sql.Connection"/>
 <fullyQualifiedTypeName name="javax.transaction.Transaction"/>
@@ -60,4 +42,22 @@
 <fullyQualifiedTypeName name="MicroServices.bean.User"/>
 <fullyQualifiedTypeName name="org.bouncycastle.util.encoders.Hex"/>
 <fullyQualifiedTypeName name="java.lang.ClassLoader"/>
+<fullyQualifiedTypeName name="java.io.InputStream"/>
+<fullyQualifiedTypeName name="org.aspectj.weaver.patterns.ThisOrTargetAnnotationPointcut"/>
+<fullyQualifiedTypeName name="springData.JDBCTemplate.StudentTemplate"/>
+<fullyQualifiedTypeName name="java.util.Properties"/>
+<fullyQualifiedTypeName name="java.lang.Exception"/>
+<fullyQualifiedTypeName name="javax.naming.directory.DirContext"/>
+<fullyQualifiedTypeName name="org.junit.Assert"/>
+<fullyQualifiedTypeName name="org.springframework.util.Assert"/>
+<fullyQualifiedTypeName name="org.springframework.jdbc.core.JdbcTemplate"/>
+<fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="org.springframework.jdbc.core.RowCallbackHandler"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="java.lang.Object"/>
+<fullyQualifiedTypeName name="springData.bean.Student"/>
+<fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="java.sql.Date"/>
 </qualifiedTypeNameHistroy>
