@@ -8,6 +8,7 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 import base.UnitTestBase;
 import junit.framework.Assert;
+import springData.bean.Teacher;
 
 /**
  *	使用SpringTemplate模板方法访问数据库
@@ -21,11 +22,14 @@ public class TestTeacherRepository extends UnitTestBase {
 	}
 	
 	@Test
-	public void testQueryStudentList() {
-		Object dataSource = super.getBean("dataSource");
+	public void testFindByName() {
 		try {
+			Object object = super.getBean("dataSource");
+			//获得测试
+			TeacherRepository teacherRepository = super.getBean(TeacherRepository.class);
 			//是否为空
-			Assert.assertNotNull(dataSource);
+			Teacher teacher = teacherRepository.findByName("JionJion");
+			System.out.println(teacher);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -17,21 +17,21 @@
 		<dependency>
 		    <groupId>org.springframework</groupId>
 		    <artifactId>spring-context</artifactId>
-		    <version>5.0.0.RELEASE</version>
+		    <version>4.3.5.RELEASE</version>
 		</dependency>    	
     	
     	<!-- 框架核心 -->
 		<dependency>
 		    <groupId>org.springframework</groupId>
 		    <artifactId>spring-core</artifactId>
-		    <version>5.0.0.RELEASE</version>
+		    <version>4.3.5.RELEASE</version>
 		</dependency>    	
 		
 		<!-- Bean管理 -->
 		<dependency>
 		    <groupId>org.springframework</groupId>
 		    <artifactId>spring-beans</artifactId>
-		    <version>5.0.0.RELEASE</version>
+		    <version>4.3.5.RELEASE</version>
 		</dependency>		
 		
 		<!-- JAVA inject切面规范 -->
@@ -45,21 +45,21 @@
 		<dependency>
 		    <groupId>org.springframework</groupId>
 		    <artifactId>spring-aop</artifactId>
-		    <version>5.0.0.RELEASE</version>
+		    <version>4.3.5.RELEASE</version>
 		</dependency>
 
 		<!-- 切面编程 -->
 		<dependency>
 		    <groupId>org.springframework</groupId>
 		    <artifactId>spring-aspects</artifactId>
-		    <version>5.0.0.RELEASE</version>
+		    <version>4.3.5.RELEASE</version>
 		</dependency>		
 		
 		<!-- 测试 -->
 		<dependency>
 		    <groupId>org.springframework</groupId>
 		    <artifactId>spring-test</artifactId>
-		    <version>5.0.0.RELEASE</version>
+		    <version>4.3.5.RELEASE</version>
 		    <scope>test</scope>
 		</dependency>
 		
@@ -67,21 +67,21 @@
 		<dependency>
 		    <groupId>org.springframework</groupId>
 		    <artifactId>spring-jdbc</artifactId>
-		    <version>5.0.0.RELEASE</version>
+		    <version>4.3.5.RELEASE</version>
 		</dependency>
 		
 		<!-- Spring事务 -->
 		<dependency>
 		    <groupId>org.springframework</groupId>
 		    <artifactId>spring-tx</artifactId>
-		    <version>5.0.0.RELEASE</version>
+		    <version>4.3.5.RELEASE</version>
 		</dependency>
 		
 		<!-- 容器扩展 -->
 		<dependency>
 		    <groupId>org.springframework</groupId>
 		    <artifactId>spring-context-support</artifactId>
-		    <version>5.0.0.RELEASE</version>
+		    <version>4.3.5.RELEASE</version>
 		</dependency>
 		
     	
@@ -101,11 +101,11 @@
         </dependency>
     	
     	<!-- spring-data 核心jar -->
-		<dependency>
+		<!-- <dependency>
 		    <groupId>org.springframework.data</groupId>
 		    <artifactId>spring-data-commons</artifactId>
-		    <version>2.0.0.RELEASE</version>
-		</dependency>
+		    <version>1.8.0.RELEASE</version>
+		</dependency> -->
     	
     	
     	<!-- 日志 -->
@@ -133,7 +133,7 @@
 		<dependency>
 		    <groupId>org.hibernate</groupId>
 		    <artifactId>hibernate-entitymanager</artifactId>
-		    <version>5.2.12.Final</version>
+		    <version>4.3.6.Final</version>
 		</dependency>
         
     </dependencies>

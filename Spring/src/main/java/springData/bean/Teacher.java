@@ -2,6 +2,7 @@ package springData.bean;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -16,11 +17,13 @@ import javax.persistence.Id;
 public class Teacher {
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue					//自动生成数据库对应的序列表
 	private Integer id;
 	
+	@Column(length=20,nullable=false)	//长度,非空
 	private String name;
 	
+	@Column(name="WORKDAY")	  			//字段名
 	private Date workday;
 
 	public Integer getId() {

@@ -20,10 +20,4 @@
 		<property name="url" value="${jdbc.url}"/>
 		<property name="driverClassName" value="${jdbc.driverClass}"/>
 	</bean>
-	
-	<!-- EntityManagerFactory -->
-	<bean id="entityManagerFactoryBean" class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean">
-		<property name="persistenceUnitName" ref="spring_data_config"/>
-	</bean>
-	
 </beans>
