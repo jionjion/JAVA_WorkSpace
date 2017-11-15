@@ -22,7 +22,7 @@ import springData.bean.Student;
 public class TestStudentTemplate extends UnitTestBase {
 	
 	public TestStudentTemplate() {
-		super("classpath:spring-data.xml");
+		super("classpath:spring-jdbc.xml");
 	}
 	
 	@Test
