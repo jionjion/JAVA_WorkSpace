@@ -25,6 +25,10 @@ public class Teacher {
 	
 	@Column(name="WORKDAY")	  			//字段名
 	private Date workday;
+	
+	private String address;
+	
+	private Integer age;
 
 	public Integer getId() {
 		return id;
@@ -50,8 +54,28 @@ public class Teacher {
 		this.workday = workday;
 	}
 
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public Integer getAge() {
+		return age;
+	}
+
+	public void setAge(Integer age) {
+		this.age = age;
+	}
+
 	@Override
 	public String toString() {
-		return "Teacher [id=" + id + ", name=" + name + ", workday=" + workday + "]";
+		return "Teacher [id=" + id + ", name=" + name + ", workday=" + workday + ", address=" + address + ", age=" + age
+				+ "]";
 	}
+	
+	
+
 }
