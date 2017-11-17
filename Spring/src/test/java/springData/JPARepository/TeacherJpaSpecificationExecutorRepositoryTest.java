@@ -11,6 +11,8 @@ import javax.persistence.criteria.Root;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
 
@@ -48,19 +50,21 @@ public class TeacherJpaSpecificationExecutorRepositoryTest extends UnitTestBase{
 		Sort.Order orders = new Sort.Order(Sort.Direction.DESC,"id");
 		Sort sort = new Sort(orders);
 		
-		//分页查询,第一页,显示三个,并传入排序规则
-		Specification<Teacher> pageable = new Specification<Teacher>() {
+		//分页查询,第一页,显示三个
+		Pageable pageable = new PageRequest(0, 3,sort);
+		
+		//排序规则
+		Specification<Teacher> specification = new Specification<Teacher>() {
 
 			@Override
 			public Predicate toPredicate(Root<Teacher> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
-				Path<Teacher> path = root.get("age");
-				
-				return cb.gt(path, 23);
+				Path<Integer> path = root.get("age");	//泛型指定为字段类型
+				return cb.gt(path, 20);				//年龄大于23
 			}
 		};
 		
 		
-		Page<Teacher> page = TeacherJpaSpecificationExecutorRepository.findAll(pageable);
+		Page<Teacher> page = teacherJpaSpecificationExecutorRepository.findAll(specification,pageable);
 		System.out.println("总页数:" + page.getTotalPages());
 		System.out.println("总记录数:" + page.getTotalElements());
 		System.out.println("当前页数:" + page.getNumber());					//从0开始
