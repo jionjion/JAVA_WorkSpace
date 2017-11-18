@@ -30,6 +30,21 @@ public class Teacher {
 	
 	private Integer age;
 
+	
+	
+	public Teacher() {
+		super();
+	}
+
+	public Teacher(Integer id, String name, Date workday, String address, Integer age) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.workday = workday;
+		this.address = address;
+		this.age = age;
+	}
+
 	public Integer getId() {
 		return id;
 	}

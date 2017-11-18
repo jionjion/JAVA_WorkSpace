@@ -1,12 +1,9 @@
 package springData.JPARepository;
 
-import static org.junit.Assert.*;
-
 import java.util.Date;
-
+import java.util.Iterator;
 import org.junit.Before;
 import org.junit.Test;
-import org.springframework.transaction.annotation.Transactional;
 
 import base.UnitTestBase;
 import springData.bean.Teacher;
@@ -21,31 +18,39 @@ public class TeacherCrudRepositoryTest extends UnitTestBase{
 	
 	/**
 	 * 	在测试方法执行前,初始化
+	 * 	避免重复创建加载
 	 */
 	@Before
 	public void init() {
-		//避免重复创建加载
 		if (this.teacherCrudRepository == null) {
 			this.teacherCrudRepository = super.getBean(TeacherCrudRepository.class);
 		}
 	}
 	
+	/**
+	 * 	查询当前总记录数
+	 */
 	@Test
 	public void testCount() {
 		Long count = teacherCrudRepository.count();
-		System.out.println("总数:"+count);
+		System.out.println("总记录数:" + count);
 	}
 
+	/**
+	 * 	删除当前数据表
+	 */
 	@Test
 	public void testDeleteAll() {
-		fail("Not yet implemented");
+		teacherCrudRepository.deleteAll();
 	}
 
+	/**
+	 * 	保存实体
+	 */
 	@Test
-	@Transactional
 	public void testSaveS() {
 		Teacher teacher = new Teacher();
-		teacher.setId(5);
+		teacher.setId(7);
 		teacher.setName("Per");
 		teacher.setAge(20);
 		teacher.setAddress("开封");
@@ -53,44 +58,61 @@ public class TeacherCrudRepositoryTest extends UnitTestBase{
 		teacherCrudRepository.save(teacher);
 	}
 
-	@Test
-	public void testSaveIterableOfS() {
-		fail("Not yet implemented");
-	}
-
+	/**
+	 * 	通过主键查询
+	 */
 	@Test
 	public void testFindOneInteger() {
-		fail("Not yet implemented");
+		Teacher teacher = teacherCrudRepository.findOne(1);
+		System.out.println("查询第一个:" + teacher);
 	}
 
+	/**
+	 * 	通过主键判断
+	 */
 	@Test
 	public void testExistsInteger() {
-		fail("Not yet implemented");
+		Boolean exists = teacherCrudRepository.exists(1);
+		System.out.println("第一个是否存在:" + exists);
 	}
 
+	/**
+	 * 	查询全部方法
+	 * 	输出一个实现了Iterable<T>接口的实体对象,这里直接调用其迭代器进行迭代输出
+	 */
 	@Test
 	public void testFindAll() {
-		fail("Not yet implemented");
+		Iterator<Teacher> teachers = teacherCrudRepository.findAll().iterator();
+		while(teachers.hasNext()) {
+			System.out.println("迭代下一个:" + teachers.next());
+		}
 	}
 
-	@Test
-	public void testFindAllIterableOfInteger() {
-		fail("Not yet implemented");
-	}
 
+	/**
+	 * 	根据主键删除
+	 */
 	@Test
 	public void testDeleteInteger() {
-		fail("Not yet implemented");
+		teacherCrudRepository.delete(7);
 	}
 
+	/**
+	 *	通过实体删除
+	 */
 	@Test
 	public void testDeleteTeacher() {
-		fail("Not yet implemented");
+		Teacher teacher = teacherCrudRepository.findOne(8);
+		teacherCrudRepository.delete(teacher);
 	}
 
+	/**
+	 * 	通过迭代器删除全部
+	 */
 	@Test
 	public void testDeleteIterableOfQextendsTeacher() {
-		fail("Not yet implemented");
+		Iterable<Teacher> teachers = teacherCrudRepository.findAll(); 
+		teacherCrudRepository.delete(teachers);
 	}
 
 }

@@ -16,7 +16,7 @@
 	<classpathentry kind="lib" path="src/xmlReadAndWriter/xmlRead/dom4j/dom4j-2.0.1.jar"/>
 	<classpathentry kind="lib" path="src/qrCode/zxing-core-3.3.0.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="src/commons/io/commons-io-2.5.jar"/>
+	<classpathentry kind="lib" path="src/commons/io/commons-io-2.5.jar" sourcepath="C:/Users/14345/AppData/Local/Temp/.org.sf.feeling.decompiler1510984609521/source/commons-io-2.5-sources.jar"/>
 	<classpathentry kind="lib" path="src/commons/collections/commons-collections4-4.1.jar"/>
 	<classpathentry kind="lib" path="src/jsonAndGson/json/ezmorph-1.0.6.jar"/>
 	<classpathentry kind="lib" path="src/jsonAndGson/json/commons-beanutils.jar"/>
