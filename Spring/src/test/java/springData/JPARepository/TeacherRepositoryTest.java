@@ -1,13 +1,14 @@
 package springData.JPARepository;
 
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.BlockJUnit4ClassRunner;
-import org.springframework.util.ObjectUtils;
 
 import base.UnitTestBase;
 import springData.bean.Teacher;
@@ -84,51 +85,24 @@ public class TeacherRepositoryTest extends UnitTestBase {
 	}	
 	
 	@Test
-	public void testGetTeacherByMaxId() {
+	public void testfindByWorkdayBetween() {
 		try {
-			Teacher teacher = teacherRepository.getTeacherByMaxId();
-			System.out.println(teacher);
+			List<Teacher> teachers = teacherRepository.findByWorkdayBetween(
+					new Date(new GregorianCalendar(2017, 10, 15).getTimeInMillis()),
+					new Date(new GregorianCalendar(2017, 10, 22).getTimeInMillis()));
+			System.out.println(teachers);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 	
 	@Test
-	public void testGetTeacherByParamName() {
+	public void testFindByIdNotNullAndNameIsNotIn() {
 		try {
-			Teacher teacher = teacherRepository.getTeacherByParamName("JionJion");
-			System.out.println(teacher);
+			List<Teacher> teachers = teacherRepository.findByIdNotNullAndNameIsNull();
+			System.out.println(teachers);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-	}	
-
-	@Test
-	public void testGetTeacherByParamAddress() {
-		try {
-			Teacher teacher = teacherRepository.getTeacherByParamAddress("鹤壁");
-			System.out.println(teacher);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}	
-	
-	@Test
-	public void testGetCount() {
-		try {
-			Long count = teacherRepository.getCount();
-			System.out.println("总记录数:"+count);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}		
-	
-	@Test
-	public void testUpdateSetName() {
-		try {
-			teacherRepository.updateSetName(2, 18);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}		
+	}
 }
