@@ -1,4 +1,4 @@
-GitRepositoriesView.GitDirectories=F\:\\HTML_WorkSpace\\.git;F\:\\JAVA_WorkSpace\\.git;
-GitRepositoriesView.GitDirectories.relative=F\:\\HTML_WorkSpace\\.git;.git;
+GitRepositoriesView.GitDirectories=F\:\\HTML_WorkSpace\\.git;F\:\\JAVA_WorkSpace\\.git;F\:\\forum\\.git;
+GitRepositoriesView.GitDirectories.relative=F\:\\HTML_WorkSpace\\.git;.git;F\:\\forum\\.git;
 core_autoIgnoreDerivedResources=false
 eclipse.preferences.version=1

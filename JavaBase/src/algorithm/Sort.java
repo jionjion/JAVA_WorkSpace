@@ -47,7 +47,9 @@ public class Sort {
 		System.out.println("算法用时:" + (endTime - startTime) + "纳秒!");
 	}
 	
-	// O(n^2)的排序算法,时间和数量为平方关系
+	/* 
+	*	O(n^2)的排序算法,时间和数量为平方关系
+	*/
 	
 	/* 	选择排序算法,从小到大排序
 	 * 	将当前数组中最小,交换第一个位置
@@ -120,4 +122,16 @@ public class Sort {
         System.out.println("---冒泡排序---");
         System.out.println(Arrays.toString(array));
 	}
+
+
+	/*
+	 * 	N log(N)的排序算法
+	 */
+	/**	归并排序
+	 * 	
+	 */
+	public void mergeSort() {
+		
+	}
+	
 }
