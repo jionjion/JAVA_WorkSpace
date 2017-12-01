@@ -133,8 +133,8 @@
 		<item value="718" key="DIALOG_WIDTH"/>
 		<item value="1|Microsoft YaHei UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Microsoft YaHei UI" key="DIALOG_FONT_NAME"/>
 		<item value="605" key="DIALOG_HEIGHT"/>
-		<item value="619" key="DIALOG_X_ORIGIN"/>
-		<item value="148" key="DIALOG_Y_ORIGIN"/>
+		<item value="310" key="DIALOG_X_ORIGIN"/>
+		<item value="91" key="DIALOG_Y_ORIGIN"/>
 	</section>
 	<section name="org.eclipse.jdt.internal.ui.dialogs.OpenTypeSelectionDialog2">
 		<item value="true" key="ShowStatusLine"/>
