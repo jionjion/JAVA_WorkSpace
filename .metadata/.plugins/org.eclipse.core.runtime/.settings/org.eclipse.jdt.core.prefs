@@ -1,5 +1,13 @@
 eclipse.preferences.version=1
 org.eclipse.jdt.core.builder.resourceCopyExclusionFilter=
+org.eclipse.jdt.core.classpathVariable.ASPECTJRT_LIB=E\:/Eclipse/eclipse/plugins/org.aspectj.runtime_1.8.10.201710051806.jar
+org.eclipse.jdt.core.classpathVariable.ECLIPSE_HOME=E\:/Eclipse/eclipse/
+org.eclipse.jdt.core.classpathVariable.FINDBUGS_ANNOTATIONS=E\:/Eclipse/eclipse/plugins/edu.umd.cs.findbugs.plugin.eclipse_3.0.2.20160306-90c514b/lib/annotations.jar
+org.eclipse.jdt.core.classpathVariable.JRE_LIB=E\:/Java/java_8/jdk/jre/lib/rt.jar
+org.eclipse.jdt.core.classpathVariable.JRE_SRC=E\:/Java/java_8/jdk/src.zip
+org.eclipse.jdt.core.classpathVariable.JRE_SRCROOT=
+org.eclipse.jdt.core.classpathVariable.JSR305_ANNOTATIONS=E\:/Eclipse/eclipse/plugins/edu.umd.cs.findbugs.plugin.eclipse_3.0.2.20160306-90c514b/lib/jsr305.jar
+org.eclipse.jdt.core.classpathVariable.JUNIT_HOME=E\:/Eclipse/eclipse/plugins/org.junit_4.12.0.v201504281640/
 org.eclipse.jdt.core.classpathVariable.M2_REPO=E\:/Java/some Jar/Maven/JarLibrary
 org.eclipse.jdt.core.codeComplete.visibilityCheck=enabled
 org.eclipse.jdt.core.compiler.codegen.inlineJsrBytecode=enabled
