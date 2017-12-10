@@ -578,7 +578,7 @@
       <children xsi:type="basic:PartStack" xmi:id="_cwG7Ot2NEeeXTPaHrlQIUw" elementId="PartStack@708fff8e" selectedElement="_cwG7O92NEeeXTPaHrlQIUw">
         <tags>active</tags>
         <children xsi:type="basic:Part" xmi:id="_cwG7O92NEeeXTPaHrlQIUw" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="UserControllerTest.java" iconURI="platform:/plugin/org.eclipse.jdt.ui/icons/full/obj16/jcu_obj.png" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;UserControllerTest.java&quot; partName=&quot;UserControllerTest.java&quot; title=&quot;UserControllerTest.java&quot; tooltip=&quot;jionjion-security-client/src/test/java/top/jionjion/controller/UserControllerTest.java&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/jionjion-security-client/src/test/java/top/jionjion/controller/UserControllerTest.java&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;3710&quot; selectionTopPixel=&quot;2881&quot;/>&#xD;&#xA;&lt;/editor>"/>
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;UserControllerTest.java&quot; partName=&quot;UserControllerTest.java&quot; title=&quot;UserControllerTest.java&quot; tooltip=&quot;jionjion-security-client/src/test/java/top/jionjion/controller/UserControllerTest.java&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/jionjion-security-client/src/test/java/top/jionjion/controller/UserControllerTest.java&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;3697&quot; selectionTopPixel=&quot;2387&quot;/>&#xD;&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>org.eclipse.jdt.ui.CompilationUnitEditor</tags>
           <tags>removeOnHide</tags>
@@ -1621,7 +1621,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_cwHi9N2NEeeXTPaHrlQIUw" elementId="org.eclipse.ui.workbench.file">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_xVtdgN2eEeeI2-M1dRncUA" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_cwKo892NEeeXTPaHrlQIUw"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_hsV58N20Eeeacq7R4dT-eQ" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_cwKo892NEeeXTPaHrlQIUw"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_cwHjAd2NEeeXTPaHrlQIUw" elementId="additions" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -1715,7 +1715,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_cwHjsd2NEeeXTPaHrlQIUw" elementId="org.eclipse.ui.workbench.navigate">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_xVy9EN2eEeeI2-M1dRncUA" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_cwKolt2NEeeXTPaHrlQIUw"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_hsaLYN20Eeeacq7R4dT-eQ" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_cwKolt2NEeeXTPaHrlQIUw"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_cwHjvN2NEeeXTPaHrlQIUw" elementId="group.editor" toBeRendered="false">
         <tags>toolbarSeparator</tags>
