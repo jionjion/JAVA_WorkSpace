@@ -92,17 +92,6 @@
 		<list key="packageCombo">
 		</list>
 		<list key="location">
-			<item value="F:\cluster\jionjion-security"/>
-			<item value="F:\cluster\jionjion-security-browser"/>
-			<item value="F:\cluster\jionjion-security-app"/>
-			<item value="F:\cluster\jionjion-security-client"/>
-			<item value="F:\cluster\jionjion-security-core"/>
-			<item value="F:\security"/>
-			<item value="F:\JAVA_WorkSpace\jionjion-security"/>
-			<item value="F:\forum"/>
-			<item value="F:\JAVA_WorkSpace"/>
-			<item value="F:\JAVA_WorkSpace\SSM"/>
-			<item value="F:\JAVA_WorkSpace\SSH"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>
@@ -115,10 +104,8 @@
 	</section>
 	<section name="Maven2ProjectWizardArchifactPage">
 		<list key="package">
-			<item value="org."/>
 		</list>
 		<list key="groupId">
-			<item value="top.jionjion.security"/>
 		</list>
 		<list key="artifactId">
 		</list>
@@ -131,7 +118,7 @@
 			<item value="[name]"/>
 		</list>
 		<list key="version">
-			<item value="1.0.0-SNAPSHOT"/>
+			<item value="0.0.1-SNAPSHOT"/>
 		</list>
 	</section>
 	<section name="org.eclipse.m2e.editor.dialogs.ManageDependenciesDialog">
