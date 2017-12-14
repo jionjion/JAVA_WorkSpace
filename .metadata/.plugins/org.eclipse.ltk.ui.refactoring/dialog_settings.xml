@@ -14,6 +14,10 @@
 		<item value="1|Microsoft YaHei UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Microsoft YaHei UI" key="DIALOG_FONT_NAME"/>
 		<item value="513" key="DIALOG_HEIGHT"/>
 	</section>
+	<section name="RefactoringWizard.Update {0} query">
+		<item value="600" key="width"/>
+		<item value="400" key="height"/>
+	</section>
 	<section name="InferTypeArguments">
 		<item value="true" key="leaveUnconstrainedRaw"/>
 		<item value="true" key="assumeCloneReturnsSameType"/>
