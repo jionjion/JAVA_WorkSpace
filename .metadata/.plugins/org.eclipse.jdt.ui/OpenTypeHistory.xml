@@ -1,10 +1,4 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <typeInfoHistroy>
-<typeInfo handle="=jionjion-security-client/E:\/Java\/some Jar\/Maven\/JarLibrary\/org\/apache\/tomcat\/embed\/tomcat-embed-core\/8.5.16\/tomcat-embed-core-8.5.16.jar&lt;javax.servlet(Filter.class[Filter" modifiers="1537" timestamp="1512808568610"/>
-<typeInfo handle="=jionjion-security-client/E:\/Java\/java_8\/jdk\/jre\/lib\/rt.jar&lt;java.util.logging(Filter.class[Filter" modifiers="1537" timestamp="1493033509546"/>
-<typeInfo handle="=jionjion-security-browser/E:\/Java\/some Jar\/Maven\/JarLibrary\/org\/springframework\/security\/spring-security-web\/4.2.3.RELEASE\/spring-security-web-4.2.3.RELEASE.jar&lt;org.springframework.security.web.authentication(AuthenticationSuccessHandler.class[AuthenticationSuccessHandler" modifiers="1537" timestamp="1511969231657"/>
-<typeInfo handle="=jionjion-security-browser/E:\/Java\/some Jar\/Maven\/JarLibrary\/org\/springframework\/security\/spring-security-web\/4.2.3.RELEASE\/spring-security-web-4.2.3.RELEASE.jar&lt;org.springframework.security.web.authentication(AuthenticationFailureHandler.class[AuthenticationFailureHandler" modifiers="1537" timestamp="1511969231657"/>
-<typeInfo handle="=jionjion-security-core/E:\/Java\/some Jar\/Maven\/JarLibrary\/org\/springframework\/spring-web\/4.3.10.RELEASE\/spring-web-4.3.10.RELEASE.jar&lt;org.springframework.web.filter(OncePerRequestFilter.class[OncePerRequestFilter" modifiers="1057" timestamp="1512836316225"/>
-<typeInfo handle="=jionjion-security-core/E:\/Java\/java_8\/jdk\/jre\/lib\/rt.jar&lt;javax.naming(AuthenticationException.class[AuthenticationException" modifiers="33" timestamp="1493033509546"/>
-<typeInfo handle="=jionjion-security-core/E:\/Java\/some Jar\/Maven\/JarLibrary\/org\/springframework\/security\/spring-security-core\/4.2.3.RELEASE\/spring-security-core-4.2.3.RELEASE.jar&lt;org.springframework.security.core(AuthenticationException.class[AuthenticationException" modifiers="1057" timestamp="1511969231152"/>
+<typeInfo handle="=forum/src\/main\/java&lt;com.jionjion.forum.server{UserService.java[UserService" modifiers="513" timestamp="1513608999117"/>
 </typeInfoHistroy>

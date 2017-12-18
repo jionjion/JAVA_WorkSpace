@@ -1,7 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aop-reference-model>
-<aop-project name="jionjion-security-browser"/>
-<aop-project name="jionjion-security-app"/>
-<aop-project name="jionjion-security-core"/>
-<aop-project name="jionjion-security-client"/>
+<aop-project name="forum"/>
 </aop-reference-model>
