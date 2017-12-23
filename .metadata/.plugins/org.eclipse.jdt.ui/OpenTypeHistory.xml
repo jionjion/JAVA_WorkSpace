@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <typeInfoHistroy>
 <typeInfo handle="=forum/src\/main\/java&lt;com.jionjion.forum.server{UserService.java[UserService" modifiers="513" timestamp="1513608999117"/>
+<typeInfo handle="=forum/E:\/Java\/some Jar\/Maven\/JarLibrary\/org\/springframework\/security\/spring-security-core\/4.2.3.RELEASE\/spring-security-core-4.2.3.RELEASE.jar&lt;org.springframework.security.core(GrantedAuthority.class[GrantedAuthority" modifiers="1537" timestamp="1511969231152"/>
+<typeInfo handle="=forum/E:\/Java\/some Jar\/Maven\/JarLibrary\/org\/springframework\/security\/spring-security-core\/4.2.3.RELEASE\/spring-security-core-4.2.3.RELEASE.jar&lt;org.springframework.security.core.authority(GrantedAuthoritiesContainer.class[GrantedAuthoritiesContainer" modifiers="1537" timestamp="1511969231152"/>
 </typeInfoHistroy>

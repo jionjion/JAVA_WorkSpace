@@ -74,6 +74,9 @@
 	</section>
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="F:\aurora"/>
+			<item value="F:\uncertain-master"/>
+			<item value="F:\aurora-master"/>
 			<item value="F:\forum"/>
 			<item value="F:\JAVA_WorkSpace"/>
 		</list>
