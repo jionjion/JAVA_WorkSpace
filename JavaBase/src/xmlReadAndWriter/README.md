@@ -12,8 +12,8 @@ Tags : JDK8 Eclipse timer quartz
 对Java中Xml文件或数据进行读写操作.
 
 ## 包结构
-- `xmlRead` 对XML文件的读操作
-- `xmlWriter`对XML文件的写操作
+- [`xmlRead`][1] 对XML文件的读操作
+- [`xmlWriter`][2]对XML文件的写操作
 
 ## 子包描述
 ### `xmlRead`包
@@ -29,3 +29,5 @@ Tags : JDK8 Eclipse timer quartz
 -  DOM4J解析
 
 
+  [1]: https://github.com/jionjion/JAVA_WorkSpace/tree/master/JavaBase/src/xmlReadAndWriter/xmlRead
+  [2]: https://github.com/jionjion/JAVA_WorkSpace/tree/master/JavaBase/src/xmlReadAndWriter/xmlWriter

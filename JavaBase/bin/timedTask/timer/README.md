@@ -1,7 +1,6 @@
-# JAVA中timer定时任务调度
-
-Tags : JDK8 Eclipse timer
-
+---
+title: JAVA中timer定时任务调度
+tags: JDK8, Eclipse, timer
 ---
 
 [TOC]

@@ -1,7 +1,6 @@
-# JAVA中的单元测试
- 
-Tags : JDK8 Eclipse junit
-
+---
+title: JAVA中的单元测试
+tags : JDK8, Eclipse, junit
 ---
 
 [TOC]

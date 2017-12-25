@@ -1,7 +1,6 @@
-# JAVA中quartz定时任务调度
-
-Tags : JDK8 Eclipse quartz
-
+---
+title: JAVA中quartz定时任务调度
+tags : JDK8, Eclipse, quartz
 ---
 
 [TOC]

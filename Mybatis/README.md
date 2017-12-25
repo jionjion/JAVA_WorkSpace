@@ -1,8 +1,6 @@
 ---
 title : Mybatis的项目介绍
-
 tags : JDK8,Tomcat8
-
 ---
 
 [TOC]

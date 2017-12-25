@@ -1,7 +1,6 @@
-# JAVA中JDBC连接MySQL数据库
-
-Tags : JDK8 Eclipse jdbc
-
+---
+title: JAVA中JDBC连接MySQL数据库
+tags : JDK8, Eclipse, jdbc
 ---
 
 [TOC]

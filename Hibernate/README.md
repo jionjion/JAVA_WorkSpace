@@ -1,7 +1,6 @@
-# Hibernate的项目介绍
-
-Tags : JDK8 Eclipse Hibernate
-
+---
+title: Hibernate的项目介绍
+tags : JDK8, Eclipse, Hibernate
 ---
 
 [TOC]

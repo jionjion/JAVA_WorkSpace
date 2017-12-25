@@ -1,7 +1,6 @@
-# JAVA中二维码操作
-
-Tags : JDK8 Eclipse QRCode
-
+---
+title: JAVA中二维码操作
+tags: JDK8, Eclipse, QRCode
 ---
 
 [TOC]

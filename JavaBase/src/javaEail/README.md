@@ -1,7 +1,6 @@
-# JAVA中邮件服务
-
-Tags : JDK8 Eclipse javamail
-
+---
+title: JAVA中邮件服务
+tags: JDK8, Eclipse, javamail
 ---
 
 [TOC]

@@ -1,7 +1,6 @@
-# JAVA中JSON数据格式
-
-Tags : JDK8 Eclipse json gson
-
+---
+title: JAVA中JSON数据格式
+tags: JDK8, Eclipse, json, gson
 ---
 
 [TOC]
