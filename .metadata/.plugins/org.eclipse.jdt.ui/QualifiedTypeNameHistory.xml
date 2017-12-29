@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="org.springframework.social.connect.support.OAuth2ConnectionFactory"/>
-<fullyQualifiedTypeName name="top.jionjion.security.core.social.qq.connect.QQServiceProvider"/>
-<fullyQualifiedTypeName name="top.jionjion.security.core.social.qq.connect.QQAdapter"/>
 <fullyQualifiedTypeName name="org.springframework.social.config.annotation.EnableSocial"/>
 <fullyQualifiedTypeName name="org.springframework.social.connect.jdbc.JdbcUsersConnectionRepository"/>
 <fullyQualifiedTypeName name="javax.sql.DataSource"/>
@@ -60,4 +57,7 @@
 <fullyQualifiedTypeName name="com.jionjion.forum.bean.Authority"/>
 <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
+<fullyQualifiedTypeName name="javax.persistence.ManyToMany"/>
+<fullyQualifiedTypeName name="javax.persistence.CascadeType"/>
+<fullyQualifiedTypeName name="javax.persistence.FetchType"/>
 </qualifiedTypeNameHistroy>
