@@ -3,4 +3,6 @@
 <typeInfo handle="=forum/src\/main\/java&lt;com.jionjion.forum.server{UserService.java[UserService" modifiers="513" timestamp="1514468344192"/>
 <typeInfo handle="=forum/E:\/Java\/some Jar\/Maven\/JarLibrary\/org\/springframework\/security\/spring-security-core\/4.2.3.RELEASE\/spring-security-core-4.2.3.RELEASE.jar&lt;org.springframework.security.core(GrantedAuthority.class[GrantedAuthority" modifiers="1537" timestamp="1511969231152"/>
 <typeInfo handle="=forum/E:\/Java\/some Jar\/Maven\/JarLibrary\/org\/springframework\/security\/spring-security-core\/4.2.3.RELEASE\/spring-security-core-4.2.3.RELEASE.jar&lt;org.springframework.security.core.authority(GrantedAuthoritiesContainer.class[GrantedAuthoritiesContainer" modifiers="1537" timestamp="1511969231152"/>
+<typeInfo handle="=MicroServices/E:\/Java\/java_8\/jdk\/jre\/lib\/rt.jar&lt;com.sun.org.apache.bcel.internal.util(ClassLoader.class[ClassLoader" modifiers="33" timestamp="1493033509546"/>
+<typeInfo handle="=MicroServices/src\/test\/java&lt;MicroServices.hotLoader.classloader{BaseManager.java[BaseManager" modifiers="513" timestamp="1514988799193"/>
 </typeInfoHistroy>

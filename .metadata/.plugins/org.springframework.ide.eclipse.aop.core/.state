@@ -3,4 +3,5 @@
 <aop-project name="aurora"/>
 <aop-project name="forum"/>
 <aop-project name="Spring"/>
+<aop-project name="MicroServices"/>
 </aop-reference-model>
