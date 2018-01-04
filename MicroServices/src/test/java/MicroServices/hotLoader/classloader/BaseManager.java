@@ -7,5 +7,6 @@ package MicroServices.hotLoader.classloader;
  */
 public interface BaseManager {
 
+	/** 自定义的方法,被修改后重新加载类 */
 	void logic();
 }

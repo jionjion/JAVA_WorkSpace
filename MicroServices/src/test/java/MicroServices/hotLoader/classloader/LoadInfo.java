@@ -1,6 +1,6 @@
 package MicroServices.hotLoader.classloader;
 /**
- * 	封装加载类的信息
+ * 	封装加载类的信息,在类加载时,对信息进行封装.
  * @author JionJion
  */
 public class LoadInfo {

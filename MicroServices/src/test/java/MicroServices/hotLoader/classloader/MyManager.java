@@ -7,6 +7,6 @@ public class MyManager implements BaseManager {
 
 	@Override
 	public void logic() {
-		System.out.println("java类的热加载....");
+		System.out.println("java类的热加载...");
 	}
 }

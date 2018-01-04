@@ -37,3 +37,8 @@ Java类的热部署
 	2.创建自定义接口和其实现类,当子类更新时,动态加载.
 	3.创建自定义类,用来封装类的加载信息.
 	
+Spring Boot实现热部署
+	1.使用Spring Loaded
+		1.Maven启动设置
+		2.Application启动时,配置启动参数
+	2.使用Spring-boot-devtools

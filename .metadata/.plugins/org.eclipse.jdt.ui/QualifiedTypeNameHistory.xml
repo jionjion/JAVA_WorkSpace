@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="com.jionjion.forum.bean.User"/>
-<fullyQualifiedTypeName name="javax.transaction.Transactional"/>
-<fullyQualifiedTypeName name="java.lang.Boolean"/>
-<fullyQualifiedTypeName name="javax.validation.ConstraintViolation"/>
-<fullyQualifiedTypeName name="javax.validation.ConstraintViolationException"/>
-<fullyQualifiedTypeName name="org.apache.commons.lang.StringUtils"/>
 <fullyQualifiedTypeName name="net.bytebuddy.asm.Advice.Return"/>
 <fullyQualifiedTypeName name="java.util.Arrays"/>
 <fullyQualifiedTypeName name="com.jionjion.forum.bean.Menu"/>
@@ -48,16 +42,22 @@
 <fullyQualifiedTypeName name="java.lang.ClassLoader"/>
 <fullyQualifiedTypeName name="org.apache.hadoop.mapred.legacyjobhistory_jsp"/>
 <fullyQualifiedTypeName name="java.io.FileInputStream"/>
-<fullyQualifiedTypeName name="java.io.File"/>
 <fullyQualifiedTypeName name="java.io.ByteArrayOutputStream"/>
-<fullyQualifiedTypeName name="MicroServices.hotLoader.classloader.MyClassLoader"/>
-<fullyQualifiedTypeName name="MicroServices.hotLoader.classloader.BaseManager"/>
 <fullyQualifiedTypeName name="com.sun.javafx.collections.MappingChange.Map"/>
 <fullyQualifiedTypeName name="java.util.Map"/>
 <fullyQualifiedTypeName name="java.util.HashMap"/>
-<fullyQualifiedTypeName name="MicroServices.hotLoader.classloader.LoadInfo"/>
 <fullyQualifiedTypeName name="java.lang.String"/>
-<fullyQualifiedTypeName name="java.lang.Class"/>
+<fullyQualifiedTypeName name="java.io.File"/>
 <fullyQualifiedTypeName name="org.aspectj.weaver.patterns.ThisOrTargetAnnotationPointcut"/>
+<fullyQualifiedTypeName name="com.sun.org.apache.bcel.internal.util.Class2HTML"/>
+<fullyQualifiedTypeName name="MicroServices.hotLoader.classloader.MyClassLoader"/>
+<fullyQualifiedTypeName name="MicroServices.hotLoader.classloader.LoadInfo"/>
+<fullyQualifiedTypeName name="java.lang.Class"/>
+<fullyQualifiedTypeName name="java.lang.Object"/>
+<fullyQualifiedTypeName name="ch.qos.logback.classic.turbo.TurboFilter"/>
+<fullyQualifiedTypeName name="MicroServices.hotLoader.classloader.BaseManager"/>
 <fullyQualifiedTypeName name="MicroServices.hotLoader.classloader.ManagerFactory"/>
+<fullyQualifiedTypeName name="org.hibernate.property.access.spi.EnhancedGetterMethodImpl"/>
+<fullyQualifiedTypeName name="java.lang.Thread"/>
+<fullyQualifiedTypeName name="MicroServices.hotLoader.classloader.MsgHandler"/>
 </qualifiedTypeNameHistroy>
