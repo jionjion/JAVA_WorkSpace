@@ -1,0 +1,285 @@
+ElasticSearch介绍
+	1.Java编写,简介易用的RestFul API
+	2.横向扩展,可支持PB级
+	
+应用场景
+	1.站内搜索
+	2.日志分析
+	3.数据仓库
+
+主程序安装
+ 	1.下载压缩包
+ 	2.在~/bin目录下启动
+ 	3.默认监听9200端口
+ 	
+插件安装
+	1.地址 https://github.com/mobz/elasticsearch-head 	 	
+	2.移动到下载地址
+	3.cnpm install
+	4.修改并向主程序注册插件,使其在同一个线程中启动
+		在主程序~/config下修改elasticsearch.yml文件,追加
+			http.cors.enabled: true
+			http.cors.allow-origin: "*"
+	5.npm run start
+	6.默认监听9100端口
+	
+注意程序异常终止时,进程的杀死
+	
+集群配置:
+	1.拷贝软件包
+	2.修改配置文件信息,绑定端口及主从关系
+	3.分别启动
+	4.windows不行
+
+基本概念
+- 索引: 含有相同属性的文档集合,类似于表
+- 类型: 索引可以定义一个或者多个类型,文档必须属于一个类型,类似于数据类型
+- 文档: 文档是可以被索引的基本数据单位,类似于记录
+- 分片: 每个索引都有多个分片,每个分片都是一个Lucene索引
+- 备份: 拷贝一份分片就完成了分片的备份
+类似: 图书管理系统中,整个图书类,就是一个索引,在里面分为了不同类型的书,根据不同的文档类型,我们可以获得对应的文档.
+
+基本用法
+	API结构
+		http://<ip>:<port>/<索引>/<类型>/<文档id>
+	常用状态
+		GET/PUT/POST/DELETE
+
+创建索引:
+	1.向服务器发送请求
+	PUT		http://localhost:9200/people 
+	2.请求体:设置改索引分片为3,备份数1;类型名为man,属性有name(文本结构),country(键值对),age(整型),date(日期型)
+	{
+		"settings":{
+			"number_of_shards": 3,
+			"number_of_replicas": 1
+		},
+		"mappings":{
+			"man":{
+				"properties":{
+					"name":{
+						"type":"text"
+					},
+					"country":{
+						"type":"keyword"
+					},
+					"age":{
+						"type":"integer"
+					},
+					"date":{
+						"type":"date",
+						"format":"yyyy-MM-dd HH:mm:ss || yyyy-MM-dd || epoch_millis"
+					}
+				}
+			}
+		}
+	}			
+插入:
+- 指定文档id插入,数据相同,更新版本
+- 自动产生文档id插入,数据相同,重复插入
+	1.向服务器发送请求
+	PUT		http://localhost:9200/people/man/1
+	POST	http://localhost:9200/people/man
+	2.请求体
+	{
+		"name":"张谦",
+		"country":"中国",
+		"age": 23, 
+		"date": "1994-04-12"
+	}
+修改:
+- 使用文档修改,支持多种脚本语言进行修改
+- 直接修改
+ 	1.向服务器发送请求
+ 	POST	http://localhost:9200/people/man/1/_update
+ 	2.请求体
+	{
+		"doc": {
+			"name": "JionJion"
+		}
+	}  	
+ 删除文档:
+ 	1.向服务器发送请求
+ 	DELETE 	http://localhost:9200/people/man/1
+ 删除索引
+ 	1.向服务器发送请求
+ 	DELETE 	http://localhost:9200/people
+
+高级查询
+主键查询
+	1.向服务器发送请求
+	GET		http://localhost:9200/people/man/1
+全部查询
+	1.向服务器发送请求
+	GET		http://localhost:9200/people/_search
+分页查询
+	1.向服务器发送请求
+	POST	http://localhost:9200/people/_search
+	2.请求体
+	{
+		"query": {
+			"match_all": {
+				
+			}
+		},
+		"from": 1,
+		"size": 2
+	}			
+条件匹配查询
+	1.向服务器发送请求
+	PSOT	http://localhost:9200/people/_search
+	2.请求体
+	{
+		"query": {
+			"match": {
+				"name": "张"
+			}
+		},
+		"sort": [{
+			"age": {
+				"order": "desc"
+			}
+		},{
+			"date":{
+				"order": "asc"
+			}
+		}]
+	}		
+子条件查询
+	Query Context:在查询过程中,除了判断文档是否满足查询条件外,ES还会计算出_score来表示匹配程度.
+	全文本查询:针对文字类型数据
+	字段级别查询:针对结构化数据,如日期,数字等
+习语匹配-关键词不会被拆分	
+	1.向服务器发送请求	
+	POST	http://localhost:9200/people/_search
+	2.请求体
+	{
+		"query": {
+			"match_phrase": {
+				"name": "张谦"
+			}
+		}
+	}
+多习语匹配-对多个字段匹配相同关键词
+	1.向服务其发送请求
+	http://localhost:9200/people/_search
+	2.请求体
+	{
+		"query": {
+			"multi_match": {
+				"query": "张",
+				"fields": ["name","country"]
+			}
+		}
+	}
+语法查询
+	1.向服务其发送请求
+	http://localhost:9200/people/_search
+	2.请求体
+	{
+		"query": {
+			"query_string": {
+				"query": "(张 AND 中) OR 23",
+				"fields": ["name","country"]
+			}
+		}
+	}
+字段查询
+	1.向服务其发送请求
+	http://localhost:9200/people/_search
+	2.请求体
+	{
+		"query": {
+			"term": {
+				"name": "张谦"
+			}
+		}
+	}
+范围查询
+	1.向服务其发送请求
+	http://localhost:9200/people/_search
+	2.请求体,请求年龄在[20,30)之间的
+	{
+		"query": {
+			"range": {
+				"age": {
+					"gte": 20,
+					"lt": 30
+				}
+			}
+		}
+	}
+Filter Context:在查询过程中,只判断文档是否满足条件,只有YES或者NO,效率更高,可以进行数据过滤
+	1.向服务其发送请求
+	http://localhost:9200/people/_search
+	2.请求体,请求年龄为23的
+	{
+		"query": {
+			"bool": {
+				"filter": {
+					"term": {
+						"age": "23"
+					}
+				}
+			}
+		}
+	}
+	2.请求体,请求姓名为张氏,或者年龄为23
+	{
+		"query": {
+			"bool": {
+				"should": [{
+					"match": {
+						"name": "张"
+					}
+				},{
+					"match": {
+						"age":23
+					}
+				}
+				]
+			}
+		}
+	}	
+	2.请求体,请求姓名为王氏,且年龄为23
+	{
+		"query": {
+			"bool": {
+				"must": [{
+					"match": {
+						"name": "王"
+					}
+				},{
+					"match": {
+						"age":23
+					}
+				}
+				]
+			}
+		}
+	}	
+	2.请求体,请求姓名不为王氏
+	{
+		"query": {
+			"bool": {
+				"must_not": [{
+					"match": {
+						"name": "王"
+					}
+				}]
+			}
+		}
+	}		
+全文搜索
+	1.向服务其发送请求
+	http://localhost:9200/_search
+	2.请求体,年龄为23的	
+	{
+		"query": {
+			"match": {
+				"age": "23"
+			}
+		}
+	}	
+		
+实战演练
