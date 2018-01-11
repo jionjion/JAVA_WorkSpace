@@ -8,8 +8,8 @@
 </head>
 <body>
 	<h1>图片上传页面</h1>
-	<form action="<%=request.getContextPath() %>/file/waterMark" method="post" enctype="multipart/form-data">
-		<input type="file" name="image"/><br>
+	<form action="<%=request.getContextPath()%>/file/waterMark" method="post" enctype="multipart/form-data">
+		<input type="file" name="image"/>			<br>
 		<input type="submit" value="上传图片加水印">
 	</form>	
 </body>

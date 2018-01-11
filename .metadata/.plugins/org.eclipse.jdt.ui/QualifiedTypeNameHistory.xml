@@ -1,14 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
-<fullyQualifiedTypeName name="org.springframework.security.core.GrantedAuthority"/>
-<fullyQualifiedTypeName name="org.springframework.security.core.authority.SimpleGrantedAuthority"/>
-<fullyQualifiedTypeName name="org.springframework.data.jpa.repository.JpaRepository"/>
-<fullyQualifiedTypeName name="java.lang.Long"/>
-<fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
-<fullyQualifiedTypeName name="com.jionjion.forum.repository.AuthorityRepository"/>
-<fullyQualifiedTypeName name="com.jionjion.forum.bean.Authority"/>
-<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
 <fullyQualifiedTypeName name="javax.persistence.ManyToMany"/>
 <fullyQualifiedTypeName name="javax.persistence.CascadeType"/>
 <fullyQualifiedTypeName name="javax.persistence.FetchType"/>
@@ -20,15 +11,12 @@
 <fullyQualifiedTypeName name="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
 <fullyQualifiedTypeName name="org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity"/>
 <fullyQualifiedTypeName name="org.springframework.context.annotation.Bean"/>
-<fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
 <fullyQualifiedTypeName name="java.lang.ClassLoader"/>
 <fullyQualifiedTypeName name="org.apache.hadoop.mapred.legacyjobhistory_jsp"/>
-<fullyQualifiedTypeName name="java.io.FileInputStream"/>
 <fullyQualifiedTypeName name="java.io.ByteArrayOutputStream"/>
 <fullyQualifiedTypeName name="com.sun.javafx.collections.MappingChange.Map"/>
 <fullyQualifiedTypeName name="java.util.Map"/>
 <fullyQualifiedTypeName name="java.util.HashMap"/>
-<fullyQualifiedTypeName name="java.io.File"/>
 <fullyQualifiedTypeName name="org.aspectj.weaver.patterns.ThisOrTargetAnnotationPointcut"/>
 <fullyQualifiedTypeName name="com.sun.org.apache.bcel.internal.util.Class2HTML"/>
 <fullyQualifiedTypeName name="MicroServices.hotLoader.classloader.MyClassLoader"/>
@@ -49,7 +37,6 @@
 <fullyQualifiedTypeName name="org.elasticsearch.action.update.UpdateRequest"/>
 <fullyQualifiedTypeName name="org.elasticsearch.common.xcontent.XContentFactory"/>
 <fullyQualifiedTypeName name="org.elasticsearch.common.xcontent.XContentBuilder"/>
-<fullyQualifiedTypeName name="java.lang.String"/>
 <fullyQualifiedTypeName name="com.arjuna.ats.arjuna.common.arjPropertyManager"/>
 <fullyQualifiedTypeName name="org.elasticsearch.action.update.UpdateResponse"/>
 <fullyQualifiedTypeName name="org.elasticsearch.index.query.BoolQueryBuilder"/>
@@ -60,4 +47,17 @@
 <fullyQualifiedTypeName name="org.elasticsearch.action.search.SearchRequestBuilder"/>
 <fullyQualifiedTypeName name="org.elasticsearch.action.search.SearchResponse"/>
 <fullyQualifiedTypeName name="org.junit.Test"/>
+<fullyQualifiedTypeName name="java.io.FileInputStream"/>
+<fullyQualifiedTypeName name="org.apache.catalina.connector.OutputBuffer"/>
+<fullyQualifiedTypeName name="java.io.OutputStream"/>
+<fullyQualifiedTypeName name="java.io.FileOutputStream"/>
+<fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+<fullyQualifiedTypeName name="org.omg.CORBA.PRIVATE_MEMBER"/>
+<fullyQualifiedTypeName name="mvcdemo.bean.ImageInfo"/>
+<fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="java.io.File"/>
+<fullyQualifiedTypeName name="org.apache.commons.io.FileUtils"/>
+<fullyQualifiedTypeName name="java.io.InputStream"/>
+<fullyQualifiedTypeName name="javax.servlet.ServletContext"/>
+<fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
 </qualifiedTypeNameHistroy>

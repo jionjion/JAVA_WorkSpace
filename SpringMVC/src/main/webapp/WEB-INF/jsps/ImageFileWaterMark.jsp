@@ -8,6 +8,19 @@
 </head>
 <body>
 	<h1>水印图片页面</h1>
-	
+	<table>
+		<thead>
+			<tr>
+				<th>原图</th>
+				<th>水印</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><img src="${imageInfo.notWaterMarkUrl}"></td>
+				<td><img src="${imageInfo.withWaterMarkUrl}"></td>
+			</tr>
+		</tbody>
+	</table>
 </body>
 </html>

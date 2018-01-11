@@ -119,7 +119,7 @@
   
   <!-- 插件测试 -->
   <build>
-    <finalName>HelloSpringMVC</finalName>
+    <finalName>SpringMVC</finalName>
     <plugins>
       <plugin>
       	<groupId>org.eclipse.jetty</groupId>
