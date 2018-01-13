@@ -1,6 +1,5 @@
 package mvcdemo.controller;
 
-import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,21 +36,25 @@ public class WaterMarkController {
 	 * 	URL:http://localhost:8080/SpringMVC/file/waterMark 
 	 * @throws Exception IO操作异常 */
 	@RequestMapping(value="waterMark",method=RequestMethod.POST)
-	public String addFileWaterMark(@RequestParam(value="image") MultipartFile image ,
+	public String addTextWaterMark(@RequestParam(value="image") MultipartFile image ,
 													HttpServletRequest request) throws Exception {
 		
-		//图片文件夹存放位置
-		String uploadPath ="waterImages";
+		//图片文件夹存放位置,相对于项目的/temp目录下
+		String uploadPath ="temp";
 		
-		//文件夹真实位置
-		String realUploadPath = request.getServletContext().getRealPath("/") + "\\WEB-INF\\resource\\waterImages";
+		//文件夹真实位置 由项目发布的Tomcat决定,内嵌Tomcat还是独立Tomcat,发布在容器根路径,并注意设置Eclipse的发布路径
+		String realUploadPath = request.getServletContext().getRealPath("/") + "\\temp";
 		
-		//处理图片,并返回带水印的图片的位置
-		String WithWaterMarkUrl = waterMarkService.uploadImage(image.getInputStream(), image.getOriginalFilename(), uploadPath, realUploadPath);
+		//保存图片,并返回图片的访问位置
+		String notWaterMarkUrl = waterMarkService.uploadImage(image.getInputStream(), image.getOriginalFilename(), uploadPath, realUploadPath);
+		
+		//添加水印,并返回图片的访问位置
+		String WithWaterMarkUrl = waterMarkService.markTextImage(image.getInputStream(), image.getOriginalFilename(), uploadPath, realUploadPath);
 		
 		ImageInfo imageInfo = new ImageInfo();
+		imageInfo.setNotWaterMarkUrl(notWaterMarkUrl);
 		imageInfo.setWithWaterMarkUrl(WithWaterMarkUrl);
-		
+		request.setAttribute("imageInfo", imageInfo);
 		return "ImageFileWaterMark";
 	}
 	

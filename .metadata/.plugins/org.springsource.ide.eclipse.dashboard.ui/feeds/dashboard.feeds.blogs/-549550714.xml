@@ -5,7 +5,299 @@
   <link rel="self" href="https://spring.io/blog.atom" />
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
-  <updated>2018-01-09T12:26:00Z</updated>
+  <updated>2018-01-12T17:40:00Z</updated>
+  <entry>
+    <title>Building richer hypermedia with Spring HATEOAS</title>
+    <link rel="alternate" href="https://spring.io/blog/2018/01/12/building-richer-hypermedia-with-spring-hateoas" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Greg Turnquist</name>
+    </author>
+    <id>tag:spring.io,2017-12-05:3124</id>
+    <updated>2018-01-12T17:40:00Z</updated>
+    <content type="html">&lt;div class="paragraph"&gt;
+&lt;p&gt;Greetings Spring community,&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;As &lt;a href="https://twitter.com/gregturn/status/935853433931943936"&gt;previously announced&lt;/a&gt;, we have released a new &lt;strong&gt;Affordances API&lt;/strong&gt; in 1.0.0.BUILD-SNAPSHOT. In this blog post, we&amp;#8217;ll take a peek at exactly what this feature lets you do.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;
+&lt;h2 id="history-of-affordances"&gt;&lt;a class="anchor" href="#history-of-affordances"&gt;&lt;/a&gt;History of Affordances&lt;/h2&gt;
+&lt;div class="sectionbody"&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;For starters, what is an &lt;strong&gt;affordance&lt;/strong&gt;? Doing a little archeology, Mike Admundsen, a REST advocate, has &lt;a href="http://amundsen.com/blog/archives/1109"&gt;an article detailing the word&amp;#8217;s origins&lt;/a&gt;, going back at least to 1986:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="verseblock"&gt;
+&lt;pre class="content"&gt;The affordances of the environment are what it offers &amp;#8230;&amp;#8203; what it provides or furnishes, either for good or ill. The verb 'to afford' is found in the dictionary, but the noun 'affordance' is not. I have made it up (page 126).&lt;/pre&gt;
+&lt;div class="attribution"&gt;
+&amp;#8212; The Ecological Approach to Visual Perception (Gibson)
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;It then appeared in a psychology paper in 1988:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="verseblock"&gt;
+&lt;pre class="content"&gt;&amp;#8230;&amp;#8203;the term affordance refers to the perceived and actual properties of the thing, primarily those fundamental properties that determine just how the thing could possibly be used. (pg 9)&lt;/pre&gt;
+&lt;div class="attribution"&gt;
+&amp;#8212; The Design|Psychology of Everyday Things (Norman)
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Finally, it can be found in none other than one of Roy Fielding&amp;#8217;s presentations on hypermedia in 2008:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="verseblock"&gt;
+&lt;pre class="content"&gt;When I say Hypertext, I mean the simultaneous presentation of information and controls such that the information becomes the affordance through which the user obtains choices and selects actions (slide #50).&lt;/pre&gt;
+&lt;div class="attribution"&gt;
+&amp;#8212; Slide presention on REST (Fielding)
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;In all these situations, "affordance" refers to the available actions provided by the surrounding environment. In the context of REST, these are actions detailed by the hypermedia.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;In the past, when people moved away from SOAP and its action-based tactics, they have struggled to document their APIs, many unaware that Roy Fielding built hypermedia into REST for this very purpose. By including data along with the controls to not just find related data, but to also use the data is key.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;With a HAL document, clients are provided very simple affordances. The links are shown but nothing else about them. What you can do with the links and what it takes to interact with them is not detailed.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;
+&lt;h2 id="affordances-and-spring-hateoas"&gt;&lt;a class="anchor" href="#affordances-and-spring-hateoas"&gt;&lt;/a&gt;Affordances and Spring HATEOAS&lt;/h2&gt;
+&lt;div class="sectionbody"&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;You can start exploring this new API by defining the following domain object:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-java" data-lang="java"&gt;@Data
+@Entity
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
+@AllArgsConstructor
+class Employee {
+
+	@Id @GeneratedValue
+	private Long id;
+	private String firstName;
+	private String lastName;
+	private String role;
+
+	/**
+	 * Useful constructor when id is not yet known.
+	 */
+	Employee(String firstName, String lastName, String role) {
+
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.role = role;
+	}
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;This domain object gives us a pretty simple POJO to interact with. To persist such objects, you need to define a corresponding Spring Data JPA repository:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-java" data-lang="java"&gt;interface EmployeeRepository extends CrudRepository&amp;lt;Employee, Long&amp;gt; {
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;This repository will supply the simplest CRUD operations.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;With these components, the table is set. You can now start defining REST operations and their corresponding affordances. First of all, create a Spring MVC REST controller as shown below:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-java" data-lang="java"&gt;@RestController
+class EmployeeController {
+
+	private final EmployeeRepository repository;
+
+	EmployeeController(EmployeeRepository repository) {
+		this.repository = repository;
+	}
+
+	...
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;This control contains some key traits:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="ulist"&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;@RestController&lt;/code&gt; indicates that all the mappings will write their results directly into the response body, not render view templates.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The &lt;code&gt;EmployeeRepository&lt;/code&gt; is injected via constructor injection, ensuring a consistent state.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Spring HATEOAS already has the means to build links out of Spring MVC endpoints. What this API provides is the ability to connect one endpoint with another. For example, you can link the &lt;strong&gt;GET&lt;/strong&gt; endpoint for a single item resource (&lt;code&gt;/employees/{id}&lt;/code&gt;) to the &lt;strong&gt;PUT&lt;/strong&gt; mapping used for updating that employee (&lt;code&gt;/employees/{id}&lt;/code&gt;). The following code shows just such a relationship:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-java" data-lang="java"&gt;@RestController
+class EmployeeController {
+
+	...
+
+	@GetMapping("/employees/{id}")
+	ResponseEntity&amp;lt;Resource&amp;lt;Employee&amp;gt;&amp;gt; findOne(@PathVariable long id) {
+
+		return repository.findById(id)
+			.map(employee -&amp;gt; new Resource&amp;lt;&amp;gt;(employee, getSingleItemLinks(employee.getId())))
+			.map(ResponseEntity::ok)
+			.orElse(ResponseEntity.notFound().build());
+	}
+
+	@PutMapping("/employees/{id}")
+	ResponseEntity&amp;lt;?&amp;gt; updateEmployee(@RequestBody Employee employee, @PathVariable long id) {
+
+		employee.setId(id);
+		Employee updatedEmployee = repository.save(employee);
+
+		Resource&amp;lt;Employee&amp;gt; employeeResource = new Resource&amp;lt;&amp;gt;(updatedEmployee, getSingleItemLinks(updatedEmployee.getId()));
+
+		try {
+			return ResponseEntity
+				.created(new URI(employeeResource.getRequiredLink(Link.REL_SELF).getHref()))
+				.body(employeeResource);
+		} catch (URISyntaxException e) {
+			return ResponseEntity.badRequest().body("Unable to update " + employee);
+		}
+	}
+
+	...
+
+	private List&amp;lt;Link&amp;gt; getSingleItemLinks(long id) {
+
+		return Arrays.asList(linkTo(methodOn(EmployeeController.class).findOne(id)).withSelfRel()
+				.andAffordance(afford(methodOn(EmployeeController.class).updateEmployee(null, id)))
+				.andAffordance(afford(methodOn(EmployeeController.class).deleteEmployee(id))),
+			linkTo(methodOn(EmployeeController.class).findAll()).withRel("employees"));
+	}
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;In the middle of this code are several usages of &lt;code&gt;.andAffordance(afford(methodOn(&amp;#8230;&amp;#8203;)))&lt;/code&gt;. This is where a given link (the &lt;strong&gt;self&lt;/strong&gt; link for &lt;code&gt;findOne&lt;/code&gt;) is connected to a related link on the same URI (&lt;code&gt;updateEmployee&lt;/code&gt;).&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;With this version, Spring HATEOAS can now glean information about the Spring MVC endpoint in a mediatype-neutral format, allowing you to serve it up to users. Which begs the question&amp;#8212;&amp;#8203;how do you display this relationship of links to users?&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;
+&lt;h2 id="introducing-hal-forms"&gt;&lt;a class="anchor" href="#introducing-hal-forms"&gt;&lt;/a&gt;Introducing HAL-FORMS&lt;/h2&gt;
+&lt;div class="sectionbody"&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;HAL itself doesn&amp;#8217;t include any format to display these affordances. If you have multiple links at the same URI in a given resource, HAL will simply show one link. Thankfully, the popularity of HAL in the world of REST has caused derivative specs to start being developed.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;&lt;a href="https://rwcbook.github.io/hal-forms/"&gt;HAL-FORMS&lt;/a&gt; is a HAL extension that looks like any other HAL document with one additional field: &lt;strong&gt;_templates&lt;/strong&gt;. This field allows displaying methods as well as properties.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Assuming the single item &lt;code&gt;Resource&amp;lt;Employee&amp;gt;&lt;/code&gt; code up above connected a Spring MVC &lt;code&gt;@GetMapping&lt;/code&gt; endpoint to a &lt;code&gt;@PutMapping&lt;/code&gt; endpoint (and you had some employee data loaded into the database), Spring HATEOAS will generate HAL-FORMS hypermedia like this:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-javascript" data-lang="javascript"&gt;{
+  "id" : 1,
+  "firstName" : "Frodo",
+  "lastName" : "Baggins",
+  "role" : "ring bearer",
+  "_links" : {
+    "self" : {
+      "href" : "http://localhost:8080/employees/1"
+    },
+    "employees" : {
+      "href" : "http://localhost:8080/employees"
+    }
+  },
+  "_templates" : {
+    "default" : {
+      "title" : null,
+      "method" : "put",
+      "contentType" : "",
+      "properties" : [ {
+        "name" : "firstName",
+        "required" : true
+      }, {
+        "name" : "id",
+        "required" : true
+      }, {
+        "name" : "lastName",
+        "required" : true
+      }, {
+        "name" : "role",
+        "required" : true
+      } ]
+    },
+    "deleteEmployee" : {
+      "title" : null,
+      "method" : "delete",
+      "contentType" : "",
+      "properties" : [ ]
+    }
+  }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;When you do a &lt;code&gt;GET /employees/1&lt;/code&gt;, this HAL-FORMS document shows both data &lt;em&gt;and&lt;/em&gt; links. But more importantly, it gives you a template for editing the resource (the &lt;code&gt;default&lt;/code&gt; template). Since HAL-FORMS presumes you are working against the &lt;strong&gt;self&lt;/strong&gt; link, you could do a &lt;code&gt;PUT /employees/1&lt;/code&gt; to make an update. And the properties it would be looking for include &lt;code&gt;firstName&lt;/code&gt;, &lt;code&gt;id&lt;/code&gt;, &lt;code&gt;lastName&lt;/code&gt;, and &lt;code&gt;role&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;These hypermedia controls also indicate that you can issue a &lt;code&gt;DELETE /employees/1&lt;/code&gt; request (the &lt;code&gt;deleteEmployee&lt;/code&gt; template). No properties involved.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;At first glance, this may not appear very impressive since you could already read that in the data shown at the top. But this format grants you the ability to write a little frontend JavaScript, and transform that template into:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-html" data-lang="html"&gt;&amp;lt;form method="put" action="http://localhost:8080/employees/1"&amp;gt;
+	&amp;lt;input type="text" id="firstName" name="firstName"/&amp;gt;
+	&amp;lt;input type="text" id="id" name="id" /&amp;gt;
+	&amp;lt;input type="text" id="lastName" name="lastName" /&amp;gt;
+	&amp;lt;input type="text" id="role" name="role" /&amp;gt;
+	&amp;lt;input type="submit" value="Submit" /&amp;gt;
+&amp;lt;/form&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;By mixing the &lt;strong&gt;self&lt;/strong&gt; link with the listed properties, you can create a real HTML form, purely driven by the hypermedia. This completes the synergy of REST by letting the server push domain-specific details straight to the user of the site. There is no need to code this bit of domain knowledge into the client, hence reducing coupling. Instead, just convert the hypermedia&amp;#8217;s template &lt;em&gt;into&lt;/em&gt; a form. Then, as domain updates occur on the server side, the client can adapt with little friction.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;In short, HAL-FORMS is designed to show other actions available against the same URI.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Reading all this, did you find yourself asking the question, "why not just push an HTML form out instead of some JSON?" That is a fair question.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;The Affordances API is completely neutral allowing the Spring team to work on other mediatypes apart from HAL-FORMS. Some that are already under development include &lt;a href="http://rawgit.com/uber-hypermedia/specification/master/uber-hypermedia.html#rfc4627"&gt;Uber&lt;/a&gt;, &lt;a href="https://github.com/kevinswiber/siren"&gt;SIREN&lt;/a&gt;, &lt;a href="http://amundsen.com/media-types/collection/"&gt;Collection+JSON&lt;/a&gt;, and a form of XHTML.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;
+&lt;h2 id="more-examples"&gt;&lt;a class="anchor" href="#more-examples"&gt;&lt;/a&gt;More examples&lt;/h2&gt;
+&lt;div class="sectionbody"&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;The code and details found in this article can be found at &lt;a href="https://github.com/spring-projects/spring-hateoas-examples" class="bare"&gt;https://github.com/spring-projects/spring-hateoas-examples&lt;/a&gt;, particularly under &lt;strong&gt;Affordances&lt;/strong&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;We look forward to feedback from the community on the API.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Cheers!&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;</content>
+  </entry>
   <entry>
     <title>This Week in Spring - January 9th, 2017</title>
     <link rel="alternate" href="https://spring.io/blog/2018/01/09/this-week-in-spring-january-9th-2017" />
@@ -1023,29 +1315,5 @@ In accordance with &lt;a href="https://pivotal.io/security/cve-2017-4995"&gt;CVE
 &lt;p&gt;For a complete list of changes, and upgrade instructions, see the &lt;a href="https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.0.0-M7-Release-Notes"&gt;Spring Boot 2.0.0.M7 Release Notes&lt;/a&gt; on the WIKI. &lt;/p&gt;
 &lt;p&gt;To get started with Spring Boot 2.0.0 M7 and discover those new feature, you can easily bootstrap a new project on &lt;a href="https://start.spring.io"&gt;start.spring.io&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://projects.spring.io/spring-boot/"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-boot"&gt;GitHub&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-boot/issues"&gt;Issues&lt;/a&gt; | &lt;a href="http://docs.spring.io/spring-boot/docs/2.0.0.M7/reference/htmlsingle"&gt;Documentation&lt;/a&gt; | &lt;a href="http://stackoverflow.com/questions/tagged/spring-boot"&gt;Stack Overflow&lt;/a&gt; | &lt;a href="https://gitter.im/spring-projects/spring-boot"&gt;Gitter&lt;/a&gt;&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <title>Spring IO Platform Brussels-SR6</title>
-    <link rel="alternate" href="https://spring.io/blog/2017/11/29/spring-io-platform-brussels-sr6" />
-    <category term="releases" label="Releases" />
-    <author>
-      <name>Andy Wilkinson</name>
-    </author>
-    <id>tag:spring.io,2017-11-29:3117</id>
-    <updated>2017-11-29T20:46:55Z</updated>
-    <content type="html">&lt;p&gt;I am pleased to announce that &lt;a href="http://platform.spring.io/platform"&gt;Spring IO Platform&lt;/a&gt; Brussels-SR6 is now available from both &lt;a href="https://repo.spring.io/release"&gt;repo.spring.io&lt;/a&gt; and Maven Central. &lt;/p&gt;
-&lt;p&gt;This maintenance release upgrades the versions of a number of the projects in the Platform:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;AspectJ 1.8.13&lt;/li&gt;
-  &lt;li&gt;Spring Boot 1.5.9&lt;/li&gt;
-  &lt;li&gt;Spring Cloud Connectors 1.2.5&lt;/li&gt;
-  &lt;li&gt;Spring Data Ingalls-SR9&lt;/li&gt;
-  &lt;li&gt;Spring Framework 4.3.13&lt;/li&gt;
-  &lt;li&gt;Spring Kafka 1.1.7&lt;/li&gt;
-  &lt;li&gt;Spring LDAP 2.3.2&lt;/li&gt;
-  &lt;li&gt;Spring Web Services 2.4.2&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;The versions of a number of third-party dependencies have also been updated.&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://platform.spring.io/platform"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-io/platform"&gt;GitHub&lt;/a&gt; | &lt;a href="https://github.com/spring-io/platform/issues"&gt;Issues&lt;/a&gt; | &lt;a href="http://docs.spring.io/platform/docs/Brussels-SR6/reference/htmlsingle"&gt;Documentation&lt;/a&gt;&lt;/p&gt;</content>
   </entry>
 </feed>
