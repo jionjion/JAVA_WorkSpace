@@ -10,7 +10,13 @@
 	<h1>图片上传页面</h1>
 	<form action="<%=request.getContextPath()%>/file/waterMark" method="post" enctype="multipart/form-data">
 		<input type="file" name="image"/>			<br>
-		<input type="submit" value="上传图片加水印">
+		<select name="markType">
+			<option value="text">文本水印</option> 
+			<option value="texts">多文字水印</option> 
+			<option value="logo">图片水印</option> 
+			<option value="logos">多图片水印</option> 
+		</select> 									<br>
+		<input type="submit" value="上传图片加水印">	<br>
 	</form>	
 </body>
 </html>

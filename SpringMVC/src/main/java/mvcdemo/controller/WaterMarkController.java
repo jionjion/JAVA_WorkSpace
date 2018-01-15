@@ -48,8 +48,23 @@ public class WaterMarkController {
 		//保存图片,并返回图片的访问位置
 		String notWaterMarkUrl = waterMarkService.uploadImage(image.getInputStream(), image.getOriginalFilename(), uploadPath, realUploadPath);
 		
-		//添加水印,并返回图片的访问位置
-		String WithWaterMarkUrl = waterMarkService.markTextImage(image.getInputStream(), image.getOriginalFilename(), uploadPath, realUploadPath);
+		String markType = request.getParameter("markType");
+		String WithWaterMarkUrl = null;
+		if ("text".equals(markType)) {
+			//添加文字水印,并返回图片的访问位置
+			WithWaterMarkUrl = waterMarkService.markTextImage(image.getInputStream(), image.getOriginalFilename(), uploadPath, realUploadPath);
+		}else if ("logo".equals(markType)) {
+			//添加图片水印,并返回图片的访问位置
+			WithWaterMarkUrl = waterMarkService.markLogoImage(image.getInputStream(), image.getOriginalFilename(), uploadPath, realUploadPath);
+		}else if ("texts".equals(markType)) {
+			//添加多个图片水印,并返回图片的访问位置
+			WithWaterMarkUrl = waterMarkService.markTextsImage(image.getInputStream(), image.getOriginalFilename(), uploadPath, realUploadPath);
+		}else if ("logos".equals(markType)) {
+			//添加多个图片水印,并返回图片的访问位置
+			WithWaterMarkUrl = waterMarkService.markLogosImage(image.getInputStream(), image.getOriginalFilename(), uploadPath, realUploadPath);
+		}else {
+			WithWaterMarkUrl = ""; 
+		}
 		
 		ImageInfo imageInfo = new ImageInfo();
 		imageInfo.setNotWaterMarkUrl(notWaterMarkUrl);
@@ -57,7 +72,6 @@ public class WaterMarkController {
 		request.setAttribute("imageInfo", imageInfo);
 		return "ImageFileWaterMark";
 	}
-	
 	
 	
 }
