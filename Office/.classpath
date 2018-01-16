@@ -16,6 +16,8 @@
 	<classpathentry kind="lib" path="lib/office/poi-scratchpad-3.16.jar"/>
 	<classpathentry kind="lib" path="lib/office/xmlbeans-2.6.0.jar"/>
 	<classpathentry kind="lib" path="lib/office/commons-io-2.6.jar"/>
+	<classpathentry kind="lib" path="lib/jdom/jdom-2.0.2.jar"/>
+	<classpathentry kind="lib" path="lib/commons/commons-lang3-3.7.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

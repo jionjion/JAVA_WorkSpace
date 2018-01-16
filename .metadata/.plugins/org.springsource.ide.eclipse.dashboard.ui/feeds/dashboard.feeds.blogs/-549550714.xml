@@ -5,7 +5,127 @@
   <link rel="self" href="https://spring.io/blog.atom" />
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
-  <updated>2018-01-12T17:40:00Z</updated>
+  <updated>2018-01-16T14:26:02Z</updated>
+  <entry>
+    <title>Spring Session 2.0.0 Released</title>
+    <link rel="alternate" href="https://spring.io/blog/2018/01/16/spring-session-2-0-0-released" />
+    <category term="releases" label="Releases" />
+    <author>
+      <name>Rob Winch</name>
+    </author>
+    <id>tag:spring.io,2018-01-16:3138</id>
+    <updated>2018-01-16T14:26:02Z</updated>
+    <content type="html">&lt;div class="paragraph"&gt;
+&lt;p&gt;&lt;em&gt;This post was authored by &lt;a href="https://github.com/vpavic"&gt;Vedran Pavi?&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;On behalf of the community I&amp;#8217;m pleased to announce the release of &lt;a href="https://docs.spring.io/spring-session/docs/2.0.0.RELEASE/reference/html5/"&gt;Spring Session 2.0.0.RELEASE&lt;/a&gt;. This release evolved through &lt;a href="https://github.com/spring-projects/spring-session/milestone/17?closed=1"&gt;2.0.0.M1&lt;/a&gt;, &lt;a href="https://github.com/spring-projects/spring-session/milestone/22?closed=1"&gt;2.0.0.M2&lt;/a&gt;, &lt;a href="https://github.com/spring-projects/spring-session/milestone/23?closed=1"&gt;2.0.0.M3&lt;/a&gt;, &lt;a href="https://github.com/spring-projects/spring-session/milestone/24?closed=1"&gt;2.0.0.M4&lt;/a&gt;, &lt;a href="https://github.com/spring-projects/spring-session/milestone/25?closed=1"&gt;2.0.0.M5&lt;/a&gt;, &lt;a href="https://github.com/spring-projects/spring-session/milestone/26?closed=1"&gt;2.0.0.RC1&lt;/a&gt;, &lt;a href="https://github.com/spring-projects/spring-session/milestone/27?closed=1"&gt;2.0.0.RC2&lt;/a&gt; and &lt;a href="https://github.com/spring-projects/spring-session/milestone/30?closed=1"&gt;2.0.0.RELEASE&lt;/a&gt;, closing over 130 issues and pull requests in total.&lt;/p&gt;
+&lt;/div&gt;
+&lt;h1 id="what-s-new-in-spring-session-2-0" class="sect0"&gt;&lt;a class="anchor" href="#what-s-new-in-spring-session-2-0"&gt;&lt;/a&gt;What¡¯s New in Spring Session 2.0&lt;/h1&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;You can find highlights of what¡¯s new in the &lt;a href="https://docs.spring.io/spring-session/docs/current/reference/html5/#what-s-new-in-2-0"&gt;What¡¯s New 2.0&lt;/a&gt; section of the reference. For details refer to the changelog links above.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="sect2"&gt;
+&lt;h3 id="requirements"&gt;&lt;a class="anchor" href="#requirements"&gt;&lt;/a&gt;Requirements&lt;/h3&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;This release moves to Java 8 and Spring Framework 5.0 as baseline requirements. Entire codebase is based on Java 8 source code level now.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect2"&gt;
+&lt;h3 id="spring-webflux-support"&gt;&lt;a class="anchor" href="#spring-webflux-support"&gt;&lt;/a&gt;Spring WebFlux Support&lt;/h3&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Introduction of reactive programming model in Spring Framework 5.0 has been one of the biggest stories in 2017, and we&amp;#8217;re happy to bring the support for managing Spring WebFlux¡¯s &lt;code&gt;WebSession&lt;/code&gt; with Redis &lt;code&gt;ReactiveSessionRepository&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;In a familiar Spring Session fashion, enabling Redis backed &lt;code&gt;WebSession&lt;/code&gt; support is as simple as the following code snippet:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-java" data-lang="java"&gt;@EnableRedisWebSession
+public class WebSessionConfig {
+
+    @Bean
+    public LettuceConnectionFactory redisConnectionFactory() {
+        return new LettuceConnectionFactory();
+    }
+
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Spring Boot users will be happy to learn that auto-configuration support for reactive Spring Session is already available since the &lt;a href="https://spring.io/blog/2017/11/06/spring-boot-2-0-0-m6-available-now"&gt;&lt;code&gt;2.0.0.M6&lt;/code&gt; milestone release&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect2"&gt;
+&lt;h3 id="spring-session-modules"&gt;&lt;a class="anchor" href="#spring-session-modules"&gt;&lt;/a&gt;Spring Session Modules&lt;/h3&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;The new release bring some major changes to project&amp;#8217;s modules, as we have split Spring Session into modules based upon the repository implementation. You will find:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-xml" data-lang="xml"&gt;&amp;lt;dependency&amp;gt;
+    &amp;lt;groupId&amp;gt;org.springframework.session&amp;lt;/groupId&amp;gt;
+    &amp;lt;artifactId&amp;gt;spring-session-core&amp;lt;/artifactId&amp;gt;
+    &amp;lt;version&amp;gt;2.0.0.RELEASE&amp;lt;/version&amp;gt;
+&amp;lt;/dependency&amp;gt;
+&amp;lt;dependency&amp;gt;
+    &amp;lt;groupId&amp;gt;org.springframework.session&amp;lt;/groupId&amp;gt;
+    &amp;lt;artifactId&amp;gt;spring-session-data-redis&amp;lt;/artifactId&amp;gt;
+    &amp;lt;version&amp;gt;2.0.0.RELEASE&amp;lt;/version&amp;gt;
+&amp;lt;/dependency&amp;gt;
+&amp;lt;dependency&amp;gt;
+    &amp;lt;groupId&amp;gt;org.springframework.session&amp;lt;/groupId&amp;gt;
+    &amp;lt;artifactId&amp;gt;spring-session-hazelcast&amp;lt;/artifactId&amp;gt;
+    &amp;lt;version&amp;gt;2.0.0.RELEASE&amp;lt;/version&amp;gt;
+&amp;lt;/dependency&amp;gt;
+&amp;lt;dependency&amp;gt;
+    &amp;lt;groupId&amp;gt;org.springframework.session&amp;lt;/groupId&amp;gt;
+    &amp;lt;artifactId&amp;gt;spring-session-jdbc&amp;lt;/artifactId&amp;gt;
+    &amp;lt;version&amp;gt;2.0.0.RELEASE&amp;lt;/version&amp;gt;
+&amp;lt;/dependency&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;As a part of this change, we have removed some of the Spring Session implementations from the main repository. We now have sub projects for &lt;a href="https://github.com/spring-projects/spring-session-data-geode"&gt;Spring Session Data Geode (GemFire)&lt;/a&gt; and &lt;a href="https://github.com/spring-projects/spring-session-data-mongodb"&gt;Spring Session Data MongoDB&lt;/a&gt;. You will find:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-xml" data-lang="xml"&gt;&amp;lt;dependency&amp;gt;
+    &amp;lt;groupId&amp;gt;org.springframework.session&amp;lt;/groupId&amp;gt;
+    &amp;lt;artifactId&amp;gt;spring-session-data-gemfire&amp;lt;/artifactId&amp;gt;
+    &amp;lt;version&amp;gt;2.0.0.RELEASE&amp;lt;/version&amp;gt;
+&amp;lt;/dependency&amp;gt;
+&amp;lt;dependency&amp;gt;
+    &amp;lt;groupId&amp;gt;org.springframework.session&amp;lt;/groupId&amp;gt;
+    &amp;lt;artifactId&amp;gt;spring-session-data-geode&amp;lt;/artifactId&amp;gt;
+    &amp;lt;version&amp;gt;2.0.0.RELEASE&amp;lt;/version&amp;gt;
+&amp;lt;/dependency&amp;gt;
+&amp;lt;dependency&amp;gt;
+    &amp;lt;groupId&amp;gt;org.springframework.session&amp;lt;/groupId&amp;gt;
+    &amp;lt;artifactId&amp;gt;spring-session-data-mongodb&amp;lt;/artifactId&amp;gt;
+    &amp;lt;version&amp;gt;2.0.0.RELEASE&amp;lt;/version&amp;gt;
+&amp;lt;/dependency&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;The goal is to allow the core Spring Session team to focus on delivering new features rather than needing to know the ins and outs of every data store. This will allow development of other modules to be done without the overhead of reviews from the core Spring Session team.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h1 id="contributions" class="sect0"&gt;&lt;a class="anchor" href="#contributions"&gt;&lt;/a&gt;Contributions&lt;/h1&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Without the community we couldn¡¯t be the successful project we are today. I¡¯d like to thank everyone that created issues &amp;amp; provided feedback.&lt;/p&gt;
+&lt;/div&gt;
+&lt;h1 id="feedback-please" class="sect0"&gt;&lt;a class="anchor" href="#feedback-please"&gt;&lt;/a&gt;Feedback Please&lt;/h1&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;If you have feedback on this release, I encourage you to reach out via &lt;a href="https://stackoverflow.com/questions/tagged/spring-session"&gt;StackOverflow&lt;/a&gt;, &lt;a href="https://github.com/spring-projects/spring-session/issues"&gt;GitHub Issues&lt;/a&gt;, or via the comments section. You can also ping Rob &lt;a href="https://twitter.com/rob_winch"&gt;@rob_winch&lt;/a&gt;, Joe &lt;a href="https://twitter.com/joe_grandja"&gt;@joe_grandja&lt;/a&gt;, or me &lt;a href="https://twitter.com/vedran_pavic"&gt;@vedran_pavic&lt;/a&gt; on Twitter.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Of course the best feedback comes in the form of &lt;a href="https://github.com/spring-projects/spring-session/blob/2.0.0.RELEASE/CONTRIBUTING.adoc"&gt;contributions&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;&lt;a href="https://projects.spring.io/spring-session/"&gt;Project Site&lt;/a&gt; | &lt;a href="https://docs.spring.io/spring-session/docs/2.0.0.RELEASE/reference/html5/"&gt;Reference&lt;/a&gt; | &lt;a href="https://stackoverflow.com/questions/tagged/spring-session"&gt;Help&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;</content>
+  </entry>
   <entry>
     <title>Building richer hypermedia with Spring HATEOAS</title>
     <link rel="alternate" href="https://spring.io/blog/2018/01/12/building-richer-hypermedia-with-spring-hateoas" />
@@ -1293,27 +1413,5 @@ In accordance with &lt;a href="https://pivotal.io/security/cve-2017-4995"&gt;CVE
 &lt;div class="paragraph"&gt;
 &lt;p&gt;&lt;a href="http://projects.spring.io/spring-kafka/"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-kafka/issues"&gt;Issues&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-kafka/blob/master/CONTRIBUTING.adoc"&gt;Contributing&lt;/a&gt; | &lt;a href="http://stackoverflow.com/questions/tagged/spring-kafka"&gt;Help&lt;/a&gt; | &lt;a href="https://gitter.im/spring-projects/spring-kafka"&gt;Chat&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;</content>
-  </entry>
-  <entry>
-    <title>Spring Boot 2.0.0 M7 available now</title>
-    <link rel="alternate" href="https://spring.io/blog/2017/11/30/spring-boot-2-0-0-m7-available-now" />
-    <category term="releases" label="Releases" />
-    <author>
-      <name>Phil Webb</name>
-    </author>
-    <id>tag:spring.io,2017-11-30:3118</id>
-    <updated>2017-11-30T07:49:14Z</updated>
-    <content type="html">&lt;p&gt;On behalf of the team, it is my pleasure to announce that Spring Boot 2.0.0.M7 has been released and is now available from &lt;a href="http://repo.spring.io/milestone/"&gt;our milestone repository&lt;/a&gt;. This release closes &lt;a href="https://github.com/spring-projects/spring-boot/milestone/56?closed=1"&gt;165 issues and pull requests&lt;/a&gt; and continues our progress towards 2.0 GA. Thanks to everyone that has contributed!&lt;/p&gt;
-&lt;p&gt;This release refines a number of items from previous milestones, and provides a number of notable new features:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Condition evaluation report deltas on Devtools triggered restart&lt;/li&gt;
-  &lt;li&gt;A new scheduled tasks actuator endpoint&lt;/li&gt;
-  &lt;li&gt;Support for Duration types in configuration properties (e.g. &lt;code&gt;5ms&lt;/code&gt;, &lt;code&gt;1s&lt;/code&gt;, &lt;code&gt;10m&lt;/code&gt;)&lt;/li&gt;
-  &lt;li&gt;Reactive Couchbase support&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;If you are upgrading from the previous milestone please be aware that actuator endpoints are now under &lt;code&gt;/actuator&lt;/code&gt; rather than &lt;code&gt;/application&lt;/code&gt;. You will also need to set &lt;code&gt;management.endpoints.web.expose=*&lt;/code&gt; if you want to access all enabled endpoints over HTTP.&lt;/p&gt;
-&lt;p&gt;For a complete list of changes, and upgrade instructions, see the &lt;a href="https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.0.0-M7-Release-Notes"&gt;Spring Boot 2.0.0.M7 Release Notes&lt;/a&gt; on the WIKI. &lt;/p&gt;
-&lt;p&gt;To get started with Spring Boot 2.0.0 M7 and discover those new feature, you can easily bootstrap a new project on &lt;a href="https://start.spring.io"&gt;start.spring.io&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://projects.spring.io/spring-boot/"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-boot"&gt;GitHub&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-boot/issues"&gt;Issues&lt;/a&gt; | &lt;a href="http://docs.spring.io/spring-boot/docs/2.0.0.M7/reference/htmlsingle"&gt;Documentation&lt;/a&gt; | &lt;a href="http://stackoverflow.com/questions/tagged/spring-boot"&gt;Stack Overflow&lt;/a&gt; | &lt;a href="https://gitter.im/spring-projects/spring-boot"&gt;Gitter&lt;/a&gt;&lt;/p&gt;</content>
   </entry>
 </feed>

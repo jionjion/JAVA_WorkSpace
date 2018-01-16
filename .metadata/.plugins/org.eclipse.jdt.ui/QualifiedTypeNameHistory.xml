@@ -1,24 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="java.io.ByteArrayOutputStream"/>
-<fullyQualifiedTypeName name="com.sun.javafx.collections.MappingChange.Map"/>
-<fullyQualifiedTypeName name="java.util.Map"/>
-<fullyQualifiedTypeName name="java.util.HashMap"/>
-<fullyQualifiedTypeName name="org.aspectj.weaver.patterns.ThisOrTargetAnnotationPointcut"/>
-<fullyQualifiedTypeName name="com.sun.org.apache.bcel.internal.util.Class2HTML"/>
-<fullyQualifiedTypeName name="MicroServices.hotLoader.classloader.MyClassLoader"/>
-<fullyQualifiedTypeName name="MicroServices.hotLoader.classloader.LoadInfo"/>
-<fullyQualifiedTypeName name="java.lang.Class"/>
-<fullyQualifiedTypeName name="java.lang.Object"/>
-<fullyQualifiedTypeName name="ch.qos.logback.classic.turbo.TurboFilter"/>
-<fullyQualifiedTypeName name="MicroServices.hotLoader.classloader.BaseManager"/>
-<fullyQualifiedTypeName name="MicroServices.hotLoader.classloader.ManagerFactory"/>
-<fullyQualifiedTypeName name="org.hibernate.property.access.spi.EnhancedGetterMethodImpl"/>
-<fullyQualifiedTypeName name="java.lang.Thread"/>
-<fullyQualifiedTypeName name="MicroServices.hotLoader.classloader.MsgHandler"/>
-<fullyQualifiedTypeName name="org.junit.internal.matchers.StacktracePrintingMatcher"/>
-<fullyQualifiedTypeName name="javax.swing.Spring"/>
-<fullyQualifiedTypeName name="org.elasticsearch.action.index.IndexResponse"/>
 <fullyQualifiedTypeName name="org.elasticsearch.action.delete.DeleteResponse"/>
 <fullyQualifiedTypeName name="jnr.ffi.types.id_t"/>
 <fullyQualifiedTypeName name="org.elasticsearch.action.update.UpdateRequest"/>
@@ -56,8 +37,27 @@
 <fullyQualifiedTypeName name="sun.security.util.LegacyAlgorithmConstraints"/>
 <fullyQualifiedTypeName name="mvcdemo.service.imp.WaterMarkServiceIpm"/>
 <fullyQualifiedTypeName name="java.lang.Math"/>
-<fullyQualifiedTypeName name="java.lang.String"/>
-<fullyQualifiedTypeName name="java.io.File"/>
 <fullyQualifiedTypeName name="java.awt.Image"/>
 <fullyQualifiedTypeName name="javax.imageio.ImageIO"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="javax.sound.midi.Patch"/>
+<fullyQualifiedTypeName name="java.io.File"/>
+<fullyQualifiedTypeName name="org.jdom2.input.SAXBuilder"/>
+<fullyQualifiedTypeName name="org.jdom2.Document"/>
+<fullyQualifiedTypeName name="org.apache.poi.hssf.usermodel.HSSFWorkbook"/>
+<fullyQualifiedTypeName name="org.apache.poi.hssf.usermodel.HSSFSheet"/>
+<fullyQualifiedTypeName name="com.sun.org.apache.xerces.internal.util.SynchronizedSymbolTable"/>
+<fullyQualifiedTypeName name="com.sun.jndi.url.iiopname.iiopnameURLContextFactory"/>
+<fullyQualifiedTypeName name="java.lang.Float"/>
+<fullyQualifiedTypeName name="javafx.scene.control.Cell"/>
+<fullyQualifiedTypeName name="org.apache.poi.ss.util.CellRangeAddress"/>
+<fullyQualifiedTypeName name="org.apache.poi.hssf.usermodel.HSSFCellStyle"/>
+<fullyQualifiedTypeName name="org.apache.poi.ss.usermodel.HorizontalAlignment"/>
+<fullyQualifiedTypeName name="org.apache.poi.hssf.usermodel.HSSFFont"/>
+<fullyQualifiedTypeName name="org.apache.poi.hssf.usermodel.HSSFRow"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="org.jdom2.Element"/>
+<fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="org.apache.poi.hssf.usermodel.HSSFCell"/>
+<fullyQualifiedTypeName name="org.apache.commons.lang3.StringUtils"/>
 </qualifiedTypeNameHistroy>
