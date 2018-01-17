@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="org.elasticsearch.action.delete.DeleteResponse"/>
-<fullyQualifiedTypeName name="jnr.ffi.types.id_t"/>
-<fullyQualifiedTypeName name="org.elasticsearch.action.update.UpdateRequest"/>
-<fullyQualifiedTypeName name="org.elasticsearch.common.xcontent.XContentFactory"/>
-<fullyQualifiedTypeName name="org.elasticsearch.common.xcontent.XContentBuilder"/>
-<fullyQualifiedTypeName name="com.arjuna.ats.arjuna.common.arjPropertyManager"/>
 <fullyQualifiedTypeName name="org.elasticsearch.action.update.UpdateResponse"/>
 <fullyQualifiedTypeName name="org.elasticsearch.index.query.BoolQueryBuilder"/>
 <fullyQualifiedTypeName name="org.apache.lucene.queryparser.xml.builders.RangeQueryBuilder"/>
@@ -18,11 +12,9 @@
 <fullyQualifiedTypeName name="java.io.FileInputStream"/>
 <fullyQualifiedTypeName name="org.apache.catalina.connector.OutputBuffer"/>
 <fullyQualifiedTypeName name="java.io.OutputStream"/>
-<fullyQualifiedTypeName name="java.io.FileOutputStream"/>
 <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
 <fullyQualifiedTypeName name="org.omg.CORBA.PRIVATE_MEMBER"/>
 <fullyQualifiedTypeName name="mvcdemo.bean.ImageInfo"/>
-<fullyQualifiedTypeName name="org.apache.commons.io.FileUtils"/>
 <fullyQualifiedTypeName name="java.io.InputStream"/>
 <fullyQualifiedTypeName name="javax.servlet.ServletContext"/>
 <fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
@@ -41,7 +33,6 @@
 <fullyQualifiedTypeName name="javax.imageio.ImageIO"/>
 <fullyQualifiedTypeName name="java.lang.System"/>
 <fullyQualifiedTypeName name="javax.sound.midi.Patch"/>
-<fullyQualifiedTypeName name="java.io.File"/>
 <fullyQualifiedTypeName name="org.jdom2.input.SAXBuilder"/>
 <fullyQualifiedTypeName name="org.jdom2.Document"/>
 <fullyQualifiedTypeName name="org.apache.poi.hssf.usermodel.HSSFWorkbook"/>
@@ -51,13 +42,22 @@
 <fullyQualifiedTypeName name="java.lang.Float"/>
 <fullyQualifiedTypeName name="javafx.scene.control.Cell"/>
 <fullyQualifiedTypeName name="org.apache.poi.ss.util.CellRangeAddress"/>
-<fullyQualifiedTypeName name="org.apache.poi.hssf.usermodel.HSSFCellStyle"/>
 <fullyQualifiedTypeName name="org.apache.poi.ss.usermodel.HorizontalAlignment"/>
 <fullyQualifiedTypeName name="org.apache.poi.hssf.usermodel.HSSFFont"/>
-<fullyQualifiedTypeName name="org.apache.poi.hssf.usermodel.HSSFRow"/>
+<fullyQualifiedTypeName name="java.lang.Integer"/>
 <fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="org.apache.poi.hssf.usermodel.HSSFRow"/>
 <fullyQualifiedTypeName name="org.jdom2.Element"/>
-<fullyQualifiedTypeName name="java.lang.String"/>
 <fullyQualifiedTypeName name="org.apache.poi.hssf.usermodel.HSSFCell"/>
+<fullyQualifiedTypeName name="org.apache.poi.hssf.usermodel.HSSFDataFormat"/>
+<fullyQualifiedTypeName name="org.apache.poi.hssf.usermodel.HSSFCellStyle"/>
 <fullyQualifiedTypeName name="org.apache.commons.lang3.StringUtils"/>
+<fullyQualifiedTypeName name="org.apache.poi.ss.usermodel.CellType"/>
+<fullyQualifiedTypeName name="org.apache.poi.ss.util.CellRangeAddressList"/>
+<fullyQualifiedTypeName name="org.apache.poi.hssf.usermodel.DVConstraint"/>
+<fullyQualifiedTypeName name="org.apache.poi.hssf.usermodel.HSSFDataValidation"/>
+<fullyQualifiedTypeName name="java.io.File"/>
+<fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="java.io.FileOutputStream"/>
+<fullyQualifiedTypeName name="org.apache.commons.io.FileUtils"/>
 </qualifiedTypeNameHistroy>

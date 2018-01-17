@@ -24,7 +24,7 @@
             <th value="年龄" />
             <th value="性别" />
             <th value="出生日期" />
-            <th value=" 爱好" />            
+            <th value="爱好" />            
         </tr>
     </thead>
     <!-- 数据内容部分 -->

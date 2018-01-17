@@ -1,17 +1,24 @@
 package export.core;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.util.List;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.poi.hssf.usermodel.DVConstraint;
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFCellStyle;
+import org.apache.poi.hssf.usermodel.HSSFDataFormat;
+import org.apache.poi.hssf.usermodel.HSSFDataValidation;
 import org.apache.poi.hssf.usermodel.HSSFFont;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.HorizontalAlignment;
 import org.apache.poi.ss.util.CellRangeAddress;
+import org.apache.poi.ss.util.CellRangeAddressList;
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.input.SAXBuilder;
@@ -88,7 +95,7 @@ public class CreateTemplate {
 			List<Element> tds = tr.getChildren("td");
 			//创建单元行
 			HSSFRow row = sheet.createRow(rownum);
-			for(rownum = 0; rownum < tds.size(); rownum++) {
+			for(colnum = 0; colnum < tds.size(); colnum++) {
 				Element td = tds.get(rownum);
 				//获得跨列信息
 				int rowSpan = Integer.parseInt(td.getAttributeValue("rowspan")) -1 ;
@@ -106,7 +113,7 @@ public class CreateTemplate {
 				HSSFFont font = excel.createFont();
 				font.setFontName("微软雅黑");
 				font.setBold(true);
-				font.setFontHeight((short)12);
+				font.setFontHeightInPoints((short)12);
 				//将字体加入样式中
 				cellStyle.setFont(font);
 				
@@ -120,8 +127,8 @@ public class CreateTemplate {
 					cell.setCellStyle(cellStyle);
 				}
 			}
-			rownum ++;		//操作完标题后,需要对当前行位置加1
 		}
+		rownum ++;		//操作完标题后,需要对当前行位置加1
 		
 		
 		//设置表头信息	<thead>
@@ -147,5 +154,78 @@ public class CreateTemplate {
 			rownum ++;		//操作完表头后,需要对当前行位置+1
 		}
 		
+		//设置数字区域的样式 	<tbody>
+		Element tbody = root.getChild("tbody");
+		Element tr = tbody.getChild("tr");
+		//获得初始化的数据列数
+		int repeat = Integer.parseInt(tr.getAttributeValue("repeat"));
+		List<Element> tds = tr.getChildren("td");
+		for(int i=0 ; i<repeat ; i++) {
+			//创建当前行
+			HSSFRow row = sheet.createRow(rownum);
+			//创建当前列
+			for(colnum=0 ;colnum < tds.size(); colnum++) {
+				//创建单元格样式
+				HSSFCellStyle cellStyle = excel.createCellStyle();
+				//创建单元格数据格式化
+				HSSFDataFormat format = excel.createDataFormat();
+				//创建单元格
+				HSSFCell cell = row.createCell(colnum);
+				
+				//获得数据列信息
+				Element td = tds.get(colnum);
+				String type = td.getAttributeValue("type");
+				if (StringUtils.equalsIgnoreCase("NUMERIC", type)) {
+					//数字类型
+					cell.setCellType(CellType.NUMERIC);
+					//数字格式化
+					String formatValue = td.getAttributeValue("format");
+					if (StringUtils.isBlank(formatValue)) {
+						formatValue = "#,##0.00";
+					}
+					//设置单元格样式格式化
+					cellStyle.setDataFormat(format.getFormat(formatValue));
+				} else if (StringUtils.equalsIgnoreCase("STRING", type)) {
+					//字符类型
+					cell.setCellValue("");
+					cell.setCellType(CellType.STRING);
+					//@表示文本
+					cellStyle.setDataFormat(format.getFormat("@"));	
+				} else if (StringUtils.equalsIgnoreCase("DATE", type)) {
+					//日期类型,与数字类型一致
+					cell.setCellType(CellType.NUMERIC);
+					//日期格式
+					cellStyle.setDataFormat(format.getFormat("yyyy-MM-dd"));
+				} else if (StringUtils.equalsIgnoreCase("ENUM", type)) {
+					//枚举类型
+					//对应Excel的下拉选框
+					CellRangeAddressList regions = new CellRangeAddressList(
+													cell.getRowIndex(),cell.getRowIndex(),
+													cell.getColumnIndex(),cell.getColumnIndex());
+					//获得选项,逗号分隔的数组
+					String[] enums = td.getAttributeValue("format").split(",");
+					//下拉选框内容
+					DVConstraint constraint = DVConstraint.createExplicitListConstraint(enums);
+					//数据有效对象
+					HSSFDataValidation dataValidation = new HSSFDataValidation(regions, constraint);
+					//将下拉选项加入Excel中
+					excel.getSheetAt(0).addValidationData(dataValidation);
+				}
+				//设置单元
+				cell.setCellStyle(cellStyle);
+			}
+//			rownum ++;
+		}
+		
+		/* 导出Excel */
+		String exportPath = System.getProperty("user.dir") + "\\bin\\export\\template\\"+ templateName +".xls";
+		File templateFile = new File(exportPath);
+		//先删除,再创建
+		templateFile.delete();	
+		templateFile.createNewFile();
+		FileOutputStream outputStream =FileUtils.openOutputStream(templateFile);
+		//写入文件
+		excel.write(outputStream);
+		excel.close();
 	}
 }
