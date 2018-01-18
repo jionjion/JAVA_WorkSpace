@@ -10,6 +10,7 @@
 <h5><a href="http://localhost:8080/SpringMVC/hello/mvc">HelloWorld演示</a></h5>
 <h5><a href="http://localhost:8080/SpringMVC/data/showView">数据绑定界面</a></h5>
 <h5><a href="http://localhost:8080/SpringMVC/file/imageFileUpload">水印上传界面</a></h5>
+<h5><a href="http://localhost:8080/SpringMVC/code/codePage">验证码制作</a></h5>
 
 </body>
 </html>
