@@ -115,6 +115,12 @@
 	    <version>2.6</version>
 	</dependency>
 	
+	<!-- 字符处理 -->
+	<dependency>
+		<groupId>commons-lang</groupId>
+		<artifactId>commons-lang</artifactId>
+		<version>2.6</version>
+	</dependency>
   </dependencies>
   
   <!-- 插件测试 -->

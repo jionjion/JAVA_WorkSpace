@@ -9,8 +9,9 @@
 <script type="text/javascript">
 	function reloadCode(){
 		debugger;
-		alert("刷新!");
-		
+		var date = new Date().getTime();
+		//刷新请求地址,携带时间参数,避免浏览器缓存
+		document.getElementById("imageCode").src="${pageContext.request.contextPath}/code/reloadCode?d ="+date ;
 	}
 </script>
 </head>
@@ -18,10 +19,10 @@
 	<h1>各种验证码</h1>
 	<fieldset>
 	<legend>图片验证码</legend>
-		<form action="<%=request.getContextPath()%>/login/login" method="post">
-			用户:<input type="text" name="username"><br>
-			密码:<input type="password" name="password"><br>
-			验证码:<a href="javascript:reloadCode();"><img alt="点击刷新" src="${pageContext.request.contextPath}/code/reloadCode"></a>
+		<form action="<%=request.getContextPath()%>/code/login" method="post">
+			验证码:<a href="javascript:reloadCode();"><img id="imageCode" alt="点击刷新" src="${pageContext.request.contextPath}/code/reloadCode"></a>
+			<br>
+			<input type="text" name="imageCode">
 			<input type="submit" value="登录">
 		</form> 
 	</fieldset>

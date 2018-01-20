@@ -79,8 +79,8 @@ public class CreateTemplate {
 				//如果没有单位,或者单位为像素
 				columnWith = Math.round(Float.parseFloat(value) * 37F);
 			}else if (StringUtils.equals("em", unit)) {
-				//如果单位为像素
-				columnWith = Math.round(Float.parseFloat(value) * 267.5F);
+				//如果单位为字
+				columnWith = Math.round(Float.parseFloat(value) * 255F);
 			}
 			//为每一个单元列设置宽度.
 			sheet.setColumnWidth(i, columnWith);
