@@ -2,14 +2,11 @@ package commons.io.outputDemo;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
-import java.io.IOException;
 import java.io.InputStream;
-import java.io.OutputStream;
 
 import org.apache.commons.io.input.TeeInputStream;
 import org.apache.commons.io.output.TeeOutputStream;
 
-import com.sun.org.apache.bcel.internal.generic.NEW;
 
 /**
  *	可以将输入流发送到2个不同的输出
