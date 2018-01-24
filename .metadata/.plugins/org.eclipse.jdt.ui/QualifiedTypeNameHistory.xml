@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="java.lang.Float"/>
-<fullyQualifiedTypeName name="javafx.scene.control.Cell"/>
-<fullyQualifiedTypeName name="org.apache.poi.ss.util.CellRangeAddress"/>
 <fullyQualifiedTypeName name="org.apache.poi.ss.usermodel.HorizontalAlignment"/>
 <fullyQualifiedTypeName name="org.apache.poi.hssf.usermodel.HSSFFont"/>
 <fullyQualifiedTypeName name="org.apache.poi.hssf.usermodel.HSSFRow"/>
@@ -45,10 +42,8 @@
 <fullyQualifiedTypeName name="java.util.Iterator"/>
 <fullyQualifiedTypeName name="java.lang.reflect.Field"/>
 <fullyQualifiedTypeName name="org.apache.poi.ddf.EscherSerializationListener"/>
-<fullyQualifiedTypeName name="java.util.Date"/>
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="java.io.File"/>
-<fullyQualifiedTypeName name="java.lang.Exception"/>
 <fullyQualifiedTypeName name="java.io.OutputStreamWriter"/>
 <fullyQualifiedTypeName name="java.io.FileOutputStream"/>
 <fullyQualifiedTypeName name="java.util.Map.Entry"/>
@@ -60,4 +55,9 @@
 <fullyQualifiedTypeName name="java.lang.Integer"/>
 <fullyQualifiedTypeName name="org.apache.commons.lang3.RandomStringUtils"/>
 <fullyQualifiedTypeName name="org.apache.commons.lang3.math.NumberUtils"/>
+<fullyQualifiedTypeName name="org.apache.commons.lang3.time.DateParser"/>
+<fullyQualifiedTypeName name="org.apache.commons.lang3.time.DateFormatUtils"/>
+<fullyQualifiedTypeName name="org.apache.commons.lang3.time.DateUtils"/>
+<fullyQualifiedTypeName name="java.lang.Exception"/>
+<fullyQualifiedTypeName name="java.util.Date"/>
 </qualifiedTypeNameHistroy>

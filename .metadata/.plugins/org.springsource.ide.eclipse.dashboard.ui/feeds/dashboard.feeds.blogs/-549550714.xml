@@ -5,7 +5,62 @@
   <link rel="self" href="https://spring.io/blog.atom" />
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
-  <updated>2018-01-19T06:04:54Z</updated>
+  <updated>2018-01-23T10:23:00Z</updated>
+  <entry>
+    <title>Spring Framework 5.0.3 and 4.3.14 available now</title>
+    <link rel="alternate" href="https://spring.io/blog/2018/01/23/spring-framework-5-0-3-and-4-3-14-available-now" />
+    <category term="releases" label="Releases" />
+    <author>
+      <name>Juergen Hoeller</name>
+    </author>
+    <id>tag:spring.io,2018-01-23:3142</id>
+    <updated>2018-01-23T10:23:00Z</updated>
+    <content type="html">&lt;p&gt;Dear Spring community,&lt;/p&gt;
+&lt;p&gt;I¡¯m pleased to announce that Spring Framework &lt;a href="https://jira.spring.io/browse/SPR/fixforversion/16496"&gt;5.0.3&lt;/a&gt; and &lt;a href="https://jira.spring.io/browse/SPR/fixforversion/16596"&gt;4.3.14&lt;/a&gt; are &lt;a href="https://projects.spring.io/spring-framework/"&gt;available now&lt;/a&gt;, as another pair of refinement releases which are recommended as immediate upgrades for all users. Our 5.0.3 release is the foundation for the upcoming Spring Boot 2.0 RC1 release next week, and 4.3.14 will be picked up by Boot 1.5.10 around the same time.&lt;/p&gt;
+&lt;p&gt;Spring Framework 5.0.3 comes with fresh support for Kotlin 1.2.20, Reactor Core 3.1.3 and JUnit 5.0.3 and has been successfully tested on the latest JDK 10 early-access builds already.&lt;br/&gt;It also includes fixes for a few recent regressions and selected refinements in the WebFlux APIs, just in time for moving 5.0.x into maintenance mode and preparing for the &lt;a href="https://jira.spring.io/browse/SPR/fixforversion/16630"&gt;5.1 line&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Both 5.0.3 and 4.3.14 ship with an embedded variant of the recent CGLIB 3.2.6 release. 4.3.14 also got upgraded to ASM 6.0, with full support for Java 9 constructs at the bytecode level. &lt;i&gt;Please note that we strongly recommend Spring Framework 5.x for new projects on JDK 9+; our 4.3.x support just provides a smooth upgrade path for existing applications.&lt;/i&gt;&lt;/p&gt;
+&lt;p&gt;Cheers,&lt;br/&gt;Juergen&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <title>This Week in Spring - January 23rd, 2018</title>
+    <link rel="alternate" href="https://spring.io/blog/2018/01/23/this-week-in-spring-january-23rd-2018" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Josh Long</name>
+    </author>
+    <id>tag:spring.io,2018-01-23:3143</id>
+    <updated>2018-01-23T08:23:00Z</updated>
+    <content type="html">&lt;p&gt;Hi Spring fans! Welcome to another installment of &lt;em&gt;This Week In Spring&lt;/em&gt;. This week I&amp;rsquo;m in Los Angeles (warm!) talking to customers and then it&amp;rsquo;s off to Chicago (not warm!). There&amp;rsquo;s so much good stuff to cover this week so let&amp;rsquo;s get to it! &lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;In PCF 2.0, the application runtime is now joined by an enterprise-grade Kubernetes service, called Pivotal Container Service, and a new Functions-as-a-Service offering, Pivotal Function Service. &lt;a href="https://content.pivotal.io/podcasts/pcf-2-0-brings-kubernetes-functions-to-the-pivotal-platform-ep-54?_lrsc=8640ca61-b02e-473e-8be9-a376c2d951ed"&gt;Pivotal&amp;rsquo;s Jared Ruckle joins Jeff and Dormain for a look at PCF 2.0 in this new podcast&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://github.com/spring-cloud/spring-cloud-sleuth#distributed-tracing-with-brave"&gt;Spring Cloud Sleuth now integrates with Brave&lt;/a&gt; and it&amp;rsquo;s an exciting time for distributed tracing.&lt;/li&gt;
+  &lt;li&gt;Spring Cloud Vault lead Mark Paluch &lt;a href="https://github.com/spring-projects/spring-vault/commit/28ff17d4f8cbd09114bb9f2a841ac51aa24402bc"&gt;has integrated Spring Security with Spring Cloud Vault&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;It&amp;rsquo;s been a busy wek for the Spring Cloud Sleuth team! This commit makes &lt;a href="https://github.com/spring-cloud/spring-cloud-sleuth/commit/22d91bac247e8273fa93ffe05f50179182425f72"&gt;Spring Cloud Sleuth OpenTracing-compatible&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Support for &lt;a href="https://github.com/micrometer-metrics/micrometer/pull/228"&gt;integrating Micrometer (think SLF4J, but for metrics) with Jersey 2 (a JAX-RS implementation) has just landed&lt;/a&gt;!&lt;/li&gt;
+  &lt;li&gt;The &lt;a href="https://github.com/awslabs/aws-serverless-java-container/releases/tag/aws-serverless-java-container-0.9"&gt;new release of AWS&amp;rsquo; Java container for serverless&lt;/a&gt; supports activation &lt;a href="https://github.com/awslabs/aws-serverless-java-container/issues/88"&gt;of Spring profiles&lt;/a&gt;. Anyway, this is cool. But use &lt;a href="https://github.com/spring-cloud/spring-cloud-function/tree/master/spring-cloud-function-adapters/spring-cloud-function-adapter-aws"&gt;Spring Cloud Function and the AWS adapter&lt;/a&gt;; it&amp;rsquo;s a cleaner integration.&lt;/li&gt;
+  &lt;li&gt;The Spring Boot support for VS Code &lt;a href="https://twitter.com/azurefriday/status/955593853888733184?ref_src=twcamp%5Eshare%7Ctwsrc%5Eios%7Ctwgr%5Ecom.blork.Pinner.AddBookmarkExtension"&gt;features in this week&amp;rsquo;s installment of &amp;ldquo;Azure Fridays&amp;rdquo;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;This is &lt;a href="http://techprehension.com/2018/01/21/10-must-read-books-for-every-micro-services-and-cloud-native-professional/"&gt;an interesting list of ten books people building microservices and cloud native applications should read&lt;/a&gt;. I&amp;rsquo;m pleased that the book, &lt;em&gt;Cloud Native Java&lt;/em&gt;, is in the list.&lt;/li&gt;
+  &lt;li&gt;Pawe? Urban has a nice post on how &lt;a href="https://medium.com/@urbanpawel/receive-spring-boot-exception-alerts-via-email-using-logstash-c29b83368275"&gt;to receive Spring Boot error alerts by email with Logstash&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Spring Boot lead Phillip Webb &lt;a href="https://twitter.com/springcentral/status/955516012383813632"&gt;tweeted on the exciting progress of Spring Boot 2.0 so far&lt;/a&gt;: there have been 17 weeks work, 6099 commits, and 1153 issues closed! WOW!&lt;/li&gt;
+  &lt;li&gt;This is a great look at &lt;a href="https://javax0.wordpress.com/2018/01/10/java-9-module-services/"&gt;Java&amp;rsquo;s service loader mechanism&lt;/a&gt;, and in particular it looks at how the service loader mechanism in Java 9 modules works. It also looks, incidentally, at how Spring itself does component scanning on the classpath.&lt;/li&gt;
+  &lt;li&gt;Spring Test lead and JUnit project lead Sam Brannen &lt;a href="http://junit.org/junit5/docs/snapshot/user-guide/#extensions-registration-programmatic"&gt;has just debuted support for programmatic extension registration via @RegisterExtension in the upcoming #JUnit 5.1 release&lt;/a&gt;! This bodes well for future integrations in Spring projects like Spring REST Docs. JUnit 5 is an exciting horizon for application developers. Learn more about it &lt;a href="https://www.youtube.com/watch?time_continue=1&amp;v=-mIrA5cVfZ4"&gt;by watching Sam&amp;rsquo;s JavaOne 2017 talk&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;This isn&amp;rsquo;t specifically to do with Spring, itself, &lt;a href="http://marxsoftware.blogspot.de/2018/01/schopenhauers-law-immutability.html?m=1"&gt;but it&amp;rsquo;s an interesting look at the differences between immutable and unmodifiable in the upcoming JDK 10&lt;/a&gt;. Check it out!&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://blog.takipi.com/pivotal-cloud-foundry-vs-kubernetes-choosing-the-right-cloud-native-application-deployment-platform/?_lrsc=a9da2d09-785e-40fd-bb30-d5762c6c5848"&gt;This is an oldie-but-a-goodie&lt;/a&gt;: it looks at when to choose Pivotal Cloud Foundry, Kubernetes, or both.&lt;/li&gt;
+  &lt;li&gt;Richard Seroter and Jeff Hammond&amp;rsquo;s SpringOne Platform 2017 talk &lt;a href="https://www.infoq.com/presentations/pcf-2-future"&gt;introducing Pivotal Cloud Foundry 2.0 is now up on InfoQ&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;The Spring Data team has contributed a &lt;a href="https://github.com/buschmais/jqa-spring-plugin/pull/15"&gt;lot of small improvements to the JQAssistant project plugin for Spring&lt;/a&gt;. &lt;a href="https://jqassistant.org/"&gt;JQAssistant&lt;/a&gt; supports scanning and validating Java-based projects. This new support looks very promising.&lt;/li&gt;
+  &lt;li&gt;What should &lt;a href="http://bit.ly/2mLVHtq"&gt;your monitoring architecture include&lt;/a&gt;? Cloud Foundry talks all about it in the 2018 Dzone Guide to #DevOps&lt;/li&gt;
+  &lt;li&gt;Hibernate ORM 5.3.0.Beta1 has been &lt;a href="http://in.relation.to/2018/01/18/hibernate-orm-530-beta1-release/"&gt;released with support for #JPA 2.2.&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Dr. Mark Pollack just &lt;a href="https://twitter.com/springcentral/status/954397044302426114"&gt;announced Spring Cloud Skipper 1.0 RC1&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;This Polish-language look at &lt;a href="https://codecouple.pl/2018/01/19/26-spring-boot-consumer-driven-contract/"&gt;Spring Cloud Contract looks very interesting&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://twitter.com/pivotal/status/953694959378448385"&gt;@pivotal tweeted&lt;/a&gt;: &amp;lsquo;Maybe we should regularly play a &amp;ldquo;Where in the world is @starbuxman?&amp;rdquo; game in 2018?&amp;rsquo; Indeed, 2018 is starting to move in gear and I&amp;rsquo;ll be bringing Spring wherever I can. &lt;a href="https://twitter.com/starbuxman/status/953577456492937216"&gt;Find me in these cities&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Spring Cloud ninja Ryan Baxter just announced &lt;a href="https://twitter.com/springcentral/status/953690920595070976"&gt;Spring Cloud Edgware Service Release 1 (SR1) has been released.&lt;/a&gt;. The new release is jam-packed with new released. Check &amp;rsquo;em out!&lt;/li&gt;
+  &lt;li&gt;This post - introducing Spring Boot - was voted one &lt;a href="https://www.ibm.com/developerworks/java/library/j-spring-boot-basics-perry/index.html"&gt;of IBM DeveloperWorks&amp;rsquo; top 2017 posts&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Spring Data lead &lt;a href="https://github.com/synyx/hades/commit/09d2f72"&gt;Oliver Gierke celebrates the tenth anniversary&lt;/a&gt; of the first commits that would eventually become Spring Data JPA. Happy birthday Spring Data JPA (then called &amp;ldquo;Hades&amp;rdquo;)!!&lt;/li&gt;
+  &lt;li&gt;Project Reactor lead Simon Basl¨¦ introduces better error handling, an upcoming feature of Reactor 3.2, &lt;a href="https://twitter.com/springcentral/status/953350596857229312"&gt;that&amp;rsquo;s now available in milestone releases&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Check out the new &lt;a href="https://twitter.com/springcentral/status/953348839125131264"&gt;Spring Session for Apache Geode and Pivotal Gemfire releases&lt;/a&gt;!&lt;/li&gt;
+  &lt;li&gt;Get trained on Cloud Foundry in this &lt;em&gt;free&lt;/em&gt; &lt;a href="https://www.edx.org/course/introduction-cloud-foundry-cloud-native-linuxfoundationx-lfs132x#!?_lrsc=3b7be921-f2cf-4716-9876-e5a96fdc824f&amp;utm_source=employee-social&amp;utm_medium=twitter&amp;utm_campaign=employee_advocacy"&gt;Cloud Foundry course offered by the Linux Foundation&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content>
+  </entry>
   <entry>
     <title>Spring Cloud Skipper 1.0 RC1 Released</title>
     <link rel="alternate" href="https://spring.io/blog/2018/01/19/spring-cloud-skipper-1-0-rc1-released" />
@@ -1441,102 +1496,5 @@ dependencies {&#xD;
     ...&#xD;
 }
 &lt;/code&gt;&lt;/pre&gt;</content>
-  </entry>
-  <entry>
-    <title>Spring Tools 4 - public beta released</title>
-    <link rel="alternate" href="https://spring.io/blog/2017/12/04/spring-tools-4-public-beta-released" />
-    <category term="releases" label="Releases" />
-    <author>
-      <name>Martin Lippert</name>
-    </author>
-    <id>tag:spring.io,2017-11-29:3114</id>
-    <updated>2017-12-04T15:28:57Z</updated>
-    <content type="html">&lt;p&gt;&lt;img src="https://github.com/spring-projects/sts4/wiki/images/springtools4-main.png" alt="spring tools 4" /&gt;&lt;/p&gt;
-&lt;p&gt;Beginning today, we enter a new chapter in the tooling landscape for Spring and the development of enterprise applications built on top of the de-facto standard, Spring Boot. By unveiling the public beta of the next generation of our Spring tooling, we allow developers around the globe to get a preview of what is coming next to improve their developer experience around Spring and Spring Boot.&lt;/p&gt;&lt;h2&gt;&lt;a href="#spring-aware" class="anchor" name="spring-aware"&gt;&lt;/a&gt;Spring Aware&lt;/h2&gt;
-&lt;p&gt;&lt;img src="https://github.com/spring-projects/sts4/wiki/images/screenshot-navigation.png" alt="smart code completion" /&gt;&lt;/p&gt;
-&lt;p&gt;The all-new Spring Tools 4 analyze your projects on the fly, understand the Spring constructs inside, and provide easy and super quick navigation to all your Spring elements. Finding a specific request mapping, an exact bean definition, or a newly created function was never as easy as with the new Spring Tools 4.&lt;/p&gt;&lt;h2&gt;&lt;a href="#information-from-live-running-apps" class="anchor" name="information-from-live-running-apps"&gt;&lt;/a&gt;Information from live-running apps&lt;/h2&gt;
-&lt;p&gt;&lt;img src="https://raw.githubusercontent.com/wiki/spring-projects/sts4/images/screenshot-live-hovers.png" alt="in-depth information from live-running applications" /&gt;&lt;/p&gt;
-&lt;p&gt;The all-new Spring Tools 4 introduce a new concept of overlaying your source code with detailed information from live-running Spring Boot apps. As soon as you run your boot app on your machine, additional information from this app with show up directly in your source code editor. That way, you can see (and directly jump to) available request mappings, for example. But the most powerful part here are the detailed wiring reports for your beans. You can see exactly which bean (from which source) got injected into your @Autowired-annotated dependency (for example), and where your bean got injected in your application. This provides a unique insight into the running application directly in your source code. You don¡¯t have to collect that data yourself and find the right lines of code manually. The tooling does that for you automatically.&lt;/p&gt;&lt;h2&gt;&lt;a href="#ide-agnostic" class="anchor" name="ide-agnostic"&gt;&lt;/a&gt;IDE agnostic&lt;/h2&gt;
-&lt;p&gt;We know that Spring developers love their IDEs and code editors. And we want them to continue to use the tools that they love. Therefore we implemented most parts of the Spring Tools 4 in an IDE-agnostic way. You can use them in:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Eclipse&lt;/strong&gt; (or download a ready-to-use distribution of Eclipse, as usual)&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Visual Studio Code&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Atom IDE&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;And that is just the beginning. We expect more environments to join this party in the future.&lt;/p&gt;&lt;h2&gt;&lt;a href="#re-built-from-scratch" class="anchor" name="re-built-from-scratch"&gt;&lt;/a&gt;Re-built from scratch&lt;/h2&gt;
-&lt;p&gt;To realize these all-new Spring Tools 4, we decided to re-write most of the Spring tooling from scratch - with these goals in mind from the beginning:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Let¡¯s be IDE agnostic&lt;/strong&gt; - let every developer continue to use the environments they love.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Build for performance right from the start&lt;/strong&gt; - we hate to wait for our IDE or editor to finish before we can continue coding. Therefore the Spring Tools 4 are designed to never block the user plus deliver results quickly.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Build for modern Spring technologies&lt;/strong&gt; - the tools focus on Spring Boot and annotation-driven Spring app development.&lt;/li&gt;
-&lt;/ul&gt;&lt;h2&gt;&lt;a href="#download" class="anchor" name="download"&gt;&lt;/a&gt;Download&lt;/h2&gt;
-&lt;p&gt;Get the public beta (and more details) from here: &lt;a href="https://spring.io/tools4"&gt;https://spring.io/tools4&lt;/a&gt;&lt;/p&gt;&lt;h2&gt;&lt;a href="#feedback" class="anchor" name="feedback"&gt;&lt;/a&gt;Feedback&lt;/h2&gt;
-&lt;p&gt;We love feedback. And we love to hear from you. Let us know what you think about the new tools, share your experiences with us, and let us know what you are missing. Feedback is always welcome.&lt;/p&gt;
-&lt;hr/&gt;&lt;h2&gt;&lt;a href="#faq" class="anchor" name="faq"&gt;&lt;/a&gt;FAQ&lt;/h2&gt;&lt;h3&gt;&lt;a href="#when-will-spring-tools-4-be-ga" class="anchor" name="when-will-spring-tools-4-be-ga"&gt;&lt;/a&gt;When will Spring Tools 4 be GA?&lt;/h3&gt;
-&lt;p&gt;You can go ahead and download the public beta version right now. We will publish updates to the public beta in relatively short cycles. The first official release will go GA in mid 2018.&lt;/p&gt;&lt;h3&gt;&lt;a href="#what-will-happen-to-the-old-sts-3-9-x-tooling" class="anchor" name="what-will-happen-to-the-old-sts-3-9-x-tooling"&gt;&lt;/a&gt;What will happen to the old STS 3.9.x tooling?&lt;/h3&gt;
-&lt;p&gt;We will continue to ship updates for STS 3.9.x as a full distribution until mid of 2018 and will update the distribution to the upcoming Eclipse Photon (4.8) release. In case you still need important parts of the old tooling in Eclipse that haven&amp;rsquo;t been supported in Spring Tools 4 for Eclipse, you will be able to install those parts as add-on features into the Spring Tools 4 Eclipse distribution and those parts will continue to receive maintenance updates for some time.&lt;/p&gt;&lt;h3&gt;&lt;a href="#is-this-compatible-with-boot-1-5-and-boot-2-0" class="anchor" name="is-this-compatible-with-boot-1-5-and-boot-2-0"&gt;&lt;/a&gt;Is this compatible with Boot 1.5 and Boot 2.0?&lt;/h3&gt;
-&lt;p&gt;Yes, the public beta is already compatible with Spring Boot 1.5.x and Spring Boot 2.0.&lt;/p&gt;&lt;h3&gt;&lt;a href="#does-spring-tools-4-include-java-language-support" class="anchor" name="does-spring-tools-4-include-java-language-support"&gt;&lt;/a&gt;Does Spring Tools 4 include Java language support?&lt;/h3&gt;
-&lt;p&gt;The Spring Tools 4 themselves do not include any specific support for programming in Java, like standard Java code completion, etc. However, we recommend to use existing Java language support for the various environments. The Eclipse-based distribution of the Spring Tools 4 (aka Spring Tool Suite 4) includes the Eclipse Java support. For Visual Studio Code, you should install the Java Extension Pack, which is a combination of the regular Java language tooling (provided from RedHat and Eclipse) and the launching and debugging support for Java for Visual Studio Code (from Microsoft). For Atom, there is also a Java extension around (that is based on the same code as the Java support for Visual Studio Code).&lt;/p&gt;&lt;h3&gt;&lt;a href="#does-spring-tools-4-support-jdk9" class="anchor" name="does-spring-tools-4-support-jdk9"&gt;&lt;/a&gt;Does Spring Tools 4 support JDK9?&lt;/h3&gt;
-&lt;p&gt;You can run the public beta on a JDK9 JVM and you can use the existing JDK9-ready Java language tooling in Eclipse, Visual Studio Code, and Atom. But the Spring Tools 4 themselves do not support projects that rely on the JDK9 language syntax yet. This will be worked on during the upcoming beta cycles.&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <title>Spring Batch 4.0.0.RELEASE is now available</title>
-    <link rel="alternate" href="https://spring.io/blog/2017/12/04/spring-batch-4-0-0-release-is-now-available" />
-    <category term="releases" label="Releases" />
-    <author>
-      <name>Michael Minella</name>
-    </author>
-    <id>tag:spring.io,2017-12-04:3123</id>
-    <updated>2017-12-04T14:59:03Z</updated>
-    <content type="html">&lt;p&gt;We are pleased to announce that Spring Batch 4.0.0.RELEASE is now available through Github, the Pivotal download repository, and Maven Central. This is the generally available release of the 4.0 line. Many thanks to all that contributed to this release.&lt;/p&gt;&lt;h2&gt;&lt;a href="#how-we-got-here" class="anchor" name="how-we-got-here"&gt;&lt;/a&gt;How We Got Here&lt;/h2&gt;
-&lt;p&gt;Spring Batch 4 is the first major version release of Spring Batch since 3.0 went out in 2014. A lot has changed in the Spring ecosystem since that version went out. This release is intended to bring Spring Batch up to date with those changes. When Spring Batch 3 came out, Java configuration was just beginning to take over XML-based configuration. Spring Boot had not been announced yet. Also, while JDK 8 had just come out, Spring Framework 4 (which Spring Batch 3 was based on) still supported java back to JDK 6. Spring Batch 4 brings upgrades to all of these areas. Let&amp;rsquo;s take a look.&lt;/p&gt;&lt;h2&gt;&lt;a href="#new-baseline" class="anchor" name="new-baseline"&gt;&lt;/a&gt;New Baseline&lt;/h2&gt;
-&lt;p&gt;Spring Batch 3 was based on Spring Framework 4, which supported an ecosystem of dependencies that went back to Java 6. Spring Batch 4 takes a fresh look at its dependency tree and brings it up to date with the upcoming Spring Boot 2 dependency tree, including Spring Framework 5 and Java 8 as baseline requirements. While Spring Batch has had a complete Java 8 story for years, this upgrade lets us improve and simplify things internally by allowing us to use Java 8 idioms internally.&lt;/p&gt;&lt;h2&gt;&lt;a href="#improved-java-configuration" class="anchor" name="improved-java-configuration"&gt;&lt;/a&gt;Improved Java Configuration&lt;/h2&gt;
-&lt;p&gt;As mentioned previously, Spring Batch 4 is the first major version release since Spring Boot came out. In this release, we have taken strides to improve the Java configuration experience in all the areas where users felt the most pain. Builders are now available for all &lt;code&gt;ItemReader&lt;/code&gt; and &lt;code&gt;ItemWriter&lt;/code&gt; implementations. An example of the simplification between Spring Batch 3 and 4 is configuring the &lt;code&gt;FlatFileItemReader&lt;/code&gt;. Using the Java configuration capabilities of Spring Batch 3, your configuration would look something like the following:&lt;/p&gt;
-&lt;pre&gt;&lt;code class="prettyprint"&gt;@Bean&#xD;
-public FlatFileItemReader&amp;lt;Foo&amp;gt; reader(Resource resource) &#xD;
-    throws Exception {&#xD;
-&#xD;
-        FlatFileItemReader&amp;lt;Foo&amp;gt; reader = new FlatFileItemReader&amp;lt;&amp;gt;();&#xD;
-&#xD;
-        reader.setName(¡°fooReader¡±);&#xD;
-        reader.setResource(resource);&#xD;
-&#xD;
-        BeanWrapperFieldSetMapper&amp;lt;Foo&amp;gt; fieldSetMapper = &#xD;
-            new BeanWrapperFieldSetMapper&amp;lt;&amp;gt;();&#xD;
-        fieldSetMapper.setTargetType(Foo.class);&#xD;
-        fieldSetMapper.afterPropertiesSet();&#xD;
-&#xD;
-        DelimitedLineTokenizer tokenizer = new DelimitedLineTokenizer();&#xD;
-        tokenizer.setNames(new String[] {¡°first¡±, ¡°second¡±, ¡°third¡±});&#xD;
-        tokenizer.afterPropertiesSet();&#xD;
-&#xD;
-        DefaultLineMapper lineMapper = new DefaultLineMapper();&#xD;
-        lineMapper.setLineTokenizer(tokenizer);&#xD;
-        lineMapper.setFieldSetMapper(fieldSetMapper);&#xD;
-&#xD;
-        reader.setLineMapper(lineMapper);&#xD;
-&#xD;
-        return reader;&#xD;
-    }
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;With Spring Batch 4, the previous configuration is reduced to the following:&lt;/p&gt;
-&lt;pre&gt;&lt;code class="prettyprint"&gt;@Bean&#xD;
-public FlatFileItemReader&amp;lt;Foo&amp;gt; reader(Resource resource) {&#xD;
-        return new FlatFileItemReaderBuilder&amp;lt;Foo&amp;gt;()&#xD;
-            .name(¡°fooReader¡±)&#xD;
-            .resource(resource)&#xD;
-            .delimited()&#xD;
-            .names(new String[]{¡°first¡±, ¡°second¡±, ¡°third¡±})&#xD;
-            .targetType(Foo.class)&#xD;
-            .build();&#xD;
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Fluent builders such as that shown in the preceding example are available for all &lt;code&gt;ItemReader&lt;/code&gt; and &lt;code&gt;ItemWriter&lt;/code&gt; implementations with this release.&lt;/p&gt;&lt;h2&gt;&lt;a href="#new-documentation" class="anchor" name="new-documentation"&gt;&lt;/a&gt;New Documentation&lt;/h2&gt;
-&lt;p&gt;Spring Batch&amp;rsquo;s documentation had not had a major overhaul in years. It is time. With this release the documentation has been migrated to Asciidoc to simplify creation of the documentation as well as to become consistent across the Spring portfolio. In addition to that, the reference documentation now has the option to view any example in either Java configuration or XML configuration by using a toggle at the top of each page.&lt;/p&gt;
-&lt;p&gt;&lt;img src="https://raw.githubusercontent.com/mminella/blog_images/master/documentation_toggle.png" alt="Java configuration toggle" /&gt;&lt;/p&gt;
-&lt;p&gt;This toggle gives you the option to have the documentation presented to you in the way you need. If you are on a project that is XML-based, the entire file shows what is appropriate for XML configuration. If you use Java configuration, the entire file shows what is appropriate for a project using Java configuration.&lt;/p&gt;&lt;h2&gt;&lt;a href="#wait-there-rsquo-s-more" class="anchor" name="wait-there-rsquo-s-more"&gt;&lt;/a&gt;Wait! There&amp;rsquo;s More!&lt;/h2&gt;
-&lt;p&gt;Beyond all of the above, Spring Batch 4 includes other improvements, including a new &lt;code&gt;ItemProcessor&lt;/code&gt; that delegates to a &lt;code&gt;java.util.Function&lt;/code&gt;, letting you create a processor with zero Spring dependencies. Enhancements provided by the community, such as the &lt;code&gt;Query&lt;/code&gt; support in the &lt;code&gt;MongoItemReader&lt;/code&gt; provided by Takaaki Iida, provide examples of this new feature.&lt;/p&gt;&lt;h2&gt;&lt;a href="#what-do-you-think" class="anchor" name="what-do-you-think"&gt;&lt;/a&gt;What do you think?&lt;/h2&gt;
-&lt;p&gt;We look forward to your feedback on these new features in &lt;a href="https://jira.spring.io/browse/BATCH/"&gt;Jira&lt;/a&gt;, &lt;a href="https://stackoverflow.com/tags/spring-batch"&gt;StackOverflow&lt;/a&gt;, or to me directly via Twitter &lt;a href="https://twitter.com/michaelminella"&gt;@michaelminella&lt;/a&gt; or in person at SpringOne Platform!&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://projects.spring.io/spring-batch/"&gt;Spring Batch Home&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-batch"&gt;Source on GitHub&lt;/a&gt; | &lt;a href="http://docs.spring.io/spring-batch/4.0.x/reference/html/index.html"&gt;Reference Documentation&lt;/a&gt;&lt;/p&gt;</content>
   </entry>
 </feed>
