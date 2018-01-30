@@ -18,6 +18,8 @@ public class Student {
 	/** 私有属性,学生生日 */
 	private Date birthday;
 	
+	public static String hashCode = "STUDENT";
+	
 	public Student() {
 		super();
 	}
@@ -29,6 +31,10 @@ public class Student {
 		this.birthday = birthday;
 	}
 	
+	/** 静态方法 */
+	public static void staticSay() {
+		System.out.println("我是学生!");
+	}
 	
 	/** 无参数的共有方法 */
 	public void sayName() {
