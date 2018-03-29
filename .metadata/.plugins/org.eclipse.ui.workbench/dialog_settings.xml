@@ -48,7 +48,7 @@
 		<item value="1|Microsoft YaHei UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Microsoft YaHei UI" key="DIALOG_FONT_NAME"/>
 		<item value="949" key="DIALOG_HEIGHT"/>
 		<item value="218" key="DIALOG_X_ORIGIN"/>
-		<item value="-8" key="DIALOG_Y_ORIGIN"/>
+		<item value="-168" key="DIALOG_Y_ORIGIN"/>
 	</section>
 	<section name="org.eclipse.ui.internal.dialogs.WorkbenchEditorsDialog">
 		<item value="0" key="sort"/>
