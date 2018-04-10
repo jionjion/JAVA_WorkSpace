@@ -19,7 +19,7 @@
 	<classpathentry kind="lib" path="src/commons/email/commons-email-1.5-sources.jar"/>
 	<classpathentry kind="lib" path="src/commons/email/commons-email-1.5.jar" sourcepath="R:/TEMP/.org.sf.feeling.decompiler1523186729925/source/commons-email-1.5-sources.jar"/>
 	<classpathentry kind="lib" path="src/commons/log4j2/log4j-api-2.11.0.jar" sourcepath="R:/TEMP/.org.sf.feeling.decompiler1523273802411/source/log4j-api-2.11.0-sources.jar"/>
-	<classpathentry kind="lib" path="src/commons/log4j2/log4j-core-2.11.0.jar"/>
+	<classpathentry kind="lib" path="src/commons/log4j2/log4j-core-2.11.0.jar" sourcepath="R:/TEMP/.org.sf.feeling.decompiler1523359457283/source/log4j-core-2.11.0-sources.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="src/commons/io/commons-io-2.5.jar" sourcepath="C:/Users/14345/AppData/Local/Temp/.org.sf.feeling.decompiler1510984609521/source/commons-io-2.5-sources.jar"/>
 	<classpathentry kind="lib" path="src/commons/collections/commons-collections4-4.1.jar"/>

@@ -50,9 +50,6 @@
 <fullyQualifiedTypeName name="org.apache.commons.lang3.ArrayUtils"/>
 <fullyQualifiedTypeName name="org.apache.commons.mail.SimpleEmail"/>
 <fullyQualifiedTypeName name="java.security.Principal"/>
-<fullyQualifiedTypeName name="java.io.File"/>
-<fullyQualifiedTypeName name="java.lang.System"/>
-<fullyQualifiedTypeName name="java.lang.String"/>
 <fullyQualifiedTypeName name="java.net.URL"/>
 <fullyQualifiedTypeName name="org.junit.Test"/>
 <fullyQualifiedTypeName name="org.apache.commons.logging.LogFactory"/>
@@ -60,4 +57,7 @@
 <fullyQualifiedTypeName name="java.util.logging.LogManager"/>
 <fullyQualifiedTypeName name="org.apache.logging.log4j.Logger"/>
 <fullyQualifiedTypeName name="org.apache.logging.log4j.LogManager"/>
+<fullyQualifiedTypeName name="java.io.File"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="java.lang.String"/>
 </qualifiedTypeNameHistroy>
