@@ -1,6 +1,21 @@
 autoProposeCode=\ .abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVW\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#
+commentBorder=\#C7DD0C | null | null | false | null | null
+commentText=\#C7DD0C | null | null | false | null | null
+declBoder=\#FFFFFF | null | null | null | null | null
+doctypeExternalId=\#FFFFFF | null | null | null | null | null
+doctypeExternalPubref=\#FFFFFF | null | null | null | null | null
+doctypeExtrenalSysref=\#FFFFFF | null | null | null | null | null
+doctypeName=\#FFFFFF | null | null | null | null | null
 eclipse.preferences.version=1
+entityReference=\#8DCBE2 | null | null | null | null | null
 html_content_assist_default_page_sort_order=com.genuitec.eclipse.modernweb.angular2.ui.proposalCategory.htmlTags\u0000org.eclipse.wst.html.ui.proposalCategory.htmlTags\u0000org.eclipse.wst.css.ui.proposalCategory.css\u0000org.eclipse.wst.html.ui.proposalCategory.htmlTemplates\u0000org.eclipse.wst.css.ui.proposalCategory.cssTemplates\u0000org.eclipse.wst.jsdt.web.ui.ContentAssistProposals\u0000
 html_content_assist_own_page_sort_order=org.eclipse.wst.html.ui.proposalCategory.htmlTemplates\u0000org.eclipse.wst.css.ui.proposalCategory.cssTemplates\u0000org.eclipse.wst.html.ui.proposalCategory.htmlTags\u0000org.eclipse.wst.css.ui.proposalCategory.css\u0000
 newFileTemplateName=bootstrap
 org.eclipse.wst.sse.ui.custom_templates=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><templates><template autoinsert\="true" context\="html_new" deleted\="false" description\="\u654F\u6377\u53D1\u5F00\u4F7F\u7528" enabled\="true" name\="bootstrap">&lt;\!DOCTYPE html&gt;&\#13;\r\n&lt;html&gt;&\#13;\r\n&lt;head&gt;&\#13;\r\n&lt;meta charset\="UTF-8"&gt;&\#13;\r\n&lt;meta name\="viewport" content\="width\=device-width, initial-scale\=1, shrink-to-fit\=no"&gt;&\#13;\r\n&lt;title&gt;\u9875\u9762\u6807\u9898&lt;/title&gt;&\#13;\r\n&lt;link rel\="stylesheet" href\="https\://cdn.bootcss.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity\="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin\="anonymous"&gt;&\#13;\r\n&lt;script src\="https\://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" integrity\="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin\="anonymous"&gt;&lt;/script&gt;&\#13;\r\n&lt;script src\="https\://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js" integrity\="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin\="anonymous"&gt;&lt;/script&gt;&\#13;\r\n&lt;script src\="https\://cdn.bootcss.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity\="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin\="anonymous"&gt;&lt;/script&gt;&\#13;\r\n&lt;/head&gt;&\#13;\r\n&lt;body&gt;&\#13;\r\n\t&lt;h1 class\="text-center my-2"&gt;\u9875\u9762\u6807\u9898&lt;/h1&gt;&\#13;\r\n&lt;/body&gt;&\#13;\r\n&lt;/html&gt;</template></templates>
+overriddenByCSS=,commentBorder,commentText,declBoder,doctypeExternalId,doctypeExternalPubref,doctypeExtrenalSysref,doctypeName,entityReference,tagAttributeEquals,tagAttributeName,tagAttributeValue,tagBorder,tagName,xmlContent,
+tagAttributeEquals=\#D8D8D8 | null | null | null | null | null
+tagAttributeName=\#BED6FF | null | null | null | null | null
+tagAttributeValue=\#FFC600 | null | null | null | null | null
+tagBorder=\#79ABFF | null | null | null | null | null
+tagName=\#BED6FF | null | null | null | null | null
+xmlContent=\#D8D8D8 | null | null | null | null | null
