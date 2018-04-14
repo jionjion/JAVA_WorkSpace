@@ -175,7 +175,7 @@
 		<item value="1|Microsoft YaHei UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Microsoft YaHei UI" key="DIALOG_FONT_NAME"/>
 		<item value="889" key="DIALOG_HEIGHT"/>
 		<item value="9" key="DIALOG_X_ORIGIN"/>
-		<item value="200" key="DIALOG_Y_ORIGIN"/>
+		<item value="191" key="DIALOG_Y_ORIGIN"/>
 	</section>
 	<section name="DialogBounds_GenerateToStringDialog">
 		<item value="603" key="DIALOG_WIDTH"/>

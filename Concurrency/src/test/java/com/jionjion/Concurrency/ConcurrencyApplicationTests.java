@@ -1,4 +1,4 @@
-package com.jionjion.Concurrency;
+package com.jionjion.concurrency;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

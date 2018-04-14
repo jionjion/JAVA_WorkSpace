@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="RefactoringWizard.preview">
-		<item value="580" key="width"/>
+		<item value="589" key="width"/>
 		<item value="380" key="height"/>
 	</section>
 	<section name="org.eclipse.ltk.ui.refactoring.settings">
