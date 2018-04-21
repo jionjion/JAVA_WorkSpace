@@ -5,7 +5,422 @@
   <link rel="self" href="https://spring.io/blog.atom" />
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
-  <updated>2018-04-18T12:53:04Z</updated>
+  <updated>2018-04-20T17:55:00Z</updated>
+  <entry>
+    <title>Spring Cloud Data Flow 1.5 M1 released</title>
+    <link rel="alternate" href="https://spring.io/blog/2018/04/20/spring-cloud-data-flow-1-5-m1-released" />
+    <category term="releases" label="Releases" />
+    <author>
+      <name>Mark Pollack</name>
+    </author>
+    <id>tag:spring.io,2018-04-20:3256</id>
+    <updated>2018-04-20T17:55:00Z</updated>
+    <content type="html">&lt;div class="paragraph"&gt;
+&lt;p&gt;The &lt;a href="https://cloud.spring.io/spring-cloud-dataflow/"&gt;Spring Cloud Data Flow&lt;/a&gt; team is pleased to announce the release of &lt;code&gt;1.5.0 M1&lt;/code&gt;. Follow the &lt;em&gt;Getting Started&lt;/em&gt; guides for &lt;a href="https://docs.spring.io/spring-cloud-dataflow/docs/1.5.0.M1/reference/htmlsingle/#getting-started"&gt;Local Server&lt;/a&gt;, &lt;a href="https://docs.spring.io/spring-cloud-dataflow-server-cloudfoundry/docs/1.5.0.M1/reference/htmlsingle/#getting-started"&gt;Cloud Foundry&lt;/a&gt;, and &lt;a href="https://docs.spring.io/spring-cloud-dataflow-server-kubernetes/docs/1.5.0.M1/reference/htmlsingle/#kubernetes-getting-started"&gt;Kubernetes&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Here are the highlights:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="ulist"&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;UI Improvements&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Spring Boot &amp;amp; Spring Cloud Stream 2.0 Support&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Nested splits for Composed Tasks&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Metrics Collector 2.0 M1&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Stream Application Starters Darwin M1 release train&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Support for deploying to multiple Kubernetes clusters&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;
+&lt;h2 id="ui-improvements"&gt;&lt;a class="anchor" href="#ui-improvements"&gt;&lt;/a&gt;UI Improvements&lt;/h2&gt;
+&lt;div class="sectionbody"&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;We have continued to improve the UI/UX of the Dashboard. You will immediately notice an overall lighter weight design. The Tasks tab has been rewritten to match the UX styling of the other tabs. The stream-builder view includes many optimizations ranging from better form validation and eager error reporting. Try it out!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;There has also been a significant amount of refactoring to optimize the codebase and prepare for future extensions and feature additions.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;
+&lt;h2 id="spring-boot-spring-cloud-stream-2-0-support"&gt;&lt;a class="anchor" href="#spring-boot-spring-cloud-stream-2-0-support"&gt;&lt;/a&gt;Spring Boot &amp;amp; Spring Cloud Stream 2.0 Support&lt;/h2&gt;
+&lt;div class="sectionbody"&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;We now support deploying Spring Boot and Spring Cloud Stream 2.0 based applications.  A small &lt;a href="https://github.com/spring-cloud-stream-app-starters/core/blob/master/common/app-starters-micrometer-common/src/main/java/org/springframework/cloud/stream/app/micrometer/common/SpringCloudStreamMicrometerCommonTags.java"&gt;utility class&lt;/a&gt; in the Spring Cloud Stream Application Starters library adds Micrometer metric tags to help identify the streams and applications in the desired monitoring backend.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;
+&lt;h2 id="composed-tasks-and-nested-splits"&gt;&lt;a class="anchor" href="#composed-tasks-and-nested-splits"&gt;&lt;/a&gt;Composed Tasks and nested splits&lt;/h2&gt;
+&lt;div class="sectionbody"&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Due to popular demand, this release added DSL support to interpret ¡°nested splits¡± in composed tasks. The Flo Dashboard and Shell tooling automatically adapt to nested splits.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Here is how it looks in the Flo Dashboard for the DSL expression:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre&gt;&amp;lt;&amp;lt;extractFromFTP &amp;amp;&amp;amp; cleanseFiles || extractFromS3 &amp;amp;&amp;amp; splitTransform&amp;gt; &amp;amp;&amp;amp; merge || extractfromOracle&amp;gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="imageblock"&gt;
+&lt;div class="content"&gt;
+&lt;img src="https://raw.githubusercontent.com/spring-cloud/spring-cloud-dataflow/gh-pages/img/nested-splits-1-5-0-M1.png" alt="Nested Splits"&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;To use this feature, you¡¯d have to register the &lt;code&gt;1.1.1.BUILD-SNAPSHOT&lt;/code&gt; version of the Composed Task Runner in SCDF.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;For Maven users&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre&gt;maven://org.springframework.cloud.task.app:composedtaskrunner-task:1.1.1.BUILD-SNAPSHOT&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;and for Docker users&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre&gt;docker:springcloudtask/composedtaskrunner-task:latest&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;
+&lt;h2 id="metrics-collector-2-0-m1"&gt;&lt;a class="anchor" href="#metrics-collector-2-0-m1"&gt;&lt;/a&gt;Metrics Collector 2.0 M1&lt;/h2&gt;
+&lt;div class="sectionbody"&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;The 2.0 M1 release of &lt;a href="https://github.com/spring-cloud/spring-cloud-dataflow-metrics-collector"&gt;Metrics Collector&lt;/a&gt; is based on Spring Boot 2.0 and Spring Cloud Stream 2.0.  The Metrics Collector server supports collecting metrics from streams that contain only Boot 1.x or 2.x apps as well as streams that contain a &lt;a href="https://docs.spring.io/spring-cloud-dataflow/docs/1.5.0.M1/reference/htmlsingle/#configuration-monitoring-deployed-applications"&gt;mixture of Boot versions&lt;/a&gt;.  A consistent representation of the throughput rates will be captured and propagated over to SCDF¡¯s Dashboard. A sample demonstrating comprehensive metrics support with the help of Micrometer and a few of the supported backends are in the works - stay tuned!&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;
+&lt;h2 id="stream-application-starters-darwin"&gt;&lt;a class="anchor" href="#stream-application-starters-darwin"&gt;&lt;/a&gt;Stream Application Starters Darwin&lt;/h2&gt;
+&lt;div class="sectionbody"&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;The release train &lt;a href="http://docs.spring.io/spring-cloud-stream-app-starters/docs/Darwin.M1/reference/htmlsingle"&gt;Darwin&lt;/a&gt; updates the &lt;a href="https://cloud.spring.io/spring-cloud-stream-app-starters/"&gt;application starters&lt;/a&gt; to be based on Spring Boot &amp;amp;  Spring Cloud Stream 2.0. A &lt;a href="https://docs.spring.io/spring-cloud-stream-app-starters/docs/Darwin.M1/reference/htmlsingle/#spring-cloud-stream-modules-grpc-processor"&gt;gRPC processor&lt;/a&gt; has been added. Import URL can be found &lt;a href="http://cloud.spring.io/spring-cloud-stream-app-starters/#stream-app-starters-and-spring-cloud-data-flow-"&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;
+&lt;h2 id="support-for-deploying-to-multiple-kubernetes-clusters"&gt;&lt;a class="anchor" href="#support-for-deploying-to-multiple-kubernetes-clusters"&gt;&lt;/a&gt;Support for deploying to multiple Kubernetes clusters&lt;/h2&gt;
+&lt;div class="sectionbody"&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;While using Skipper with Data Flow, it is already possible to target application deployment to multiple platform backends. However, we did not support targeting multiple Kubernetes platforms. Now you can. :)&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;
+&lt;h2 id="other-bits-and-bobs"&gt;&lt;a class="anchor" href="#other-bits-and-bobs"&gt;&lt;/a&gt;Other bits and bobs&lt;/h2&gt;
+&lt;div class="sectionbody"&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;A growing number of new issues dealt with the ability to individually and globally override &lt;code&gt;JAVA_OPTS&lt;/code&gt; for applications running on Cloud Foundry.  We added a deployer property, e.g. &lt;code&gt;deployer.yourapp.cloudfoundry.javaOpts&lt;/code&gt; to support setting this specific environment variable.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;The Kubernetes server now supports using a &lt;a href="https://docs.spring.io/spring-cloud-dataflow-server-kubernetes/docs/1.5.0.M1/reference/htmlsingle/#_private_docker_registry"&gt;private Docker registry&lt;/a&gt; on a per-application basis.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;
+&lt;h2 id="stay-in-touch"&gt;&lt;a class="anchor" href="#stay-in-touch"&gt;&lt;/a&gt;Stay in touch&amp;#8230;&amp;#8203;&lt;/h2&gt;
+&lt;div class="sectionbody"&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;As always, we welcome feedback and contributions, so please reach out to us on &lt;a href="https://stackoverflow.com/questions/tagged/spring-cloud-dataflow"&gt;Stackoverflow&lt;/a&gt; or &lt;a href="https://github.com/spring-cloud/spring-cloud-dataflow/issues"&gt;GitHub&lt;/a&gt; or via &lt;a href="https://gitter.im/spring-cloud/spring-cloud-dataflow"&gt;Gitter&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Please try it out, share your feedback, and consider contributing to the project!&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;</content>
+  </entry>
+  <entry>
+    <title>Kafka Streams and Spring Cloud Stream</title>
+    <link rel="alternate" href="https://spring.io/blog/2018/04/19/kafka-streams-and-spring-cloud-stream" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Soby Chacko</name>
+    </author>
+    <id>tag:spring.io,2018-04-12:3249</id>
+    <updated>2018-04-19T17:54:00Z</updated>
+    <content type="html">&lt;div class="paragraph"&gt;
+&lt;p&gt;On the heels of the recently announced Spring Cloud Stream &lt;a href="https://spring.io/blog/2018/04/10/announcing-general-availability-of-spring-cloud-stream-elmhurst-release-2-0-0-release"&gt;Elmhurst.RELEASE&lt;/a&gt;, we are pleased to present another blog installment dedicated to Spring Cloud Stream&amp;#8217;s native integration with the Apache Kafka Streams library. Let¡¯s review the new improvements.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="sect2"&gt;
+&lt;h3 id="messagechannel-binders"&gt;&lt;a class="anchor" href="#messagechannel-binders"&gt;&lt;/a&gt;MessageChannel Binders&lt;/h3&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Spring Cloud Stream framework enables application developers to write event-driven applications that use the strong foundations of Spring Boot and Spring Integration.
+The underpinning of all these is the binder implementation, which is responsible for communication between the application and the message broker. These binders are &lt;code&gt;MessageChannel&lt;/code&gt;-based implementations.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect2"&gt;
+&lt;h3 id="enter-kafka-streams-binder"&gt;&lt;a class="anchor" href="#enter-kafka-streams-binder"&gt;&lt;/a&gt;Enter Kafka Streams Binder&lt;/h3&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;While the contracts established by Spring Cloud Stream are maintained from a programming model perspective, Kafka Streams binder does not use &lt;code&gt;MessageChannel&lt;/code&gt; as the target type. The binder implementation natively interacts with Kafka Streams ¡°types¡± - &lt;code&gt;KStream&lt;/code&gt; or &lt;code&gt;KTable&lt;/code&gt;. Applications can directly use the Kafka Streams primitives and leverage Spring Cloud Stream and the Spring ecosystem without any compromise.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;: The Kafka Streams binder is not a replacement for using the library itself.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect2"&gt;
+&lt;h3 id="getting-started"&gt;&lt;a class="anchor" href="#getting-started"&gt;&lt;/a&gt;Getting Started&lt;/h3&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;A quick way to generate a project with the necessary components for a Spring Cloud Stream Kafka Streams application is through the Spring Initializr - see below.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="imageblock"&gt;
+&lt;div class="content"&gt;
+&lt;img src="https://raw.githubusercontent.com/spring-cloud/spring-cloud-stream-binder-kafka/master/spring-cloud-stream-binder-kafka-docs/src/main/asciidoc/images/kafka-streams-initializr.png" alt="kafka streams initializr"&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect2"&gt;
+&lt;h3 id="simple-example"&gt;&lt;a class="anchor" href="#simple-example"&gt;&lt;/a&gt;Simple Example&lt;/h3&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Here is a simple word-count application written in Spring Cloud Stream and Kafka Streams.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-java" data-lang="java"&gt;@EnableBinding(KafkaStreamsProcessor.class)
+public static class WordCountProcessorApplication {
+
+  @StreamListener("input")
+  @SendTo("output")
+  public KStream&amp;lt;?, WordCount&amp;gt; process(KStream&amp;lt;Object, String&amp;gt; input) {
+
+     return input
+           .flatMapValues(
+              value -&amp;gt; Arrays.asList(value.toLowerCase().split("\\W+")))
+           .map((key, value) -&amp;gt; new KeyValue&amp;lt;&amp;gt;(value, value))
+           .groupByKey()
+           .windowedBy(TimeWindows.of(5000)
+                   .count(Materialized.as("wordcounts"))
+           .toStream()
+           .map((key, value) -&amp;gt;
+             new KeyValue&amp;lt;&amp;gt;(null, new WordCount(key.key(), value));
+  }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="ulist"&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;@EnableBinding&lt;/code&gt; annotation with &lt;code&gt;KafkaStreamsProcessor&lt;/code&gt; convey the framework to perform binding on Kafka Streams targets. You can have your own interfaces with multiple ¡°input¡± and ¡°output¡± bindings, too.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;@StreamListener&lt;/code&gt; instructs the framework to allow the application to consume events as &lt;code&gt;KStream&lt;/code&gt; from a topic that is bound on the "input" target.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;process()&lt;/code&gt; - a handler that receives events from the &lt;code&gt;KStream&lt;/code&gt; containing textual data. The business logic counts the number of each word and stores the total count over a time-window (5 seconds in this case) in a state store. The resulting &lt;code&gt;KStream&lt;/code&gt; contains the word and its corresponding count in that time window.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Here is a complete &lt;a href="https://github.com/spring-cloud/spring-cloud-stream-samples/tree/master/kafka-streams-samples/kafka-streams-word-count"&gt;version&lt;/a&gt; of this example.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;&lt;a href="https://spring.io/team/jlong"&gt;Josh Long&lt;/a&gt; (&lt;a href="https://twitter.com/starbuxman?lang=en"&gt;@starbuxman&lt;/a&gt;) has put together a screencast that goes into much detail about the various features of the Kafka Streams binding support.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="videoblock"&gt;
+&lt;div class="content"&gt;
+&lt;iframe width="640" height="300" src="https://www.youtube.com/embed/YPDzcmqwCNo?rel=0" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect2"&gt;
+&lt;h3 id="benefits"&gt;&lt;a class="anchor" href="#benefits"&gt;&lt;/a&gt;Benefits&lt;/h3&gt;
+&lt;div class="ulist"&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Developers familiar with Spring Cloud Stream (eg: &lt;code&gt;@EnableBinding&lt;/code&gt; and &lt;code&gt;@StreamListener&lt;/code&gt;), can extend it to building stateful applications by using the Kafka Streams API.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Developers can leverage the framework¡¯s content-type conversion for inbound and outbound conversion or switch to the native SerDe¡¯s provided by Kafka.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Port existing Kafka Streams workloads into a standalone cloud-native application and be able to orchestrate them as coherent data pipelines using Spring Cloud Data Flow.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;An application runs as-is - no lock-in with any cloud platform vendor.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect2"&gt;
+&lt;h3 id="features"&gt;&lt;a class="anchor" href="#features"&gt;&lt;/a&gt;Features&lt;/h3&gt;
+&lt;div class="ulist"&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Interoperability between Kafka Streams and Kafka binder¡¯s &lt;code&gt;MessageChannel&lt;/code&gt; bindings&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Multiple Kafka Streams types (such as &lt;code&gt;KStream&lt;/code&gt; and &lt;code&gt;KTable&lt;/code&gt;) as Handler arguments&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Content-type conversion for inbound and outbound streams&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Property toggles to switch between framework vs. native Kafka SerDe¡¯s for inbound and outbound message conversion&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Error handling support&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Dead Letter Queue (DLQ) support for records in deserialization error&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Branching support&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Interactive-query support&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect2"&gt;
+&lt;h3 id="multiple-output-bindings-aka-branching"&gt;&lt;a class="anchor" href="#multiple-output-bindings-aka-branching"&gt;&lt;/a&gt;Multiple Output Bindings (aka Branching)&lt;/h3&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Kafka Streams binder lets you send to multiple output topics (Branching API in Kafka Streams).&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Here is the outline for such a method.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-java" data-lang="java"&gt;@StreamListener("input")
+@SendTo({"output1","output2","output3"})
+public KStream&amp;lt;String, String&amp;gt;[] process(KStream&amp;lt;Object, String&amp;gt; input) {
+...
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Notice that the return type on the method is &lt;code&gt;KStream[]&lt;/code&gt;. See this &lt;a href="https://github.com/spring-cloud/spring-cloud-stream-samples/tree/master/kafka-streams-samples/kafka-streams-branching"&gt;example&lt;/a&gt;  for more details on how this works.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect2"&gt;
+&lt;h3 id="multiple-input-bindings"&gt;&lt;a class="anchor" href="#multiple-input-bindings"&gt;&lt;/a&gt;Multiple Input Bindings&lt;/h3&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;The Kafka Streams binder also let you bind to multiple inputs of &lt;code&gt;KStream&lt;/code&gt; and &lt;code&gt;KTable&lt;/code&gt; target types, as the following example shows:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-java" data-lang="java"&gt;  @StreamListener
+  public void process(@Input("input") KStream&amp;lt;String, PlayEvent&amp;gt; playEvents,
+                         @Input("inputX") KTable&amp;lt;Long, Song&amp;gt; songTable) {
+...
+   }&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Notice the use of multiple inputs on the method argument list. Here you can see two &lt;code&gt;@Input&lt;/code&gt; annotations - one for &lt;code&gt;KStream&lt;/code&gt; and another for &lt;code&gt;KTable&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Here is a working version of this &lt;a href="https://github.com/spring-cloud/spring-cloud-stream-samples/tree/master/kafka-streams-samples/kafka-streams-table-join"&gt;example&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect2"&gt;
+&lt;h3 id="framework-content-type-vs-native-kafka-serde"&gt;&lt;a class="anchor" href="#framework-content-type-vs-native-kafka-serde"&gt;&lt;/a&gt;Framework Content-type vs. Native Kafka SerDe&lt;/h3&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Similar to &lt;code&gt;MessageChannel&lt;/code&gt; based binder implementations, Kafka Streams binder also supports content-type conversion on the incoming and outgoing streams. Any other type of data serialization is entirely handled by Kafka Streams itself. The framework-provided content-type conversion on the edges can be disabled. Instead, you can delegate the responsibilities entirely to Kafka, using the SerDe facilities provided by Kafka Streams.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;When relying on the Kafka Streams binder for the content-type conversion, it is applied only for ¡°value¡± (that is, the payload) in the message. The ¡°keys¡± are always converted by Kafka SerDe¡¯s.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Please refer to the &lt;a href="https://docs.spring.io/spring-cloud-stream/docs/Elmhurst.RELEASE/reference/htmlsingle/#_message_conversion"&gt;documentation&lt;/a&gt; for detailed information about how content-type negotiation and serialization is addressed in the Kafka Streams binder.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect2"&gt;
+&lt;h3 id="error-handling"&gt;&lt;a class="anchor" href="#error-handling"&gt;&lt;/a&gt;Error Handling&lt;/h3&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Kafka Streams library has built-in support for handling deserialization exceptions &lt;a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-161%3A+streams+deserialization+exception+handlers"&gt;(KIP-161)&lt;/a&gt;. In addition to native deserialization error-handling support, the Kafka Streams binder also provides support to route errored payloads to a DLQ. See this &lt;a href="https://docs.spring.io/spring-cloud-stream/docs/Elmhurst.RELEASE/reference/htmlsingle/#_error_handling"&gt;documentation&lt;/a&gt; section for details.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Here is a &lt;a href="https://github.com/spring-cloud/spring-cloud-stream-samples/tree/master/kafka-streams-samples/kafka-streams-dlq-sample"&gt;sample&lt;/a&gt; that demonstrates DLQ facilities in the Kafka Streams binder.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect2"&gt;
+&lt;h3 id="interactive-query"&gt;&lt;a class="anchor" href="#interactive-query"&gt;&lt;/a&gt;Interactive Query&lt;/h3&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Kafka Streams lets you query state stores interactively from the applications, which can be used to gain insights into ongoing streaming data. The Kafka Streams binder API exposes a class called &lt;code&gt;QueryableStoreRegistry&lt;/code&gt;. You can access this as a Spring bean in your application by injecting this bean (possibly by autowiring), as the following example shows:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-java" data-lang="java"&gt;@Autowired
+QueryableStoreRegistry queryableStoreRegistry;
+
+ReadOnlyKeyValueStore&amp;lt;Object, Object&amp;gt; keyValueStore =
+	queryableStoreRegistry.getQueryableStoreType("my-store",
+                         QueryableStoreTypes.keyValueStore());&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Here are &lt;a href="https://github.com/spring-cloud/spring-cloud-stream-samples/tree/master/kafka-streams-samples/kafka-streams-interactive-query-basic"&gt;basic&lt;/a&gt; and an &lt;a href="https://github.com/spring-cloud/spring-cloud-stream-samples/tree/master/kafka-streams-samples/kafka-streams-interactive-query-advanced"&gt;advanced&lt;/a&gt; examples demonstrating the interactive query capabilities through the binder.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect2"&gt;
+&lt;h3 id="mixing-kafka-streams-and-messagechannel-based-binders"&gt;&lt;a class="anchor" href="#mixing-kafka-streams-and-messagechannel-based-binders"&gt;&lt;/a&gt;Mixing Kafka Streams and MessageChannel based binders&lt;/h3&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;If the application use case requires the usage of both the &lt;code&gt;MessageChannel&lt;/code&gt;-based Kafka binder and the Kafka Streams binder, both of them can be used in the same application. In that case, you can have multiple &lt;code&gt;StreamListener&lt;/code&gt; methods or a combination of source and sink/processor type methods. The following example of an application shows how multiple &lt;code&gt;StreamListener&lt;/code&gt; methods can be used to target various types of bindings:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-java" data-lang="java"&gt;@StreamListener("binding2")
+@SendTo("output")
+public KStream&amp;lt;?, WordCount&amp;gt; process(KStream&amp;lt;Object, String&amp;gt; input) {
+}
+
+@StreamListener("binding1")
+public void sink(String input) {
+
+}
+
+interface MultipleProcessor {
+
+	String BINDING_1 = "binding1";
+	String BINDING_2 = "binding2";
+	String OUTPUT = "output";
+
+	@Input(BINDING_1)
+	SubscribableChannel binding1();
+
+	@Input(BINDING_2)
+	KStream&amp;lt;?, ?&amp;gt; binding2();
+
+	@Output(OUTPUT)
+	KStream&amp;lt;?, ?&amp;gt; output();
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;In this example, the first method is a Kafka Streams processor and the second method is a regular &lt;code&gt;MessageChannel&lt;/code&gt;-based consumer.  Although you can have multiple methods with differing target types (&lt;code&gt;MessageChannel&lt;/code&gt; vs Kafka Stream type), it is not possible to mix the two within a single method.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect2"&gt;
+&lt;h3 id="conclusion"&gt;&lt;a class="anchor" href="#conclusion"&gt;&lt;/a&gt;Conclusion&lt;/h3&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;In this article, we saw the higher level constructs and usage samples exposed through the Spring Cloud Stream Kafka Streams binder. In addition to allowing the use of Spring Cloud Stream¡¯s  &lt;code&gt;MessageChannel&lt;/code&gt; based binders, this binder implementation lets us develop, test, and produce stateful applications consistently.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Check out the &lt;a href="http://cloud.spring.io/spring-cloud-stream/"&gt;project&lt;/a&gt; page and the &lt;a href="https://docs.spring.io/spring-cloud-stream/docs/Elmhurst.RELEASE/reference/htmlsingle/"&gt;documentation&lt;/a&gt;. As always, we welcome feedback and contributions, so please reach out to us on &lt;a href="https://github.com/spring-cloud/spring-cloud-stream-binder-kafka"&gt;GitHub&lt;/a&gt;, &lt;a href="https://stackoverflow.com/tags/spring-cloud-stream"&gt;Stack Overflow&lt;/a&gt;, and &lt;a href="https://gitter.im/spring-cloud/spring-cloud-stream"&gt;Gitter&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;</content>
+  </entry>
   <entry>
     <title>New in Spring Data Lovelace M2 - Get ready for MongoDB 3.6 and 4.0.</title>
     <link rel="alternate" href="https://spring.io/blog/2018/04/18/new-in-spring-data-lovelace-m2-get-ready-for-mongodb-3-6-and-4-0" />
@@ -1260,45 +1675,5 @@ inputSource.poll(System.out::println);
 &lt;p&gt;The versions of numerous third-party dependencies have also been updated. For more information about the versions of the managed dependencies, please refer to the &lt;a href="https://docs.spring.io/platform/docs/Cairo-RELEASE/reference/htmlsingle/#appendix-dependency-versions"&gt;relevant section&lt;/a&gt; of the reference documentation.&lt;/p&gt;&lt;h2&gt;&lt;a href="#what-is-next" class="anchor" name="what-is-next"&gt;&lt;/a&gt;What is next&lt;/h2&gt;
 &lt;p&gt;Cairo will be the last generation of the Platform. Please see the &lt;a href="https://spring.io/blog/2018/04/09/spring-io-platform-end-of-life-announcement"&gt;end-of-life announcement&lt;/a&gt; for further information. Thank you to everyone who has used and contributed to the Platform over the past four years.&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://platform.spring.io/platform"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-io/platform"&gt;GitHub&lt;/a&gt; | &lt;a href="https://github.com/spring-io/platform/issues"&gt;Issues&lt;/a&gt; | &lt;a href="http://docs.spring.io/platform/docs/Cairo-RELEASE/reference/htmlsingle"&gt;Documentation&lt;/a&gt;&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <title>Spring IO Platform end-of-life announcement</title>
-    <link rel="alternate" href="https://spring.io/blog/2018/04/09/spring-io-platform-end-of-life-announcement" />
-    <category term="news" label="News and Events" />
-    <author>
-      <name>Andy Wilkinson</name>
-    </author>
-    <id>tag:spring.io,2018-04-06:3237</id>
-    <updated>2018-04-09T09:55:53Z</updated>
-    <content type="html">&lt;p&gt;Maintenance of the &lt;a href="https://platform.spring.io/platform"&gt;Spring IO Platform&lt;/a&gt; will end twelve months from today, 9 April 2019, and the project will be moved to the attic. Maintenance releases of both the Brussels and Cairo lines will continue to be published up until that time.&lt;/p&gt;
-&lt;p&gt;When the Platform was first &lt;a href="https://spring.io/blog/2014/06/26/introducing-the-spring-io-platform"&gt;introduced almost four years ago&lt;/a&gt; it provided dependency management for a number of projects that were not managed by Spring Boot. In recent releases that number has decreased and would have continued to do so in the future as the Spring portfolio continues to evolve. &lt;/p&gt;
-&lt;p&gt;The decreasing difference between Spring Boot&amp;rsquo;s dependency management and the Platform&amp;rsquo;s dependency management means that offering the Platform as a separate choice no longer makes sense. All users of the Platform are encouraged to start using Spring Boot&amp;rsquo;s dependency management directly, either by using &lt;code&gt;spring-boot-starter-parent&lt;/code&gt; as their Maven project&amp;rsquo;s parent, or by importing the &lt;code&gt;spring-boot-dependencies&lt;/code&gt; bom.&lt;/p&gt;
-&lt;p&gt;Thank you to everyone who has contributed to the Platform over the past four years.&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <title>Spring IO Platform Brussels SR8</title>
-    <link rel="alternate" href="https://spring.io/blog/2018/04/06/spring-io-platform-brussels-sr8" />
-    <category term="releases" label="Releases" />
-    <author>
-      <name>Andy Wilkinson</name>
-    </author>
-    <id>tag:spring.io,2018-04-06:3236</id>
-    <updated>2018-04-06T10:35:27Z</updated>
-    <content type="html">&lt;p&gt;I am pleased to announce that &lt;a href="http://platform.spring.io/platform"&gt;Spring IO Platform&lt;/a&gt; Brussels-SR8 is now available from both &lt;a href="https://repo.spring.io/release"&gt;repo.spring.io&lt;/a&gt; and Maven Central. &lt;/p&gt;
-&lt;p&gt;This maintenance release upgrades the versions of a number of the projects in the Platform:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Spring AMQP 1.7.7&lt;/li&gt;
-  &lt;li&gt;Spring Batch 3.0.9&lt;/li&gt;
-  &lt;li&gt;Spring Boot 1.5.11&lt;/li&gt;
-  &lt;li&gt;Spring Data Ingalls SR11&lt;/li&gt;
-  &lt;li&gt;Spring Framework 4.3.15&lt;/li&gt;
-  &lt;li&gt;Spring Integration 4.3.15&lt;/li&gt;
-  &lt;li&gt;Spring Kafka 1.1.8&lt;/li&gt;
-  &lt;li&gt;Spring Security 4.2.5&lt;/li&gt;
-  &lt;li&gt;Spring Session 1.3.2&lt;/li&gt;
-  &lt;li&gt;Spring Social 1.1.6&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;The versions of a number of third-party dependencies have also been updated.&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://platform.spring.io/platform"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-io/platform"&gt;GitHub&lt;/a&gt; | &lt;a href="https://github.com/spring-io/platform/issues"&gt;Issues&lt;/a&gt; | &lt;a href="http://docs.spring.io/platform/docs/Brussels-SR8/reference/htmlsingle"&gt;Documentation&lt;/a&gt;&lt;/p&gt;</content>
   </entry>
 </feed>
