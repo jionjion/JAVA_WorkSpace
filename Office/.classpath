@@ -19,6 +19,7 @@
 	<classpathentry kind="lib" path="lib/jdom/jdom-2.0.2.jar"/>
 	<classpathentry kind="lib" path="lib/commons/commons-lang3-3.7.jar"/>
 	<classpathentry kind="lib" path="lib/gson/gson-2.3.1.jar"/>
+	<classpathentry kind="lib" path="lib/freemarker/freemarker-2.3.28.jar" sourcepath="C:/Users/14345/AppData/Local/Temp/.org.sf.feeling.decompiler1531961170701/source/freemarker-2.3.28-sources-1531962716682.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
