@@ -3,7 +3,9 @@ package javaEail.until;
 import java.util.Properties;
 
 import javax.mail.Address;
+import javax.mail.Authenticator;
 import javax.mail.Message;
+import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
@@ -35,21 +37,38 @@ public class EmailUntil {
 			//SSH加密协议
 		    MailSSLSocketFactory sf = new MailSSLSocketFactory();
 		    sf.setTrustAllHosts(true);
+		    props.put("mail.smtp.starttls.enable", "true");
 		    props.put("mail.smtp.ssl.enable", "true");
 		    props.put("mail.smtp.ssl.socketFactory", sf);
 		    
-			Session session = Session.getInstance(props);
+	        // 发件人的账号
+	        props.put("mail.user", "1434501783@qq.com");
+	        // 访问SMTP服务时需要提供的密码
+	        props.put("mail.password", "yxaxeikexpepjffc");		    
+		    
+	        // 构建授权信息，用于进行SMTP进行身份验证
+	        Authenticator authenticator = new Authenticator() {
+	            @Override
+	            protected PasswordAuthentication getPasswordAuthentication() {
+	                // 用户名、密码
+	                String userName = props.getProperty("mail.user");
+	                String password = props.getProperty("mail.password");
+	                return new PasswordAuthentication(userName, password);
+	            }
+	        };
+	        
+			Session session = Session.getInstance(props,authenticator);
 			//创建邮件对象
 			Message message = new MimeMessage(session);
 			message.setFrom(new InternetAddress("1434501783@qq.com"));			//发件人
 			message.setRecipient(RecipientType.TO, new InternetAddress(to));	//发送类型,收件人	
 			message.setSubject("主题:这是我的JAVA测试邮件");							//设置邮件主题
-			String html = "	<h1>你好,很高兴认识你</hi><p>您的UUID为:"+code+"</p>";		//设置邮件内容
+			String html = "	<h1>你好,很高兴认识你</hi><p>您的UUID为:"+code+"</p>";		//设置邮件	内容
 			message.setContent(html, "text/html;charset=UTF-8");				//设置邮件文本格式
 			
 			//发送邮件
 			Transport transport = session.getTransport();
-	        transport.connect("smtp.qq.com", "1434501783@qq.com", "lulyxaugngsfhhad");					//获取连接(连接方式,发送人邮箱,发送人密码)
+	        transport.connect("smtp.qq.com", "1434501783@qq.com", "yxaxeikexpepjffc");					//获取连接(连接方式,发送人邮箱,发送人密码)
 	        transport.sendMessage(message, new Address[] { new InternetAddress(to) });	//以列表形式发送邮件.群发
 	        transport.close();
 		} catch (Exception e) {

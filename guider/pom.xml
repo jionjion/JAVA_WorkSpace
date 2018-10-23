@@ -57,6 +57,11 @@
 		    <groupId>org.springframework.boot</groupId>
 		    <artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>		
+		<dependency>
+		    <groupId>dom4j</groupId>
+		    <artifactId>dom4j</artifactId>
+		</dependency>
+		
 	</dependencies>
 
 	<build>
@@ -70,6 +75,5 @@
 			</plugin>
 		</plugins>
 	</build>
-
 
 </project>

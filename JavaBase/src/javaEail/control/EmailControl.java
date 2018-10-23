@@ -14,7 +14,7 @@ public class EmailControl {
 		String username = "张谦";
 		String password = "123456";
 		String nickname = "JION";
-		String email = "2890283899@qq.com";
+		String email = "1434501783@qq.com";
 		User user = new User();
 		user.setUsername(username);
 		user.setPassword(password);
