@@ -6,7 +6,8 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
-@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
+//@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
+@SpringBootApplication
 public class GuiderApplication extends SpringBootServletInitializer{
 
 	
@@ -15,9 +16,12 @@ public class GuiderApplication extends SpringBootServletInitializer{
 		SpringApplication.run(GuiderApplication.class, args);
 	}
 	
-	/** Jar包入口,继承重写 */
+	/** 入口,继承重写 */
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
+    	// Jar包
+//        return builder.sources(this.getClass());
+        // War
         return builder.sources(this.getClass());
     }
 }
