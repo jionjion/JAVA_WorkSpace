@@ -4,9 +4,12 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
-//@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
+import com.jionjion.guider.conf.QQConnect;
+
+//@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})	// 指定注入类
 @SpringBootApplication
 public class GuiderApplication extends SpringBootServletInitializer{
 
@@ -25,3 +28,4 @@ public class GuiderApplication extends SpringBootServletInitializer{
         return builder.sources(this.getClass());
     }
 }
+
