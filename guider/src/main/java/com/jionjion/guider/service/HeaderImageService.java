@@ -16,7 +16,7 @@ import com.jionjion.guider.dao.japRepository.HeaderImageRepository;
 /** 头像信息储存类 */
 @Service
 @Transactional	// 事务
-public class HeaderImagerService {
+public class HeaderImageService {
 
 	@Autowired
 	private HeaderImageRepository headerImageRepository;

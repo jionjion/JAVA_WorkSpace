@@ -45,6 +45,7 @@ public class ContextBeanUtilTest {
 
 	/**
 	 * 	通过bean的类型和子类的名字获得
+	 * 	用于接口的不同实现类
 	 */
 	@Test
 	public void testGetBeanStringClassOfT() {

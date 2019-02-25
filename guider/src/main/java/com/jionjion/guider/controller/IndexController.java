@@ -3,8 +3,6 @@ package com.jionjion.guider.controller;
 import java.util.List;
 import java.util.Map;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,10 +22,6 @@ public class IndexController {
 	
 	@Autowired
 	WebsiteService websiteService;
-	
-	//日志记录
-	private static Logger log = LoggerFactory.getLogger(IndexController.class);
-	
 	
 	@RequestMapping(value= {"/index"})
 	public String viewIndex(Map<String,Object> model) {

@@ -25,10 +25,10 @@ import lombok.extern.slf4j.Slf4j;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @Slf4j
-public class HeaderImagerServiceTest {
+public class HeaderImageServiceTest {
 
 	@Autowired
-	private HeaderImagerService service;
+	private HeaderImageService service;
 	
 	@Autowired
 	private HeaderImage headerImage;
