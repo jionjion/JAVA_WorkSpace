@@ -55,7 +55,7 @@ public class HeaderImageServiceTest {
 	public void testSave() {
 		try {
 			// 获得resource目录下的文件
-			File file = ResourceUtils.getFile("classpath:\\static\\img\\favicon.ico");
+			File file = ResourceUtils.getFile("classpath:\\static\\img\\baidu.png");
 			headerImage.setFile(file);
 			headerImage.setFileLength(file.length());
 			headerImage.setFileName(file.getName());
@@ -70,7 +70,7 @@ public class HeaderImageServiceTest {
 
 	@Test
 	public void testDelete() {
-		String uuid = "40288181691ea57c01691ea5c4540000";
+		String uuid = "402881816924f1bd016924f1df5a0000";
 		HeaderImage headerImage = service.findByUuid(uuid);
 		service.delete(headerImage);
 	}
