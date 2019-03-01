@@ -54,7 +54,7 @@ public class LoginController {
 
 	/** 登出 */
 	public void logout() {
-
+		
 	}
 
 }

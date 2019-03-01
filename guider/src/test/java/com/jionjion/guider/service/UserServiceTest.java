@@ -21,7 +21,7 @@ import lombok.extern.slf4j.Slf4j;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @Slf4j
-//@Transactional
+@Transactional
 public class UserServiceTest {
 
 	@Autowired
