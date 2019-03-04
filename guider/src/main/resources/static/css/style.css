@@ -1,4 +1,4 @@
-/* ͼ�����ʽ */
+/* 图标的样式 */
 
 @font-face {
   font-family: 'guider-icon';
@@ -22,8 +22,22 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* ����ͼ���������� */
+/* 新增图标向下贴入 */
 
+
+
+.icon-check:before {
+  content: "\f00c";
+}
+.icon-close:before {
+  content: "\f00d";
+}
+.icon-remove:before {
+  content: "\f00d";
+}
+.icon-times:before {
+  content: "\f00d";
+}
 .icon-web-page:before {
   content: "\f022";
 }
@@ -47,4 +61,10 @@
 }
 .icon-user-circle:before {
   content: "\f2bd";
+}
+.icon-key:before {
+  content: "\e98d";
+}
+.icon-volume-medium:before {
+  content: "\ea27";
 }

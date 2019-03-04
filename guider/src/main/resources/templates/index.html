@@ -110,29 +110,170 @@
 				<div class="guider-sidebar-content">
 					<!-- 自适应高度 -->
 					<div class="guider-sidebar-content-top container mx-0 px-0">
+						
 						<!-- 个人信息 -->
 						<div class="guider-user-info row p-3 justify-content-md-center align-items-center">
 							<div class="col col-4 p-0">
 								<img src="img/favicon.ico" class="guider-user-header-img"/>
 							</div>
 							<div class="col col-8 p-0">
-								<span class="guider-user-name">JionJion</span><br>
+								<span id="guider-user-name" class="guider-user-name"><a href="#">请登录</a></span><br>
 								<span class="guider-user-address">中国 &nbsp;▪&nbsp; 上海</span>
 							</div>
 						</div>
-						<!-- 菜单信息 -->
-						<div class="guider-sidebar-menu">
-							<ul class="list-group list-group-flush">
-								<li class="list-group-item bg-dark">
-									<span class="icon-bell text-white"></span>
-									<a class="text-white">辣鸡</a>
-								</li>
-								<li class="list-group-item bg-dark">
-									<span class="icon-envelope text-white"></span>
-									<span class="text-white">弱鸡</span>									
-								</li>
-							</ul>
-						</div>
+					</div>
+					<div id="guider-sidebar-content-middle" class="guider-sidebar-content-middle">
+						<!-- 默认显示:菜单信息 -->
+						<!-- <ul class="list-group list-group-flush">
+							<li class="list-group-item bg-dark">
+								<span class="icon-bell text-white"></span>
+								<a class="text-white">辣鸡</a>
+							</li>
+							<li class="list-group-item bg-dark">
+								<span class="icon-envelope text-white"></span>
+								<span class="text-white">弱鸡</span>									
+							</li>
+						</ul> -->
+						
+						<!-- 用户登录信息 -->
+						<!-- <form class="badge-dark m-1 p-1">
+							<div class="form-group container-fluid">
+								<div class="p-4"></div>
+								<div class="row mx-3 my-1 align-items-center justify-content-center">
+									<div class="col-1">
+										<label class="m-auto" for="username">
+											<i class="icon-user-circle text-white" style="font-size: 25px;"></i>
+										</label>
+									</div>
+									<div class="col-10">
+										<input id="username" type="text" placeholder="请填入用户...">
+									</div>
+								</div>
+								<div class="row mx-3 my-1 align-items-center justify-content-center">
+									<div class="offset-1 col-10">
+										<p class="m-0 text-danger font-weight-light">账号错误</p>
+									</div>
+								</div>
+								<div class="row mx-3 my-1 align-items-center justify-content-center">
+									<div class="col-1">
+										<label class="m-auto" for="password">
+											<i class="icon-key text-white" style="font-size: 25px;"></i>
+										</label>
+									</div>
+									<div class="col-10">
+										<input id="password" type="password" placeholder="请填入密码...">								
+									</div>
+								</div>
+								<div class="row mx-3 my-1 align-items-center justify-content-center">
+									<div class="offset-1 col-10">
+										<p class="m-0 text-danger font-weight-light">密码错误</p>
+									</div>
+								</div>								
+								<div class="row mx-3 my-1 align-items-center justify-content-center">
+									<div class="col-3">
+										<button class="btn btn-sm btn-primary">登录</button>
+									</div>
+									<div class="col-1">
+									</div>
+									<div class="col-3">
+										<button id="guider-sign-btn" class="btn btn-sm btn-danger">注册</button>										
+									</div>
+								</div>
+								<div class="p-3"></div>
+							</div>
+						</form> -->
+						
+						<!-- 用户注册 -->
+						<!-- <form class="badge-dark m-1 p-1">
+							<div class="form-group container-fluid">
+								<div class="p-4"></div>
+								<div class="row mx-3 my-1 align-items-center justify-content-center">
+									<div class="col-1">
+										<label class="m-auto" for="username">
+											<i class="icon-user-circle text-white" style="font-size: 25px;"></i>
+										</label>
+									</div>
+									<div class="col-10">
+										<input id="username" type="text" placeholder="请填入用户...">
+									</div>
+								</div>
+								<div class="row mx-3 my-1 align-items-center justify-content-center">
+									<div class="offset-1 col-10">
+										<p class="m-0 text-danger font-weight-light">用户名已存在</p>
+									</div>
+								</div>
+								<div class="row mx-3 my-1 align-items-center justify-content-center">
+									<div class="col-1">
+										<label class="m-auto" for="password">
+											<i class="icon-key text-white" style="font-size: 25px;"></i>
+										</label>
+									</div>
+									<div class="col-10">
+										<input id="password" type="password" placeholder="请填入密码...">								
+									</div>
+								</div>
+								<div class="row mx-3 my-1 align-items-center justify-content-center">
+									<div class="offset-1 col-10">
+										<p class="m-0 text-danger font-weight-light">密码过于简单</p>
+									</div>
+								</div>
+								<div class="row mx-3 my-1 align-items-center justify-content-center">
+									<div class="col-1">
+										<label class="m-auto" for="password2">
+											<i class="icon-key text-white" style="font-size: 25px;"></i>
+										</label>
+									</div>
+									<div class="col-10">
+										<input id="password2" type="password2" placeholder="确认密码...">								
+									</div>
+								</div>
+								<div class="row mx-3 my-1 align-items-center justify-content-center">
+									<div class="offset-1 col-10">
+										<p class="m-0 text-danger font-weight-light">两次密码输入不一致</p>
+									</div>
+								</div>
+								<div class="row mx-3 my-1 align-items-center justify-content-center">
+									<div class="col-1">
+										<label class="m-auto" for="email">
+											<i class="icon-envelope text-white" style="font-size: 25px;"></i>
+										</label>
+									</div>
+									<div class="col-10">
+										<input id="email" type="email" placeholder="请填入邮箱...">
+									</div>
+								</div>
+								<div class="row mx-3 my-1 align-items-center justify-content-center">
+									<div class="offset-1 col-10">
+										<p class="m-0 text-danger font-weight-light">该邮箱已被注册</p>
+									</div>
+								</div>
+								<div class="row mx-3 my-1 align-items-center justify-content-center">
+									<div class="col-3">
+										<button id="login-login" class="btn btn-sm btn-primary">注册并验证</button>
+									</div>
+									<div class="col-1">
+									</div>
+									<div class="col-6">
+										<button id="others-login" class="btn btn-sm btn-danger">社交账号登录</button>										
+									</div>
+								</div>
+								<div class="p-3"></div>
+							</div>
+						</form> -->
+						
+						<!-- 用户邮件发送成功 -->
+						<!-- <div class="badge-dark m-1 p-1">
+							<div class="py-3 m-2">
+								<p class="text-justify text-white">
+									<i class="icon-volume-medium text-white"></i>
+									<span>邮件发送成功，请注意查收，完成注册！</span>
+									<a class="close text-right" style="font-size: 1.3rem;">
+										<span>&times;</span>
+									</a>
+								</p>
+							</div>
+						</div> -->
+						
 					</div>
 					
 				</div>
