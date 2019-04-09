@@ -19,6 +19,44 @@
 <entry path="E:\Java\java_8\jdk\jre\lib\endorsed"/>
 </endorsedDirs>
 </libraryInfo>
+<libraryInfo home="/usr/lib/jvm/jdk1.8.0_201" version="1.8.0_201">
+<bootpath>
+<entry path="/usr/lib/jvm/jdk1.8.0_201/jre/lib/resources.jar"/>
+<entry path="/usr/lib/jvm/jdk1.8.0_201/jre/lib/rt.jar"/>
+<entry path="/usr/lib/jvm/jdk1.8.0_201/jre/lib/sunrsasign.jar"/>
+<entry path="/usr/lib/jvm/jdk1.8.0_201/jre/lib/jsse.jar"/>
+<entry path="/usr/lib/jvm/jdk1.8.0_201/jre/lib/jce.jar"/>
+<entry path="/usr/lib/jvm/jdk1.8.0_201/jre/lib/charsets.jar"/>
+<entry path="/usr/lib/jvm/jdk1.8.0_201/jre/lib/jfr.jar"/>
+<entry path="/usr/lib/jvm/jdk1.8.0_201/jre/classes"/>
+</bootpath>
+<extensionDirs>
+<entry path="/usr/lib/jvm/jdk1.8.0_201/jre/lib/ext"/>
+<entry path="/usr/java/packages/lib/ext"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="/usr/lib/jvm/jdk1.8.0_201/jre/lib/endorsed"/>
+</endorsedDirs>
+</libraryInfo>
+<libraryInfo home="/usr/lib/jvm/jdk1.8.0_201/jre" version="1.8.0_201">
+<bootpath>
+<entry path="/usr/lib/jvm/jdk1.8.0_201/jre/lib/resources.jar"/>
+<entry path="/usr/lib/jvm/jdk1.8.0_201/jre/lib/rt.jar"/>
+<entry path="/usr/lib/jvm/jdk1.8.0_201/jre/lib/sunrsasign.jar"/>
+<entry path="/usr/lib/jvm/jdk1.8.0_201/jre/lib/jsse.jar"/>
+<entry path="/usr/lib/jvm/jdk1.8.0_201/jre/lib/jce.jar"/>
+<entry path="/usr/lib/jvm/jdk1.8.0_201/jre/lib/charsets.jar"/>
+<entry path="/usr/lib/jvm/jdk1.8.0_201/jre/lib/jfr.jar"/>
+<entry path="/usr/lib/jvm/jdk1.8.0_201/jre/classes"/>
+</bootpath>
+<extensionDirs>
+<entry path="/usr/lib/jvm/jdk1.8.0_201/jre/lib/ext"/>
+<entry path="/usr/java/packages/lib/ext"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="/usr/lib/jvm/jdk1.8.0_201/jre/lib/endorsed"/>
+</endorsedDirs>
+</libraryInfo>
 <libraryInfo home="E:\Java\java_8\jdk" version="1.8.0_201">
 <bootpath>
 <entry path="E:\Java\java_8\jdk\jre\lib\resources.jar"/>
