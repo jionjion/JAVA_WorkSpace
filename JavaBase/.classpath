@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="lib" path="src/redis/jedis-2.4.2.jar" sourcepath="E:/Java/some Jar/Jedis/jedis-master.zip"/>
 	<classpathentry kind="lib" path="src/redis/commons-pool2-2.2.jar"/>
 	<classpathentry kind="lib" path="src/javaEail/javax.mail.jar" sourcepath="E:/Java/some Jar/Email/javamail-JAVAMAIL-1_5_6.zip"/>
@@ -36,5 +34,6 @@
 	<classpathentry kind="lib" path="src/timedTask/quartz/slf4j-api-1.7.7.jar"/>
 	<classpathentry kind="lib" path="src/timedTask/quartz/slf4j-simple-1.7.7.jar"/>
 	<classpathentry kind="lib" path="src/commons/dbcp/commons-dbcp2-2.1.1.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/commons-codec-1.12"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
