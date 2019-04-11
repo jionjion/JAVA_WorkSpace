@@ -102,5 +102,6 @@
 	</lib>
 	<levels>
 		<level name="commons-codec-1.12" value="project"/>
+		<level name="junit-4.12" value="project"/>
 	</levels>
 </component>
