@@ -35,13 +35,10 @@ public class Base64Example {
      *  测试类,解码Base64字符串
      */
     @Test
-    public void testDecodeToByteArray(){
+    public void testDecodeToByteArray() {
         Base64 base64 = new Base64();
         byte[] bytes = base64.decode("5piO5paHLi4u");
         String result = new String(bytes);
         System.out.println(result);
     }
-    
-    
-
 }
