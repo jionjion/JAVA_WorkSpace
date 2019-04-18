@@ -1,7 +1,6 @@
 package top.jionjion.api.controller.auth;
 
 import lombok.extern.slf4j.Slf4j;
-import org.json.JSONException;
 import org.json.JSONObject;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,9 +15,6 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
-import top.jionjion.api.bean.auth.user.User;
-
-import javax.servlet.http.HttpSession;
 
 import static org.junit.Assert.assertNotNull;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -36,13 +32,15 @@ public class UserControllerTest {
     @Autowired
     private MockMvc mockMVC;
 
+    /** 测试查询方法 */
     @Test
     public void testGetUser() throws Exception {
         // JSON对象
         JSONObject json = new JSONObject();
-        json.put("username", "JionJion");
-        json.put("password", "123456");
+//        json.put("username", "JionJion");
+//        json.put("password", "123456");
 
+        // 发送请求
         MvcResult result = mockMVC.perform(
                 MockMvcRequestBuilders
                         .post("/auth/user/info")  // 访问路径
@@ -63,5 +61,14 @@ public class UserControllerTest {
         MockHttpServletRequest request = result.getRequest();
         String requestURI = request.getRequestURI();
         log.info("请求地址:" + requestURI);
+    }
+
+
+    /** 测试保存方法 */
+    public void testAddUser() throws Exception {
+        // JSON对象
+        JSONObject json = new JSONObject();
+        json.put("username", "admin");
+        json.put("password", "123456");
     }
 }

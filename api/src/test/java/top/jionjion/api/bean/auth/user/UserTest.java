@@ -19,7 +19,6 @@ public class UserTest {
     @Test
     public void testToString(){
         User user = new User();
-        user.setUudi("00001");
         user.setUsername("Jion");
         user.setPassword("12345");
         user.setToken("123456789abcedf");

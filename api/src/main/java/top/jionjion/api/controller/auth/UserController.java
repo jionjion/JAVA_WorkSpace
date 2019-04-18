@@ -46,4 +46,17 @@ public class UserController {
         return null ;
     }
 
+    /** 新增认证信息 */
+    @PostMapping(value = "/add", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public ApiResultDto addUser(@RequestBody(required = false) User user){
+        // @TODO 验证信息是否完全 username + password
+        if(Objects.isNull(user)){
+            return new ApiResultDto(null,ApiResultStatus.ERROR);
+        }
+
+        // 保存
+        User user2 = userService.save(user);
+
+        return new ApiResultDto(new DataDto(user2),ApiResultStatus.SUCCESS);
+    }
 }

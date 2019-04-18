@@ -33,7 +33,6 @@ public class UserServiceTest {
         user.setUsername("Jion");
         user.setPassword("123456");
         user.setToken("sada");
-        user.setUudi("sdadsdsad");
         user = userService.save(user);
         assertNotNull(user);
     }

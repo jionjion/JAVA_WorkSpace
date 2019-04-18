@@ -32,7 +32,6 @@ public class UserRepositoryTest {
         user.setUsername("Jion");
         user.setPassword("123456");
         user.setToken("sada");
-        user.setUudi("sdadsdsad");
         userRepository.save(user);
     }
 

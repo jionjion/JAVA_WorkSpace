@@ -10,13 +10,13 @@ import lombok.Getter;
 public enum ApiResultStatus {
 
     /** 收到 */
-    ACCEPT(100, "Accept"),
+    ACCEPT(100, "ACCEPT"),
     /** 成功 */
-    SUCCESS(200, "Success"),
+    SUCCESS(200, "SUCCESS"),
     /** 警告 */
-    WARN(300, "Warning"),
+    WARN(300, "WARNING"),
     /** 失败 */
-    ERROR(400, "Error");
+    ERROR(400, "ERROR");
 
     /** 状态 */
     private Integer code;
