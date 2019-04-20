@@ -2,13 +2,15 @@ package top.jionjion.api.controller.auth;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.*;
-import sun.security.util.Password;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import top.jionjion.api.bean.auth.user.User;
 import top.jionjion.api.dto.ApiResultDto;
 import top.jionjion.api.dto.DataDto;
+import top.jionjion.api.dto.InfoDto;
 import top.jionjion.api.enums.ApiResultStatus;
 import top.jionjion.api.service.auth.user.UserService;
 
@@ -33,15 +35,15 @@ public class UserController {
     public ApiResultDto getUser(@RequestBody(required = false) User user){
         // 参数不存在,返回访客认证
         if( Objects.isNull(user) || StringUtils.isEmpty(user.getUsername()) || StringUtils.isEmpty(user.getPassword())){
-            //@TODO
-            ApiResultDto resultDto = new ApiResultDto(null, ApiResultStatus.WARN);
+            //@TODO 将错误信息作为一个属性列表保存
+            ApiResultDto resultDto = new ApiResultDto(null,new InfoDto(ApiResultStatus.WARN,"暂无此人"));
             return resultDto;
         }
 
         user = userService.findByUsernameAndPassword(user.getUsername(), user.getPassword());
         // 用户不存在,返回错误信息
         if(Objects.isNull(user)){
-            //@TODO
+            //@TODO 统一异常处理
         }
         return null ;
     }
@@ -51,12 +53,12 @@ public class UserController {
     public ApiResultDto addUser(@RequestBody(required = false) User user){
         // @TODO 验证信息是否完全 username + password
         if(Objects.isNull(user)){
-            return new ApiResultDto(null,ApiResultStatus.ERROR);
+            return new ApiResultDto(null,InfoDto.getErrorInfoDto("信息不完全!"));
         }
 
         // 保存
         User user2 = userService.save(user);
 
-        return new ApiResultDto(new DataDto(user2),ApiResultStatus.SUCCESS);
+        return new ApiResultDto(new DataDto(user2),InfoDto.getSuccessInfoDto());
     }
 }

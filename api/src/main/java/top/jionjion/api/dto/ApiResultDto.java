@@ -1,8 +1,7 @@
 package top.jionjion.api.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
-import lombok.Setter;
-import top.jionjion.api.enums.ApiResultStatus;
 
 import java.io.Serializable;
 
@@ -28,38 +27,38 @@ public class ApiResultDto implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /** 数据 */
+    @JsonProperty(value = "data")
     private DataDto dataDto;
 
     /** 认证 */
+    @JsonProperty(value = "auth")
     private AuthDto authDto;
 
-    /** 数据状态 */
-    private String status;
+    /** 响应信息 */
+    @JsonProperty(value = "_info")
+    private InfoDto infoDto;
 
-    /** 数据 */
-    private Integer code;
+    /** 私有构造方法,拒绝被直接调用 */
+    private ApiResultDto(){}
 
-    /** 返回信息 */
-    @Setter
-    private String message;
+    /** 构造方法,默认状态为处理成功  */
+    public ApiResultDto(DataDto dataDto){
 
-    /** 构造方法 */
-    public ApiResultDto(DataDto dataDto, ApiResultStatus apiResultStatus, AuthDto authDto){
-        this.dataDto = dataDto;
-        this.authDto = authDto;
-        this.status = apiResultStatus.getStatus();
-        this.code = apiResultStatus.getCode();
+        this(dataDto, InfoDto.getSuccessInfoDto());
     }
 
     /** 构造方法,根据Session中的信息进行验证 */
-    public ApiResultDto(DataDto dataDto, ApiResultStatus apiResultStatus){
+    public ApiResultDto(DataDto dataDto, InfoDto infoDto){
         this.dataDto = dataDto;
-        this.status = apiResultStatus.getStatus();
-        this.code = apiResultStatus.getCode();
+        this.infoDto = infoDto;
         //@TODO 从Sesion中获取认证信息,并替换来宾账号
         this.authDto = AuthDto.getNoAuthUser();
     }
 
-    /** 私有构造方法 */
-    private ApiResultDto(){}
+    /** 构造方法 */
+    public ApiResultDto(DataDto dataDto, InfoDto infoDto, AuthDto authDto){
+        this.dataDto = dataDto;
+        this.authDto = authDto;
+        this.infoDto = infoDto;
+    }
 }

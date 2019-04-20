@@ -15,17 +15,17 @@ import java.util.List;
 public class DataDto {
 
     /** 数据,使用List包装 */
-    private List<Object> data = new ArrayList<Object>();
+    private List<Object> record = new ArrayList<Object>();
 
     /** 数据总数 */
-    private Integer dateCount;
+    private Integer totalCount;
 
     public DataDto(Object data){
         if(data instanceof java.util.List){
-            (this.data).addAll((List) data);
+            (this.record).addAll((List) data);
         }else{
-            (this.data).add(data);
+            (this.record).add(data);
         }
-        this.dateCount = this.data.size();
+        this.totalCount = this.record.size();
     }
 }

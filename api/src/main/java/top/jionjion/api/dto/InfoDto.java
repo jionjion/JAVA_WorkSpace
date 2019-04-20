@@ -9,7 +9,6 @@ import top.jionjion.api.enums.ApiResultStatus;
 /**
  * @author Jion
  */
-@JsonRootName("_info")
 @Data
 public class InfoDto {
 
@@ -38,6 +37,11 @@ public class InfoDto {
     public static InfoDto getAcceptInfoDto(String message){
 
         return new InfoDto(ApiResultStatus.ACCEPT, message);
+    }
+
+    /** 返回一个成功类型的响应,简化,并没有任何返回提示 */
+    public static InfoDto getSuccessInfoDto(){
+        return getSuccessInfoDto(null);
     }
 
     /** 返回一个成功类型的响应 */

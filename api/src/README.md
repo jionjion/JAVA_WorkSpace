@@ -18,8 +18,8 @@
 参考 https://www.baeldung.com/jackson-annotations
 ```json5
 {
-  "dataDto":null,
-  "authDto":{
+  "data":null,
+  "auth":{
     "username":"GUEST",
     "token":"00000000000000000000000000000000"
   },
