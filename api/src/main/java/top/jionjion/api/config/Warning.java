@@ -12,11 +12,11 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @PropertySource("classpath:config/description.properties")
-@ConfigurationProperties(prefix="prompt")
+@ConfigurationProperties(prefix="warning")
 @Data
-public class Prompt {
+public class Warning {
 
-    private String areYouSure;
+    private String passwordNoEnoughComplicated;
 }
 
 
