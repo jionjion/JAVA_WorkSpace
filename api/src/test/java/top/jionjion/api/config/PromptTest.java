@@ -18,6 +18,6 @@ public class PromptTest extends BaseTest {
 
     @Test
     public void test(){
-      log.info(prompt.getUserNameNotNull());
+      log.info(prompt.getAreYouSure());
     }
 }
