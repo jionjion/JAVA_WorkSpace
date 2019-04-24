@@ -3,10 +3,7 @@ package top.jionjion.api.controller.auth;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import top.jionjion.api.bean.auth.user.User;
 import top.jionjion.api.dto.ApiResultDto;
 import top.jionjion.api.dto.DataDto;
@@ -60,5 +57,12 @@ public class UserController {
         User user2 = userService.save(user);
 
         return new ApiResultDto(new DataDto(user2),InfoDto.getSuccessInfoDto());
+    }
+
+    /** 当前前段控制器的异常处理类 */
+    @ExceptionHandler()
+    public ApiResultDto exceptioHandler(Exception e){
+        //@TODO 返回处理异常
+        return null;
     }
 }
