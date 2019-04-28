@@ -63,6 +63,36 @@ public class UserControllerTest {
         log.info("请求地址:" + requestURI);
     }
 
+    /** 测试查询方法,查询一个不存在用户 */
+    @Test
+    public void testGetUserNotExist() throws Exception {
+        // JSON对象
+        JSONObject json = new JSONObject();
+        json.put("username", "XXX");
+        json.put("password", "123");
+
+        // 发送请求
+        MvcResult result = mockMVC.perform(
+                MockMvcRequestBuilders
+                        .post("/auth/user/info")  // 访问路径
+                        .contentType(MediaType.APPLICATION_JSON_UTF8) // json格式数据
+                        .content(json.toString())
+        )
+                .andExpect(status().isOk())	// 请求成功
+                .andDo(MockMvcResultHandlers.print())  //打印结果,太长的返回结果不作打印
+                .andReturn(); // 返回结果
+
+        // 响应
+        MockHttpServletResponse response = result.getResponse();
+        String content = response.getContentAsString();
+        log.info("登录返回:" + content);
+        assertNotNull(content);
+
+        // 请求
+        MockHttpServletRequest request = result.getRequest();
+        String requestURI = request.getRequestURI();
+        log.info("请求地址:" + requestURI);
+    }
 
     /** 测试保存方法 */
     public void testAddUser() throws Exception {

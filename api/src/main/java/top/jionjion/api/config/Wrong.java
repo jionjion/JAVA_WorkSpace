@@ -12,13 +12,15 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @PropertySource("classpath:config/description.properties")
-@ConfigurationProperties(prefix="warning")
+@ConfigurationProperties(prefix="wrong")
 @Data
-public class Warning {
+public class Wrong {
 
-    private String passwordNotEnoughComplicated;
+    /** 用户密码错误! */
+    private String passwordError;
 
-    private String userInfoNotEnough;
+    /** 该用户暂未注册! */
+    private String thisUserNoRegister;
 }
 
 

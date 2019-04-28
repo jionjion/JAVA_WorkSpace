@@ -998,3 +998,5 @@
 2019-04-26 17:26:04,685 32246083 [lding workspace] WARN  nternal.embedder.EclipseLogger  - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
 2019-04-26 17:26:10,195 32251593 [lding workspace] WARN  nternal.embedder.EclipseLogger  - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
 2019-04-26 17:26:10,198 32251596 [lding workspace] WARN  nternal.embedder.EclipseLogger  - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2019-04-28 19:33:32,476 42090  [lding workspace] WARN  nternal.embedder.EclipseLogger  - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2019-04-28 19:33:32,561 42175  [lding workspace] WARN  nternal.embedder.EclipseLogger  - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
