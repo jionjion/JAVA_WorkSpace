@@ -19,7 +19,6 @@ public class ExceptionHandle {
     @ExceptionHandler(value = Exception.class)
     @ResponseBody
     public ApiResultDto handle(Exception e) {
-
         return new ApiResultDto(
                 new DataDto(e.getMessage()),
                 InfoDto.getErrorInfoDto(e.getMessage()));

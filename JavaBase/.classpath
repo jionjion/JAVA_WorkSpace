@@ -19,15 +19,15 @@
 	<classpathentry kind="lib" path="src/commons/email/commons-email-1.5.jar" sourcepath="R:/TEMP/.org.sf.feeling.decompiler1523186729925/source/commons-email-1.5-sources.jar"/>
 	<classpathentry kind="lib" path="src/commons/log4j2/log4j-api-2.11.0.jar" sourcepath="R:/TEMP/.org.sf.feeling.decompiler1523273802411/source/log4j-api-2.11.0-sources.jar"/>
 	<classpathentry kind="lib" path="src/commons/log4j2/log4j-core-2.11.0.jar" sourcepath="R:/TEMP/.org.sf.feeling.decompiler1523359457283/source/log4j-core-2.11.0-sources.jar"/>
+	<classpathentry kind="lib" path="src/commons/collections/commons-collections4-4.3-sources.jar"/>
+	<classpathentry kind="lib" path="src/commons/collections/commons-collections4-4.3.jar" sourcepath="E:/Java/some Jar/Maven/JarLibrary/org/apache/commons/commons-collections4/4.3/commons-collections4-4.3-sources.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="src/commons/io/commons-io-2.5.jar" sourcepath="C:/Users/14345/AppData/Local/Temp/.org.sf.feeling.decompiler1510984609521/source/commons-io-2.5-sources.jar"/>
-	<classpathentry kind="lib" path="src/commons/collections/commons-collections4-4.1.jar"/>
 	<classpathentry kind="lib" path="src/jsonAndGson/json/ezmorph-1.0.6.jar"/>
 	<classpathentry kind="lib" path="src/jsonAndGson/json/commons-beanutils.jar"/>
 	<classpathentry kind="lib" path="src/jsonAndGson/json/json-lib-2.2.2-jdk15.jar"/>
 	<classpathentry kind="lib" path="src/jsonAndGson/json/commons-lang.jar"/>
 	<classpathentry kind="lib" path="src/jsonAndGson/json/commons-logging.jar"/>
-	<classpathentry kind="lib" path="src/jsonAndGson/json/commons-collections-3.1.jar"/>
 	<classpathentry kind="lib" path="src/jsonAndGson/gson/gson-2.3.1-sources.jar"/>
 	<classpathentry kind="lib" path="src/jsonAndGson/gson/gson-2.3.1.jar"/>
 	<classpathentry kind="lib" path="src/timedTask/quartz/c3p0-0.9.5.2.jar"/>
@@ -37,5 +37,6 @@
 	<classpathentry kind="lib" path="src/commons/dbcp/commons-dbcp2-2.1.1.jar"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.USER_LIBRARY/commons-codec-1.12"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.USER_LIBRARY/junit-4.12"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
