@@ -37,8 +37,8 @@ public class UserControllerTest {
     public void testGetUser() throws Exception {
         // JSON对象
         JSONObject json = new JSONObject();
-//        json.put("username", "JionJion");
-//        json.put("password", "123456");
+        json.put("username", "JionJion");
+        json.put("password", "123456");
 
         // 发送请求
         MvcResult result = mockMVC.perform(
