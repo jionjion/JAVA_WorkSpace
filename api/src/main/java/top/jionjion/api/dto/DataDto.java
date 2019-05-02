@@ -15,7 +15,7 @@ import java.util.List;
 public class DataDto {
 
     /** 数据,使用List包装 */
-    private List<Object> record = new ArrayList<Object>();
+    private List<Object> record = new ArrayList<>();
 
     /** 数据总数 */
     private Integer totalCount;

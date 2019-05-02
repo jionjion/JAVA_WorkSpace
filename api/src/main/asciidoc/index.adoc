@@ -1,0 +1,10 @@
+include::F:\JAVA_WorkSpace\api\src\main\asciidoc\preview.adoc[]
+
+== Auth-User
+.http-request
+include::F:\JAVA_WorkSpace\api\target\generated-snippets\Auth-User\http-request.adoc[]
+.request-body 请求体说明
+include::F:\JAVA_WorkSpace\api\target\generated-snippets\Auth-User\request-body.adoc[]
+.http-response
+include::F:\JAVA_WorkSpace\api\target\generated-snippets\Auth-User\http-response.adoc[]
+
