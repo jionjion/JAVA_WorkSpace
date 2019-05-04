@@ -5,6 +5,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.Commit;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit4.SpringRunner;
 import top.jionjion.api.bean.auth.user.User;
@@ -28,9 +29,10 @@ public class UserServiceTest {
 
     @Test
     @Rollback
+//    @Commit
     public void test(){
         User user = new User();
-        user.setUsername("Jion");
+        user.setUsername("JionJion");
         user.setPassword("123456");
         user.setToken("sada");
         user = userService.save(user);

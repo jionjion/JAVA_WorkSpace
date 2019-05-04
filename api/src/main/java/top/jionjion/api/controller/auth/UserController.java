@@ -1,5 +1,6 @@
 package top.jionjion.api.controller.auth;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.util.StringUtils;
@@ -52,7 +53,10 @@ public class UserController {
         if(Objects.isNull(user)){
             throw new UserException(wrong.getThisUserNoRegister());
         }
-        return null ;
+        // @TODO 使用Bean拷贝,仅将用户名,ID拷贝
+        User userReturn = new User();
+        BeanUtils.copyProperties(user, userReturn, "id","uuid","password");
+        return new ApiResultDto(new DataDto(userReturn)) ;
     }
 
     /** 新增认证信息 */

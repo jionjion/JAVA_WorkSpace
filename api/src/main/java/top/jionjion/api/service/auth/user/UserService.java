@@ -24,6 +24,9 @@ public class UserService {
         // 生成MD5作为Token
         String token = getToken();
         user.setToken(token);
+        // 加密用户名
+        String encodePassword = DigestUtils.md5DigestAsHex(user.getPassword().getBytes());
+        user.setPassword(encodePassword);
         return userRepository.save(user);
     }
 

@@ -18,6 +18,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
+import top.jionjion.api.BaseTest;
 
 import static org.junit.Assert.assertNotNull;
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
@@ -25,22 +26,19 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 /**
  * @author Jion
+ * 用户测试类
  */
-@RunWith(SpringRunner.class)
-@SpringBootTest
-@AutoConfigureMockMvc
 @Slf4j
-@AutoConfigureRestDocs (outputDir="target/generated-snippets") // 文档导出目录
-public class UserControllerTest {
-
-
+public class UserControllerTest extends BaseTest {
 
 
     // 模拟数据
     @Autowired
     private MockMvc mockMVC;
 
-    /** 测试查询方法 */
+    /**
+     * 测试查询方法
+     */
     @Test
     public void testGetUser() throws Exception {
         // JSON对象
@@ -55,9 +53,12 @@ public class UserControllerTest {
                         .contentType(MediaType.APPLICATION_JSON_UTF8) // json格式数据
                         .content(json.toString())
         )
-                .andExpect(status().isOk())	// 请求成功
-                .andDo(MockMvcResultHandlers.print())  //打印结果,太长的返回结果不作打印
-                .andDo(document("Auth-User"))   // 导出文档
+                .andExpect(status().isOk())    // 请求成功
+                .andDo(MockMvcResultHandlers.print())  // 打印结果,太长的返回结果不作打印
+                .andDo(document("用户认证")    // 导出说明文档
+
+
+                )
                 .andReturn(); // 返回结果
 
         // 响应
@@ -72,7 +73,9 @@ public class UserControllerTest {
         log.info("请求地址:" + requestURI);
     }
 
-    /** 测试查询方法,查询一个不存在用户 */
+    /**
+     * 测试查询方法,查询一个不存在用户
+     */
     @Test
     public void testGetUserNotExist() throws Exception {
         // JSON对象
@@ -87,7 +90,7 @@ public class UserControllerTest {
                         .contentType(MediaType.APPLICATION_JSON_UTF8) // json格式数据
                         .content(json.toString())
         )
-                .andExpect(status().isOk())	// 请求成功
+                .andExpect(status().isOk())    // 请求成功
                 .andDo(MockMvcResultHandlers.print())  //打印结果,太长的返回结果不作打印
                 .andReturn(); // 返回结果
 
@@ -103,7 +106,9 @@ public class UserControllerTest {
         log.info("请求地址:" + requestURI);
     }
 
-    /** 测试保存方法 */
+    /**
+     * 测试保存方法
+     */
     public void testAddUser() throws Exception {
         // JSON对象
         JSONObject json = new JSONObject();
