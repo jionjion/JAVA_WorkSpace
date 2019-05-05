@@ -1,7 +1,15 @@
 package commons.collections;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.PrintStream;
+import java.util.HashMap;
 import java.util.Map;
+import java.util.SortedMap;
+import java.util.TreeMap;
 
+import org.apache.commons.collections4.IterableMap;
+import org.apache.commons.collections4.IterableSortedMap;
 import org.apache.commons.collections4.MapUtils;
 import org.junit.Before;
 import org.junit.Test;
@@ -12,214 +20,354 @@ import org.junit.Test;
  */
 public class MapUtilsExample {
 
-	private Map<String, Object> map1;
+	private Map<String, Object> map1 = new HashMap<>();
+	private Map<String, Object> map2 = new TreeMap<>();
 	
+	/** 初始化数据 */
 	@Before
 	public void initData() {
-		map1.put("str", "ABC");
-		map1.put("int", 123);
-		map1.put("doub", 1.23D);
-		map1.put("long", 123L);
-		map1.put("boo", true);
+		map1.put("string", "ABC");
+		map1.put("short", 1);
 		map1.put("byte", 1);
+		map1.put("int", 123);
+		map1.put("float", 1.23F);
+		map1.put("double", 1.23D);
+		map1.put("long", 123L);
+		map1.put("boolean", true);
+		map1.put("map", map2);
+
+		map2.put("string", "ABC");
+		map1.put("short", 1);
+		map2.put("byte", 1);
+		map2.put("int", 123);
+		map2.put("float", 1.23F);
+		map2.put("double", 1.23D);
+		map2.put("long", 123L);
+		map2.put("boolean", true);
 	}
 	
-	/** 格式化打印 */
+	/** 格式化打印  */
 	@Test
-	public void testDebugPrint() {
-//		MapUtils.debugPrint(out, , map);
+	public void testDebugPrint() throws IOException {
+		ByteArrayOutputStream out = new ByteArrayOutputStream();
+		PrintStream outPrint = new PrintStream(out);
+		MapUtils.debugPrint(outPrint, "Print Map", map1);
+		String EXPECTED_OUT = out.toString();
+		System.out.println(EXPECTED_OUT);
 	}
 
 	/** 判断map是否为null,如是null,则返回一个空map,否则返回参数本身  */
 	@Test
 	public void	testEmptyIfNull(){
-		
+		Map<String,Object> result = MapUtils.emptyIfNull(map1);
+		System.out.println(result);
 	}
 
 	/** 返回传入map的对应固定map */
+	@Test
 	public void testFixedSizeMap(){
-		
+		IterableMap<String, Object> result = MapUtils.fixedSizeMap(map1);
+		System.out.println(result);
 	}
 
 	/**返回传入有序map对应的固定map */
+	@Test
 	public void	testFixedSizeSortedMap() {
-		
+		 SortedMap<String,Object> result = MapUtils.fixedSizeSortedMap((SortedMap<String, Object>) map2);
+		 System.out.println(result);
 	}
 	
-	/** 返回map中key对应的boolean类型的值,如果不存在则返回null */
+	/** 返回map中key对应的Boolean包装类的值,如果不存在则返回null */
+	@Test
 	public void testGetBoolean() {
-		
+		Boolean result = MapUtils.getBoolean(map1, "boolean");
+		System.out.println(result);
 	}
 
-	/** 返回map中key对应的boolean类型的值,如果不存在则返回默认值 */
+	/** 返回map中key对应的Boolean包装类的值,如果不存在则返回默认值 */
+	@Test
 	public void testGetBoolean2() {
-		
+		Boolean result = MapUtils.getBoolean(map1, "boolean", false);
+		System.out.println(result);
 	}
 
-	/** 返回map中key对应的boolean类型的值,如果不存在则返回null */
+	/** 返回map中key对应的boolean类型的值,如果不存在则返回false */
+	@Test
 	public void	testGetBooleanValue() {
-		
+		boolean result = MapUtils.getBooleanValue(map1, "booleanX");
+		System.out.println(result);
 	}
 
 	/** 返回map中key对应的boolean类型的值,如果不存在则返回默认值 */
+	@Test
 	public void	testGetBooleanValue2() {
-		
+		boolean result = MapUtils.getBooleanValue(map1, "boolean",false);
+		System.out.println(result);
 	}
 
-	/** 返回map中key对应的byte类型的值,如果不存在则返回null */
+	/** 返回map中key对应的Byte包装类的值,如果不存在则返回null */
+	@Test
 	public void testGetByte() {
-		
+		Byte result = MapUtils.getByte(map1, "bytes");
+		System.out.println(result);
+	}
+
+	/** 返回map中key对应的Byte包装类的值,如果不存在则返回默认值 */
+	@Test
+	public void	testGetByte2() {
+		Byte result = MapUtils.getByte(map1, "byte",0);
+		System.out.println(result);		
+	}
+
+	/** 返回map中key对应的byte类型的值,如果不存在则返回0 */
+	@Test
+	public void	testGetByteValue() {
+		byte result = MapUtils.getByteValue(map1, "byteX");
+		System.out.println(result);
 	}
 
 	/** 返回map中key对应的byte类型的值,如果不存在则返回默认值 */
-	public void	testGetByte2() {
-		
+	@Test
+	public void	testGetByteValue2() {
+		byte result = MapUtils.getByteValue(map1, "byte", (byte)0);
+		System.out.println(result);
 	}
 
-	public void	getByteValue() {
-		
+	/** 返回map中key对应的Double包装类的值,如果不存在则返回null */
+	@Test
+	public void testGetDouble() {
+		Double result = MapUtils.getDouble(map1, "double");
+		System.out.println(result);
 	}
 
-	public void	getByteValue2() {
-		
+	/** 返回map中key对应的Double包装类的值,如果不存在则返回默认值 */
+	@Test
+	public void	testGetDouble2() {
+		Double result = MapUtils.getDouble(map1, "double", 3.21D);
+		System.out.println(result);
+	}
+
+	/** 返回map中key对应的double类型的值,如果不存在则返0.0 */
+	@Test
+	public void testGetDoubleValue() {
+		double result = MapUtils.getDoubleValue(map1, "doubleX");
+		System.out.println(result);
+	}
+
+	/** 返回map中key对应的double类型的值,如果不存在则返回默认值 */
+	@Test
+	public void testGetDoubleValue2() {
+		double result = MapUtils.getDoubleValue(map1, "doubleX", 3.21D);
+		System.out.println(result);
+	}
+
+	/** 返回map中key对应的Float包装类的值,如果不存在则返回null */
+	@Test
+	public void	testGetFloat() {
+		Float result = MapUtils.getFloat(map1, "float");
+		System.out.println(result);
+	}
+
+	/** 返回map中key对应的Float包装类的值,如果不存在则返回默认值 */
+	@Test
+	public void	testGetFloat2() {
+		Float result = MapUtils.getFloat(map1, "float", 3.21F);
+		System.out.println(result);
+	}
+
+	/** 返回map中key对应的float类型的值,如果不存在则返回 0.0 */
+	@Test
+	public void testGetFloatValue() {
+		float result = MapUtils.getFloatValue(map1, "floatX");
+		System.out.println(result);
+	}
+
+	/** 返回map中key对应的float类型的值,如果不存在则返回默认值 */
+	@Test
+	public void testGetFloatValue2() {
+		float result = MapUtils.getFloatValue(map1, "floatX", 3.21F);
+		System.out.println(result);
+	}
+
+	/** 返回map中key对应的Integer包装类的值,如果不存在则返回null */
+	@Test
+	public void testGetInteger() {
+		Integer result = MapUtils.getInteger(map1, "int");
+		System.out.println(result);
+	}
+
+	/** 返回map中key对应的Integer包装类的值,如果不存在则返回默认值 */
+	@Test
+	public void testGetInteger2() {
+		Integer result = MapUtils.getInteger(map1, "int", 0);
+		System.out.println(result);
+	}
+
+	/** 返回map中key对应的int类型的值,如果不存在则返回0值 */
+	@Test
+	public void	testGetIntValue() {
+		int result = MapUtils.getIntValue(map1, "intX");
+		System.out.println(result);
+	}
+
+	/** 返回map中key对应的int类型的值,如果不存在则返回默认值 */
+	@Test
+	public void	testGetIntValue2() {
+		int result = MapUtils.getIntValue(map1, "intX", 0);
+		System.out.println(result);		
+	}
+
+	/** 返回map中key对应的Long包装类的值,如果不存在则返回null */
+	@Test
+	public void	testGetLong() {
+		Long result = MapUtils.getLong(map1, "long");
+		System.out.println(result);
+	}
+
+	/** 返回map中key对应的Long包装类的值,如果不存在则返回默认值 */
+	@Test
+	public void	testGetLong2() {
+		Long result = MapUtils.getLong(map1, "long", 321L);
+		System.out.println(result);
+	}
+
+	/** 返回map中key对应的long类型的值,如果不存在则返回默认值 */
+	@Test
+	public void	testGetLongValue() {
+		long result = MapUtils.getLongValue(map1, "longX");
+		System.out.println(result);
+	}
+
+	/** 返回map中key对应的long类型的值,如果不存在则返回默认值 */
+	@Test
+	public void testGetLongValue2() {
+		long result = MapUtils.getLongValue(map1, "longX", 0L);
+		System.out.println(result);
+	}
+
+	/** 返回map中key嵌套的Map集合,如果不存在,返回null */
+	@Test
+	public void	testGetMap() {
+		Map<?, ?> result = MapUtils.getMap(map1, "map");
+		System.out.println(result);
+	}
+
+	/** 返回map中key嵌套的Map集合,如果不存在,返回默认值 */
+	@Test
+	public void	testGetMap2() {
+		Map<?, ?> result = MapUtils.getMap(map1, "mapX", map2);
+		System.out.println(result);		
+	}
+
+	/** 返回map中key对应的Long包装类的值,如果不存在则返回null */
+	@Test
+	public void	testGetNumber() {
+		Number result = MapUtils.getNumber(map1, "int");
+		System.out.println(result);
+	}
+
+	/** 返回map中key对应的Long包装类的值,如果不存在则返回默认值 */
+	@Test
+	public void	testGetNumber2() {
+		Number result = MapUtils.getNumber(map1, "intX", 0);
+		System.out.println(result);
+	}
+
+	/** 返回map中key对应的Object类的值,如果不存在则返回null */
+	@Test
+	public void	testGetObject() {
+		Object result = MapUtils.getObject(map1, "string");
+		System.out.println(result);
+	}
+	
+	/** 返回map中key对应的Object类的值,如果不存在则返回默认值 */
+	@Test
+	public void	testGetObject2() {
+		Object result = MapUtils.getObject(map1, "stringX", "None");
+		System.out.println(result);
+	}
+
+	/** 返回map中key对应的Short包装类的值,如果不存在则返回null */
+	@Test
+	public void	testGetShort() {
+		Short result = MapUtils.getShort(map1, "short");
+		System.out.println(result);
+	}
+
+	/** 返回map中key对应的Short包装类的值,如果不存在则返回默认值 */
+	@Test
+	public void	testGetShort2() {
+		Short result = MapUtils.getShort(map1, "short", 0);
+		System.out.println(result);
+	}
+
+	/** 返回map中key对应的short类型的值,如果不存在则返回0 */
+	@Test
+	public void testGetShortValue() {
+		short result = MapUtils.getShortValue(map1, "shortX");
+		System.out.println(result);
+	}
+
+	/** 返回map中key对应的short类型的值,如果不存在则返回默认值 */
+	@Test
+	public void	testGetShortValue2() {
+		short result = MapUtils.getShortValue(map1, "shortX", (short)0);
+		System.out.println(result);
+	}
+
+	/** 返回map中key对应的String类的值,如果不存在则返回null */
+	@Test
+	public void	testGetString() {
+		String result = MapUtils.getString(map1, "string");
+		System.out.println(result);
+	}
+
+	/** 返回map中key对应的String类的值,如果不存在则返回默认值 */
+	@Test
+	public void	testGetString2() {
+		String result = MapUtils.getString(map1, "string","None");
+		System.out.println(result);
 	}
 
 	
-	public void getDouble() {
-		
+	/** 返回一个新的HashMap,包含传入的map的所有元素 */ 
+	@Test
+	public void	testInvertMap(){
+		Map<Object, String> map = MapUtils.invertMap(map1);
+		System.out.println(map);
 	}
 
-	public void	getDouble2() {
-		
+	/** 判断是否为空map */
+	@Test
+	public void	testIsEmpty() {
+		boolean result = MapUtils.isEmpty(map1);
+		System.out.println(result);
 	}
 
-	public void getDoubleValue() {
-		
+	/** 判断是否为不是空map */
+	@Test
+	public void	testIsNotEmpty() {
+		boolean result = MapUtils.isNotEmpty(map1);
+		System.out.println(result);
 	}
 
-	public void getDoubleValue2() {
-		
+	/** 获得一个IterableMap类,便于迭代 */
+	@Test
+	public void	testIterableMap() {
+		IterableMap<String, Object> iterableMap = MapUtils.iterableMap(map1);
+		System.out.println(iterableMap);
 	}
 
-	public void	getFloat() {
-		
+	/*
+
+	/** 获得一个IterableSortedMap类,便于迭代 */ 
+	@Test
+	public void	testIterableSortedMap() {
+		IterableSortedMap<String, Object> iterableSortedMap = MapUtils.iterableSortedMap((SortedMap<String, Object>) map2);
+		System.out.println(iterableSortedMap);
 	}
 
-	public void	getFloat2() {
-		
-	}
-
-	public void getFloatValue() {
-		
-	}
-
-	public void getFloatValue2() {
-		
-	}
-
-	public void getInteger() {
-		
-	}
-
-	public void getInteger2() {
-		
-	}
-
-	public void	getIntValue() {
-		
-	}
-
-	public void	getIntValue2() {
-		
-	}
-
-	public void	getLong() {
-		
-	}
-
-	public void	getLong2() {
-		
-	}
-
-	public void	getLongValue() {
-		
-	}
-
-	public void getLongValue2() {
-		
-	}
-
-	public void	getMap() {
-		
-	}
-
-	public void	getMap() {
-		
-	}
-
-	public void	getNumber() {
-		
-	}
-
-	public void	getNumber() {
-		
-	}
-
-	public void	getObject() {
-		
-	}
-
-	public void	getObject2() {
-		
-	}
-
-	public void	getShort() {
-		
-	}
-
-	public void	getShort2() {
-		
-	}
-
-	public void getShortValue() {
-		
-	}
-
-	public void	getShortValue2() {
-		
-	}
-
-	public void	getString() {
-		
-	}
-
-	public void	getString2() {
-		
-	}
-
-	
-	//Inverts the supplied map returning a new HashMap such that the keys of the input are swapped with the values.
-	public void	invertMap(){
-		
-	}
-
-	//Null-safe check if the specified map is empty.
-	public void	isEmpty() {
-		
-	}
-
-	//Null-safe check if the specified map is not empty.
-	public void	isNotEmpty() {
-		
-	}
-
-	//Get the specified Map as an IterableMap.
-	public void	iterableMap() {
-		
-	}
-
-	//Get the specified SortedMap as an IterableSortedMap.
-	public <K,V> IterableSortedMap<K,V>	iterableSortedMap(SortedMap<K,V> sortedMap)
+	/**
 
 	//Returns a "lazy" map whose values will be created on demand.
 	public <K,V> IterableMap<K,V>	lazyMap(Map<K,V> map, Factory<? extends V> factory)
@@ -304,4 +452,6 @@ public class MapUtilsExample {
 
 	//Prints the given map with nice line breaks.
 	public void	verbosePrint(PrintStream out, Object label, Map<?,?> map)
+
+	 */	
 }
