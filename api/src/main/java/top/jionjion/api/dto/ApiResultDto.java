@@ -1,5 +1,6 @@
 package top.jionjion.api.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 
@@ -7,19 +8,6 @@ import java.io.Serializable;
 
 /**
  * @author Jion
- *  {
- *      date:[{
- *        A:"jion",
- *        B:"12",
- *        C:"1994-04-12"
- *      }],
- *      auth:{
- *          username:"",
- *          token:""
- *      }
- *      status:Success
- *      code:200
- *  }
  */
 @Getter
 public class ApiResultDto implements Serializable {
@@ -30,10 +18,10 @@ public class ApiResultDto implements Serializable {
     @JsonProperty(value = "data")
     private DataDto dataDto;
 
-    /** 认证 */
-    @JsonProperty(value = "auth")
-    private AuthDto authDto;
 
+    /** 认证 @TODO 暂时不显示  JsonProperty(value = "auth")*/
+    @JsonIgnore
+    private AuthDto authDto;
     /** 响应信息 */
     @JsonProperty(value = "_info")
     private InfoDto infoDto;

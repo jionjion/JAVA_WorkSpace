@@ -50,12 +50,12 @@ public class BaseTest {
             String apiName = apidir.getName();
             content.append("== " + apiName + System.getProperty("line.separator"));
             // 各接口目录含有文件
+            fileAppend(content, apidir + "\\curl-request.adoc", ".curl-request 请求命令");
+            fileAppend(content, apidir + "\\httpie-request.adoc", ".httpie-request 请求命令");
             fileAppend(content, apidir + "\\http-request.adoc", ".http-request 请求信息");
-            fileAppend(content, apidir + "\\request-headers.adoc", ".request-headers 请求头说明");
-            fileAppend(content, apidir + "\\request-parameters.adoc", ".request-parameters 请求参数说明");
-            fileAppend(content, apidir + "\\request-body.adoc", ".request-body 请求体说明");
             fileAppend(content, apidir + "\\http-response.adoc", ".http-response 响应信息");
-            fileAppend(content, apidir + "\\response-fields.adoc", ".response-fields 返回值说明");
+            fileAppend(content, apidir + "\\request-body.adoc", ".request-body 请求体说明");
+            fileAppend(content, apidir + "\\response-body.adoc", ".response-body 响应体说明");
             content.append(System.getProperty("line.separator"));
         }
         // 输出文件

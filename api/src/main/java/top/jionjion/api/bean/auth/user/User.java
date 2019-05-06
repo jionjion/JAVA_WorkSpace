@@ -1,5 +1,6 @@
 package top.jionjion.api.bean.auth.user;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -23,6 +24,7 @@ public class User implements Serializable{
     @Getter
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="ID")
+    @JsonIgnore
     private Integer id;
 
     /** 系统时间生成UUID */
@@ -30,12 +32,14 @@ public class User implements Serializable{
     @GeneratedValue(generator = "system-uuid")
     @GenericGenerator(name = "system-uuid", strategy = "uuid")
     @Id
+    @JsonIgnore
     private String uuid;
 
     /** 用户名 */
     @Setter
     @Getter
     @Column(name="USERNAME")
+    @JsonIgnore
     private String username;
 
     /** 密码 */

@@ -1,10 +1,16 @@
 include::F:\JAVA_WorkSpace\api\src\main\asciidoc\preview.adoc[]
 
 == 用户认证
+.curl-request 请求命令
+include::F:\JAVA_WorkSpace\api\target\generated-snippets\用户认证\curl-request.adoc[]
+.httpie-request 请求命令
+include::F:\JAVA_WorkSpace\api\target\generated-snippets\用户认证\httpie-request.adoc[]
 .http-request 请求信息
 include::F:\JAVA_WorkSpace\api\target\generated-snippets\用户认证\http-request.adoc[]
-.request-body 请求体说明
-include::F:\JAVA_WorkSpace\api\target\generated-snippets\用户认证\request-body.adoc[]
 .http-response 响应信息
 include::F:\JAVA_WorkSpace\api\target\generated-snippets\用户认证\http-response.adoc[]
+.request-body 请求体说明
+include::F:\JAVA_WorkSpace\api\target\generated-snippets\用户认证\request-body.adoc[]
+.response-body 响应体说明
+include::F:\JAVA_WorkSpace\api\target\generated-snippets\用户认证\response-body.adoc[]
 

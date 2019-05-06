@@ -75,7 +75,7 @@ public class UserController {
 
     /** 当前前段控制器的异常处理类 */
     @ExceptionHandler()
-    public ApiResultDto exceptioHandler(UserException e){
+    public ApiResultDto exceptionHandler(UserException e){
 
         return new ApiResultDto(null,InfoDto.getErrorInfoDto(e.getMessage()));
     }
