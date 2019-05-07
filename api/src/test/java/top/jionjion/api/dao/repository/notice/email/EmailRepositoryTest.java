@@ -6,6 +6,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.annotation.Commit;
+import org.springframework.test.annotation.Rollback;
 import top.jionjion.api.BaseTest;
 import top.jionjion.api.bean.notice.email.Email;
 
@@ -30,7 +31,7 @@ public class EmailRepositoryTest extends BaseTest {
 
     /** 测试保存邮件信息 */
     @Test
-    @Commit
+    @Rollback
     public void testSave(){
         Email email = new Email();
         email.setMailCc("1434501783@qq.com");

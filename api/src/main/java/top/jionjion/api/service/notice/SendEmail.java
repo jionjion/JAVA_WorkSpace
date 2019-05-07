@@ -1,18 +1,16 @@
-package top.jionjion.api.service.notice.email;
+package top.jionjion.api.service.notice;
 
 import org.springframework.stereotype.Service;
 import top.jionjion.api.bean.notice.email.Email;
-import top.jionjion.api.service.notice.Notice;
 
 /**
  * @author Jion
- *  发送邮件
+ *  发送邮件接口
  */
 @Service
-public abstract class SendEmail implements Notice {
+public interface SendEmail {
 
-    /** 发送邮件 */
-    public abstract Email SendEmail(Email email);
-
+    /** 发送邮件方法* */
+    Email SendEmail(Email email);
 
 }
