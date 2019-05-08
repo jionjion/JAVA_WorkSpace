@@ -20,6 +20,12 @@ public class EmailConfig {
     @Value("${api.aliyun.email.mail.host}")
     private String mailHost;
 
+    @Value("${api.aliyun.email.mail.port}")
+    private Integer port;
+
+    @Value("${api.aliyun.email.mail.ssl.port}")
+    private Integer sslPort;
+
     @Value("${api.aliyun.email.mail.transport.protocol}")
     private String mailTransportProtocol;
 
@@ -29,6 +35,8 @@ public class EmailConfig {
     @Value("${api.aliyun.email.mail.service.address}")
     private String mailServiceAddress;
 
+    @Value("${api.aliyun.email.mail.service.username}")
+    private String mailServiceUsername;
 
     @Value("${api.aliyun.email.mail.service.password}")
     private String mailServicePassword;
