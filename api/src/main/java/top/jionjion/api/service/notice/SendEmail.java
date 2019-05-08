@@ -7,7 +7,6 @@ import top.jionjion.api.bean.notice.email.Email;
  * @author Jion
  *  发送邮件接口
  */
-@Service
 public interface SendEmail {
 
     /** 发送邮件方法* */
