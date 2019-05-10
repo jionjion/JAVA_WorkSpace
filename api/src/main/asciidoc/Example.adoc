@@ -4,6 +4,9 @@
 :email: jionjion@aliyun.com
 :revnumber: v1.0
 :revdate: 2019-05-01
+:toc: left
+:toc-title: 目录
+:toclevels: 2
 
 这是一个模板,介绍了相关语法. +
 {author}写作,更多联系 <jionjion@aliyun.com>
@@ -24,6 +27,17 @@
 ```
 // 这是注释内容
 ```
+
+```
+////
+这是多行注释,
+这是多行注释
+////
+```
+
+== 目录
+建议使用属性 `toc` , `toc-title` , `toclevels` 分别表示启用目录及其对齐, 目录标题, 目录层深度
+
 
 == 摘要
 在文件标题和一级标题之间的段落,会被自动设置为摘要.
@@ -79,7 +93,7 @@ bilibili......
 
 `===` 进行警告或者示例
 
-` ` ` 具有格式的文字,常做引用
+\```  具有格式的文字,常做引用
 
 `----` 代码块
 
@@ -452,3 +466,251 @@ link:view-source:asciidoctor.org[查看Asciidoctor官网源代码]
 
 == 交叉引用
 在当前AsciiDoc文档中指向其他标题或者另外一个AsciiDoc.称之为交叉引用.
+使用标题时,系统会自动根据标题其创建锚点,但是对于中文不友好,更多情况下我们自定义锚点,并在其他地方引用.
+
+=== 自定义锚点
+使用 `[[ID]]` 或者 `[#ID]` 自定义锚点,锚点不限于标题,也可以在段落,表格上增添,或者直接在内容前指定.
+
+```
+[#header_anchor]
+== 示例标题
+
+[[text_anchor]]
+这是一段示例描述自然段...
+
+[[inner_text_anchor]]这是一个内联的锚点...
+```
+
+=== 引用锚点
+使用 `<<ID,描述>>` 跳转到已经定义的锚点上.如果是通过标题自动生成的锚点,使用 `<<标题>>` 直接进行跳转.
+
+```
+跳转锚点 <<text_anchor, 这是...>>
+
+跳转锚点 xref:text_anchor[这是].
+```
+
+=== 文件间引用
+参考 https://asciidoctor.org/docs/user-manual/#inter-document-cross-references[官网教程]
+
+
+== 指令
+
+=== include
+将一个文件导入到当前文件.
+语法 `include::path[<attrlist>]` ,其中 `path` 为文档的绝对路径或者相对路径. `[]` 中的 `attrlist` 为可选参数.
+
+```
+包含一个子文件,文件名为content
+include::content.adoc[]
+```
+
+可以通过声明属性表示文件路径,配合包含文档或者代码文件
+```
+:includedir: _includes
+:sourcedir: ../src/main/java
+
+include::{includedir}/fragment1.adoc[]
+
+[source,java]
+----
+include::{sourcedir}/org/asciidoctor/Asciidoctor.java[]
+----
+```
+
+== 图片
+
+=== 引入图片
+
+使用 `image::` 引入一个块图片,占据整行.如果要使用内联图片,则使用 `image:` 命令.
+后跟网络或者本地位置. `[]` 中指定参数.参数顺序依次为标题,宽,高.
+
+一个具有提示标题,宽,高的超链接图片
+```
+[link=https://www.flickr.com/photos/javh/5448336655]
+image::sunset.jpg[Sunset,300,200]
+```
+
+=== 指定描述宽高
+使用 `alt` 表示图片描述, `width` 表示图片宽度, `height` 表示图片高度
+```
+image::sunset.jpg[alt=Flower,width=640,height=480]
+```
+
+=== 外联或者内联图片
+
+使用 `image::` 和 `image:` 分别表示内联图片和外联图片.
+```
+image:https://upload.wikimedia.org/wikipedia/commons/3/35/Tux.svg[Linux,25,35] everywhere these days.
+image::https://upload.wikimedia.org/wikipedia/commons/3/35/Tux.svg[Tux,250,350]
+```
+
+=== 图片默认路径
+文件路径由属性 `imagesdir` 控制,默认为空,并自动添加到每个图像目标的开头,无需明确设置.
+
+=== 浮动并对齐
+
+使图片右浮动,并居中
+```
+image::tiger.png[Tiger,200,200,float="right",align="center"]
+```
+=== 更多属性
+更多属性参考官网 https://asciidoctor.org/docs/user-manual/#summary-2[官网]
+
+== 视频
+语法
+```
+video::video_file.mp4[]
+```
+
+更多属性参考官网 https://asciidoctor.org/docs/user-manual/#supported-attributes[官网]
+
+== 音频
+语法
+```
+audio::ocean_waves.mp3[options="autoplay,loop"]
+```
+更多属性参考官网 https://asciidoctor.org/docs/user-manual/#audio[官网]
+
+== 文档提示块
+
+- `NOTE` 小贴士,用来提示友好的提示
+- `TIP` 新的主意,表示一个提问或者新的方向
+- `IMPORTANT` 错误,红色感叹号,表示十分重要
+- `CAUTION` 注意,表示一个可能会引起错误的地方
+- `WARNING` 警告,表示一个不被允许的操作
+
+表示不同的提示等级.注意,必须大写
+
+=== 简单提示
+关键字必须大写,且后空一格
+
+NOTE: 这是一个 `NOTE` 提示
+
+TIP: 这是一个 `TIP` 提示
+
+IMPORTANT: 这是一个 `IMPORTANT` 提示
+
+CAUTION: 这是一个 `CAUTION` 提示
+
+WARNING: 这是一个 `WARNING` 提示
+
+=== 段落提示
+通过 `[]` 在 `====` 示例块上标注提示属性,进而将整体作为一个提示
+
+[TIP]
+====
+这是一大段提示内容
+各种提示的格式
+
+- 提示1
+- 提示2
+====
+
+== 文档花絮块
+通过使用 `****` 包裹内容,使其独立于文档内容之外,有其独立的标题,内容
+
+.关于作者
+****
+一条咸菜鱼,又闲又菜又多余.
+****
+
+
+== 文档示例块
+通过 `====` 包裹内容,作为一个示例内容.并将内容原文本输出
+
+```
+.示例文档标题
+====
+以下内容会被格式输出,作为一个示例
+
+- 示例格式
+- 示例格式
+
+The document header is useful, but not required.
+====
+```
+
+== 文档文本块
+通过使用 \``` 进行包裹,将文档只显示源格式,不会对文档进行格式的替换
+
+
+== 文档代码块
+常用作代码块的编写,用 `----` 包裹.其中 `%nowrap` 表示当代码过长时,不进行自动换行,而是显示水平线.
+
+[source%nowrap, java]
+----
+  System.out.println('Hello Word!');
+----
+
+
+
+== 引用摘要块
+=== 行引用
+通过 `[quote]` 属性进行引用
+
+[quote, 作者(可选), 副标题或者出处(可选)]
+这是引用的正文
+
+=== 块引用
+使用 `____` 进行包裹,然后标注属性 `[quote]` 输出格式
+
+[quote, 作者(可选)]
+____
+自然段1.......
+
+自然段2......
+____
+
+
+== 引用诗歌
+改引用方式可以在保持换行和缩进,便于读取
+通过 `[verse]` 进行诗歌的引用
+
+=== 律诗格式
+
+```
+[verse, 作者(可选), 副标题或者出处(可选)]
+首联,
+颔联.
+颈联,
+尾联.
+```
+
+=== 词牌格式
+当诗歌之间出现空行时,采用这种方式.
+
+```
+[verse, 作者(可选), 副标题或者出处(可选)]
+____
+(仄)仄仄平平，(仄)仄平平仄。
+
+(仄)仄平平仄仄平，(仄)仄平平仄。
+
+(仄)仄仄平平，(仄)仄平平仄。
+
+(仄)仄平平仄仄平，(仄)仄平平仄。
+____
+```
+
+== 开放块
+使用 `--` 包裹并配合 `[]` 属性可以作为以上各种块
+
+
+== 数学公式
+参考官网 https://asciidoctor.org/docs/user-manual/#stem[官网]
+
+
+== ICON图标
+参考官网 https://asciidoctor.org/docs/user-manual/#icons[官网]
+
+
+== 将当前文档输出为HTML
+使用命令 `asciidoctor Example.adoc` 将文件输出为HTML
+
+== 转为PDF
+使用第三方支持插件完成转换
+参考官网 https://asciidoctor.org/docs/user-manual/#pdfs[官网]
+
+== 将MakerDown文档转为AsciiDoc文档
+参考官网 https://asciidoctor.org/docs/user-manual/#convert-markdown-to-asciidoc[官网]
