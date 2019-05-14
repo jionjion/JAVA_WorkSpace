@@ -500,22 +500,24 @@ link:view-source:asciidoctor.org[查看Asciidoctor官网源代码]
 将一个文件导入到当前文件.
 语法 `include::path[<attrlist>]` ,其中 `path` 为文档的绝对路径或者相对路径. `[]` 中的 `attrlist` 为可选参数.
 
-```
+
 包含一个子文件,文件名为content
+
+```
 include::content.adoc[]
 ```
 
 可以通过声明属性表示文件路径,配合包含文档或者代码文件
+
 ```
 :includedir: _includes
 :sourcedir: ../src/main/java
+```
 
-include::{includedir}/fragment1.adoc[]
+`include::{includedir}/fragment1.adoc[]`
 
-[source,java]
-----
+```
 include::{sourcedir}/org/asciidoctor/Asciidoctor.java[]
-----
 ```
 
 == 图片
