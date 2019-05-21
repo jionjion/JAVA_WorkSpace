@@ -1,6 +1,6 @@
 package jackson.annotation;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
@@ -10,17 +10,17 @@ import static org.junit.Assert.assertNotNull;
 
 /**
  * @author Jion
- * \@JsonIgnore 注解使用
+ * \@JsonInclude 注解使用
  */
 @Slf4j
-public class JsonIgnoreTest {
+public class JsonIncludeTest {
 
     /**
      * 内部类
      */
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     public class Student {
 
-        @JsonIgnore
         private Integer id;
 
         public Integer getId() {
@@ -57,7 +57,7 @@ public class JsonIgnoreTest {
         Student student = new Student();
         student.setId(1);
         student.setName("囧囧");
-        student.setAddress("上海");
+        student.setAddress(null);
 
         String result = new ObjectMapper().writeValueAsString(student);
         assertNotNull(result);

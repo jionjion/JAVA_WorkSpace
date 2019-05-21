@@ -1,6 +1,6 @@
 package jackson.annotation;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreType;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
@@ -10,17 +10,16 @@ import static org.junit.Assert.assertNotNull;
 
 /**
  * @author Jion
- * \@JsonIgnore 注解使用
+ * \@JsonIgnoreType 注解使用
  */
 @Slf4j
-public class JsonIgnoreTest {
+public class JsonIgnoreTypeTest {
 
     /**
      * 内部类
      */
     public class Student {
 
-        @JsonIgnore
         private Integer id;
 
         public Integer getId() {
@@ -41,7 +40,22 @@ public class JsonIgnoreTest {
             this.name = name;
         }
 
-        private String address;
+        private Info info;
+
+        public Info getInfo() {
+            return info;
+        }
+
+        public void setInfo(Info info) {
+            this.info = info;
+        }
+    }
+
+    @JsonIgnoreType
+    public class Info{
+        String address;
+
+        String postcode;
 
         public String getAddress() {
             return address;
@@ -50,6 +64,19 @@ public class JsonIgnoreTest {
         public void setAddress(String address) {
             this.address = address;
         }
+
+        public String getPostcode() {
+            return postcode;
+        }
+
+        public void setPostcode(String postcode) {
+            this.postcode = postcode;
+        }
+
+        public Info(String address, String postcode) {
+            this.address = address;
+            this.postcode = postcode;
+        }
     }
 
     @Test
@@ -57,7 +84,8 @@ public class JsonIgnoreTest {
         Student student = new Student();
         student.setId(1);
         student.setName("囧囧");
-        student.setAddress("上海");
+        Info info = new Info("上海","00001");
+        student.setInfo(info);
 
         String result = new ObjectMapper().writeValueAsString(student);
         assertNotNull(result);

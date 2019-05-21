@@ -1,8 +1,12 @@
 package jackson.annotation;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonFilter;
+import com.fasterxml.jackson.annotation.JsonView;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ser.FilterProvider;
+import com.fasterxml.jackson.databind.ser.impl.SimpleBeanPropertyFilter;
+import com.fasterxml.jackson.databind.ser.impl.SimpleFilterProvider;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 
@@ -10,17 +14,18 @@ import static org.junit.Assert.assertNotNull;
 
 /**
  * @author Jion
- * \@JsonIgnore 注解使用
+ * \@JsonFilter 注解使用
  */
 @Slf4j
-public class JsonIgnoreTest {
+public class JsonFilterTest {
 
     /**
      * 内部类
      */
+    @JsonFilter("jsonFilter")
     public class Student {
 
-        @JsonIgnore
+        @JsonView(Views.hide.class)
         private Integer id;
 
         public Integer getId() {
@@ -31,6 +36,7 @@ public class JsonIgnoreTest {
             this.id = id;
         }
 
+        @JsonView(Views.show.class)
         private String name;
 
         public String getName() {
@@ -41,15 +47,6 @@ public class JsonIgnoreTest {
             this.name = name;
         }
 
-        private String address;
-
-        public String getAddress() {
-            return address;
-        }
-
-        public void setAddress(String address) {
-            this.address = address;
-        }
     }
 
     @Test
@@ -57,9 +54,18 @@ public class JsonIgnoreTest {
         Student student = new Student();
         student.setId(1);
         student.setName("囧囧");
-        student.setAddress("上海");
 
-        String result = new ObjectMapper().writeValueAsString(student);
+        // 过滤器
+        FilterProvider filters = new SimpleFilterProvider()
+                .addFilter("jsonFilter", // 过滤器名称
+                        SimpleBeanPropertyFilter.filterOutAllExcept("name") // 仅允许输出的类
+                );
+
+        // 输出
+        String result = new ObjectMapper()
+                .writer(filters)
+                .writeValueAsString(student);
+
         assertNotNull(result);
         log.info(result);
     }

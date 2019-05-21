@@ -1,36 +1,28 @@
 package jackson.annotation;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 
+import java.util.Date;
+import java.util.TimeZone;
+
 import static org.junit.Assert.assertNotNull;
 
 /**
  * @author Jion
- * \@JsonIgnore 注解使用
+ * \@JsonFormat 注解使用
  */
 @Slf4j
-public class JsonIgnoreTest {
+public class JsonFormatTest {
 
     /**
      * 内部类
      */
     public class Student {
-
-        @JsonIgnore
-        private Integer id;
-
-        public Integer getId() {
-            return id;
-        }
-
-        public void setId(Integer id) {
-            this.id = id;
-        }
-
         private String name;
 
         public String getName() {
@@ -41,23 +33,23 @@ public class JsonIgnoreTest {
             this.name = name;
         }
 
-        private String address;
+        @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone="GMT+8")
+        private Date birthday;
 
-        public String getAddress() {
-            return address;
+        public Date getBirthday() {
+            return birthday;
         }
 
-        public void setAddress(String address) {
-            this.address = address;
+        public void setBirthday(Date birthday) {
+            this.birthday = birthday;
         }
     }
 
     @Test
     public void test() throws JsonProcessingException {
         Student student = new Student();
-        student.setId(1);
         student.setName("囧囧");
-        student.setAddress("上海");
+        student.setBirthday(new Date());
 
         String result = new ObjectMapper().writeValueAsString(student);
         assertNotNull(result);
