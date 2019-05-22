@@ -5,8 +5,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.RepositoryDefinition;
 import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
-
-import springData.bean.Teacher;
+import springData.jpa.bean.Student;
 
 /**
  *	使用JPARepository访问数据库
@@ -15,8 +14,8 @@ import springData.bean.Teacher;
  *	通过使用@Query注解,重写查询语句
  */
 
-@RepositoryDefinition(domainClass = Teacher.class, idClass = Integer.class)
-public interface TeacherQueryRepository{
+@RepositoryDefinition(domainClass = Student.class, idClass = Integer.class)
+public interface StudentQueryRepository{
 	
 	
 				/*******************************|
@@ -24,28 +23,28 @@ public interface TeacherQueryRepository{
 				 *******************************/
 	
 	/**	查询最大值
-	 * 	select t from Teacher t where id = (select max(id) from Teacher)
+	 * 	select t from Student t where id = (select max(id) from Student)
 	 */
-	@Query("select t from Teacher t where id = (select max(id) from Teacher)")
-	public Teacher getTeacherByMaxId();
+	@Query("select t from Student t where id = (select max(id) from Student)")
+	public Student getStudentByMaxId();
 	
 	/**		
-	 * 	select t from Teacher t where t.name = ?
+	 * 	select t from Student t where t.name = ?
 	 */
-	@Query("select t from Teacher t where t.name = ?1")
-	public Teacher getTeacherByParamName(String name);
+	@Query("select t from Student t where t.name = ?1")
+	public Student getStudentByParamName(String name);
 	
-	@Query("select t from Teacher t where t.address = :address")
-	public Teacher getTeacherByParamAddress(@Param("address") String address);
+	@Query("select t from Student t where t.address = :address")
+	public Student getStudentByParamAddress(@Param("address") String address);
 	
 	
 	/**	
-	 * 	update Teacher t set t.age = :age where t.id = :id 
+	 * 	update Student t set t.age = :age where t.id = :id 
 	 * 	添加@Modifying注解和事务开启
 	 */
 	@Modifying
 	@Transactional
-	@Query("update Teacher t set t.age = :age where t.id = :id")
+	@Query("update Student t set t.age = :age where t.id = :id")
 	public void updateSetName(@Param("id") Integer id, @Param("age") Integer age);
 	
 	
@@ -54,8 +53,8 @@ public interface TeacherQueryRepository{
 				 *******************************/	
 	
 	/**	使用原生的SQL进行查询.需要开启nativeQuery注解属性
-	 * 	select count(*) from teacher
+	 * 	select count(*) from Student
 	 */
-	@Query(value = "select count(*) from teacher" , nativeQuery = true)
+	@Query(value = "select count(*) from Student" , nativeQuery = true)
 	public Long getCount();
 }

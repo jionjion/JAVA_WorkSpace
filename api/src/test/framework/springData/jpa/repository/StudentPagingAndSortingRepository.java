@@ -1,8 +1,7 @@
 package springData.jpa.repository;
 
 import org.springframework.data.repository.PagingAndSortingRepository;
-
-import springData.bean.Teacher;
+import springData.jpa.bean.Student;
 
 /**
  *	使用JPARepository访问数据库
@@ -10,7 +9,7 @@ import springData.bean.Teacher;
  *	标识该类使用Spring-Data
  */
 
-public interface TeacherPagingAndSortingRepository extends PagingAndSortingRepository<Teacher,Integer>{
+public interface StudentPagingAndSortingRepository extends PagingAndSortingRepository<Student,Integer>{
 
 	
 }
