@@ -11,5 +11,4 @@ import springData.jpa.bean.Student;
 
 public interface StudentPagingAndSortingRepository extends PagingAndSortingRepository<Student,Integer>{
 
-	
 }
