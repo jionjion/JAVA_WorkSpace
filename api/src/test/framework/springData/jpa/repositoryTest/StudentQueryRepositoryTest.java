@@ -1,54 +1,71 @@
 package springData.jpa.repositoryTest;
 
-import org.springframework.data.jpa.repository.Modifying;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.RepositoryDefinition;
-import org.springframework.data.repository.query.Param;
-import org.springframework.transaction.annotation.Transactional;
+import lombok.extern.slf4j.Slf4j;
+import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.annotation.Rollback;
 import springData.jpa.bean.Student;
+import springData.jpa.repository.StudentQueryRepository;
+
+import static org.junit.Assert.assertNotNull;
 
 /**
  *	自定义查询
  */
+@Slf4j
+@Rollback
 public class StudentQueryRepositoryTest extends SpringDataJpaBaseTest{
-	
-	
-				/*******************************|
-				 * 			HQL语句				|
-				 *******************************/
-	
-	/**	查询最大值
-	 * 	select t from Student t where id = (select max(id) from Student)
+
+	@Autowired
+	StudentQueryRepository studentQueryRepository;
+
+
+	/**
+	 * 	select t from student t where id = (select max(id) from Student)
 	 */
-	public Student getStudentByMaxId();
-	
-	/**		
-	 * 	select t from Student t where t.name = ?
+	@Test
+	public void testGetStudentByMaxId() {
+		Student result =  studentQueryRepository.getStudentByMaxId();
+		assertNotNull(result);
+		log.info(result.toString());
+	}
+
+	/**
+	 * 	select t from student t where t.name = ?1
 	 */
-	@Query("select t from Student t where t.name = ?1")
-	public Student getStudentByParamName(String name);
-	
-	@Query("select t from Student t where t.address = :address")
-	public Student getStudentByParamAddress(@Param("address") String address);
-	
-	
-	/**	
-	 * 	update Student t set t.age = :age where t.id = :id 
-	 * 	添加@Modifying注解和事务开启
+	@Test
+	public void testGetStudentByParamName(){
+        Student result = studentQueryRepository.getStudentByParamName("Jion");
+        assertNotNull(result);
+        log.info(result.toString());
+    }
+
+    /**
+     * 	select t from student t where t.address = :address
+     */
+    @Test
+	public void testGetStudentByParamAddress(){
+        Student result = studentQueryRepository.getStudentByParamAddress("上海");
+        assertNotNull(result);
+        log.info(result.toString());
+    }
+
+	/**
+	 * 	update student t set t.age = :age where t.id = :id
 	 */
-	@Modifying
-	@Transactional
-	@Query("update Student t set t.age = :age where t.id = :id")
-	public void updateSetName(@Param("id") Integer id, @Param("age") Integer age);
-	
-	
-				/*******************************|
-				 * 			SQL语句				|
-				 *******************************/	
-	
-	/**	使用原生的SQL进行查询.需要开启nativeQuery注解属性
-	 * 	select count(*) from Student
+	@Test
+	public void testUpdateSetName(){
+	    studentQueryRepository.updateSetName(1,10);
+	}
+
+	/**
+     *  使用原生的SQL进行查询.需要开启nativeQuery注解属性
+	 * 	select count(*) from student
 	 */
-	@Query(value = "select count(*) from Student" , nativeQuery = true)
-	public Long getCount();
+	@Test
+	public void testGetCount(){
+	    Long result = studentQueryRepository.getCount();
+	    assertNotNull(result);
+	    log.info(result.toString());
+    }
 }
