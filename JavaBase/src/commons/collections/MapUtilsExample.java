@@ -115,7 +115,7 @@ public class MapUtilsExample {
 	/** 返回map中key对应的Byte包装类的值,如果不存在则返回默认值 */
 	@Test
 	public void	testGetByte2() {
-		Byte result = MapUtils.getByte(map1, "byte",0);
+		Byte result = MapUtils.getByte(map1, "byte",(byte) 0);
 		System.out.println(result);		
 	}
 
@@ -297,7 +297,7 @@ public class MapUtilsExample {
 	/** 返回map中key对应的Short包装类的值,如果不存在则返回默认值 */
 	@Test
 	public void	testGetShort2() {
-		Short result = MapUtils.getShort(map1, "short", 0);
+		Short result = MapUtils.getShort(map1, "short", (short) 0);
 		System.out.println(result);
 	}
 
