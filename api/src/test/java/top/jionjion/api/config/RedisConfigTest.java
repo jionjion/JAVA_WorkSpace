@@ -4,9 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
-import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.data.redis.core.StringRedisTemplate;
-import org.springframework.data.redis.core.ValueOperations;
+import org.springframework.data.redis.core.*;
 import springData.jpa.repositoryTest.SpringDataJpaBaseTest;
 import top.jionjion.api.BaseTest;
 
@@ -20,39 +18,47 @@ import static org.junit.Assert.*;
 public class RedisConfigTest extends BaseTest{
 
 /*
-Interface	                Description
-                            Key Type Operations
-GeoOperations               Redis geospatial operations, such as GEOADD, GEORADIUS,…​
-HashOperations              Redis hash operations
-HyperLogLogOperations       Redis HyperLogLog operations, such as PFADD, PFCOUNT,…​
-ListOperations              Redis list operations
-SetOperations               Redis set operations
-ValueOperations             Redis string (or value) operations
-ZSetOperations              Redis zset (or sorted set) operations
-Key Bound Operations        BoundGeoOperations
-                            Redis key bound geospatial operations
-BoundHashOperations         Redis hash key bound operations
-BoundKeyOperations          Redis key bound operations
-BoundListOperations         Redis list key bound operations
-BoundSetOperations          Redis set key bound operations
-BoundValueOperations        Redis string (or value) key bound operations
-BoundZSetOperations         Redis zset (or sorted set) key bound operations
+接口	                        描述,操作对象
+GeoOperations               空间地理
+HashOperations              Hash 操作
+HyperLogLogOperations       HyperLogLog 操作
+ListOperations              List 操作
+SetOperations               Set 操作
+ValueOperations             Value 操作
+ZSetOperations              Zset 操作
 
-参考 org.springframework.data.redis.support
+                            绑定操作
+BoundGeoOperations          空间地理
+BoundHashOperations         Hash 绑定操作
+BoundKeyOperations          Key 绑定操作
+BoundListOperations         List 绑定操作
+BoundSetOperations          Set 绑定操作
+BoundValueOperations        Value 绑定操作
+BoundZSetOperations         Zset 绑定操作
+
  */
 
-
+    /** 配置文件 */
     @Autowired
     RedisConfig redisConfig;
 
+    /** Redis操作模板,框架提供 */
     @Autowired
     RedisTemplate<String, String> redisTemplate;
 
+    /** 连接工厂 */
     @Autowired
     JedisConnectionFactory jedisConnectionFactory;
 
+    /** 字符串操作模板,框架提供 */
     @Autowired
     StringRedisTemplate stringRedisTemplate;
+
+    GeoOperations geoOperations = redisTemplate.opsForGeo();
+
+    BoundGeoOperations boundGeoOperations = redisTemplate.boundGeoOps(null);
+
+
 
     /** 测试注入连接工厂 */
     @Test
@@ -61,7 +67,6 @@ BoundZSetOperations         Redis zset (or sorted set) key bound operations
         assertNotNull(redisTemplate);
         assertNotNull(jedisConnectionFactory);
         assertNotNull(stringRedisTemplate);
-
     }
 
 
