@@ -22,47 +22,71 @@ import static org.junit.Assert.*;
  *      操作 集合 Set
  */
 @Slf4j
-public class SetTest extends SpringDataRedisBaseTest {
+public class BoundSetOperationsTest extends SpringDataRedisBaseTest {
 
     @Autowired
     private RedisTemplate<String, String> redisTemplate;
-
-    private SetOperations<String, String> setOperations;
 
     private BoundSetOperations<String, String> boundSetOperations;
 
     @Before
     public void initOperations(){
-        if (Objects.isNull(setOperations)){
-            setOperations = redisTemplate.opsForSet();
-        }
         if (Objects.isNull(boundSetOperations)){
-            boundSetOperations = redisTemplate.boundSetOps("key");
+            boundSetOperations = redisTemplate.boundSetOps("SetA");
         }
+//        下列方法与 SetOperations 一致
+//        boundSetOperations.add();
+//        boundSetOperations.intersectAndStore();
+//        boundSetOperations.pop();
+//        boundSetOperations.randomMember();
+//        boundSetOperations.remove();
+//        boundSetOperations.move();
+//        boundSetOperations.size();
+//        boundSetOperations.members();
+//        boundSetOperations.scan();
+//        boundSetOperations.intersect();
+//        boundSetOperations.intersectAndStore();
+//        boundSetOperations.union();
+//        boundSetOperations.unionAndStore();
+//        boundSetOperations.diff();
+//        boundSetOperations.diffAndStore();
     }
 
 
     @Test
-    public void testSetOperations(){
+    public void testGetKey(){
 
-        // 添加
-        // SADD key member [member ...]
-        Long addResult = setOperations.add("set","A","B","C","D","E");
-        assertNotNull(addResult);
-
-        // 判断集合是否存在某元素
-        // SISMEMBER key member
-        boolean isMemberResult = setOperations.isMember("set","A");
-        assertTrue(isMemberResult);
-
-        // 从集合key中随机移除count个成员,并返回.当集合不存在时,返回nil.
-        // SPOP key [count]
-        String popObjectResult = setOperations.pop("set");
-        assertNotNull(popObjectResult);
-        List<String> popListResult = setOperations.pop("B",2);
-        assertNotEquals(0,popListResult.size());
-
-        // 从集合key中随机获得指定个数的成员.若集合为空,则返回nil
-        // SRANDMEMBER key [count]
     }
+
+    @Test
+    public void testGetType(){
+
+    }
+
+    @Test
+    public void testGetExpire(){
+
+    }
+
+    @Test
+    public void testExpire(){
+
+    }
+
+    @Test
+    public void testExpireAt(){
+
+    }
+
+    @Test
+    public void testPersist(){
+
+    }
+
+    @Test
+    public void testRename(){
+
+    }
+
+
 }
