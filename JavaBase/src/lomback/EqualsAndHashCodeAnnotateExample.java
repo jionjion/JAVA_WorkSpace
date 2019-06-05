@@ -12,7 +12,6 @@ import org.junit.Test;
  */
 public class EqualsAndHashCodeAnnotateExample {
 
-
     /** 父类 */
     class User{
 
@@ -104,7 +103,7 @@ public class EqualsAndHashCodeAnnotateExample {
 
     /**
      *  onlyExplicitlyIncluded 默认false.
-     *      当为true时,只有被\@EqualsAndHashCode.Include 标注的属性才会被输出
+     *      当为true时,只有被\@EqualsAndHashCode.Include 标注的属性才会被比较
      *  \@EqualsAndHashCode.Exclude 属性不被比较
      *  \@EqualsAndHashCode.Include 属性被比较
      *  */
@@ -133,6 +132,4 @@ public class EqualsAndHashCodeAnnotateExample {
         System.out.println(userD1.toString());
         System.out.println(userD2.toString());
     }
-
-
 }
