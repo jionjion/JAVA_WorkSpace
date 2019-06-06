@@ -16,8 +16,8 @@ import static org.junit.Assert.*;
 
 /**
  * @author Jion
- * 测试Set类
- * 操作 集合 Set
+ * 测试 ZSet类
+ * 操作 集合 ZSet
  */
 @Slf4j
 public class ZSetOperationsTest extends SpringDataRedisBaseTest {
@@ -39,7 +39,32 @@ public class ZSetOperationsTest extends SpringDataRedisBaseTest {
         redisTemplate.setEnableTransactionSupport(true);
         redisTemplate.multi();
         redisTemplate.delete("SetA");
+
         redisTemplate.exec();
+
+        zSetOperations.add();
+        zSetOperations.add();
+        zSetOperations.score();
+        zSetOperations.incrementScore();
+        zSetOperations.zCard();
+        zSetOperations.count();
+        zSetOperations.range();
+        zSetOperations.reverseRange();
+        zSetOperations.rangeByScore();
+        zSetOperations.rangeByScore();
+        zSetOperations.reverseRangeByScore();
+        zSetOperations.reverseRangeByScore();
+        zSetOperations.rank();
+        zSetOperations.reverseRange();
+        zSetOperations.remove();
+        zSetOperations.removeRange();
+        zSetOperations.removeRangeByScore();
+        zSetOperations.rangeByLex();
+        zSetOperations.rangeByLex();
+        zSetOperations.scan();
+        zSetOperations.unionAndStore();
+        zSetOperations.incrementScore();
+
     }
 
     /**
