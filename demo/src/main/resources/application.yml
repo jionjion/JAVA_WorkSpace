@@ -1,0 +1,48 @@
+# 配置文件
+debug: true
+
+server:
+  port: 8080
+
+spring:
+  profiles:
+    active: dev
+
+
+---
+# 开发环境信息
+spring:
+  profiles: dev
+  resources:
+    # 静态资源位置
+    static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/
+  thymeleaf:
+    cache: false
+  mvc:
+    date-format:
+
+
+# 日志信息,在不配置日志输出时,默认只将日志输出到控制台
+logging:
+  # 不同位置的日志级别
+  level:
+    top.jionjion.demo.log: warn
+    top.jionjion.demo.config: info
+  # 当前项目下生成日志目录.文件名spring.log
+  path: log
+  # 指定生成的文件名及位置
+  file: F:\\JAVA_WorkSpace\\demo\\log\\demo.log
+  # 控制台,文件日志格式
+#  pattern:
+#    console:
+#    file:
+
+# 静态资源的配置
+
+# 自定义配置信息
+demo:
+  enable: true
+  author: "Mr.Jion"
+  date: 2019-07-21
+  info: {version: 1.0, builder: Dev}
+  helpers: [Jion, AtGuiGu]
