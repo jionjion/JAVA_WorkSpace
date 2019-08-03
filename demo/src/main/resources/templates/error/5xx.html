@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>错误页面</title>
+</head>
+<body>
+    <h1>这是一个错误页面</h1>
+
+    <h3>错误信息</h3>
+
+    <p> 状态码: [[${status}]] </p>
+    <p> 时间戳: [[${timestamp}]] </p>
+    <p> 异常信息: [[${message}]]</p>
+    <p> 异常对象: [[${exception}]]</p>
+</body>
+</html>

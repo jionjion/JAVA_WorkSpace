@@ -42,6 +42,23 @@
 从集合,数组,自行创建获得流
 
 常用操作
+filter      过滤      接受lambda表达式,并删除某些
+limit(n)    限制      限制最大数量,前n个元素
+skip(n)     跳过      跳过前n个元素,若流中元素不足n个,则返回一个空流
+distinct    去重      通过hashCode()和equals()去除重复元素
+map         映射      将每一个元素通过某个方法进行转换
+flatMap     映射整流   将每个元素处理并返回的流整合为一个流
+sorted      排序      自然排序(Comparable),或者传入排序规则(Comparator)排序
+allMatch    全部匹配   检查是否全部匹配
+anyMatch    至少匹配   检查是否至少匹配一个
+noneMatch   没有匹配   检查是否没有匹配
+findFirst            查找第一个
+findAny              全部
+count                总个数
+max         最大值
+min         最小值
+reduce      规约      将所有求和,获得一个结果
+collect     收集      将符合要求的成员,`Collectors`工具类,提供多种收集器
 
 串行流与并行流
 Fork/Join:将任务拆解执行后并将结果进行汇总

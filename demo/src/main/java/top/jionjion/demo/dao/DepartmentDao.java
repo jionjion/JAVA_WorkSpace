@@ -1,10 +1,9 @@
 package top.jionjion.demo.dao;
 
+import org.springframework.stereotype.Repository;
 import top.jionjion.demo.entities.Department;
 
-import javax.xml.crypto.Data;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -12,6 +11,7 @@ import java.util.Map;
  * @author Jion
  *  部门
  */
+@Repository
 public class DepartmentDao {
 
     private static Map<Integer, Department> departments = null;

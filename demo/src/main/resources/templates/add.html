@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title>添加|修改页面</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="" th:href="@{/css/bootstrap.css}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="" th:href="@{/css/dashboard.css}" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <!-- 引入抽取的元素, 模板名:会根据配置规则解析 -->
+<!--    <div th:replace="~{dashboard::topbar}"></div>-->
+    <div th:replace="commons/topbar::topbar"></div>
+
+    <div class="container-fluid">
+      <div class="row">
+
+        <!-- 引入侧边栏,通过选择器 -->
+        <div th:replace="~{commons/sidebar::#sidebar(activeUri='list.html')}"></div>
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+
+          <form th:action="@{/emp/emp}" th:method="post">
+            <!-- 埋入请求方式 -->
+            <input type="hidden" name="_method" value="put" th:if="${emp!=null}">
+            <!-- 埋入员工ID -->
+            <input type="hidden" name="id" th:value="${emp.id}" th:if="${emp!=null}">
+
+            <div class="form-group">
+              <label for="lastName">Lastname</label>
+              <input type="text" class="form-control" id="lastName" placeholder="zhangsan" name="lastName" th:value="${emp!=null}?${emp.lastName}">
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" class="form-control" id="email" placeholder="name@example.com" name="email" th:value="${emp!=null}?${emp.email}">
+            </div>
+            <div class="form-group">
+              <div class="">
+                <label>Gender</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="gender" id="genderRadio1" value="男" th:checked="${emp!=null}?${emp.gender=='男'}">
+                <label class="form-check-label" for="genderRadio1">男</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="gender" id="genderRadio2" value="女" th:checked="${emp!=null}?${emp.gender=='女'}">
+                <label class="form-check-label" for="genderRadio2">女</label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="edepartmentSelect1"></label>
+              <!-- 级联属性中,通过类.属性方式进行关联 -->
+              <select class="form-control" id="edepartmentSelect1" th:name="department.id">
+                <!-- 回显条件,遍历部门id==员工部门id,选择 -->
+                <option th:each="dept:${depts}" th:value="${dept.id}" th:text="${dept.departmentName}" th:selected="${emp!=null}?${dept.id == emp.department.id}">1</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="birth">Lastname</label>
+              <input type="text" class="form-control" id="birth" name="birth" placeholder="2000-01-01" th:value="${emp!=null}?${#dates.format(emp.birth,'yyyy-MM-dd')}">
+            </div>
+
+            <button type="submit" class="btn btn-primary" th:text="${emp!=null} ? '修改' : '添加'">添加</button>
+          </form>
+        </main>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+<!--    <script src="../../../../assets/js/vendor/popper.min.js"></script>-->
+    <script src="" th:src="@{/js/bootstrap.min.js}"></script>
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+    <script>
+      feather.replace()
+    </script>
+  </body>
+</html>

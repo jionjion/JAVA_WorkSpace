@@ -1,17 +1,18 @@
 package top.jionjion.demo.dao;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 import top.jionjion.demo.entities.Department;
 import top.jionjion.demo.entities.Employee;
 
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @author Jion
  * 员工
  */
+@Repository
 public class EmployeeDao {
     private static Map<Integer, Employee> employees = null;
 
@@ -37,7 +38,24 @@ public class EmployeeDao {
         if (employee.getId() == null){
             employee.setId(initId ++);
         }
+        Department department = departmentDao.getDepartment(employee.getDepartment().getId());
+        employee.setDepartment(department);
+        employees.put(employee.getId(), employee);
+    }
+
+    /** 查询全部 */
+    public Collection<Employee> getAll(){
+        return employees.values();
+    }
+
+    /** 查询一个 */
+    public Employee get(Integer id){
+        return employees.get(id);
     }
 
     /** 删除一个 */
+    public void delete(Integer id){
+        employees.remove(id);
+    }
+
 }

@@ -5,10 +5,12 @@ server:
   port: 8080
 
 spring:
+  # 当前配置环境
   profiles:
     active: dev
-
-
+  # 设置国际化资源文件基础名.默认为 message.properties,放在资源根路径下
+  messages:
+    basename: resources.i18n.message
 ---
 # 开发环境信息
 spring:
