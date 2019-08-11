@@ -22,7 +22,19 @@ spring:
     cache: false
   mvc:
     date-format:
-
+  # 数据库信息
+  datasource:
+    username: root
+    password: 123456
+    url: jdbc:mysql://127.0.0.1:3306/springboot?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC
+    driver-class-name: com.mysql.jdbc.Driver
+    # 数据库启动默认SQL动作
+#    schema:
+#      - classpath:db\\department.sql
+#      - classpath:db\\department.sql
+#    initialization-mode: always
+    # 使用druid数据源
+    type: com.alibaba.druid.pool.DruidDataSource
 
 # 日志信息,在不配置日志输出时,默认只将日志输出到控制台
 logging:
@@ -40,6 +52,7 @@ logging:
 #    file:
 
 # 静态资源的配置
+
 
 # 自定义配置信息
 demo:

@@ -126,5 +126,27 @@ SpringBoot页面国际化步骤
 ServletRegistration                 注册Servlet容器
 FilterRegistration                  注册Filter过滤器
 ServletListenerRegistrationBean     注册Listener容器
-
 */
+
+
+/*
+数据源配置
+自定义数据库默认动作
+
+引入druid
+<dependency>
+    <groupId>com.alibaba</groupId>
+    <artifactId>druid</artifactId>
+    <version>1.1.19</version>
+</dependency>
+
+启用配置
+spring.datasource.typ= com.alibaba.druid.pool.DruidDataSource
+
+编写配置文件
+
+添加配置配,配置Filter和Servlet
+
+访问前段页面
+
+ */
