@@ -21,7 +21,7 @@ public class IOCaseExample {
 		 * 	SENSITIVE 枚举方法的使用,该枚举成员,严格区大小写
 		 */
 		//获得枚举对象
-		IOCase sensitive = IOCase.forName("Sensitive");
+		IOCase sensitive = IOCase.forName(IOCase.SENSITIVE.getName());
 		
 		//比较差异,0相等
 		System.out.println("字符串差异:" + sensitive.checkCompareTo(str1, str2));

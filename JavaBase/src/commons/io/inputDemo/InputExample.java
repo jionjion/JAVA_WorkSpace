@@ -1,7 +1,4 @@
 package commons.io.inputDemo;
-/**
- *	自动将读取的字节从输入复制到输出
- */
 
 import java.io.ByteArrayInputStream;
 import java.io.File;
@@ -12,6 +9,9 @@ import java.io.OutputStream;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.input.TeeInputStream;
 
+/**
+ *	自动将读取的字节从输入复制到输出
+ */
 public class InputExample {
 
 	public static void main(String[] args) throws Exception{
@@ -29,9 +29,10 @@ public class InputExample {
         InputStream in = new ByteArrayInputStream(inputStr.getBytes("UTF-8"));
         //将将输出流追加入文件
         OutputStream out = new FileOutputStream(file,true);
-        
-        TeeInputStream tee = new TeeInputStream(in, out, true);		//传入输入流,输出流,是否自动关闭
-        
+
+        //传入输入流,输出流,是否自动关闭
+        TeeInputStream tee = new TeeInputStream(in, out, true);
+
         //使用字节数组进行读取,一次读取完毕
         tee.read(new byte[inputStr.getBytes().length]);
         
