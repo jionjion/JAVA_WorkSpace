@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.nio.charset.StandardCharsets;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Map;
@@ -18,7 +19,7 @@ public class PropertiesRead {
 		
 		Map<String, String> map = new HashMap<String,String>();
 		//获取输入流
-		InputStreamReader inputStream = new InputStreamReader(new FileInputStream(file), "utf-8");
+		InputStreamReader inputStream = new InputStreamReader(new FileInputStream(file), StandardCharsets.UTF_8);
 		//创建属性文件对象
 		Properties properties = new Properties();
 		//传入输入流
@@ -39,7 +40,7 @@ public class PropertiesRead {
 	/**写入配置文件,写入Map集合,存在相同键则更新,否则为新增*/
 	public static void writer(Map<String, String> map , File file) throws Exception{
 		//获取输出流
-		OutputStreamWriter outputStream = new OutputStreamWriter(new FileOutputStream(file,false), "utf-8");
+		OutputStreamWriter outputStream = new OutputStreamWriter(new FileOutputStream(file,false), StandardCharsets.UTF_8);
 		//创建属性文件对象
 		Properties properties = new Properties();
 		
@@ -68,8 +69,7 @@ public class PropertiesRead {
 		writerMap.put("birthday", "1994-04-12");
 		writer(writerMap, file);
 		
-		
-		
+
 		//读取操作
 		Map<String, String> readMap = read(file);
 		//遍历map
@@ -81,7 +81,5 @@ public class PropertiesRead {
 			System.out.println("读取>>键:" + entry.getKey() + "   值:"
 						+ entry.getValue());
 	    }
-		
-		
 	}
 }

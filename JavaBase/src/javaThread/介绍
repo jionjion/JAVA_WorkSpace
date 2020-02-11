@@ -17,4 +17,3 @@
 互斥与同步
 	wait()	notify()   notifyAll()
 	
-	

@@ -10,18 +10,18 @@ JAXB工具类实现了将java对象转为xml对象,避免了直接使用XML解�
 ## 文件列表
 
 -`BookListWrapper.java`		具有嵌套结构的Java对象类
--`DateAdapter.java`		日期格式化适配器
+-`DateAdapter.java`		    日期格式化适配器
 -`bean.Student` 			Java对象类
 -`StudentListWrapper.java`  Java对象容器列表
--`Marshal.java``			测试,将java对象转为xml
+-`Marshal.java`			    测试,将java对象转为xml
 -`UnMarshal.java`			测试,将xml转为java对象
 
 ## 常用注解说明
 
 以下类多用在java对象中,标识生成的xml的数据结构
-`@XmlType` 				类注解,标识类对应生成的xml类型
+`@XmlType` 				    类注解,标识类对应生成的xml类型
 `@XmlRootElement` 			类注解,标识生成的xml的根节点,及节点约束空间
-`@XmlAttribute`			共有方法或者共有属性注解,标识该属性作为根节点的xml属性
+`@XmlAttribute`			    共有方法或者共有属性注解,标识该属性作为根节点的xml属性
 `@XmlJavaTypeAdapter`		共有方法或者共有属性注解,指定特定的类作为转换解析该属性的方法
 `@XmlElementWrapper`		共有方法或者共有属性注解,为该节点包裹特定的标签
 

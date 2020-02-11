@@ -20,13 +20,13 @@ Tags : JDK8 Eclipse timer quartz
 - DOM解析
 - SAX解析
 - JDOM解析
--  DOM4J解析
+- DOM4J解析
 
 ### `xmlWriter`包
 - DOM解析
 - SAX解析
 - JDOM解析
--  DOM4J解析
+- DOM4J解析
 
 
   [1]: https://github.com/jionjion/JAVA_WorkSpace/tree/master/JavaBase/src/xmlReadAndWriter/xmlRead

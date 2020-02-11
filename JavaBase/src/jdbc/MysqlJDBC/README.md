@@ -512,7 +512,7 @@ public void	queryGoddessBySome(){
 
 ```
 
-#### `调用存储过程`
+#### 调用存储过程
 
 ``` java
 private ProcedureDao dao = new ProcedureDao();
