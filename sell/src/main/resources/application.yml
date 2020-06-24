@@ -1,0 +1,25 @@
+# Spring,logback等配置文件信息
+#spring:
+#  datasource:
+#    driver-class-name: com.mysql.jdbc.Dirver
+#    username: root
+#    password: 123456
+#    url: jdbc:mysql://192.168.1.103/sell?charsetEncoding=utf-8&useSSL=false
+#  jpa:
+#    show-sql: true
+#
+#server:
+#  servlet:
+#    context-path: /sell
+
+# 日志配置
+#logging:
+#  pattern:
+#    # 控制台格式
+#    console: "%d => %msg%n"
+#  # 文件路径,默认为当前运行项目磁盘所在路径
+#  path: /var/log/tomcat/
+#  file: /var/log/tomcat/sell.log
+#  # 日志级别,可以指定不同包的级别程度
+#  level:
+#    top.jionjion.LoggerTest: debug
