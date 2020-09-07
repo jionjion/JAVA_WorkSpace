@@ -1,7 +1,7 @@
 package singleton;
 
 /**
- * 枚举方式实现单利模式
+ * 枚举方式实现单例模式
  *
  * @author Jion
  */

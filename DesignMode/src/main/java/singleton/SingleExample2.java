@@ -1,7 +1,7 @@
 package singleton;
 
 /**
- * 饿汉式单利模式
+ * 饿汉式单例模式
  * 通过静态代码块
  *
  * @author Jion

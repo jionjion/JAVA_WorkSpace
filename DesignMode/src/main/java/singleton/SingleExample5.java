@@ -1,7 +1,7 @@
 package singleton;
 
 /**
- * 静态内部类实现单利模式
+ * 静态内部类实现单例模式
  *
  * @author Jion
  */

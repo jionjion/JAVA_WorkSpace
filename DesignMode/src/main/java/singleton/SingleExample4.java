@@ -1,7 +1,7 @@
 package singleton;
 
 /**
- * 双重检查单利模式
+ * 双重检查单例模式
  *
  * @author Jion
  */

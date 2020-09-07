@@ -20,9 +20,9 @@ public class SheepTest {
         Sheep sheep4 = new Sheep(sheep1.getName(), sheep1.getAge());
 
         // 查看
-        System.out.println("sheep1" + sheep1.toString());
-        System.out.println("sheep2" + sheep2.toString());
-        System.out.println("sheep3" + sheep3.toString());
-        System.out.println("sheep4" + sheep4.toString());
+        System.out.println("sheep1 " + sheep1.toString());
+        System.out.println("sheep2 " + sheep2.toString());
+        System.out.println("sheep3 " + sheep3.toString());
+        System.out.println("sheep4 " + sheep4.toString());
     }
 }

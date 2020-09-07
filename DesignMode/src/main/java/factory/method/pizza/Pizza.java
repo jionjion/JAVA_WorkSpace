@@ -10,7 +10,6 @@ public abstract class Pizza {
     /** 披萨类型 */
     protected String name;
 
-
     /** 准备披萨,交给子类实现 */
     public abstract void perpare();
 

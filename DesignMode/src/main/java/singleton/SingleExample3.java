@@ -1,7 +1,7 @@
 package singleton;
 
 /**
- * 懒汉式单利模式
+ * 懒汉式单例模式
  *
  * @author Jion
  */

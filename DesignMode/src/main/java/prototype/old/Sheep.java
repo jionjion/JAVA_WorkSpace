@@ -5,7 +5,7 @@ package prototype.old;
  *
  * @author Jion
  */
-public class Sheep {
+public class Sheep{
     private String name;
 
     private int age;

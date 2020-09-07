@@ -1,7 +1,7 @@
 package factory.old.pizza;
 
 /**
- * 起司披萨
+ * 希腊披萨
  *
  * @author Jion
  */

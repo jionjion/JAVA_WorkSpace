@@ -11,5 +11,4 @@ public abstract class PizzaMethodFactory {
     /** 抽象方法,根据不同类型,去交由子类创建 */
     protected abstract Pizza createPizza(String type);
 
-
 }
