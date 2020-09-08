@@ -3,10 +3,11 @@ package prototype.clone;
 import java.io.Serializable;
 
 /**
- *  浅拷贝
+ * 浅拷贝
+ *
  * @author Jion
  */
-public class ShallowProtoType implements Serializable, Cloneable  {
+public class ShallowProtoType implements Serializable, Cloneable {
 
     // 引用类型
     private Sheep sheep;

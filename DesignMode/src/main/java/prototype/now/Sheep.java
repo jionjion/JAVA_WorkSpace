@@ -35,7 +35,7 @@ public class Sheep implements Cloneable{
         this.age = age;
     }
 
-    /** 复制改实例 */
+    /** 复制该实例 */
     @Override
     protected Object clone() throws CloneNotSupportedException {
         // 默认示例
