@@ -55,7 +55,13 @@
 		    <artifactId>lombok</artifactId>
 		    <scope>provided</scope>
 		</dependency>
-		
+
+		<!-- Junit -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+		</dependency>
+
 		<!-- SpringBoot热部署 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
