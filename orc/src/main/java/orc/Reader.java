@@ -1,11 +1,11 @@
 package orc;
 
+import net.sourceforge.tess4j.Tesseract;
+import net.sourceforge.tess4j.TesseractException;
+
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.util.List;
-
-import net.sourceforge.tess4j.Tesseract;
-import net.sourceforge.tess4j.TesseractException;
 
 public class Reader {
 

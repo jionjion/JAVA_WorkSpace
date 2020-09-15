@@ -1,18 +1,14 @@
 package orc;
 
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.InputStream;
-import java.io.OutputStream;
-
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.protocol.BasicHttpContext;
-import org.apache.xmlgraphics.image.loader.impl.ImageBuffered;
+
+import java.awt.image.BufferedImage;
+import java.io.InputStream;
 
 
 /** 下载 验证码*/

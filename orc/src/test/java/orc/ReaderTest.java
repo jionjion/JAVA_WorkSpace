@@ -1,15 +1,9 @@
 package orc;
 
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import java.util.List;
-
-import javax.imageio.ImageIO;
-
 import org.junit.Test;
 
-import net.sourceforge.tess4j.TesseractException;
+import java.awt.image.BufferedImage;
+import java.io.File;
 
 public class ReaderTest {
 

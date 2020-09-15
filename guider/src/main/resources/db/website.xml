@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!-- 当前系统站点 -->
-<websites>
-	<website id="1" name="博客" uri="www.blog.jionjion.top"/>
-	<website id="2" name="git" uri="www.github.com"/>
-	<website id="3" name="百度" uri="www.baidu.com"/>
-	<website id="4" name="阿里云" uri="www.aliyun.com"/>
-</websites>
