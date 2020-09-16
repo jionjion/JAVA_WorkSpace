@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<!-- 配置Struts的参数 ,也可以在和Struts同目录下创建struts.properties文件配置.两者相比,配置文件优先级更高-->
+	<!-- 支持在xml通过*配置和!的方式,来调用action的类的方法 -->
+    <constant name="struts.enable.DynamicMethodInvocation" value="true" />
+	<!-- 开启开发模式,输出更过内容 -->    
+    <constant name="struts.devMode" value="true" />
+    <!-- 默认后缀名 -->
+    <constant name="struts.action.extension" value="html"></constant>
+    <!-- 编码格式 -->
+	<constant name="struts.i18n.encoding" value="UTF-8"></constant>
+
+	<!-- 将其他功能模块独立到另一个xml中,使用时包含进来 -->
+    <include file="HelloWorld.xml"/> 
+	<include file="Login.xml"/> 	
+	<include file="Interceptor.xml"/>
+	<!--  name:可以有多个,包名唯一	namespace:url命名空间,在根项目下添加		extends:继承父类的包名  abstract:抽象包不能定义action -->
+    <package name="default" namespace="/" extends="struts-default" abstract="false">
+
+		<!-- 默认的项目跳转页面,在url拼错时跳转 -->
+        <default-action-ref name="addAction" /> 	
+
+		<!-- 全局返回结果,及其跳转页面 -->
+         <global-results> 							
+        	<!-- 全局"错误"界面 -->
+             <result name="error">/jsp/error.jsp</result>
+         </global-results>
+
+		<!-- 全局抛出异常跳转页面 -->
+         <global-exception-mappings>
+        	<!-- 全局空指针异常抛出页面 -->
+            <exception-mapping exception="java.lang.Exception" result="error"/>
+         </global-exception-mappings>
+        
+        <!-- 三种调用方式 -->
+        <!-- 针对每一个URL都需要进行配置.不推荐 -->
+        <action name="addAction" class="action.HelloWorld" method="add" > 
+        	<!-- 对于继承ActionSupport的类不需要配置各种属性 -->
+        	<result>/jsp/add.jsp</result>
+        </action>
+        <action name="updateAction" class="action.HelloWorld" method="update" > 
+        	<!-- 对于继承ActionSupport的类不需要配置各种属性 -->
+        	<result>/jsp/update.jsp</result>
+        </action>
+        
+        <!-- 在开启配置后,使用!的方式进行方法的调用和视图的转换 -->
+        <!-- URL:http://localhost:8080/Struts/operateAction!add -->
+        <action name="operateAction" class="action.OperateAction">
+        	<result>/jsp/HelloWorld.jsp</result>
+        	<result name="add">/jsp/add.jsp</result>
+        	<!-- 对result的参数的书写 -->
+        	<result name="update">
+        		<!-- 跳转链接 -->
+        		<param name="location">/jsp/update.jsp</param>
+        		<!-- 不试用OGNL表达式,默认开启 -->
+        		<param name="parse">false</param>
+        	</result>
+        </action>
+        
+        <!-- 使用通配符的形式进方法的调用的和视图的转换,*由URL中的单词代替,并换替换{},注意大小写 -->
+        <!-- URL:http://localhost:8080/Struts/wildcardAction_add -->
+        <action name="wildcardAction_*" class="action.OperateAction" method="{1}">
+        	<result>/jsp/HelloWorld.jsp</result>
+        	<result name="add">/jsp/{1}.jsp</result>
+        	<result name="update">/jsp/{1}.jsp</result>
+        </action>   
+    </package>
+
+</struts>

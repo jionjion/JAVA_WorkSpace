@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<!-- 子包类,被包含 -->
+
+    <!-- 编码格式 -->
+	<constant name="struts.i18n.encoding" value="UTF-8"></constant>
+
+	
+    <package name="login" namespace="/" extends="struts-default" abstract="false">
+
+		<!-- 通过Action属性获得传入参数 -->
+        <action name="loginAction1" class="action.LoginAction1" method="login"> 
+        	<result>/jsp/success.jsp</result>
+        </action>
+        
+       	<!-- 通过Action属性获得传入参数 -->
+        <action name="*Action2" class="action.LoginAction2" method="{1}"> 
+        	<result>/jsp/success.jsp</result>
+       		<result name="input">/jsp/login2.jsp</result>
+        </action>
+        
+        <!-- 通过Action属性获得传入参数 -->
+        <action name="loginAction3" class="action.LoginAction3"> 
+        	<result>/jsp/success.jsp</result>
+        </action>
+        
+    </package>
+
+	
+
+</struts>

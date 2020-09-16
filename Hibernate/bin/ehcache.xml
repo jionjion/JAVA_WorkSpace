@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../config/ehcache.xsd">  
+      
+    <diskStore path="java.io.tmpdir/ehcache" />  
+    <!-- DefaultCache setting. -->  
+     <defaultCache  
+            maxElementsInMemory="1000"  	
+            eternal="false"  
+            timeToIdleSeconds="300"  
+            timeToLiveSeconds="300"  
+            maxElementsOnDisk="1000000"  
+            overflowToDisk="true"   
+            memoryStoreEvictionPolicy="LRU">  
+              
+    </defaultCache>  
+  	
+<!--
+	<defaultCache  
+            maxElementsInMemory="1000"  			内存最大缓存数目
+            eternal="false"  						是否永久缓存
+            timeToIdleSeconds="300"  				钝化时间
+            timeToLiveSeconds="300"  				保存时间
+            maxElementsOnDisk="1000000"  			硬盘最大保存数量
+            overflowToDisk="true"   				是否保存在硬盘
+            memoryStoreEvictionPolicy="LRU">  
+              
+    </defaultCache>
+-->  
+  
+  	<!-- 单独配置缓存	name:在配置缓存时指定 -->
+    <cache   
+         name="PUPIL"  
+         maxElementsInMemory="2"  
+         memoryStoreEvictionPolicy="LRU"   
+         eternal="true"   
+         diskPersistent="false"  
+         overflowToDisk="false"   
+         maxElementsOnDisk="1000000" /> 
+  
+  
+  
+</ehcache> 

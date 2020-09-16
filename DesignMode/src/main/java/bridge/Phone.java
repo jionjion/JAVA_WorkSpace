@@ -2,7 +2,8 @@ package bridge;
 
 /**
  * 手机,抽象类,组合品牌类型.
- *  起到桥接的作用.
+ * 起到桥接的作用.
+ *
  * @author Jion
  */
 public abstract class Phone {

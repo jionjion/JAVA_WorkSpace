@@ -1,0 +1,96 @@
+	/**类说明*/
+	/**
+	 * 	HSSFWorkbook:	用于Excel文件中的.xls格式,代表文件本身.
+	 * 	XSSFWorkbook:	用于Excel文件中的.xlsx格式,代表文件本身.它属于org.apache.xssf.usemodel包，并实现Workbook接口。
+	 * 	HSSFSheet:		它可以创建Excel电子表格，它允许在sheet方式和表数据格式。org.apache.poi.hssf.usermodel包的类.
+	 * 	XSSFSheet:		这是代表了Excel电子表格的高级别代表的一类
+	  		XSSFSheet()												创造了新的XSSFSheet- 调用XSSFWorkbook从头开始创建一个表。
+			XSSFSheet(PackagePart part, PackageRelationship rel)	创建XSSFSheet表示给定包的一部分和关系。
+		XSSFRow:		它实现了Row接口，因此它可以在电子表格中创建行。这是在org.apache.poi.xssf.usermodel包的类。	
+			createCell(int columnIndex)								创建新单元行并返回。
+			setHeight(short height)									设置短单位的高度。
+		XSSFCell:		它实现了单元格界面。它是单元在电子表格中的行的一个高层次的表示。这是在 org.apache.poi.xssf.usermodel 包的类。
+			CELL_TYPE_BLANK											代表空白单元格
+			CELL_TYPE_BOOLEAN										代表布尔单元（true或false）
+			CELL_TYPE_ERROR											表示在单元的误差值
+			CELL_TYPE_FORMULA										表示一个单元格公式的结果
+			CELL_TYPE_NUMERIC										表示对一个单元的数字数据
+			CELL_TYPE_STRING										表示对一个单元串（文本）
+			setCellStyle(CellStyle style)							为单元格设置样式。
+			setCellType(int cellType)								设置单元格的类型（数字，公式或字符串）。
+			setCellValue(boolean value)								设置单元格一个布尔值
+			setCellValue(java.util.Calendar value)					设置一个日期值的单元格。
+			setCellValue(double value)								设置为单元格的数值。
+			setCellValue(java.lang.String str)						设置为单元格的字符串值。
+			setHyperlink(Hyperlink hyperlink)						分配超链接到该单元格。
+		XSSFCellStyle:	它将提供关于在电子表格的单元格中的内容的格式可能的信息。它也提供了用于修正该格式的选项。它实现了CellStyle接口。这是在org.apache.poi.xssf.usermodel包的类。
+			XSSFCellStyle(int cellXfId, int cellStyleXfId, StylesTable stylesSource, ThemesTable theme)	创建一个单元格样式，从所提供的部分
+			XSSFCellStyle(StylesTable stylesSource)			创建一个空的单元样式
+			ALIGN_CENTER											中心对齐单元格内容
+			ALIGN_CENTER_SELECTION									中心选择水平对齐方式
+			ALIGN_FILL												单元格适应于内容的大小
+			ALIGN_JUSTIFY											适应单元格内容的宽度
+			ALIGN_LEFT												左对齐单元格内容
+			ALIGN_RIGHT												右对齐单元格内容
+			BORDER_DASH_DOT											使用破折号和点单元格样式
+			BORDER_DOTTED											用虚线边框的单元格样式
+			BORDER_DASHED											用虚线边框的单元格样式
+			BORDER_THICK											厚厚的边框单元格样式
+			BORDER_THIN												薄边框的单元格样式
+			VERTICAL_BOTTOM											对齐单元格内容的垂直下方
+			VERTICAL_CENTER											对齐单元格内容垂直居中
+			VERTICAL_JUSTIFY										对齐和垂直对齐的单元格内容
+			VERTICAL_TOP											顶部对齐为垂直对齐
+			setAlignment(short align)								设置单元格为水平对齐的类型
+			setBorderBottom(short border)
+			setBorderColor(XSSFCellBorder.BorderSide side, XSSFColor color)	选定的边框颜色
+			setBorderLeft(Short border)								设置边界的类型单元格的左边框
+			setBorderRight(short border)							设置边框的类型为单元格的右边界
+			setBorderTop(short border)								设置边界的类型的单元上边框
+			setFillBackgroundColor(XSSFColor color)					设置表示为XSSFColor值背景填充颜色。
+			setFillForegroundColor(XSSFColor color)					设置表示为XSSFColor的值前景填充颜色。
+			setFillPattern(short fp)								指定单元格的填充信息模式和纯色填充单元。
+			setFont(Font font)										设置此样式的字体。
+			setRotation(short rotation)								设置的旋转为在单元格中文本的程度。
+			setVerticalAlignment(short align)						设置单元类型为垂直取向。
+		HSSFColor:		它提供了不同的颜色作为嵌套类。通常这些嵌套类是使用自己的索引来表示。它实现了Color接口。这是在org.apache.poi.hssf.util包的类。
+			HSSFColor.AQUA
+			HSSFColor.AUTOMATIC
+			HSSFColor.BLACK
+			HSSFColor.BLUE
+			HSSFColor.BRIGHT_GREEN
+			HSSFColor.BRIGHT_GRAY
+			HSSFColor.CORAL
+			HSSFColor.DARK_BLUE
+			HSSFColor.DARK_GREEN
+			HSSFColor.SKY_BLUE
+			HSSFColor.WHITE
+			HSSFColor.YELLOW
+			getIndex()												这种方法被用来获得一个嵌套类的索引值
+		XSSFColor:		它是用来表示在电子表格中的颜色。它实现了颜色的接口。下面列出的是它的一些方法和构造函数。这是在org.apache.poi.xssf.usermodel包的类。
+			XSSFColor()												创建XSSFColor的新实例。
+			XSSFColor(byte[] rgb)									创建XSSFColor使用RGB的新实例。
+			XSSFColor(java.awt.Color clr)							创建XSSFColor使用Color类从AWT包的新实例。
+			setAuto(boolean auto)									设置一个布尔值，表示ctColor是自动的，系统ctColor依赖。
+			setIndexed(int indexed)									设置索引ctColor值系统ctColor。
+			setBold(boolean bold)									设置“bold”属性的布尔值。
+			setColor(short color)									设置索引颜色的字体。
+			setColor(XSSFColor color)								设置为标准Alpha RGB颜色值的字体颜色。
+			setFontHeight(short height)								设置在点的字体高度。
+			setFontName(java.lang.String name)						设置字体的名称。
+			setItalic(boolean italic)								设置“italic”属性一个布尔值。
+		XSSFHyperlink:
+			LINK_DOCUMENT											用于连接任何其他文件
+			LINK_EMAIL												用于链接的电子邮件
+			LINK_FILE												用于以任何格式链接任何其他文件
+			LINK_URL												用来连接一个网页URL
+			setAddress(java.lang.String address)					超链接地址。
+		XSSFCreationHelper:											它实现了CreationHelper接口。它被用作公式求值和设置超文本链接支持类。这是在org.apache.poi.xssf.usermodel包的类。
+			createFormulaEvaluator()								创建一个XSSFFormulaEvaluator例如，结果计算公式的单元格的对象。
+			createHyperlink(int type)								创建一个新的 XSSFHyperlink.
+		XSSFPrintSetup:	它实现了PrintSetup接口。它是用来设置打印页面大小，面积，选项和设置。这是在org.apache.poi.xsssf.usermodel包下的类。
+		setLandscape(boolean ls)									设置一个布尔值，允许或阻止横向打印。
+		setLeftToRight(boolean ltor)								设置是否向左走向右或自上而下的顺序，同时打印。
+		setPaperSize(short size)									设置纸张尺寸。
+			
+	 */
