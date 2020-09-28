@@ -5,7 +5,7 @@ package composite;
  *
  * @author Jion
  */
-public class Department extends OrganizationComponent {
+public class Department extends Organization {
 
     /** 构造器 */
     public Department(String name, String description) {

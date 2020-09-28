@@ -1,7 +1,7 @@
 package decorator;
 
 /**
- *  开发类中间内.
+ *  开发类中间类.
  * @author Jion
  */
 public class Coffee extends Drink{
