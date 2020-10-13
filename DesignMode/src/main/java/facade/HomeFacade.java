@@ -9,13 +9,13 @@ public class HomeFacade {
     // 各个子系统对象
 
     /** DVD */
-    private DvdPlayer dvdPlayer;
+    private final DvdPlayer dvdPlayer;
 
     /** Mp3 */
-    private Mp3Player mp3Player;
+    private final Mp3Player mp3Player;
 
     /** Tv */
-    private TvPlayer tvPlayer;
+    private final TvPlayer tvPlayer;
 
     /** 构造器注入依赖 */
     public HomeFacade(){
@@ -44,6 +44,4 @@ public class HomeFacade {
         mp3Player.off();
         tvPlayer.off();
     }
-
-
 }

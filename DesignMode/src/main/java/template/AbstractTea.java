@@ -24,27 +24,27 @@ public abstract class AbstractTea {
     }
 
     /**
-     * 选材,抽象类,子类必须实现
+     * 1. 选材,抽象类,子类必须实现
      */
     protected abstract void select();
 
 
     /**
-     * 煮沸,子类选择实现
+     * 2. 煮沸,子类选择实现
      */
     protected void boil() {
         System.out.println("煮沸中...");
     }
 
     /**
-     * 完成
+     * 3. 完成
      */
     public void finish() {
         System.out.println("制作完成...");
     }
 
     /**
-     * 钩子方法,是否打包
+     * 4. 钩子方法,是否打包
      */
     public void pack() {
         System.out.println("打包....");
