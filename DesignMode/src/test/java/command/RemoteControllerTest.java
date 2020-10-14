@@ -2,8 +2,6 @@ package command;
 
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 /**
  * 调用遥控器
  *
@@ -29,7 +27,6 @@ public class RemoteControllerTest {
         remoteController.onButtonClick(0);
         remoteController.offButtonClick(0);
         remoteController.undoButtonClick();
-
 
         // 接收者: 电视机
         TvReceiver tvReceiver = new TvReceiver();

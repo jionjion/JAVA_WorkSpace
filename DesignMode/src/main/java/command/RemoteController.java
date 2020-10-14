@@ -7,8 +7,10 @@ package command;
  */
 public class RemoteController {
 
+    /** 开机命令组 */
     private final Command[] onCommands;
 
+    /** 关机命令组 */
     private final Command[] offCommands;
 
     /**
@@ -43,7 +45,6 @@ public class RemoteController {
         // 记录操作,以备撤销
         undoCommand = onCommands[index];
     }
-
 
     /** 对外提供按钮,关闭 */
     public void offButtonClick(int index){

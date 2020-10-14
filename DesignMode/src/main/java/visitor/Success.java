@@ -1,6 +1,7 @@
 package visitor;
 
 /**
+ * 具体访问者
  * 打分成功
  *
  * @author Jion

@@ -3,13 +3,14 @@ package visitor;
 import org.junit.Test;
 
 /**
- *  观察者模式使用
+ * 访问者模式使用
+ *
  * @author Jion
  */
 public class ObjectStructuresTest {
 
     @Test
-    public void test(){
+    public void test() {
         // 对象数据结构
         ObjectStructures context = new ObjectStructures();
 
@@ -20,7 +21,6 @@ public class ObjectStructuresTest {
         // 打分,成功
         Success success = new Success();
         context.dispaly(success);
-
 
         // 打分,失败
         Fail fail = new Fail();
