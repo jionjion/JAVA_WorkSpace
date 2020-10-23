@@ -20,11 +20,13 @@ public class CollegeArrayIterator implements Iterator<Department> {
     }
 
     /** 数组是否含有下一个 */
+    @Override
     public boolean hasNext() {
         return position < departments.length && departments[position] != null;
     }
 
     /** 遍历下一个 */
+    @Override
     public Department next() {
         Department department = departments[position];
         position++;
@@ -32,6 +34,7 @@ public class CollegeArrayIterator implements Iterator<Department> {
     }
 
     /** 删除方法.不作处理 */
+    @Override
     public void remove() {
 
     }

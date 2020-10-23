@@ -1,16 +1,16 @@
 package iterator;
 
 /**
- *  学系,需要遍历的成员
+ *  学系,作为迭代器遍历的对象
  * @author Jion
  */
 public class Department {
 
     /** 名字 */
-    private String name;
+    private final String name;
 
     /** 描述 */
-    private String description;
+    private final String description;
 
     public Department(String name, String description) {
         this.name = name;

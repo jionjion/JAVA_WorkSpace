@@ -18,11 +18,13 @@ public class ComputerCollege implements College{
         departments = new Department[8];
     }
 
+    @Override
     public String getName() {
 
         return "计算机学院";
     }
 
+    @Override
     public void addDepartment(String name, String description) {
         Department department = new Department(name, description);
         departments[countOfDepartment] = department;
@@ -30,6 +32,7 @@ public class ComputerCollege implements College{
     }
 
     /** 获得迭代器,自定义的迭代器 */
+    @Override
     public Iterator<Department> iterator() {
         return new CollegeArrayIterator(departments);
     }
