@@ -13,7 +13,6 @@ public class WeatherData implements Subject{
     /** 所有观察者 */
     List<Observer> observer = new ArrayList<>(4);
 
-
     @Override
     public void registerObserver(Observer observer) {
         this.observer.add(observer);

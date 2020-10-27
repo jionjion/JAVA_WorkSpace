@@ -10,9 +10,9 @@ public interface Subject {
     /** 注册 */
     void registerObserver(Observer observer);
 
-    /** 观察 */
+    /** 移除 */
     void removeObserver(Observer observer);
 
-    /** 移除 */
+    /** 观察 */
     void notifyObservers(Float temperature);
 }

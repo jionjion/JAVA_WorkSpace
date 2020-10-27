@@ -3,7 +3,7 @@ package iterator;
 import java.util.Iterator;
 
 /**
- *  学院类, 维护内部的学系
+ *  学院类, 接口定义规范
  *
  * @author Jion
  */

@@ -2,8 +2,6 @@ package mediator;
 
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 /**
  *  中介者模式测试
  * @author Jion
@@ -21,5 +19,6 @@ public class ConcreteMediatorTest {
         // 发送消息
         alarm.sendMessage(1);
         light.sendMessage(2);
+        tv.sendMessage(3);
     }
 }

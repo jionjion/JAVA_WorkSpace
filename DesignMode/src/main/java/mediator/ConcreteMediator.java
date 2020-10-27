@@ -11,13 +11,10 @@ public class ConcreteMediator implements Mediator {
 
     private final HashMap<String, Colleague> colleagues = new HashMap<>();
 
-    private final HashMap<String, String> statusMap = new HashMap<>();
-
     @Override
     public void register(String name, Colleague colleague) {
         colleagues.put(name, colleague);
     }
-
 
 
     /** 核心方法,在该方法中,完成各个子系统间的协调办公 */

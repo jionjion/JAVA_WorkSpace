@@ -8,7 +8,7 @@ package mediator;
 public abstract class Colleague {
 
     /** 中介类 */
-    private Mediator mediator;
+    private final Mediator mediator;
 
     /** 家电名 */
     public String name;
