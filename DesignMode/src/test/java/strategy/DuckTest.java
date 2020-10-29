@@ -3,7 +3,7 @@ package strategy;
 import org.junit.Test;
 
 /**
- *  测试
+ *  测试. 策略模式
  * @author Jion
  */
 public class DuckTest {

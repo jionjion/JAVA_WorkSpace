@@ -4,3 +4,5 @@
 **/.idea
 **/.mvn
 **/build
+**/mvnw
+**/mvnw.cmd

@@ -7,10 +7,10 @@ package responsibility;
 public class GoodOrder {
 
     /** 商品 */
-    private String name;
+    private final String name;
 
     /** 价格 */
-    private Integer price;
+    private final Integer price;
 
     public GoodOrder(String name, Integer price) {
         this.name = name;

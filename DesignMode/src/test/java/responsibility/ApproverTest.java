@@ -2,10 +2,8 @@ package responsibility;
 
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 /**
- *  责任链模式测试
+ *  责任链模式
  * @author Jion
  */
 public class ApproverTest {

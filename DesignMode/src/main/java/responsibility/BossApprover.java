@@ -6,7 +6,6 @@ package responsibility;
  */
 public class BossApprover extends Approver {
 
-
     /**
      * 处理过程
      */

@@ -1,6 +1,7 @@
 package strategy;
 
 /**
+ *  叫声策略实现, 嘎嘎叫
  * @author Jion
  */
 public class GoodQuackBehavior implements QuackBehavior {

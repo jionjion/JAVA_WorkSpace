@@ -8,9 +8,7 @@ package state;
 public interface State {
 
     /** 新建状态 */
-    default void doInit(){
-
-    }
+    default void doInit(){ }
 
     /** 工作状态 */
     void doWork();

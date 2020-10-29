@@ -6,7 +6,6 @@ package responsibility;
  */
 public class ManagerApprover extends Approver {
 
-
     /**
      * 处理过程
      */

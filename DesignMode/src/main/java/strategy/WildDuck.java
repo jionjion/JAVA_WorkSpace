@@ -8,7 +8,7 @@ public class WildDuck extends Duck {
 
     /** 在构造器中定义具体策略 */
     public WildDuck(){
-        // 飞行,叫声 行文
+        // 飞行,叫声 行为
         super.flyBehavior = new GoodFlyBehavior();
         super.quackBehavior = new GoodQuackBehavior();
     }

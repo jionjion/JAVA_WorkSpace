@@ -5,6 +5,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
+ *  状态模式
  * @author Jion
  */
 public class ActivityTest {

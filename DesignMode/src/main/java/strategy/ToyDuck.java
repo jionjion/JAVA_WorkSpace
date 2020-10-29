@@ -8,7 +8,7 @@ public class ToyDuck extends Duck {
 
     /** 在构造器中定义具体策略 */
     public ToyDuck(){
-        // 飞行,叫声 行文
+        // 飞行,叫声 行为
         super.flyBehavior = new NoFlyBehavior();
         super.quackBehavior = new GoodQuackBehavior();
     }
