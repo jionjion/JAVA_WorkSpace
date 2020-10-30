@@ -90,6 +90,4 @@ public class DBConfiguration {
     public JdbcTemplate orderJdbcTemplate(@Qualifier("orderDataSource") DataSource orderDataSource){
         return new JdbcTemplate(orderDataSource);
     }
-
-    
 }

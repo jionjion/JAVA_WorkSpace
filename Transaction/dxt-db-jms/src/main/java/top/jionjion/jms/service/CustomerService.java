@@ -8,16 +8,13 @@ import org.springframework.transaction.annotation.Transactional;
 import top.jionjion.jms.bean.Customer;
 import top.jionjion.jms.dao.CustomerRepository;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * @author Jion
  */
 @Service
 public class CustomerService {
-
 
     @Autowired
     private CustomerRepository customerRepository;
@@ -57,5 +54,4 @@ public class CustomerService {
     public List<Customer> findAll() {
         return customerRepository.findAll();
     }
-
 }
