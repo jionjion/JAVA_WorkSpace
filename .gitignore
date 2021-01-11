@@ -1,8 +1,14 @@
 **/.idea/
-/target
+**/HELP.md
+**/classes
 **/target
 **/.idea
 **/.mvn
 **/build
 **/mvnw
 **/mvnw.cmd
+**/bin
+**/.gitignore
+
+*.iml
+*.class
